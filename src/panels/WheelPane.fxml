@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane onDragDetected="#swipeCenterPanel" prefHeight="425.0" prefWidth="1000.0" style="-fx-background-image: url('/images/dashboard.png'); -fx-background-repeat: no-repeat; -fx-background-size: contain; -fx-background-position: center;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" />

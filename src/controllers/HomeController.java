@@ -46,4 +46,9 @@ public class HomeController {
         System.out.println("Open profiel");
     }
     
+    public void swipeCenterPanel(){
+        System.out.println("test");
+        
+    }
+    
 }
