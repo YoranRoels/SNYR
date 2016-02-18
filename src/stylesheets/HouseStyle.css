@@ -9,8 +9,7 @@ and open the template in the editor.
 */
 
 
-.fx-image{
-    border-style: solid;
-    border-width: 2px;
-    border-color: black;
+.slider .axis
+{
+    -fx-tick-label-fill: white;
 }
