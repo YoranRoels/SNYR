@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rijschooleva;
+package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
