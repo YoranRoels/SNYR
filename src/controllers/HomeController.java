@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
+import models.SwitchModel;
 
 
 
@@ -23,6 +24,8 @@ public class HomeController {
     private ImageView profielFoto;
     @FXML
     private CheckBox checkBox1;
+    
+    private final SwitchModel switchModel = new SwitchModel();
     
     
     public void initialize(){
