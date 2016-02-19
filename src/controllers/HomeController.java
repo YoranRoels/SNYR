@@ -53,12 +53,12 @@ public class HomeController {
                     });
     }
     
-    
-    public void openProfiel(){
+    @FXML
+    protected void openProfiel(){
         System.out.println("Open profiel");
     }
-    
-    public void swipeCenterPanel(){
+    @FXML
+    protected void swipeCenterPanel(){
         System.out.println("test");
         
     }
