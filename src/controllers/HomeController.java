@@ -42,13 +42,17 @@ public class HomeController {
     public void initialize(){
     //main setup initialize van de gui
         System.out.println("Start initliaze");
-        wheelpane=new AnchorWheel();
-        wheelpane.create();
-        sidepane=new AnchorSide();
-        sidepane.create();
+        wheelpane=new AnchorWheel(borderpane);
+        sidepane=new AnchorSide(borderpane);
+
+        wheelpane.setAnchorSide(sidepane);
+        sidepane.setAnchorWheel(wheelpane);
         
-        borderpane.setCenter(sidepane);
-        //wheelpane.create();
+        sidepane.create();
+        wheelpane.create();
+        
+        borderpane.setCenter(wheelpane);
+  
         //set profil pic van de user
         //profielFoto.setImage(null);
         

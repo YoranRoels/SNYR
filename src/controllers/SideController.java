@@ -5,6 +5,9 @@
  */
 package controllers;
 
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+
 /**
  *
  * @author sande
@@ -12,7 +15,10 @@ package controllers;
 public class SideController {
     
     
+    
+    
     public void initialize(){
         System.out.println("sidecontroller");
+        
     }
 }

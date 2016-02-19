@@ -7,6 +7,7 @@ package commands;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -14,7 +15,7 @@ import javafx.scene.layout.BorderPane;
  *
  * @author sande
  */
-public class SwipeCommand implements EventHandler<ActionEvent> {
+public class SwipeCommand implements EventHandler<MouseEvent> {
     
     private final BorderPane borderpane;
     private final AnchorPane counterpane;
@@ -27,8 +28,9 @@ public class SwipeCommand implements EventHandler<ActionEvent> {
     
 
     @Override
-    public void handle(ActionEvent event) {
+    public void handle(MouseEvent event) {
             borderpane.setCenter(counterpane);
+            System.out.println("klik");
            }
     
 }

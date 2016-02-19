@@ -5,6 +5,7 @@
  */
 package panels;
 
+import commands.SwipeCommand;
 import controllers.SideController;
 import java.io.IOException;
 import javafx.event.EventHandler;
@@ -13,12 +14,32 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.SwipeEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 /**
  *
  * @author sande
  */
 public class AnchorSide extends AnchorPane{
+    
+    private AnchorWheel anchorWheel;
+    
+    private final BorderPane root;
+
+    public AnchorSide(BorderPane root) {
+        this.root = root;
+        
+    }
+    
+    
+
+    public AnchorWheel getAnchorWheel() {
+        return anchorWheel;
+    }
+
+    public void setAnchorWheel(AnchorWheel anchorWheel) {
+        this.anchorWheel = anchorWheel;
+    }
     
     public void create(){
         
@@ -29,17 +50,12 @@ public class AnchorSide extends AnchorPane{
             loader.load();
         }
         catch(IOException ex){
-            throw new RuntimeException(ex);
+            throw new RuntimeException(ex); 
+            
         }
+          this.setOnMouseClicked(new SwipeCommand(root,anchorWheel));
 
-     this.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
-         @Override
-         public void handle(MouseEvent event) {
-             System.out.println("test");
-             
-                      }
-     });
      
 
      

@@ -5,16 +5,36 @@
  */
 package panels;
 
+import commands.SwipeCommand;
 import controllers.WheelController;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 /**
  *
  * @author sande
  */
 public class AnchorWheel extends AnchorPane {
+    
+    private AnchorSide anchorSide;
+    
+    private final BorderPane root;
+
+    public AnchorSide getAnchorSide() {
+        return anchorSide;
+    }
+
+    public void setAnchorSide(AnchorSide anchorSide) {
+        this.anchorSide = anchorSide;
+    }
+
+    public AnchorWheel(BorderPane root) {
+        this.root = root;
+    }
+    
+    
     
     public void create(){
         
@@ -28,6 +48,7 @@ public class AnchorWheel extends AnchorPane {
             throw new RuntimeException(ex);
         }
 
+     this.setOnMouseClicked(new SwipeCommand(root, anchorSide));
     }
     
 }
