@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import models.SwitchModel;
+import panels.AnchorSide;
 import panels.AnchorWheel;
 
 
@@ -32,6 +33,8 @@ public class HomeController {
     
     private AnchorWheel wheelpane;
     
+    private AnchorSide sidepane;
+    
     
     private final SwitchModel switchModel = new SwitchModel();
     
@@ -41,8 +44,10 @@ public class HomeController {
         System.out.println("Start initliaze");
         wheelpane=new AnchorWheel();
         wheelpane.create();
+        sidepane=new AnchorSide();
+        sidepane.create();
         
-        borderpane.setCenter(wheelpane);
+        borderpane.setCenter(sidepane);
         //wheelpane.create();
         //set profil pic van de user
         //profielFoto.setImage(null);
