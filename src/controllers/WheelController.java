@@ -11,4 +11,9 @@ package controllers;
  */
 public class WheelController {
     
+    
+    public void initialize(){
+        System.out.println("wheelcontroller");
+    }
+    
 }

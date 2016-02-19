@@ -7,5 +7,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<fx:root type="javafx.scene.layout.AnchorPane" prefHeight="425.0" prefWidth="1000.0" style="-fx-background-image: url('/images/dashboard.png'); -fx-background-repeat: no-repeat; -fx-background-size: contain; -fx-background-position: center;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" >
 
-<AnchorPane onDragDetected="#swipeCenterPanel" prefHeight="425.0" prefWidth="1000.0" style="-fx-background-image: url('/images/dashboard.png'); -fx-background-repeat: no-repeat; -fx-background-size: contain; -fx-background-position: center;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" />
+</fx:root>
