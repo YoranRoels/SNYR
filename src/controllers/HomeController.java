@@ -10,7 +10,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import models.SwitchModel;
+import panels.AnchorSide;
+import panels.AnchorWheel;
 
 
 
@@ -24,6 +28,13 @@ public class HomeController {
     private ImageView profielFoto;
     @FXML
     private CheckBox checkBox1;
+    @FXML
+    private BorderPane borderpane;
+    
+    private AnchorWheel wheelpane;
+    
+    private AnchorSide sidepane;
+    
     
     private final SwitchModel switchModel = new SwitchModel();
     
@@ -31,7 +42,17 @@ public class HomeController {
     public void initialize(){
     //main setup initialize van de gui
         System.out.println("Start initliaze");
+        wheelpane=new AnchorWheel(borderpane);
+        sidepane=new AnchorSide(borderpane);
+
+        wheelpane.setAnchorSide(sidepane);
+        sidepane.setAnchorWheel(wheelpane);
         
+        sidepane.create();
+        wheelpane.create();
+        
+        borderpane.setCenter(wheelpane);
+  
         //set profil pic van de user
         //profielFoto.setImage(null);
         
@@ -41,9 +62,14 @@ public class HomeController {
                     });
     }
     
-    
-    public void openProfiel(){
+    @FXML
+    protected void openProfiel(){
         System.out.println("Open profiel");
+    }
+    @FXML
+    protected void swipeCenterPanel(){
+        System.out.println("test");
+        
     }
     
 }

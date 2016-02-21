@@ -13,3 +13,15 @@ and open the template in the editor.
 {
     -fx-tick-label-fill: white;
 }
+
+.toggle-button {
+    -fx-color: green;
+    -fx-fill: green;
+    -fx-background-color: green;
+}
+
+
+
+.toggle-button:selected {
+    -fx-background-color: red;
+}
