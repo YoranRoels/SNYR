@@ -5,11 +5,14 @@
  */
 package panels;
 
+import commands.ClickSwitchPanelCommand;
 import commands.SwipeCommand;
 import controllers.SideController;
 import java.io.IOException;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.SwipeEvent;
@@ -25,6 +28,7 @@ public class AnchorSide extends AnchorPane{
     private AnchorWheel anchorWheel;
     
     private final BorderPane root;
+    
 
     public AnchorSide(BorderPane root) {
         this.root = root;
@@ -53,7 +57,7 @@ public class AnchorSide extends AnchorPane{
             throw new RuntimeException(ex); 
             
         }
-          this.setOnMouseClicked(new SwipeCommand(root,anchorWheel));
+          this.setOnMouseClicked(new ClickSwitchPanelCommand(root,anchorWheel));
 
 
      
