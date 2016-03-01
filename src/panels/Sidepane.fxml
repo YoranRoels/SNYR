@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root prefHeight="425.0" prefWidth="1000.0" stylesheets="@../stylesheets/ToggleStyleSheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="488.0" prefWidth="1000.0" stylesheets="@../stylesheets/ToggleStyleSheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane prefHeight="425.0" prefWidth="1000.0">
         <columnConstraints>

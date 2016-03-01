@@ -7,6 +7,15 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root type="javafx.scene.layout.AnchorPane" prefHeight="425.0" prefWidth="1000.0" style="-fx-background-image: url('/images/dashboard.png'); -fx-background-repeat: no-repeat; -fx-background-size: contain; -fx-background-position: center;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" >
 
+<fx:root prefHeight="488.0" prefWidth="1000.0" style="-fx-background-image: url('/images/dashboard.png'); -fx-background-repeat: no-repeat; -fx-background-size: contain; -fx-background-position: center;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="488.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dashboard.png" />
+         </image>
+      </ImageView>
+      <Button id="driveButton" fx:id="driveButton" layoutX="91.0" layoutY="135.0" mnemonicParsing="false" opacity="0.7" prefHeight="279.0" prefWidth="284.0" style="-fx-background-radius: 500;" text="Button" />
+      <Button id="z" fx:id="trafficButton" layoutX="659.0" layoutY="135.0" mnemonicParsing="false" opacity="0.7" prefHeight="279.0" prefWidth="284.0" style="-fx-background-radius: 500;" text="Button" />
+   </children>
 </fx:root>
