@@ -6,6 +6,7 @@
 package commands;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -15,12 +16,12 @@ import javafx.scene.layout.BorderPane;
  *
  * @author sande
  */
-public class ClickSwitchPanelCommand implements EventHandler<MouseEvent> {
+public class SwitchPanelCommand implements EventHandler<Event> {
     
     private final BorderPane borderpane;
     private final AnchorPane counterpane;
 
-    public ClickSwitchPanelCommand(BorderPane borderpane, AnchorPane counterpane) {
+    public SwitchPanelCommand(BorderPane borderpane, AnchorPane counterpane) {
         this.borderpane = borderpane;
         this.counterpane = counterpane;
     }
@@ -28,9 +29,9 @@ public class ClickSwitchPanelCommand implements EventHandler<MouseEvent> {
     
 
     @Override
-    public void handle(MouseEvent event) {
+    public void handle(Event event) {
             borderpane.setCenter(counterpane);
-            System.out.println("klik");
+            System.out.println("switch");
            }
     
 }
