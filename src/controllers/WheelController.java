@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import commands.SwitchPanelCommand;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

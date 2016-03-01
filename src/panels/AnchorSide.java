@@ -5,8 +5,7 @@
  */
 package panels;
 
-import commands.ClickSwitchPanelCommand;
-import commands.SwipeCommand;
+import commands.SwitchPanelCommand;
 import controllers.SideController;
 import java.io.IOException;
 import javafx.event.EventHandler;
@@ -57,7 +56,7 @@ public class AnchorSide extends AnchorPane{
             throw new RuntimeException(ex); 
             
         }
-          this.setOnMouseClicked(new ClickSwitchPanelCommand(root,anchorWheel));
+          this.setOnMouseClicked(new SwitchPanelCommand(root,anchorWheel));
 
 
      

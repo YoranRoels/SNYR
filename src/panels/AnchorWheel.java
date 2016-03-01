@@ -5,8 +5,7 @@
  */
 package panels;
 
-import commands.ClickSwitchPanelCommand;
-import commands.SwipeCommand;
+import commands.SwitchPanelCommand;
 import controllers.WheelController;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -49,7 +48,7 @@ public class AnchorWheel extends AnchorPane {
             throw new RuntimeException(ex);
         }
 
-     this.setOnMouseClicked(new ClickSwitchPanelCommand(root, anchorSide));
+     this.setOnMouseClicked(new SwitchPanelCommand(root, anchorSide));
     }
     
 }
