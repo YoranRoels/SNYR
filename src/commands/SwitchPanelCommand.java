@@ -5,10 +5,8 @@
  */
 package commands;
 
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -26,12 +24,9 @@ public class SwitchPanelCommand implements EventHandler<Event> {
         this.counterpane = counterpane;
     }
     
-    
-
     @Override
     public void handle(Event event) {
-            borderpane.setCenter(counterpane);
-            System.out.println("switch");
-           }
-    
+        borderpane.setCenter(counterpane);
+        System.out.println("switch");
+    }
 }

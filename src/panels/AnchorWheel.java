@@ -19,6 +19,7 @@ import javafx.scene.layout.BorderPane;
 public class AnchorWheel extends AnchorPane {
     
     private AnchorSide anchorSide;
+    private AnchorDrive anchorDrive;
     
     private final BorderPane root;
 
@@ -29,19 +30,25 @@ public class AnchorWheel extends AnchorPane {
     public void setAnchorSide(AnchorSide anchorSide) {
         this.anchorSide = anchorSide;
     }
+    
+    public void setAnchorDrive(AnchorDrive anchorDrive) {
+        this.anchorDrive = anchorDrive;
+    }
+    
+    public AnchorDrive getAnchorDrive() {
+        return anchorDrive;
+    }
 
     public AnchorWheel(BorderPane root) {
         this.root = root;
     }
-    
-    
     
     public void create(){
         
      try{
             FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("WheelPane.fxml"));
             loader.setRoot(this);
-            loader.setController(new WheelController());
+            loader.setController(new WheelController(root));
             loader.load();
         }
         catch(IOException ex){
@@ -49,6 +56,7 @@ public class AnchorWheel extends AnchorPane {
         }
 
      this.setOnMouseClicked(new SwitchPanelCommand(root, anchorSide));
-    }
+    }   
+
     
 }

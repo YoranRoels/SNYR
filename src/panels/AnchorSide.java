@@ -8,13 +8,7 @@ package panels;
 import commands.SwitchPanelCommand;
 import controllers.SideController;
 import java.io.IOException;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.SwipeEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -22,19 +16,16 @@ import javafx.scene.layout.BorderPane;
  *
  * @author sande
  */
-public class AnchorSide extends AnchorPane{
-    
+public class AnchorSide extends AnchorPane
+{
     private AnchorWheel anchorWheel;
     
     private final BorderPane root;
     
 
     public AnchorSide(BorderPane root) {
-        this.root = root;
-        
+        this.root = root; 
     }
-    
-    
 
     public AnchorWheel getAnchorWheel() {
         return anchorWheel;
@@ -49,7 +40,7 @@ public class AnchorSide extends AnchorPane{
      try{
             FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("Sidepane.fxml"));
             loader.setRoot(this);
-            loader.setController(new SideController());
+            loader.setController(new SideController(root));
             loader.load();
         }
         catch(IOException ex){
@@ -57,11 +48,6 @@ public class AnchorSide extends AnchorPane{
             
         }
           this.setOnMouseClicked(new SwitchPanelCommand(root,anchorWheel));
-
-
-     
-
-     
     }
     
 }
