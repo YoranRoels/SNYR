@@ -31,9 +31,18 @@ and open the template in the editor.
 }
 #terugknop
 {
-    -fx-graphic: url("/images/return-button.png");
+    -fx-graphic: url("../images/return-button.png");
     -fx-background-color: black;
     -fx-max-width:50px;
     -fx-max-height:50px;
 }
 
+#exclamationMark
+{
+    -fx-graphic: url("../images/drivepane/exclamationMarkSmall.png");
+}
+
+#exclamationMark:selected
+{
+    -fx-base: #40B1D6; 
+}
