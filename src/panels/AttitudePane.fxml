@@ -11,7 +11,6 @@
 
 <fx:root prefHeight="488.0" prefWidth="1000.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="opmerkingenVeld" alignment="TOP_LEFT" layoutX="50.0" layoutY="32.0" prefHeight="157.0" prefWidth="402.0" />
       <ListView fx:id="selectieListView" layoutX="739.0" layoutY="65.0" prefHeight="359.0" prefWidth="200.0" />
       <Label layoutX="736.0" layoutY="13.0" text="Selectie" textFill="WHITE">
          <font>
@@ -25,5 +24,6 @@
       </Label>
       <Button id="terugknop" fx:id="keerTerugButton" layoutX="906.0" layoutY="431.0" mnemonicParsing="false" />
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <TextArea fx:id="opmerkingenVeld" layoutX="36.0" layoutY="28.0" prefHeight="212.0" prefWidth="333.0" />
    </children>
 </fx:root>
