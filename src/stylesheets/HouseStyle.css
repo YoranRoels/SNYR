@@ -21,3 +21,9 @@ and open the template in the editor.
     -fx-tick-label-fill: white;
 }
 
+#terugknop
+{
+    -fx-graphic: url("/images/return-button.png");
+    -fx-background-color: black;
+}
+
