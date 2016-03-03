@@ -7,9 +7,11 @@ package controllers;
 
 import commands.SwitchPanelCommand;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import panels.AnchorDrive;
 
 /**
  *
@@ -21,15 +23,21 @@ public class WheelController {
     private Button driveButton;
     @FXML
     private Button trafficButton;
+    @FXML 
+    
+    private BorderPane root;
+    
+    private AnchorDrive drivePane;
     
     public void initialize(){
-        System.out.println("wheelcontroller");
-        
-        driveButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                driveButton.setText("It works!");
-            }
-        });
+        System.out.println("Wheelcontroller");
+        drivePane = new AnchorDrive(root);
+        drivePane.create();
+        driveButton.setOnMouseClicked(new SwitchPanelCommand(root, drivePane));
+    }
+    
+    public WheelController(BorderPane root)
+    {
+        this.root=root;
     }
 }

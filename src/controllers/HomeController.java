@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import models.SwitchModel;
+import panels.AnchorDrive;
 import panels.AnchorSide;
 import panels.AnchorWheel;
 

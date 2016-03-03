@@ -5,12 +5,8 @@
  */
 package controllers;
 
-import java.net.URL;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -23,10 +19,14 @@ public class SideController {
     @FXML
     private ToggleButton olie;
     
+    private BorderPane root;
+    
     public void initialize(){
-        System.out.println("sidecontroller");
-
-        
-        
+        System.out.println("SideController");  
+    }
+    
+    public SideController(BorderPane root)
+    {
+        this.root=root;
     }
 }
