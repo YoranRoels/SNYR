@@ -52,14 +52,18 @@
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
-      <RadioButton id="redRadioButton" layoutX="712.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red;" />
-      <RadioButton layoutX="765.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange;" />
-      <RadioButton layoutX="819.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: green;" />
+      <RadioButton id="redRadioButton" fx:id="redRadioButton" layoutX="712.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red; -fx-mark-color: black;">
+         <toggleGroup>
+            <ToggleGroup fx:id="radioGroup" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="orangeRadioButton" layoutX="765.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" />
+      <RadioButton fx:id="greenRadioButton" layoutX="819.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" />
       <TextArea layoutX="624.0" layoutY="204.0" prefHeight="171.0" prefWidth="293.0" />
       <Label layoutX="708.0" layoutY="170.0" text="Commentaar">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
+      <Button id="terugknop" layoutX="934.0" layoutY="452.0" mnemonicParsing="false" text="Button" />
    </children>
 </fx:root>
