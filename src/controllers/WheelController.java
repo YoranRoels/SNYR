@@ -7,10 +7,14 @@ package controllers;
 
 import commands.SwitchPanelCommand;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.shape.Rectangle;
+import panels.AnchorAttitude;
 import panels.AnchorDrive;
 
 /**
@@ -24,16 +28,23 @@ public class WheelController {
     @FXML
     private Button trafficButton;
     @FXML 
+    private Button attidudeButton;
     
-    private BorderPane root;
+    private final BorderPane root;
     
     private AnchorDrive drivePane;
+    private AnchorAttitude attitudePane;
     
     public void initialize(){
         System.out.println("Wheelcontroller");
         drivePane = new AnchorDrive(root);
         drivePane.create();
         driveButton.setOnMouseClicked(new SwitchPanelCommand(root, drivePane));
+        
+        attitudePane= new AnchorAttitude(root);
+        attitudePane.create();
+        attidudeButton.setOnMouseClicked(new SwitchPanelCommand(root, attitudePane));
+
     }
     
     public WheelController(BorderPane root)
