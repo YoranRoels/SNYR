@@ -21,6 +21,14 @@ and open the template in the editor.
     -fx-tick-label-fill: white;
 }
 
+#menuButton
+{
+    -fx-graphic: url("../images/drivepane/menuButtonSmall.png") ;
+    -fx-max-width: 50px;
+    -fx-max-height: 50px;
+    -fx-min-width: 50px;
+    -fx-min-width: 50px;
+}
 #terugknop
 {
     -fx-graphic: url("/images/return-button.png");
