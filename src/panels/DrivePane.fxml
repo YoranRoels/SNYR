@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
@@ -8,10 +10,56 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<fx:root id="drivePane" prefHeight="488.0" prefWidth="1000.0" style="-fx-background-image: url('/images/dashboard.png'); -fx-background-repeat: no-repeat; -fx-background-size: contain; -fx-background-position: center;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="drivePane" prefHeight="488.0" prefWidth="1000.0" style="-fx-background-color: black;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Arc fill="DODGERBLUE" layoutX="441.0" layoutY="206.0" length="270.0" radiusX="100.0" radiusY="100.0" startAngle="45.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-      <Circle fill="DODGERBLUE" layoutX="709.0" layoutY="244.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle centerX="500.0" centerY="245.0" layoutX="-187.0" opacity="0.21" radius="225.0" stroke="BLACK" strokeType="INSIDE">
+         <fill>
+            <LinearGradient endX="0.20476190476190478" endY="0.8142857142857143" startX="0.9428571428571428" startY="0.04761904761904767">
+               <stops>
+                  <Stop color="#91a0ae" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill></Circle>
+      <Button layoutX="118.0" layoutY="70.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="Koppeling" />
+      <Button layoutX="338.0" layoutY="14.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="Stuurtechniek" />
+      <Button layoutX="488.0" layoutY="162.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="Kijktechniek" />
+      <Button layoutX="218.0" layoutY="14.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="Remtechniek" />
+      <Button layoutX="68.0" layoutY="256.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="Helling" />
+      <Button layoutX="438.0" layoutY="70.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="Schakeltechniek" />
+      <Button layoutX="488.0" layoutY="256.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="Parkeren" />
+      <Button layoutX="438.0" layoutY="348.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="Keren" />
+      <Button layoutX="118.0" layoutY="348.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="Stuuroefeningen" />
+      <Button layoutX="218.0" layoutY="404.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="Achteruitrijden" />
+      <Button layoutX="338.0" layoutY="404.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="Garage" />
+      <Button layoutX="68.0" layoutY="162.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="Zithouding" />
+      <RadioButton layoutX="825.0" layoutY="340.0" mnemonicParsing="false" text="RadioButton" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" height="414.0" layoutX="608.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="324.0">
+         <fill>
+            <LinearGradient endX="0.1619047619047619" endY="1.0" startX="0.9095238095238095" startY="0.27142857142857146">
+               <stops>
+                  <Stop color="#676a6b" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <TextField layoutX="624.0" layoutY="128.0" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="248.0" />
+      <Button layoutX="740.0" layoutY="48.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="FOTO" />
+      <MenuButton id="menuButton" layoutX="875.0" layoutY="128.0" mnemonicParsing="false">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <RadioButton id="redRadioButton" layoutX="712.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red;" />
+      <RadioButton layoutX="765.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange;" />
+      <RadioButton layoutX="819.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: green;" />
+      <TextArea layoutX="624.0" layoutY="204.0" prefHeight="171.0" prefWidth="293.0" />
+      <Label layoutX="708.0" layoutY="170.0" text="Commentaar">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Label>
    </children>
 </fx:root>
