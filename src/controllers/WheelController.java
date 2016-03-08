@@ -6,16 +6,10 @@
 package controllers;
 
 import commands.SwitchPanelCommand;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.shape.Rectangle;
-import panels.AnchorAttitude;
-import panels.AnchorDrive;
+import panels.*;
 
 /**
  *
@@ -34,6 +28,7 @@ public class WheelController {
     
     private AnchorDrive drivePane;
     private AnchorAttitude attitudePane;
+    private AnchorTraffic trafficPane;
     
     public void initialize(){
         System.out.println("Wheelcontroller");
@@ -44,7 +39,10 @@ public class WheelController {
         attitudePane= new AnchorAttitude(root);
         attitudePane.create();
         attidudeButton.setOnMouseClicked(new SwitchPanelCommand(root, attitudePane));
-
+        
+        trafficPane = new AnchorTraffic(root);
+        trafficPane.create();
+        trafficButton.setOnMouseClicked(new SwitchPanelCommand(root, trafficPane));
     }
     
     public WheelController(BorderPane root)
