@@ -22,7 +22,6 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button id="terugknop" fx:id="keerTerugButton" layoutX="906.0" layoutY="431.0" mnemonicParsing="false" />
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
       <TextArea fx:id="opmerkingenVeld" layoutX="36.0" layoutY="28.0" prefHeight="212.0" prefWidth="333.0" />
    </children>
