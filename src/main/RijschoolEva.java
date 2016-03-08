@@ -6,6 +6,7 @@
 package main;
 
 import controllers.HomeController;
+import inlog.InlogController;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -25,10 +26,10 @@ public class RijschoolEva extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(RijschoolEva.class.getResource("HomeScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(InlogController.class.getResource("InlogScreen.fxml"));
 
 
-        loader.setController(new HomeController());
+        loader.setController(new InlogController(stage));
         Parent root = (Parent) loader.load();
 
         Scene scene = new Scene(root);
