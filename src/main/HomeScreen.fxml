@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane minHeight="200.0" prefHeight="200.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
@@ -47,21 +47,15 @@
                   <Insets top="10.0" />
                </padding>
             </HBox>
-            <Slider majorTickUnit="35.0" max="105.0" minorTickCount="0" prefHeight="14.0" prefWidth="386.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="10.0" />
-            <Label style="-fx-text-fill: rgb(255,255,255);" text="B" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="260.0" />
-            <Label layoutX="855.0" layoutY="89.0" style="-fx-text-fill: rgb(255,255,255);" text="A" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="137.0" />
-            <Label layoutX="978.0" layoutY="85.0" style="-fx-text-fill: rgb(255,255,255);" text="X" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="14.0" />
+            <Slider majorTickUnit="35.0" max="105.0" minorTickCount="0" prefHeight="14.0" prefWidth="386.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="100.0" />
+            <Label style="-fx-text-fill: rgb(255,255,255);" text="B" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="350.0" />
+            <Label layoutX="855.0" layoutY="89.0" style="-fx-text-fill: rgb(255,255,255);" text="A" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="227.0" />
+            <Label layoutX="978.0" layoutY="85.0" style="-fx-text-fill: rgb(255,255,255);" text="X" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="104.0" />
+            <Button id="terugknop" fx:id="terugknop" layoutX="958.0" layoutY="28.0" mnemonicParsing="false" text="Button" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
    </bottom>
    <center>
-      <AnchorPane onDragDetected="#swipeCenterPanel" prefHeight="488.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="488.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/dashboard.png" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
+      <AnchorPane onDragDetected="#swipeCenterPanel" prefHeight="488.0" prefWidth="1024.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
