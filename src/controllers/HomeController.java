@@ -12,6 +12,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import models.SwitchModel;
 import panels.AnchorDrive;
 import panels.AnchorSide;
@@ -36,8 +37,14 @@ public class HomeController {
     
     private AnchorSide sidepane;
     
+    private final Stage stage;
     
     private final SwitchModel switchModel = new SwitchModel();
+
+    public HomeController(Stage stage) {
+        this.stage = stage;
+    }
+    
     
     
     public void initialize(){
