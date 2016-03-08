@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane minHeight="200.0" prefHeight="200.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
@@ -52,8 +52,8 @@
             <Label layoutX="855.0" layoutY="89.0" style="-fx-text-fill: rgb(255,255,255);" text="B" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="400.0" />
             <Label layoutX="978.0" layoutY="85.0" style="-fx-text-fill: rgb(255,255,255);" text="X" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="700.0" />
             <Button id="terugknop" fx:id="terugknop" layoutX="943.0" layoutY="10.0" mnemonicParsing="false" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0" />
-            <Button layoutX="241.0" layoutY="31.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="726.0" layoutY="31.0" mnemonicParsing="false" text="Button" />
+            <Button id="minusButton" layoutX="238.0" layoutY="7.0" mnemonicParsing="false" AnchorPane.bottomAnchor="15.0" />
+            <Button id="plusButton" layoutX="726.0" layoutY="31.0" mnemonicParsing="false" AnchorPane.bottomAnchor="15.0" />
          </children>
       </AnchorPane>
    </bottom>

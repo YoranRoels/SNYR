@@ -29,6 +29,23 @@ and open the template in the editor.
     -fx-min-width: 50px;
     -fx-min-width: 50px;
 }
+
+#minusButton
+{
+    -fx-graphic: url("../images/Minusbutton.png");
+    -fx-background-color: black;
+    -fx-max-width:50px;
+    -fx-max-height:50px;
+}
+
+#plusButton
+{
+    -fx-graphic: url("../images/Plusbutton.png");
+    -fx-background-color: black;
+    -fx-max-width:50px;
+    -fx-max-height:50px;
+}
+
 #terugknop
 {
     -fx-graphic: url("../images/return-button.png");
