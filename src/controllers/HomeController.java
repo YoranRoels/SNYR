@@ -5,14 +5,25 @@
  */
 package controllers;
 
+import commands.SwitchPanelCommand;
+import inlog.InlogController;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import main.RijschoolEva;
 import models.SwitchModel;
 import panels.AnchorDrive;
 import panels.AnchorSide;
@@ -32,6 +43,9 @@ public class HomeController {
     private CheckBox checkBox1;
     @FXML
     private BorderPane borderpane;
+    
+    @FXML
+    private Button terugknop;
     
     private AnchorWheel wheelpane;
     
@@ -63,6 +77,25 @@ public class HomeController {
   
         //set profil pic van de user
         //profielFoto.setImage(null);
+        
+        /*klikken op de profiel foto brengt je naar de home/inlog page*/
+        profielFoto.setOnMouseClicked((MouseEvent event) -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(InlogController.class.getResource("InlogScreen.fxml"));
+                
+                
+                loader.setController(new InlogController(stage));
+                Parent root = (Parent) loader.load();
+                
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+            } catch (IOException ex) {
+                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                    });
+        /*terugknop brengt je naar de student homepage met sturen */
+        terugknop.setOnMouseClicked(new SwitchPanelCommand(borderpane, wheelpane));
+        
         
         //set on action   ... 
         checkBox1.setOnAction((ActionEvent event) -> {
