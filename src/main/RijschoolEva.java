@@ -5,29 +5,24 @@
  */
 package main;
 
-import controllers.HomeController;
-import inlog.InlogController;
+import controllers.InlogController;
 import java.io.IOException;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import panels.AnchorWheel;
 
 /**
  *
  * @author Yoran
  */
 public class RijschoolEva extends Application {
-    
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(InlogController.class.getResource("InlogScreen.fxml"));
-
+        FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("InlogScreen.fxml"));
 
         loader.setController(new InlogController(stage));
         Parent root = (Parent) loader.load();
@@ -38,7 +33,6 @@ public class RijschoolEva extends Application {
 
         stage.setTitle("Eva rijschool");
         stage.show();
-
     }
 
     /**
@@ -47,5 +41,4 @@ public class RijschoolEva extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

@@ -6,26 +6,22 @@
 package controllers;
 
 import commands.SwitchPanelCommand;
-import inlog.InlogController;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import main.RijschoolEva;
 import models.SwitchModel;
-import panels.AnchorDrive;
 import panels.AnchorSide;
 import panels.AnchorWheel;
 
@@ -43,9 +39,14 @@ public class HomeController {
     private CheckBox checkBox1;
     @FXML
     private BorderPane borderpane;
-    
     @FXML
     private Button terugknop;
+    @FXML
+    private ProgressBar progressBar;
+    @FXML
+    private Button minusButton;
+    @FXML
+    private Button plusButton;
     
     private AnchorWheel wheelpane;
     
@@ -54,6 +55,8 @@ public class HomeController {
     private final Stage stage;
     
     private final SwitchModel switchModel = new SwitchModel();
+    
+    
 
     public HomeController(Stage stage) {
         this.stage = stage;
@@ -100,7 +103,15 @@ public class HomeController {
         //set on action   ... 
         checkBox1.setOnAction((ActionEvent event) -> {
             System.out.println("register evalutation 1");
-                    });
+        });
+        
+        minusButton.setOnAction((ActionEvent event) -> {
+            progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue()-0.05);
+        });
+        
+        plusButton.setOnAction((ActionEvent event) -> {
+            progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue()+0.05);
+        });
     }
     
     @FXML

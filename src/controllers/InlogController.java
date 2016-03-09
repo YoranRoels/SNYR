@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package inlog;
+package controllers;
 
 import controllers.HomeController;
 import java.io.IOException;
@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import main.RijschoolEva;
+import panels.AnchorWheel;
 
 /**
  *
@@ -41,7 +42,7 @@ public class InlogController {
         loginButton.setOnAction((ActionEvent event) -> {
             try {
                 System.out.println("open studenten fiche");
-                FXMLLoader loader = new FXMLLoader(RijschoolEva.class.getResource("HomeScreen.fxml"));
+                FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("HomeScreen.fxml"));
                 
                 
                 loader.setController(new HomeController(stage));
