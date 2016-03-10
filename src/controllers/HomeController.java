@@ -84,7 +84,7 @@ public class HomeController {
         /*klikken op de profiel foto brengt je naar de home/inlog page*/
         profielFoto.setOnMouseClicked((MouseEvent event) -> {
             try {
-                FXMLLoader loader = new FXMLLoader(InlogController.class.getResource("InlogScreen.fxml"));
+                FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("InlogScreen.fxml"));
                 
                 
                 loader.setController(new InlogController(stage));
