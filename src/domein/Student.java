@@ -4,14 +4,14 @@ package domein;
  *
  * @author Yoran
  */
-public class User 
+public class Student 
 {
     String voornaam;
     String achternaam;
     String email;
     String fotoURL;
     
-    public User(String voornaam, String achternaam, String email, String fotoURL)
+    public Student(String voornaam, String achternaam, String email, String fotoURL)
     {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
