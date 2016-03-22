@@ -5,6 +5,8 @@
  */
 package models;
 
+import domein.Student;
+
 
 
 /**
@@ -14,6 +16,12 @@ package models;
  * model voor alle switches in de sidePanels
  */
 public class SwitchModel extends Model {
+    
+    private final Student student;
+    
+    public SwitchModel(Student student){
+        this.student=student;
+    }
     
     private void switchOil(){
        throw new UnsupportedOperationException();

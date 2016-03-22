@@ -53,12 +53,13 @@ public class InlogController {
         System.out.println("Inlog controller");
         studentenListView.setItems(studenten);
         loginButton.setOnAction((ActionEvent event) -> {
+            if(studentenListView.getSelectionModel().getSelectedItem()!=null){
             try {
                 System.out.println("open studenten fiche");
                 FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("HomeScreen.fxml"));
                 
-                
-                loader.setController(new HomeController(stage));
+                /*stage en de gekozen student doorgeven*/
+                loader.setController(new HomeController(stage,studentenListView.getSelectionModel().getSelectedItem()));
                 Parent root = (Parent) loader.load();
                 
                 Scene scene = new Scene(root);
@@ -66,7 +67,11 @@ public class InlogController {
             } catch (IOException ex) {
                 Logger.getLogger(InlogController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+            }
+            else{
+                /*foutmelding geen gesecteerde student*/
+                System.out.println("FOUT GEEN STUDENT");
+            }
         });
         
         

@@ -17,9 +17,9 @@ public class Student
     private Evaluatie[] evaluaties = new Evaluatie[AANTALEVALUTIES];
     private Rijtechniek[] rijtechnieks = new Rijtechniek[AANTALEVALUTIES];
     private Verkeerstechniek[]  verkeerstechnieks = new Verkeerstechniek[AANTALEVALUTIES];
-    private String[] Attitude = new String[AANTALEVALUTIES];
-    /*level, is de voortgang in de progressbar --> hoe ver staat de student al*/
-    private int[] level = new int[AANTALEVALUTIES];
+    private String[] Attitudes = new String[AANTALEVALUTIES];
+    /*levels, is de voortgang in de progressbar --> hoe ver staat de student al*/
+    private int[] levels = new int[AANTALEVALUTIES];
     /*hoeveeste evaluatie dit is*/
     private int evanumber;
     
@@ -40,11 +40,11 @@ public class Student
         for(int i=0;i<verkeerstechnieks.length;i++){
             verkeerstechnieks[i]=new Verkeerstechniek();
         }
-        for(int i=0;i<Attitude.length;i++){
-            Attitude[i]="";
+        for(int i=0;i<Attitudes.length;i++){
+            Attitudes[i]="";
         }
-        for(int i=0;i<level.length;i++){
-            level[i]=0;
+        for(int i=0;i<levels.length;i++){
+            levels[i]=0;
         }
     }
 
@@ -95,6 +95,9 @@ public class Student
     public Evaluatie[] getEvaluaties() {
         return evaluaties;
     }
+    public Evaluatie getCurrentEvalutie(){
+        return evaluaties[evanumber];
+    }
 
     public void setEvaluaties(Evaluatie[] evaluatie) {
         this.evaluaties = evaluatie;
@@ -102,6 +105,9 @@ public class Student
 
     public Rijtechniek[] getRijtechnieks() {
         return rijtechnieks;
+    }
+    public Rijtechniek getCurrentRijtechniek(){
+        return rijtechnieks[evanumber];
     }
 
     public void setRijtechnieks(Rijtechniek[] rijtechniek) {
@@ -111,25 +117,36 @@ public class Student
     public Verkeerstechniek[] getVerkeerstechnieks() {
         return verkeerstechnieks;
     }
+    public Verkeerstechniek getCurrentVerkeerstecniek(){
+        return verkeerstechnieks[evanumber];
+    }
 
     public void setVerkeerstechnieks(Verkeerstechniek[] verkeerstechniek) {
         this.verkeerstechnieks = verkeerstechniek;
     }
 
     public String[] getAttitude() {
-        return Attitude;
+        return Attitudes;
+    }
+    
+    public String getCurrentAttitude(){
+        return Attitudes[evanumber];
     }
 
-    public void setAttitude(String[] Attitude) {
-        this.Attitude = Attitude;
+    public void setAttitude(String[] Attitudes) {
+        this.Attitudes = Attitudes;
     }
 
     public int[] getLevel() {
-        return level;
+        return levels;
+    }
+    
+    public int getCurrentLevel(){
+        return levels[evanumber];
     }
 
-    public void setLevel(int[] level) {
-        this.level = level;
+    public void setLevel(int[] levels) {
+        this.levels = levels;
     }
 
     public int getEvanumber() {
