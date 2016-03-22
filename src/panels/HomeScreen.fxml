@@ -12,17 +12,17 @@
    <top>
       <AnchorPane minHeight="200.0" prefHeight="200.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField alignment="TOP_CENTER" editable="false" layoutX="14.0" layoutY="6.0" prefHeight="186.0" prefWidth="400.0" promptText="Opmerkingen vorige lessen" style="-fx-border-width: 2; -fx-border-color: Black;" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="6.0">
+            <TextField alignment="TOP_CENTER" editable="false" layoutX="8.0" layoutY="7.0" prefHeight="186.0" prefWidth="400.0" promptText="Opmerkingen vorige lessen" style="-fx-background-radius: 20;" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="7.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <ImageView fitHeight="144.0" fitWidth="441.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="76.80000305175781" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
+            <ImageView fitHeight="108.0" fitWidth="391.0" layoutX="424.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="101.80000305175781" AnchorPane.leftAnchor="424.0" AnchorPane.rightAnchor="209.0" AnchorPane.topAnchor="20.0">
                <image>
                   <Image url="@../images/kleurenLegende.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="profielFoto" fitHeight="188.0" fitWidth="280.0" layoutX="438.0" layoutY="5.0" onMouseClicked="#openProfiel" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <ImageView fx:id="profielFoto" fitHeight="188.0" fitWidth="280.0" layoutX="438.0" layoutY="5.0" onMouseClicked="#openProfiel" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
                <image>
                   <Image url="@../images/dummypicture.jpg" />
                </image>

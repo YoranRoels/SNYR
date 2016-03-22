@@ -15,7 +15,6 @@ and open the template in the editor.
 }
 */
 
-
 .slider .axis
 {
     -fx-tick-label-fill: white;
@@ -27,15 +26,6 @@ and open the template in the editor.
     -fx-background-repeat: no-repeat;
     -fx-background-size: contain;
     -fx-background-position: center;
-}
-
-#menuButton
-{
-    -fx-graphic: url("../images/drivepane/menuButtonSmall.png");
-    -fx-max-width: 50px;
-    -fx-max-height: 50px;
-    -fx-min-width: 50px;
-    -fx-min-width: 50px;
 }
 
 #minusButton
@@ -60,14 +50,4 @@ and open the template in the editor.
     -fx-background-color: black;
     -fx-max-width:50px;
     -fx-max-height:50px;
-}
-
-#exclamationMark
-{
-    -fx-graphic: url("../images/drivepane/exclamationMarkSmall.png");
-}
-
-#exclamationMark:selected
-{
-    -fx-base: #40B1D6; 
 }
