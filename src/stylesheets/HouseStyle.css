@@ -21,9 +21,17 @@ and open the template in the editor.
     -fx-tick-label-fill: white;
 }
 
+#dashboard
+{
+    -fx-background-image: url('/images/dashboard.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+}
+
 #menuButton
 {
-    -fx-graphic: url("../images/drivepane/menuButtonSmall.png") ;
+    -fx-graphic: url("../images/drivepane/menuButtonSmall.png");
     -fx-max-width: 50px;
     -fx-max-height: 50px;
     -fx-min-width: 50px;
