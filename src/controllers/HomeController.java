@@ -6,6 +6,7 @@
 package controllers;
 
 import commands.SwitchPanelCommand;
+import domein.Student;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,12 +55,15 @@ public class HomeController {
     
     private final Stage stage;
     
-    private final SwitchModel switchModel = new SwitchModel();
+    private final SwitchModel switchModel;
     
+    private final Student student;
     
 
-    public HomeController(Stage stage) {
+    public HomeController(Stage stage,Student student) {
+        this.switchModel = new SwitchModel(student);
         this.stage = stage;
+        this.student=student;
     }
     
     
@@ -68,7 +72,7 @@ public class HomeController {
     //main setup initialize van de gui
         System.out.println("Start initliaze");
         wheelpane=new AnchorWheel(borderpane);
-        sidepane=new AnchorSide(borderpane);
+        sidepane=new AnchorSide(borderpane,switchModel);
 
         wheelpane.setAnchorSide(sidepane);
         sidepane.setAnchorWheel(wheelpane);

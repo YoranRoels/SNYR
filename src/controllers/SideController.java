@@ -5,28 +5,76 @@
  */
 package controllers;
 
+import domein.Evaluatie;
+import domein.Student;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
+import models.SwitchModel;
 
 /**
  *
  * @author sande
  */
-public class SideController {
+public class SideController implements InvalidationListener{
     
     
     @FXML
-    private ToggleButton olie;
+    private ToggleButton oil;
+    @FXML
+    private ToggleButton tires;
+    @FXML
+    private ToggleButton gps;
+    @FXML
+    private ToggleButton roundabout;
+    @FXML
+    private ToggleButton doublelane;
+    @FXML
+    private ToggleButton lights;
+    @FXML
+    private ToggleButton fueling;
+    @FXML
+    private ToggleButton citytraffic;
+    @FXML
+    private ToggleButton highway;
+    @FXML
+    private ToggleButton emergencystop;
     
-    private BorderPane root;
+    private final BorderPane root;
+    
+    private final SwitchModel switchModel;
     
     public void initialize(){
-        System.out.println("SideController");  
+        System.out.println("SideController");
+        /*knoppen instellenn*/
+        setButtons();
     }
     
-    public SideController(BorderPane root)
+    public SideController(BorderPane root,SwitchModel switchmodel)
     {
         this.root=root;
+        this.switchModel=switchmodel;
+    }
+
+    @Override
+    public void invalidated(Observable observable) {
+        /*reageren op verandering van evaluatienumber*/
+        setButtons();
+           }
+    
+    
+    public void setButtons(){
+        oil.setSelected(switchModel.getOil());
+        citytraffic.setSelected(switchModel.getCityTraffic());
+        doublelane.setSelected(switchModel.getDoubleLaneRoad());
+        emergencystop.setSelected(switchModel.getEmergencyStop());
+        fueling.setSelected(switchModel.getFueling());
+        gps.setSelected(switchModel.getGps());
+        highway.setSelected(switchModel.getHighWay());
+        lights.setSelected(switchModel.getLights());
+        roundabout.setSelected(switchModel.getRoundAbout());
+        tires.setSelected(switchModel.getTires());
     }
 }
