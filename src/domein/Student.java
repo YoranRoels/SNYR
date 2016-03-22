@@ -31,6 +31,7 @@ public class Student
         this.achternaam = achternaam;
         this.email = email;
         this.fotoURL = fotoURL;
+        evanumber=0;
         for(int i=0;i<rijtechnieks.length;i++){
             rijtechnieks[i]=new Rijtechniek();
         }

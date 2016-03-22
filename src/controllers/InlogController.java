@@ -51,6 +51,7 @@ public class InlogController {
     
     public void initialize(){
         System.out.println("Inlog controller");
+        studenten.get(0).getCurrentEvalutie().setDoublelane(true);
         studentenListView.setItems(studenten);
         loginButton.setOnAction((ActionEvent event) -> {
             if(studentenListView.getSelectionModel().getSelectedItem()!=null){

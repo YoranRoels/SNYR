@@ -23,44 +23,76 @@ public class SwitchModel extends Model {
         this.student=student;
     }
     
-    private void switchOil(){
-       throw new UnsupportedOperationException();
+    public void switchOil(){
+       student.getCurrentEvalutie().setOilcheck( !getOil());
     }
     
-    private void switchTires(){
-       throw new UnsupportedOperationException();
+    public boolean getOil(){
+        return student.getCurrentEvalutie().isFueling();
     }
     
-    private void switchLights(){
-       throw new UnsupportedOperationException();
+    public void switchTires(){
+       student.getCurrentEvalutie().setTires(!getTires());
     }
     
-    private void switchRoundAbout(){
-       throw new UnsupportedOperationException();
+    public boolean getTires(){
+        return student.getCurrentEvalutie().isTires();
     }
     
-    private void switchHighWay(){
-       throw new UnsupportedOperationException();
+    public void switchLights(){
+      student.getCurrentEvalutie().setLights(!getLights());
+    }
+    public boolean getLights(){
+        return student.getCurrentEvalutie().isLights();
     }
     
-    private void switchCityTraffic(){
-       throw new UnsupportedOperationException();
+    public void switchRoundAbout(){
+       student.getCurrentEvalutie().setRoundabout(!getRoundAbout());
+    }
+    public boolean getRoundAbout(){
+        return student.getCurrentEvalutie().isRoundabout();
     }
     
-    private void switchDoubleLaneRoad(){
-       throw new UnsupportedOperationException();
+    public void switchHighWay(){
+       student.getCurrentEvalutie().setRoundabout(getHighWay());
+    }
+    public boolean getHighWay(){
+        return student.getCurrentEvalutie().isHighway();
     }
     
-    private void switchGas(){
-       throw new UnsupportedOperationException();
+    public void switchCityTraffic(){
+       student.getCurrentEvalutie().setCitytraffic(!getCityTraffic());
+    }
+    public boolean getCityTraffic(){
+        return student.getCurrentEvalutie().isCitytraffic();
     }
     
-    private void switchGps(){
-       throw new UnsupportedOperationException();
+    public void switchDoubleLaneRoad(){
+        student.getCurrentEvalutie().setDoublelane(!getDoubleLaneRoad());
+    }
+    public boolean getDoubleLaneRoad(){
+        return student.getCurrentEvalutie().isDoublelane();
     }
     
-    private void switchEmergencyStop(){
-       throw new UnsupportedOperationException();
+    public void switchFueling(){
+       student.getCurrentEvalutie().setFueling(!getCityTraffic());
+    }
+    public boolean getFueling(){
+        return student.getCurrentEvalutie().isFueling();
+    }
+    
+    public void switchGps(){
+       student.getCurrentEvalutie().setGps(!getGps());
+    }
+    public boolean getGps(){
+        return student.getCurrentEvalutie().isGps();
+    }
+    
+    public void switchEmergencyStop(){
+       student.getCurrentEvalutie().setEmergencystop(!getEmergencyStop());
+    }
+    public boolean getEmergencyStop(){
+        return student.getCurrentEvalutie().isEmergencystop();
     }
 
 

@@ -11,6 +11,7 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import models.SwitchModel;
 
 /**
  *
@@ -22,9 +23,11 @@ public class AnchorSide extends AnchorPane
     
     private final BorderPane root;
     
+    private SwitchModel switchModel;
 
-    public AnchorSide(BorderPane root) {
+    public AnchorSide(BorderPane root,SwitchModel switchModel) {
         this.root = root; 
+        this.switchModel=switchModel;
     }
 
     public AnchorWheel getAnchorWheel() {
@@ -40,7 +43,7 @@ public class AnchorSide extends AnchorPane
      try{
             FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("Sidepane.fxml"));
             loader.setRoot(this);
-            loader.setController(new SideController(root));
+            loader.setController(new SideController(root,switchModel));
             loader.load();
         }
         catch(IOException ex){

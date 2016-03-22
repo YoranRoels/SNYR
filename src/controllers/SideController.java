@@ -48,7 +48,8 @@ public class SideController implements InvalidationListener{
     
     public void initialize(){
         System.out.println("SideController");
-        
+        /*knoppen instellenn*/
+        setButtons();
     }
     
     public SideController(BorderPane root,SwitchModel switchmodel)
@@ -59,6 +60,21 @@ public class SideController implements InvalidationListener{
 
     @Override
     public void invalidated(Observable observable) {
-        
+        /*reageren op verandering van evaluatienumber*/
+        setButtons();
            }
+    
+    
+    public void setButtons(){
+        oil.setSelected(switchModel.getOil());
+        citytraffic.setSelected(switchModel.getCityTraffic());
+        doublelane.setSelected(switchModel.getDoubleLaneRoad());
+        emergencystop.setSelected(switchModel.getEmergencyStop());
+        fueling.setSelected(switchModel.getFueling());
+        gps.setSelected(switchModel.getGps());
+        highway.setSelected(switchModel.getHighWay());
+        lights.setSelected(switchModel.getLights());
+        roundabout.setSelected(switchModel.getRoundAbout());
+        tires.setSelected(switchModel.getTires());
+    }
 }
