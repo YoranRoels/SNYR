@@ -140,5 +140,9 @@ public class Student
         this.evanumber = evanumber;
     }
     
+    @Override
+    public String toString(){
+        return voornaam+" "+achternaam;
+    }
     
 }

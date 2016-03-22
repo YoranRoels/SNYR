@@ -59,7 +59,7 @@
                   <Font size="25.0" />
                </font>
             </Button>
-            <ListView layoutX="38.0" layoutY="21.0" prefHeight="444.0" prefWidth="327.0" />
+            <ListView fx:id="studentenListView" layoutX="38.0" layoutY="21.0" prefHeight="444.0" prefWidth="327.0" />
             <Label layoutX="712.0" layoutY="234.0" text="Naam :" textFill="WHITE">
                <font>
                   <Font size="24.0" />

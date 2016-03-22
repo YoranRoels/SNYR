@@ -6,9 +6,12 @@
 package controllers;
 
 import controllers.HomeController;
+import domein.Student;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import main.RijschoolEva;
 import panels.AnchorWheel;
@@ -29,6 +33,14 @@ public class InlogController {
     @FXML
     private Button loginButton;
     
+    @FXML
+    private ListView<Student> studentenListView;
+    
+    /*dummy students*/
+    private final ObservableList<Student> studenten = 
+            FXCollections.observableArrayList(new Student("Sander","Nijs","sander@mail.com","url"),new Student("Yoran","Roels","yoran@mail.com","url"));
+    
+    
     private final Stage stage;
 
     public InlogController(Stage stage) {
@@ -39,6 +51,7 @@ public class InlogController {
     
     public void initialize(){
         System.out.println("Inlog controller");
+        studentenListView.setItems(studenten);
         loginButton.setOnAction((ActionEvent event) -> {
             try {
                 System.out.println("open studenten fiche");
@@ -55,6 +68,9 @@ public class InlogController {
             }
             
         });
+        
+        
+        
     }
     
 }
