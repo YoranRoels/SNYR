@@ -7,6 +7,7 @@ package panels;
 
 import commands.SwitchPanelCommand;
 import controllers.WheelController;
+import domein.Student;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -39,8 +40,10 @@ public class AnchorWheel extends AnchorPane {
         return anchorDrive;
     }
 
-    public AnchorWheel(BorderPane root) {
+    private final Student student;
+    public AnchorWheel(BorderPane root,Student student) {
         this.root = root;
+        this.student=student;
     }
     
     public void create(){
@@ -48,7 +51,7 @@ public class AnchorWheel extends AnchorPane {
      try{
             FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("WheelPane.fxml"));
             loader.setRoot(this);
-            loader.setController(new WheelController(root));
+            loader.setController(new WheelController(root,student));
             loader.load();
         }
         catch(IOException ex){

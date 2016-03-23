@@ -12,7 +12,7 @@ import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
-import models.SwitchModel;
+import models.SkillsModel;
 
 /**
  *
@@ -44,15 +44,45 @@ public class SideController implements InvalidationListener{
     
     private final BorderPane root;
     
-    private final SwitchModel switchModel;
+    private final SkillsModel switchModel;
     
     public void initialize(){
         System.out.println("SideController");
         /*knoppen instellenn*/
         setButtons();
+        oil.setOnAction((value)->{
+            switchModel.switchOil();
+        });
+        fueling.setOnAction((value)->{
+            switchModel.switchFueling();
+        });
+        citytraffic.setOnAction((value)->{
+            switchModel.switchCityTraffic();
+        });
+        doublelane.setOnAction((value)->{
+            switchModel.switchDoubleLaneRoad();
+        });
+        highway.setOnAction((value)->{
+            switchModel.switchHighWay();
+        });
+        emergencystop.setOnAction((value)->{
+            switchModel.switchEmergencyStop();
+        });
+        gps.setOnAction((value)->{
+            switchModel.switchGps();
+        });
+        lights.setOnAction((value)->{
+            switchModel.switchLights();
+        });
+        roundabout.setOnAction((value)->{
+            switchModel.switchRoundAbout();
+        });
+        tires.setOnAction((value)->{
+            switchModel.switchTires();
+        });
     }
     
-    public SideController(BorderPane root,SwitchModel switchmodel)
+    public SideController(BorderPane root,SkillsModel switchmodel)
     {
         this.root=root;
         this.switchModel=switchmodel;

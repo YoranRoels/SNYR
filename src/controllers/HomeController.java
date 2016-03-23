@@ -22,7 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import models.SwitchModel;
+import models.SkillsModel;
 import panels.AnchorSide;
 import panels.AnchorWheel;
 
@@ -55,15 +55,18 @@ public class HomeController {
     
     private final Stage stage;
     
-    private final SwitchModel switchModel;
+    private final SkillsModel switchModel;
     
     private final Student student;
     
+    private final InlogController ic;
+    
 
-    public HomeController(Stage stage,Student student) {
-        this.switchModel = new SwitchModel(student);
+    public HomeController(Stage stage,Student student,InlogController ic) {
+        this.switchModel = new SkillsModel(student);
         this.stage = stage;
         this.student=student;
+        this.ic=ic;
     }
     
     
@@ -71,7 +74,7 @@ public class HomeController {
     public void initialize(){
     //main setup initialize van de gui
         System.out.println("Start initliaze");
-        wheelpane=new AnchorWheel(borderpane);
+        wheelpane=new AnchorWheel(borderpane,student);
         sidepane=new AnchorSide(borderpane,switchModel);
 
         wheelpane.setAnchorSide(sidepane);
@@ -90,8 +93,8 @@ public class HomeController {
             try {
                 FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("InlogScreen.fxml"));
                 
-                
-                loader.setController(new InlogController(stage));
+                ic.updateStudent(student);
+                loader.setController(ic);
                 Parent root = (Parent) loader.load();
                 
                 Scene scene = new Scene(root);

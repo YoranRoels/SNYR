@@ -160,7 +160,7 @@ public class Student
     
     @Override
     public String toString(){
-        return voornaam+" "+achternaam;
+        return achternaam+" "+voornaam;
     }
     
 }

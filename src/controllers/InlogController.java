@@ -7,6 +7,7 @@ package controllers;
 
 import controllers.HomeController;
 import domein.Student;
+import domein.StudentenComparator;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,21 +38,22 @@ public class InlogController {
     private ListView<Student> studentenListView;
     
     /*dummy students*/
-    private final ObservableList<Student> studenten = 
-            FXCollections.observableArrayList(new Student("Sander","Nijs","sander@mail.com","url"),new Student("Yoran","Roels","yoran@mail.com","url"));
-    
+    private ObservableList<Student> studenten;
     
     private final Stage stage;
 
-    public InlogController(Stage stage) {
+    public InlogController(Stage stage,ObservableList<Student> studenten) {
         this.stage = stage;
+        this.studenten=studenten;
     }
-    
+    /*constructor, met als extra waarde de geupdate student*/
+
     
     
     public void initialize(){
         System.out.println("Inlog controller");
-        studenten.get(0).getCurrentEvalutie().setDoublelane(true);
+
+        studenten.sort(comparator);
         studentenListView.setItems(studenten);
         loginButton.setOnAction((ActionEvent event) -> {
             if(studentenListView.getSelectionModel().getSelectedItem()!=null){
@@ -60,7 +62,7 @@ public class InlogController {
                 FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("HomeScreen.fxml"));
                 
                 /*stage en de gekozen student doorgeven*/
-                loader.setController(new HomeController(stage,studentenListView.getSelectionModel().getSelectedItem()));
+                loader.setController(new HomeController(stage,studentenListView.getSelectionModel().getSelectedItem(),this));
                 Parent root = (Parent) loader.load();
                 
                 Scene scene = new Scene(root);
@@ -76,6 +78,17 @@ public class InlogController {
         });
         
         
+        
+    }
+    /*comp om op achternaam te sorteren*/
+    private final StudentenComparator comparator=new StudentenComparator();
+    public void updateStudent(Student student){
+        /*de oude file weg en vervangen door de nieuwe*/
+        System.out.println(studenten.indexOf(student));
+        studenten.remove(studenten.indexOf(student));
+        studenten.add(student);
+        studenten.sort(comparator);
+        studentenListView.setItems(studenten);
         
     }
     

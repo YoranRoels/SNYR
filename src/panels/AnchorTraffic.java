@@ -1,6 +1,6 @@
 package panels;
 
-import controllers.DriveController;
+import controllers.TrafficController;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -26,7 +26,7 @@ public class AnchorTraffic extends AnchorPane
         try{
             FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("TrafficPane.fxml"));
             loader.setRoot(this);
-            loader.setController(new DriveController(root));
+            loader.setController(new TrafficController(root));
             loader.load();
         }
         catch(IOException ex){

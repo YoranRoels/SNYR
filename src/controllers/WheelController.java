@@ -6,9 +6,11 @@
 package controllers;
 
 import commands.SwitchPanelCommand;
+import domein.Student;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import models.RijModel;
 import panels.*;
 
 /**
@@ -30,9 +32,11 @@ public class WheelController {
     private AnchorAttitude attitudePane;
     private AnchorTraffic trafficPane;
     
+    private final Student student;
+    
     public void initialize(){
         System.out.println("Wheelcontroller");
-        drivePane = new AnchorDrive(root);
+        drivePane = new AnchorDrive(root,new RijModel(student));
         drivePane.create();
         driveButton.setOnMouseClicked(new SwitchPanelCommand(root, drivePane));
         
@@ -45,8 +49,9 @@ public class WheelController {
         trafficButton.setOnMouseClicked(new SwitchPanelCommand(root, trafficPane));
     }
     
-    public WheelController(BorderPane root)
+    public WheelController(BorderPane root,Student student)
     {
         this.root=root;
+        this.student=student;
     }
 }

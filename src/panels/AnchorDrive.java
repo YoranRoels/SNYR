@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import models.RijModel;
 
 /**
  *
@@ -16,9 +17,11 @@ public class AnchorDrive extends AnchorPane
     
     private final BorderPane root;
     
+    private RijModel model;
     
-    public AnchorDrive(BorderPane root) {
+    public AnchorDrive(BorderPane root,RijModel model) {
         this.root = root;
+        this.model=model;
     }
     
     public void create()
@@ -26,7 +29,7 @@ public class AnchorDrive extends AnchorPane
         try{
             FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("DrivePane.fxml"));
             loader.setRoot(this);
-            loader.setController(new DriveController(root));
+            loader.setController(new DriveController(root,model));
             loader.load();
         }
         catch(IOException ex){

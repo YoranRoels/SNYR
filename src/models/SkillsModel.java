@@ -15,11 +15,11 @@ import domein.Student;
  * 
  * model voor alle switches in de sidePanels
  */
-public class SwitchModel extends Model {
+public class SkillsModel extends Model {
     
     private final Student student;
     
-    public SwitchModel(Student student){
+    public SkillsModel(Student student){
         this.student=student;
     }
     
