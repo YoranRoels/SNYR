@@ -6,8 +6,11 @@
 package main;
 
 import controllers.InlogController;
+import domein.Student;
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,9 +25,13 @@ public class RijschoolEva extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        ObservableList<Student> studenten = 
+            FXCollections.observableArrayList(new Student("Sander","Nijs","sander@mail.com","url"),new Student("Yoran","Roels","yoran@mail.com","url"));
+    
+        
         FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("InlogScreen.fxml"));
 
-        loader.setController(new InlogController(stage));
+        loader.setController(new InlogController(stage,studenten));
         Parent root = (Parent) loader.load();
 
         Scene scene = new Scene(root);

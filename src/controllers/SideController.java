@@ -50,6 +50,36 @@ public class SideController implements InvalidationListener{
         System.out.println("SideController");
         /*knoppen instellenn*/
         setButtons();
+        oil.setOnAction((value)->{
+            switchModel.switchOil();
+        });
+        fueling.setOnAction((value)->{
+            switchModel.switchFueling();
+        });
+        citytraffic.setOnAction((value)->{
+            switchModel.switchCityTraffic();
+        });
+        doublelane.setOnAction((value)->{
+            switchModel.switchDoubleLaneRoad();
+        });
+        highway.setOnAction((value)->{
+            switchModel.switchHighWay();
+        });
+        emergencystop.setOnAction((value)->{
+            switchModel.switchEmergencyStop();
+        });
+        gps.setOnAction((value)->{
+            switchModel.switchGps();
+        });
+        lights.setOnAction((value)->{
+            switchModel.switchLights();
+        });
+        roundabout.setOnAction((value)->{
+            switchModel.switchRoundAbout();
+        });
+        tires.setOnAction((value)->{
+            switchModel.switchTires();
+        });
     }
     
     public SideController(BorderPane root,SwitchModel switchmodel)

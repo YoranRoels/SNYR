@@ -59,11 +59,14 @@ public class HomeController {
     
     private final Student student;
     
+    private final InlogController ic;
+    
 
-    public HomeController(Stage stage,Student student) {
+    public HomeController(Stage stage,Student student,InlogController ic) {
         this.switchModel = new SwitchModel(student);
         this.stage = stage;
         this.student=student;
+        this.ic=ic;
     }
     
     
@@ -90,8 +93,8 @@ public class HomeController {
             try {
                 FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("InlogScreen.fxml"));
                 
-                
-                loader.setController(new InlogController(stage));
+                ic.updateStudent(student);
+                loader.setController(ic);
                 Parent root = (Parent) loader.load();
                 
                 Scene scene = new Scene(root);
