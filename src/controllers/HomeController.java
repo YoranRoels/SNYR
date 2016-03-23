@@ -74,7 +74,7 @@ public class HomeController {
     public void initialize(){
     //main setup initialize van de gui
         System.out.println("Start initliaze");
-        wheelpane=new AnchorWheel(borderpane);
+        wheelpane=new AnchorWheel(borderpane,student);
         sidepane=new AnchorSide(borderpane,switchModel);
 
         wheelpane.setAnchorSide(sidepane);

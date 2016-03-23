@@ -36,19 +36,19 @@
       <RadioButton layoutX="825.0" layoutY="340.0" mnemonicParsing="false" text="RadioButton" />
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="414.0" layoutX="608.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="324.0" />
       <TextField layoutX="624.0" layoutY="128.0" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="236.0" />
-      <Button layoutX="740.0" layoutY="48.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="FOTO" />
+      <Button fx:id="fotoButton" layoutX="740.0" layoutY="48.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" />
       <MenuButton id="menuButton" layoutX="864.0" layoutY="128.0" mnemonicParsing="false">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
-      <RadioButton id="redRadioButton" fx:id="redRadioButton" layoutX="683.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red; -fx-mark-color: black;">
+      <RadioButton id="redRadioButton" fx:id="red" layoutX="683.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red; -fx-mark-color: black;">
          <toggleGroup>
             <ToggleGroup fx:id="radioGroup" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="orangeRadioButton" layoutX="736.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" />
-      <RadioButton fx:id="greenRadioButton" layoutX="790.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" />
+      <RadioButton fx:id="orange" layoutX="736.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" />
+      <RadioButton fx:id="green" layoutX="790.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" />
       <TextArea layoutX="624.0" layoutY="204.0" prefHeight="171.0" prefWidth="293.0" />
       <Label layoutX="708.0" layoutY="170.0" text="Commentaar">
          <font>
