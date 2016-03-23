@@ -12,7 +12,7 @@ import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
-import models.SwitchModel;
+import models.SkillsModel;
 
 /**
  *
@@ -44,7 +44,7 @@ public class SideController implements InvalidationListener{
     
     private final BorderPane root;
     
-    private final SwitchModel switchModel;
+    private final SkillsModel switchModel;
     
     public void initialize(){
         System.out.println("SideController");
@@ -82,7 +82,7 @@ public class SideController implements InvalidationListener{
         });
     }
     
-    public SideController(BorderPane root,SwitchModel switchmodel)
+    public SideController(BorderPane root,SkillsModel switchmodel)
     {
         this.root=root;
         this.switchModel=switchmodel;

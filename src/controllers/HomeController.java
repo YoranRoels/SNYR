@@ -22,7 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import models.SwitchModel;
+import models.SkillsModel;
 import panels.AnchorSide;
 import panels.AnchorWheel;
 
@@ -55,7 +55,7 @@ public class HomeController {
     
     private final Stage stage;
     
-    private final SwitchModel switchModel;
+    private final SkillsModel switchModel;
     
     private final Student student;
     
@@ -63,7 +63,7 @@ public class HomeController {
     
 
     public HomeController(Stage stage,Student student,InlogController ic) {
-        this.switchModel = new SwitchModel(student);
+        this.switchModel = new SkillsModel(student);
         this.stage = stage;
         this.student=student;
         this.ic=ic;
