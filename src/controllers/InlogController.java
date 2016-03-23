@@ -7,6 +7,7 @@ package controllers;
 
 import controllers.HomeController;
 import domein.Student;
+import domein.StudentenComparator;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -52,8 +53,7 @@ public class InlogController {
     public void initialize(){
         System.out.println("Inlog controller");
 
-        
-        
+        studenten.sort(comparator);
         studentenListView.setItems(studenten);
         loginButton.setOnAction((ActionEvent event) -> {
             if(studentenListView.getSelectionModel().getSelectedItem()!=null){
@@ -80,12 +80,14 @@ public class InlogController {
         
         
     }
-    
+    /*comp om op achternaam te sorteren*/
+    private final StudentenComparator comparator=new StudentenComparator();
     public void updateStudent(Student student){
         /*de oude file weg en vervangen door de nieuwe*/
+        System.out.println(studenten.indexOf(student));
         studenten.remove(studenten.indexOf(student));
         studenten.add(student);
-        
+        studenten.sort(comparator);
         studentenListView.setItems(studenten);
         
     }
