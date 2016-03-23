@@ -75,8 +75,55 @@ and open the template in the editor.
     -fx-graphic: url("../images/drivepane/clutch.png");
 }
 
+#first
+{
+    -fx-graphic: url("../images/trafficpane/first.png");
+}
 
+#sign
+{
+    -fx-graphic: url("../images/trafficpane/sign.png");
+}
 
+#speed
+{
+    -fx-graphic: url("../images/trafficpane/speed.png");
+}
+
+#distance
+{
+    -fx-graphic: url("../images/trafficpane/distance.png");
+}
+
+#passing
+{
+    -fx-graphic: url("../images/trafficpane/passing.png");
+}
+
+#crossing
+{
+    -fx-graphic: url("../images/trafficpane/crossing.png");
+}
+
+#left
+{
+    -fx-graphic: url("../images/trafficpane/left.png");
+}
+
+#right
+{
+    -fx-graphic: url("../images/trafficpane/right.png");
+}
+
+#signal
+{
+    -fx-graphic: url("../images/trafficpane/signal.png");
+}
+
+#public
+{
+    -fx-graphic: url("../images/trafficpane/public.png");
+}
 
 
 
