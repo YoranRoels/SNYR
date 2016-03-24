@@ -31,12 +31,12 @@ and open the template in the editor.
 
 #looking
 {
-    -fx-graphic: url("../images/drivepane/looking.png");
+    -fx-graphic: url("../images/drivepane/looking2.png");
 }
 
 #parking
 {
-    -fx-graphic: url("../images/drivepane/parking.png");
+    -fx-graphic: url("../images/drivepane/parking2.png");
 }
 
 #turning
@@ -57,7 +57,7 @@ and open the template in the editor.
 
 #steeringPractice
 {
-    -fx-graphic: url("../images/drivepane/steeringPractice.png");
+    -fx-graphic: url("../images/drivepane/steeringPractice2.png");
 }
 
 #hill
