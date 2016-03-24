@@ -22,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import models.RijModel;
 import models.SkillsModel;
 import panels.AnchorSide;
 import panels.AnchorWheel;
@@ -55,7 +56,9 @@ public class HomeController {
     
     private final Stage stage;
     
-    private final SkillsModel switchModel;
+    private final SkillsModel skillModel;
+    
+    private final RijModel rijModel;
     
     private final Student student;
     
@@ -63,7 +66,8 @@ public class HomeController {
     
 
     public HomeController(Stage stage,Student student,InlogController ic) {
-        this.switchModel = new SkillsModel(student);
+        this.skillModel = new SkillsModel(student);
+        this.rijModel=new RijModel(student);
         this.stage = stage;
         this.student=student;
         this.ic=ic;
@@ -74,8 +78,8 @@ public class HomeController {
     public void initialize(){
     //main setup initialize van de gui
         System.out.println("Start initliaze");
-        wheelpane=new AnchorWheel(borderpane,student);
-        sidepane=new AnchorSide(borderpane,switchModel);
+        wheelpane=new AnchorWheel(borderpane,rijModel);
+        sidepane=new AnchorSide(borderpane,skillModel);
 
         wheelpane.setAnchorSide(sidepane);
         sidepane.setAnchorWheel(wheelpane);

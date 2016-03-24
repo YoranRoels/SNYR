@@ -10,6 +10,6 @@ package domein;
  * @author sande
  */
 public enum Color {
-    GRAY,RED,ORANGE,GREEN
+    WHITE,RED,ORANGE,GREEN
     
 }

@@ -14,7 +14,7 @@ public class Status
         this.commentaar = commentaar;
     }
     public Status(){
-        this.color=color.GRAY;
+        this.color=color.WHITE;
         this.commentaar="";
     }
 

@@ -32,11 +32,11 @@ public class WheelController {
     private AnchorAttitude attitudePane;
     private AnchorTraffic trafficPane;
     
-    private final Student student;
+    private final RijModel rijModel;
     
     public void initialize(){
         System.out.println("Wheelcontroller");
-        drivePane = new AnchorDrive(root,new RijModel(student));
+        drivePane = new AnchorDrive(root,rijModel);
         drivePane.create();
         driveButton.setOnMouseClicked(new SwitchPanelCommand(root, drivePane));
         
@@ -49,9 +49,9 @@ public class WheelController {
         trafficButton.setOnMouseClicked(new SwitchPanelCommand(root, trafficPane));
     }
     
-    public WheelController(BorderPane root,Student student)
+    public WheelController(BorderPane root,RijModel rijModel)
     {
         this.root=root;
-        this.student=student;
+       this.rijModel=rijModel;
     }
 }

@@ -18,10 +18,10 @@ public class Rijtechniek {
     private Status shifting;
     private Status looking;
     private Status parking;
-    private Status turnaround;
+    private Status turning;
     private Status garage;
     private Status reverse;
-    private Status steeringExercise;
+    private Status steeringPractice;
     private Status hillHandbrake;
     private Status hillBalancing;
 
@@ -81,12 +81,12 @@ public class Rijtechniek {
         this.parking = parking;
     }
 
-    public Status getTurnaround() {
-        return turnaround;
+    public Status getTurning() {
+        return turning;
     }
 
-    public void setTurnaround(Status turnaround) {
-        this.turnaround = turnaround;
+    public void setTurning(Status turning) {
+        this.turning = turning;
     }
 
     public Status getGarage() {
@@ -105,12 +105,12 @@ public class Rijtechniek {
         this.reverse = reverse;
     }
 
-    public Status getSteeringExercise() {
-        return steeringExercise;
+    public Status getSteeringPractice() {
+        return steeringPractice;
     }
 
-    public void setSteeringExercise(Status steeringExercise) {
-        this.steeringExercise = steeringExercise;
+    public void setSteeringPractice(Status steeringExercise) {
+        this.steeringPractice = steeringExercise;
     }
 
     public Status getHillHandbrake() {
@@ -129,7 +129,7 @@ public class Rijtechniek {
         this.hillBalancing = hillBalancing;
     }
 
-    public Rijtechniek(Status posture, Status clutch, Status braking, Status steering, Status shifting, Status looking, Status parking, Status turnaround, Status garage, Status reverse, Status steeringExercise, Status hillHandbrake, Status hillBalancing) {
+    public Rijtechniek(Status posture, Status clutch, Status braking, Status steering, Status shifting, Status looking, Status parking, Status turning, Status garage, Status reverse, Status steeringExercise, Status hillHandbrake, Status hillBalancing) {
         this.posture = posture;
         this.clutch = clutch;
         this.braking = braking;
@@ -137,10 +137,10 @@ public class Rijtechniek {
         this.shifting = shifting;
         this.looking = looking;
         this.parking = parking;
-        this.turnaround = turnaround;
+        this.turning = turning;
         this.garage = garage;
         this.reverse = reverse;
-        this.steeringExercise = steeringExercise;
+        this.steeringPractice = steeringExercise;
         this.hillHandbrake = hillHandbrake;
         this.hillBalancing = hillBalancing;
     }
@@ -153,10 +153,10 @@ public class Rijtechniek {
         this.shifting = new Status();
         this.looking = new Status();
         this.parking = new Status();
-        this.turnaround = new Status();
+        this.turning = new Status();
         this.garage = new Status();
         this.reverse = new Status();
-        this.steeringExercise = new Status();
+        this.steeringPractice = new Status();
         this.hillHandbrake = new Status();
         this.hillBalancing = new Status();
     }
