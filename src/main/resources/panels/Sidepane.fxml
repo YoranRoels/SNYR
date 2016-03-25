@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root prefHeight="488.0" prefWidth="1024.0" stylesheets="@../stylesheets/ToggleStyleSheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ToggleButton id="olie" fx:id="oil" contentDisplay="CENTER" layoutX="70.0" layoutY="74.0" mnemonicParsing="false" AnchorPane.leftAnchor="70.0">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </ToggleButton>
+      <ToggleButton id="rondpunt" fx:id="roundabout" layoutX="663.0" layoutY="318.0" mnemonicParsing="false" AnchorPane.rightAnchor="245.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="70.0" />
+         </GridPane.margin>
+      </ToggleButton>
+      <ToggleButton id="lichten" fx:id="lights" layoutX="70.0" layoutY="318.0" mnemonicParsing="false" AnchorPane.leftAnchor="70.0" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </ToggleButton>
+      <ToggleButton id="banden" fx:id="tires" layoutX="245.0" layoutY="318.0" mnemonicParsing="false" AnchorPane.leftAnchor="245.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <ToggleButton id="gps" fx:id="gps" layoutX="464.0" layoutY="74.0" mnemonicParsing="false" AnchorPane.leftAnchor="464.0" AnchorPane.rightAnchor="464.0" GridPane.columnIndex="2">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+      </ToggleButton>
+      <ToggleButton id="bebouwdekom" fx:id="citytraffic" layoutX="838.0" layoutY="74.0" mnemonicParsing="false" AnchorPane.rightAnchor="70.0" GridPane.columnIndex="4">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </ToggleButton>
+      <ToggleButton id="tanken" fx:id="fueling" layoutX="245.0" layoutY="74.0" mnemonicParsing="false" AnchorPane.leftAnchor="245.0" GridPane.columnIndex="1" />
+      <ToggleButton id="snelweg" fx:id="highway" layoutX="838.0" layoutY="318.0" mnemonicParsing="false" AnchorPane.rightAnchor="70.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </ToggleButton>
+      <ToggleButton id="noodstop" fx:id="emergencystop" layoutX="464.0" layoutY="318.0" mnemonicParsing="false" AnchorPane.leftAnchor="464.0" AnchorPane.rightAnchor="464.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </ToggleButton>
+      <ToggleButton id="dubbelvaksbaan" fx:id="doublelane" layoutX="663.0" layoutY="74.0" mnemonicParsing="false" AnchorPane.rightAnchor="245.0" GridPane.columnIndex="3">
+         <GridPane.margin>
+            <Insets left="70.0" />
+         </GridPane.margin>
+      </ToggleButton>
+   </children>
+</fx:root>
