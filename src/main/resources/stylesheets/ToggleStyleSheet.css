@@ -13,96 +13,96 @@ and open the template in the editor.
 }
 
 #banden{
-    -fx-graphic: url("/images/switches/banden.png");
+    -fx-graphic: url("../images/switches/banden.png");
 }
 
 #banden:selected{
-    -fx-graphic: url("/images/switches/bandendone.png");
+    -fx-graphic: url("../images/switches/bandendone.png");
 }
 
 #bebouwdekom{
-    -fx-graphic: url("/images/switches/bebouwdekom.png");
+    -fx-graphic: url("../images/switches/bebouwdekom.png");
 }
 
 #bebouwdekom:selected{
-    -fx-graphic: url("/images/switches/bebouwdekomDone.png");
+    -fx-graphic: url("../images/switches/bebouwdekomDone.png");
 }
 
 #dubbelvaksbaan{
-    -fx-graphic: url("/images/switches/dubbelvaksbaan.png");
+    -fx-graphic: url("../images/switches/dubbelvaksbaan.png");
 }
 
 #dubbelvaksbaan:selected{
-    -fx-graphic: url("/images/switches/dubbelvaksbaanDone.png");
+    -fx-graphic: url("../images/switches/dubbelvaksbaanDone.png");
 }
 
 #gps{
-    -fx-graphic: url("/images/switches/gps.png");
+    -fx-graphic: url("../images/switches/gps.png");
 }
 
 #gps:selected{
-    -fx-graphic: url("/images/switches/gpsDone.png");
+    -fx-graphic: url("../images/switches/gpsDone.png");
 }
 
 #lichten{
-    -fx-graphic: url("/images/switches/lichten.png");
+    -fx-graphic: url("../images/switches/lichten.png");
 }
 
 #lichten:selected{
-    -fx-graphic: url("/images/switches/lichtenDone.png");
+    -fx-graphic: url("../images/switches/lichtenDone.png");
 }
 
 #noodstop{
-    -fx-graphic: url("/images/switches/noodstop.png");
+    -fx-graphic: url("../images/switches/noodstop.png");
 }
 
 #noodstop:selected{
-    -fx-graphic: url("/images/switches/noodstopDone.png");
+    -fx-graphic: url("../images/switches/noodstopDone.png");
 }
 
 #olie{
-    -fx-graphic: url("/images/switches/oliecheck.png");
+    -fx-graphic: url("../images/switches/oliecheck.png");
 }
 
 #olie:selected{
-    -fx-graphic: url("/images/switches/oliecheckDone.png");
+    -fx-graphic: url("../images/switches/oliecheckDone.png");
 }
 
 #rondpunt{
-    -fx-graphic: url("/images/switches/rondpunt.png");
+    -fx-graphic: url("../images/switches/rondpunt.png");
 }
 
 #rondpunt:selected{
-    -fx-graphic: url("/images/switches/rondpuntDone.png");
+    -fx-graphic: url("../images/switches/rondpuntDone.png");
 }
 
 #snelweg{
-    -fx-graphic: url("/images/switches/snelweg.png");
+    -fx-graphic: url("../images/switches/snelweg.png");
 }
 
 #snelweg:selected{
-    -fx-graphic: url("/images/switches/snelwegDone.png");
+    -fx-graphic: url("../images/switches/snelwegDone.png");
 }
 
 #tanken{
-    -fx-graphic: url("/images/switches/tanken.png");
+    -fx-graphic: url("../images/switches/tanken.png");
 }
 
 #tanken:selected{
-    -fx-graphic: url("/images/switches/tankenDone.png");
+    -fx-graphic: url("../images/switches/tankenDone.png");
 }
 #noodstop{
-    -fx-graphic: url("/images/switches/noodstop.png");
+    -fx-graphic: url("../images/switches/noodstop.png");
 }
 
 #noodstop:selected{
-    -fx-graphic: url("/images/switches/noodstopDone.png");
+    -fx-graphic: url("../images/switches/noodstopDone.png");
 }
 
 #oliecheck{
-    -fx-graphic: url("/images/switches/oliecheck.png");
+    -fx-graphic: url("../images/switches/oliecheck.png");
 }
 
 #oliecheck:selected{
-    -fx-graphic: url("/images/switches/oliecheckDone.png");
+    -fx-graphic: url("../images/switches/oliecheckDone.png");
 }
