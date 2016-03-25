@@ -2,3 +2,5 @@
 /build/
 /dist/
 /.nb-gradle/
+/.gradle/
+/gradle/

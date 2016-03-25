@@ -41,7 +41,7 @@ public class AnchorSide extends AnchorPane
     public void create(){
         
      try{
-            FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("Sidepane.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/Sidepane.fxml"));
             loader.setRoot(this);
             loader.setController(new SideController(root,switchModel));
             loader.load();

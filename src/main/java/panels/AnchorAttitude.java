@@ -25,7 +25,7 @@ public class AnchorAttitude extends AnchorPane
     public void create()
     {    
         try{
-            FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("AttitudePane.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/AttitudePane.fxml"));
             loader.setRoot(this);
             loader.setController(new AttitudeController(root));
             loader.load();

@@ -50,7 +50,7 @@ public class AnchorWheel extends AnchorPane {
     public void create(){
         
      try{
-            FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("WheelPane.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/WheelPane.fxml"));
             loader.setRoot(this);
             loader.setController(new WheelController(root,rijModel));
             loader.load();

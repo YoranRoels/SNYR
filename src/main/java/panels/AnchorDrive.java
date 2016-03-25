@@ -27,7 +27,7 @@ public class AnchorDrive extends AnchorPane
     public void create()
     {    
         try{
-            FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("DrivePane.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/DrivePane.fxml"));
             loader.setRoot(this);
             loader.setController(new DriveController(root,model));
             loader.load();

@@ -95,14 +95,16 @@ public class HomeController {
         /*klikken op de profiel foto brengt je naar de home/inlog page*/
         profielFoto.setOnMouseClicked((MouseEvent event) -> {
             try {
-                FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("InlogScreen.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/InlogScreen.fxml"));
                 
                 ic.updateStudent(student);
                 loader.setController(ic);
                 Parent root = (Parent) loader.load();
                 
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
+                
+               // Scene scene = new Scene(root);
+               // stage.setScene(scene);
+               stage.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             }

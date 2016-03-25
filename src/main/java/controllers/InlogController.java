@@ -9,6 +9,7 @@ import main.java.controllers.HomeController;
 import main.java.domein.Student;
 import main.java.domein.StudentenComparator;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -22,7 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-import main.java.main.RijschoolEva;
+import start.RijschoolEva;
 import main.java.panels.AnchorWheel;
 
 /**
@@ -53,20 +54,22 @@ public class InlogController {
     public void initialize(){
         System.out.println("Inlog controller");
 
-        studenten.sort(comparator);
+        //studenten.sort(comparator);
+        Collections.sort(studenten, comparator);
         studentenListView.setItems(studenten);
         loginButton.setOnAction((ActionEvent event) -> {
             if(studentenListView.getSelectionModel().getSelectedItem()!=null){
             try {
                 System.out.println("open studenten fiche");
-                FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("HomeScreen.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/HomeScreen.fxml"));
                 
                 /*stage en de gekozen student doorgeven*/
                 loader.setController(new HomeController(stage,studentenListView.getSelectionModel().getSelectedItem(),this));
                 Parent root = (Parent) loader.load();
                 
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
+                //Scene scene = new Scene(root);
+                //stage.setScene(scene);
+                stage.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(InlogController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -87,7 +90,8 @@ public class InlogController {
         System.out.println(studenten.indexOf(student));
         studenten.remove(studenten.indexOf(student));
         studenten.add(student);
-        studenten.sort(comparator);
+       // studenten.sort(comparator);
+       Collections.sort(studenten, comparator);
         studentenListView.setItems(studenten);
         
     }

@@ -24,7 +24,7 @@ public class AnchorTraffic extends AnchorPane
     public void create()
     {    
         try{
-            FXMLLoader loader = new FXMLLoader(AnchorWheel.class.getResource("TrafficPane.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/TrafficPane.fxml"));
             loader.setRoot(this);
             loader.setController(new TrafficController(root));
             loader.load();
