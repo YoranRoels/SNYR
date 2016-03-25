@@ -22,7 +22,7 @@ and open the template in the editor.
 
 #dashboard
 {
-    -fx-background-image: url('/images/dashboard.png');
+    -fx-background-image: url('../images/dashboard.png');
     -fx-background-repeat: no-repeat;
     -fx-background-size: contain;
     -fx-background-position: center;
