@@ -13,6 +13,7 @@ import domein.Student;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import models.AttitudeModel;
 import models.DriveModel;
 import models.TrafficModel;
 
@@ -37,6 +38,7 @@ public class WheelController {
     
     private final DriveModel driveModel;
     private final TrafficModel trafficModel;
+    private final AttitudeModel attitudeModel;
     
     public void initialize(){
         System.out.println("Wheelcontroller");
@@ -44,7 +46,7 @@ public class WheelController {
         drivePane.create();
         driveButton.setOnMouseClicked(new SwitchPanelCommand(root, drivePane));
         
-        attitudePane= new AnchorAttitude(root);
+        attitudePane= new AnchorAttitude(root,attitudeModel);
         attitudePane.create();
         attidudeButton.setOnMouseClicked(new SwitchPanelCommand(root, attitudePane));
         
@@ -53,10 +55,11 @@ public class WheelController {
         trafficButton.setOnMouseClicked(new SwitchPanelCommand(root, trafficPane));
     }
     
-    public WheelController(BorderPane root,DriveModel driveModel,TrafficModel trafficModel)
+    public WheelController(BorderPane root,DriveModel driveModel,TrafficModel trafficModel,AttitudeModel attitudeModel)
     {
         this.root=root;
        this.driveModel=driveModel;
        this.trafficModel=trafficModel;
+       this.attitudeModel=attitudeModel;
     }
 }

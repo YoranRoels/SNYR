@@ -1,21 +1,26 @@
 package controllers;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import models.AttitudeModel;
 
 /**
  *
  * @author Yoran
  */
-public class AttitudeController 
+public class AttitudeController implements InvalidationListener
 {
     @FXML
     private Button keerTerugButton;
@@ -31,6 +36,8 @@ public class AttitudeController
     private final ObservableList<String> selectie = FXCollections.observableArrayList("Zenuwachtig","Concentractie",
             "Schrik","Asociaal","Verkeersgevaarlijk","Ongeduldig","Agressief rijgedrag","Inzet","Verstrooid","Eigenwijs");
     
+    private final AttitudeModel model;
+            
     public void initialize(){
         System.out.println("AttitudeController");
         selectieListView.setItems(selectie);
@@ -41,15 +48,28 @@ public class AttitudeController
                 opmerkingenVeld.setText(opmerkingenVeld.getText()+"\n"+newValue);
                            }
         });
-        //keerTerugButton.setOnMouseClicked(new SwitchPanelCommand(root));
-        opmerkingenVeld.setText("test");
-       // opmerkingenVeld.set
+        
+// opmerkingenVeld.set opmerkingen laden en setten
+        opmerkingenVeld.setText(model.getAttitude());
+
+       opmerkingenVeld.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                    /*tekst opslaan als deze is veranderd*/
+                    model.setAttitude(opmerkingenVeld.getText());
+            }
+        });
     }
 
-    public AttitudeController(BorderPane root) 
+    public AttitudeController(BorderPane root,AttitudeModel model) 
     {
         this.root = root;
-        System.out.println("Attitude Aangemaakt"); 
+        this.model=model;
     }
+
+    @Override
+    public void invalidated(Observable observable) {
+        opmerkingenVeld.setText(model.getAttitude());
+            }
     
 }

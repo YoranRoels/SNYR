@@ -137,6 +137,9 @@ public class Student
     public void setAttitude(String[] Attitudes) {
         this.Attitudes = Attitudes;
     }
+    public void setCurrentAttitude(String attitude){
+        Attitudes[evanumber]=attitude;
+    }
 
     public int[] getLevel() {
         return levels;
