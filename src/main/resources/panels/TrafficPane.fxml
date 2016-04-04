@@ -10,7 +10,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root id="drivePane" prefHeight="488.0" prefWidth="1000.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="drivePane" prefHeight="488.0" prefWidth="1000.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Circle centerX="500.0" centerY="245.0" layoutX="-187.0" opacity="0.21" radius="220.0" stroke="BLACK" strokeType="INSIDE">
          <fill>
@@ -21,33 +21,33 @@
                </stops>
             </LinearGradient>
          </fill></Circle>
-      <Button id="public" layoutX="138.0" layoutY="50.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
-      <Button id="speed" layoutX="485.0" layoutY="151.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
-      <Button id="first" layoutX="278.0" layoutY="6.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
-      <Button id="right" layoutX="72.0" layoutY="257.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
-      <Button id="sign" layoutX="418.0" layoutY="50.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
-      <Button id="distance" layoutX="485.0" layoutY="257.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
-      <Button id="passing" layoutX="418.0" layoutY="353.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
-      <Button id="left" layoutX="138.0" layoutY="358.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
-      <Button id="crossing" layoutX="278.0" layoutY="395.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
-      <Button id="signal" layoutX="72.0" layoutY="151.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
+      <Button id="public" fx:id="publicroad" layoutX="138.0" layoutY="50.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
+      <Button id="speed" fx:id="speed" layoutX="485.0" layoutY="151.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
+      <Button id="priority" fx:id="priority" layoutX="278.0" layoutY="6.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
+      <Button id="right" fx:id="turningright" layoutX="72.0" layoutY="257.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
+      <Button id="sign" fx:id="sign" layoutX="418.0" layoutY="50.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
+      <Button id="distance" fx:id="distance" layoutX="485.0" layoutY="257.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
+      <Button id="passing" fx:id="overtaking" layoutX="418.0" layoutY="353.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
+      <Button id="left" fx:id="turningleft" layoutX="138.0" layoutY="358.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
+      <Button id="crossing" fx:id="crossing" layoutX="278.0" layoutY="395.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
+      <Button id="signal" fx:id="indicators" layoutX="72.0" layoutY="151.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
       <RadioButton layoutX="825.0" layoutY="340.0" mnemonicParsing="false" text="RadioButton" />
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="414.0" layoutX="608.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="324.0" />
       <TextField layoutX="624.0" layoutY="128.0" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="236.0" />
-      <Button layoutX="740.0" layoutY="48.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" text="FOTO" />
+      <Button fx:id="fotoButton" layoutX="740.0" layoutY="48.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="drivePaneButton" />
       <MenuButton id="menuButton" layoutX="864.0" layoutY="128.0" mnemonicParsing="false">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
-      <RadioButton id="redRadioButton" fx:id="redRadioButton" layoutX="683.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red; -fx-mark-color: black;">
+      <RadioButton id="redRadioButton" fx:id="red" layoutX="683.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red; -fx-mark-color: black;">
          <toggleGroup>
             <ToggleGroup fx:id="radioGroup" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="orangeRadioButton" layoutX="736.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" />
-      <RadioButton fx:id="greenRadioButton" layoutX="790.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" />
-      <TextArea layoutX="624.0" layoutY="204.0" prefHeight="171.0" prefWidth="293.0" />
+      <RadioButton fx:id="orange" layoutX="736.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" />
+      <RadioButton fx:id="green" layoutX="790.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" />
+      <TextArea fx:id="commentfield" layoutX="624.0" layoutY="204.0" prefHeight="171.0" prefWidth="293.0" />
       <Label layoutX="708.0" layoutY="170.0" text="Commentaar">
          <font>
             <Font name="Arial" size="24.0" />

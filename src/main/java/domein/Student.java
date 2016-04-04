@@ -15,8 +15,8 @@ public class Student
     private final static int AANTALEVALUTIES=3;
     /*arrays die de verschillende evaluaties bijhouden*/
     private Evaluatie[] evaluaties = new Evaluatie[AANTALEVALUTIES];
-    private Rijtechniek[] rijtechnieks = new Rijtechniek[AANTALEVALUTIES];
-    private Verkeerstechniek[]  verkeerstechnieks = new Verkeerstechniek[AANTALEVALUTIES];
+    private DriveTechnic[] drivetechnics = new DriveTechnic[AANTALEVALUTIES];
+    private TrafficTechnic[]  traffictechnics = new TrafficTechnic[AANTALEVALUTIES];
     private String[] Attitudes = new String[AANTALEVALUTIES];
     /*levels, is de voortgang in de progressbar --> hoe ver staat de student al*/
     private int[] levels = new int[AANTALEVALUTIES];
@@ -32,14 +32,14 @@ public class Student
         this.email = email;
         this.fotoURL = fotoURL;
         evanumber=0;
-        for(int i=0;i<rijtechnieks.length;i++){
-            rijtechnieks[i]=new Rijtechniek();
+        for(int i=0;i<drivetechnics.length;i++){
+            drivetechnics[i]=new DriveTechnic();
         }
         for(int i=0;i<evaluaties.length;i++){
             evaluaties[i]=new Evaluatie();
         }
-        for(int i=0;i<verkeerstechnieks.length;i++){
-            verkeerstechnieks[i]=new Verkeerstechniek();
+        for(int i=0;i<traffictechnics.length;i++){
+            traffictechnics[i]=new TrafficTechnic();
         }
         for(int i=0;i<Attitudes.length;i++){
             Attitudes[i]="";
@@ -49,14 +49,14 @@ public class Student
         }
     }
 
-    public Student(String voornaam, String achternaam, String email, String fotoURL, int evanumber, Evaluatie[] evaluaties,Rijtechniek[] rijtechnieks,Verkeerstechniek[] verkeerstechnieks) {
+    public Student(String voornaam, String achternaam, String email, String fotoURL, int evanumber, Evaluatie[] evaluaties,DriveTechnic[] drivetechnics,TrafficTechnic[] traffictechnics) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.email = email;
         this.fotoURL = fotoURL;
         this.evanumber = evanumber;
-        this.verkeerstechnieks=verkeerstechnieks;
-        this.rijtechnieks=rijtechnieks;
+        this.traffictechnics=traffictechnics;
+        this.drivetechnics=drivetechnics;
         this.evaluaties=evaluaties;
     }
     
@@ -104,26 +104,26 @@ public class Student
         this.evaluaties = evaluatie;
     }
 
-    public Rijtechniek[] getRijtechnieks() {
-        return rijtechnieks;
+    public DriveTechnic[] getDriveTechnics() {
+        return drivetechnics;
     }
-    public Rijtechniek getCurrentRijtechniek(){
-        return rijtechnieks[evanumber];
-    }
-
-    public void setRijtechnieks(Rijtechniek[] rijtechniek) {
-        this.rijtechnieks = rijtechniek;
+    public DriveTechnic getCurrentDriveTechnic(){
+        return drivetechnics[evanumber];
     }
 
-    public Verkeerstechniek[] getVerkeerstechnieks() {
-        return verkeerstechnieks;
-    }
-    public Verkeerstechniek getCurrentVerkeerstecniek(){
-        return verkeerstechnieks[evanumber];
+    public void setDriveTechnics(DriveTechnic[] rijtechniek) {
+        this.drivetechnics = rijtechniek;
     }
 
-    public void setVerkeerstechnieks(Verkeerstechniek[] verkeerstechniek) {
-        this.verkeerstechnieks = verkeerstechniek;
+    public TrafficTechnic[] getTrafficTechnics() {
+        return traffictechnics;
+    }
+    public TrafficTechnic getCurrentTrafficTechnic(){
+        return traffictechnics[evanumber];
+    }
+
+    public void setTrafficTechnics(TrafficTechnic[] verkeerstechniek) {
+        this.traffictechnics = verkeerstechniek;
     }
 
     public String[] getAttitude() {
@@ -136,6 +136,9 @@ public class Student
 
     public void setAttitude(String[] Attitudes) {
         this.Attitudes = Attitudes;
+    }
+    public void setCurrentAttitude(String attitude){
+        Attitudes[evanumber]=attitude;
     }
 
     public int[] getLevel() {
