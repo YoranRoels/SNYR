@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.controllers;
+package controllers;
 
-import main.java.domein.Evaluatie;
-import main.java.domein.Student;
+import domein.Evaluatie;
+import domein.Student;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
-import main.java.models.SkillsModel;
+import models.SkillsModel;
 
 /**
  *

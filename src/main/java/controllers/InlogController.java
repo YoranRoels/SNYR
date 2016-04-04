@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.controllers;
+package controllers;
 
-import main.java.controllers.HomeController;
-import main.java.domein.Student;
-import main.java.domein.StudentenComparator;
+import controllers.HomeController;
+import domein.Student;
+import domein.StudentenComparator;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.logging.Level;
@@ -24,7 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import start.RijschoolEva;
-import main.java.panels.AnchorWheel;
+import panels.AnchorWheel;
 
 /**
  *

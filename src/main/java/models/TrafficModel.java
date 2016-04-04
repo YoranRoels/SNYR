@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domein;
+package models;
 
 /**
  *
  * @author sande
  */
-public enum Color {
-    WHITE,RED,ORANGE,GREEN
+public class TrafficModel extends Model {
     
 }

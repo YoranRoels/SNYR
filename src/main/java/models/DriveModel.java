@@ -3,23 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.models;
+package models;
 
-import main.java.domein.Color;
-import main.java.domein.Student;
+import domein.Color;
+import domein.Student;
 import java.util.HashMap;
-import javafx.scene.control.Button;
 
 /**
  *
  * @author sande
  */
-public class RijModel extends Model {
+public class DriveModel extends Model {
    
     private final Student student;
     private HashMap<String,Color> kleuren=new HashMap();
 
-    public RijModel(Student student) {
+    public DriveModel(Student student) {
         this.student = student;
         kleuren.put("red", Color.RED);
         kleuren.put("green", Color.GREEN);

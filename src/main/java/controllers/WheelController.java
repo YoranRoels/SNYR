@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.controllers;
+package controllers;
 
-import main.java.panels.AnchorTraffic;
-import main.java.panels.AnchorAttitude;
-import main.java.panels.AnchorDrive;
-import main.java.commands.SwitchPanelCommand;
-import main.java.domein.Student;
+import panels.AnchorTraffic;
+import panels.AnchorAttitude;
+import panels.AnchorDrive;
+import commands.SwitchPanelCommand;
+import domein.Student;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import main.java.models.RijModel;
+import models.DriveModel;
 
 /**
  *
@@ -34,7 +34,7 @@ public class WheelController {
     private AnchorAttitude attitudePane;
     private AnchorTraffic trafficPane;
     
-    private final RijModel rijModel;
+    private final DriveModel rijModel;
     
     public void initialize(){
         System.out.println("Wheelcontroller");
@@ -51,7 +51,7 @@ public class WheelController {
         trafficButton.setOnMouseClicked(new SwitchPanelCommand(root, trafficPane));
     }
     
-    public WheelController(BorderPane root,RijModel rijModel)
+    public WheelController(BorderPane root,DriveModel rijModel)
     {
         this.root=root;
        this.rijModel=rijModel;

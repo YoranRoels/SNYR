@@ -1,4 +1,4 @@
-package main.java.controllers;
+package controllers;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
@@ -8,7 +8,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
-import main.java.models.RijModel;
+import models.DriveModel;
 
 /**
  *
@@ -60,7 +60,7 @@ public class DriveController implements InvalidationListener
     private Button[] buttons;
     
     
-    private final RijModel model;
+    private final DriveModel model;
     
     public void initialize(){
         buttons= new Button[]{brakeButton,clutchButton,garageButton,hillButton,lookingButton,parkingButton,reverseButton,shiftingButton,sittingButton,steeringButton,steeringPracticeButton,turningButton};
@@ -90,7 +90,7 @@ public class DriveController implements InvalidationListener
         
     }
 
-    public DriveController(BorderPane root,RijModel model) 
+    public DriveController(BorderPane root,DriveModel model) 
     {
         System.out.println("DriveController Aangemaakt"); 
         this.root = root;

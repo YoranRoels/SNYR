@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.panels;
+package panels;
 
-import main.java.commands.SwitchPanelCommand;
-import main.java.controllers.WheelController;
-import main.java.domein.Student;
+import commands.SwitchPanelCommand;
+import controllers.WheelController;
+import domein.Student;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import main.java.models.RijModel;
+import models.DriveModel;
 
 /**
  *
@@ -41,8 +41,8 @@ public class AnchorWheel extends AnchorPane {
         return anchorDrive;
     }
 
-    private final RijModel rijModel;
-    public AnchorWheel(BorderPane root,RijModel model) {
+    private final DriveModel rijModel;
+    public AnchorWheel(BorderPane root,DriveModel model) {
         this.root = root;
         this.rijModel=model;
     }

@@ -1,6 +1,6 @@
-package main.java.panels;
+package panels;
 
-import main.java.controllers.TrafficController;
+import controllers.TrafficController;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;

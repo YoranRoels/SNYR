@@ -1,11 +1,11 @@
-package main.java.panels;
+package panels;
 
-import main.java.controllers.DriveController;
+import controllers.DriveController;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import main.java.models.RijModel;
+import models.DriveModel;
 
 /**
  *
@@ -17,9 +17,9 @@ public class AnchorDrive extends AnchorPane
     
     private final BorderPane root;
     
-    private RijModel model;
+    private DriveModel model;
     
-    public AnchorDrive(BorderPane root,RijModel model) {
+    public AnchorDrive(BorderPane root,DriveModel model) {
         this.root = root;
         this.model=model;
     }

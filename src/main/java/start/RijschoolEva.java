@@ -5,8 +5,8 @@
  */
 package start;
 
-import main.java.controllers.InlogController;
-import main.java.domein.Student;
+import controllers.InlogController;
+import domein.Student;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -15,7 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import main.java.panels.AnchorWheel;
+import panels.AnchorWheel;
 
 /**
  *

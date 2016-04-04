@@ -1,4 +1,4 @@
-package main.java.controllers;
+package controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;

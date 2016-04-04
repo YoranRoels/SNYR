@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.panels;
+package panels;
 
-import main.java.commands.SwitchPanelCommand;
-import main.java.controllers.SideController;
+import commands.SwitchPanelCommand;
+import controllers.SideController;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import main.java.models.SkillsModel;
+import models.SkillsModel;
 
 /**
  *

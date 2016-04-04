@@ -1,7 +1,7 @@
-package main.java.panels;
+package panels;
 
-import main.java.controllers.AttitudeController;
-import main.java.controllers.DriveController;
+import controllers.AttitudeController;
+import controllers.DriveController;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;

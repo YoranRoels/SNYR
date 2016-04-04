@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.controllers;
+package controllers;
 
-import main.java.commands.SwitchPanelCommand;
-import main.java.domein.Student;
+import commands.SwitchPanelCommand;
+import domein.Student;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,10 +22,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import main.java.models.RijModel;
-import main.java.models.SkillsModel;
-import main.java.panels.AnchorSide;
-import main.java.panels.AnchorWheel;
+import models.DriveModel;
+import models.SkillsModel;
+import panels.AnchorSide;
+import panels.AnchorWheel;
 
 
 
@@ -58,7 +58,7 @@ public class HomeController {
     
     private final SkillsModel skillModel;
     
-    private final RijModel rijModel;
+    private final DriveModel rijModel;
     
     private final Student student;
     
@@ -67,7 +67,7 @@ public class HomeController {
 
     public HomeController(Stage stage,Student student,InlogController ic) {
         this.skillModel = new SkillsModel(student);
-        this.rijModel=new RijModel(student);
+        this.rijModel=new DriveModel(student);
         this.stage = stage;
         this.student=student;
         this.ic=ic;
