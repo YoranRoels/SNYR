@@ -7,15 +7,15 @@ package domein;
 public class Status 
 {
     private Color color;
-    private String commentaar;
+    private String comment;
 
-    public Status(Color color, String commentaar) {
+    public Status(Color color, String comment) {
         this.color = color;
-        this.commentaar = commentaar;
+        this.comment = comment;
     }
     public Status(){
         this.color=color.WHITE;
-        this.commentaar="";
+        this.comment="";
     }
 
     public Color getColor() {
@@ -26,12 +26,12 @@ public class Status
         this.color = color;
     }
 
-    public String getCommentaar() {
-        return commentaar;
+    public String getComment() {
+        return comment;
     }
 
-    public void setCommentaar(String commentaar) {
-        this.commentaar = commentaar;
+    public void setComment(String commentaar) {
+        this.comment = commentaar;
     }
     
     

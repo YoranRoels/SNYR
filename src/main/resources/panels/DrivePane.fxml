@@ -49,7 +49,7 @@
          </toggleGroup></RadioButton>
       <RadioButton fx:id="orange" layoutX="736.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" />
       <RadioButton fx:id="green" layoutX="790.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" />
-      <TextArea layoutX="624.0" layoutY="204.0" prefHeight="171.0" prefWidth="293.0" />
+      <TextArea fx:id="commentfield" layoutX="624.0" layoutY="204.0" prefHeight="171.0" prefWidth="293.0" />
       <Label layoutX="708.0" layoutY="170.0" text="Commentaar">
          <font>
             <Font name="Arial" size="24.0" />

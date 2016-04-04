@@ -2,9 +2,12 @@ package controllers;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
@@ -57,6 +60,9 @@ public class DriveController implements InvalidationListener
     @FXML
     private Button fotoButton;
     
+    @FXML
+    private TextArea commentfield;
+    
     private Button[] buttons;
     
     
@@ -72,22 +78,29 @@ public class DriveController implements InvalidationListener
         System.out.println("DriveController"); 
         for(Button b : buttons){
             b.setOnAction((value)->{
-                fotoButton.setId(b.getId());
-                fotoButton.setStyle(b.getStyle());
+                model.setIdEnStyle(b.getId(), b.getStyle());
             });
         }
-        
+        commentfield.setEditable(false);
 
         radioGroup.selectedToggleProperty().addListener((listener)->{
-            if(radioGroup.selectedToggleProperty().isNotNull().get()){
+            /*pas iets doen als niet null, en er een techniek is geslecteerd*/
+            if(radioGroup.selectedToggleProperty().isNotNull().get() && !model.getId().isEmpty()){
                 /*zet fotoButton op geselecteerde kleur*/
                 fotoButton.setStyle("-fx-background-color:"+radioGroup.getSelectedToggle().getUserData());
                 /*persisteren van de kleur*/
-                model.setColorForTechniek(radioGroup.getSelectedToggle().getUserData().toString(),fotoButton.getId());
+                model.setColorForTechniek(radioGroup.getSelectedToggle().getUserData().toString());
                         }
         });
+        commentfield.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                model.setCommentForTechniek(newValue);
+            }
+        });
         
-        updateColors();
+        
+        update();
         
     }
 
@@ -101,11 +114,23 @@ public class DriveController implements InvalidationListener
 
     @Override
     public void invalidated(Observable observable) {
-       updateColors();
+       update();
                }
     
     
-    public void updateColors(){
+    public void update(){
+        
+        /*foto button instellen*/
+        fotoButton.setId(model.getId());
+        fotoButton.setStyle(model.getStyle());
+        
+        /*comment invullen*/
+        commentfield.setText(model.getCommentForTechniek());
+        
+        /*pas na selectie van een knop mag comentaar aanpasbaar zijn*/
+        if(!model.getId().isEmpty()){ 
+        commentfield.setEditable(true);
+        }
         
         /*kleur doorgeven dus weeer unselecten*/
         if(radioGroup.selectedToggleProperty().isNotNull().get()){ 

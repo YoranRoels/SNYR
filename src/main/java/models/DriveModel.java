@@ -18,6 +18,9 @@ public class DriveModel extends Model {
     private final Student student;
     private final HashMap<String,Color> kleuren=new HashMap();
 
+    private String id ="";
+    private String style="";
+    
     public DriveModel(Student student) {
         this.student = student;
         kleuren.put("red", Color.RED);
@@ -25,8 +28,23 @@ public class DriveModel extends Model {
         kleuren.put("orange", Color.ORANGE);
     }
     
-    public void setColorForTechniek(String punt,String techniek){
-        switch(techniek){
+     public void setIdEnStyle(String id,String style){
+        this.id=id;
+        this.style=style;
+        fireInvalidationEvent();
+    }
+    
+    /*de id voor de fotoButton*/
+    public String getId(){
+        return id;
+    }
+    
+    public String getStyle(){
+        return style;
+    }
+    
+    public void setColorForTechniek(String punt){
+        switch(id){
             case "clutch": student.getCurrentDriveTechnic().getClutch().setColor(kleuren.get(punt));
                         break;
             case "brake": student.getCurrentDriveTechnic().getBraking().setColor(kleuren.get(punt));
@@ -53,6 +71,67 @@ public class DriveModel extends Model {
                         break;
         }
         fireInvalidationEvent();
+                
+    }
+    
+    public void setCommentForTechniek(String comment){
+        switch(id){
+            case "clutch": student.getCurrentDriveTechnic().getClutch().setComment(comment);
+                        break;
+            case "brake": student.getCurrentDriveTechnic().getBraking().setComment(comment);
+                        break;
+            case "steering": student.getCurrentDriveTechnic().getSteering().setComment(comment);
+                        break;
+            case "garage": student.getCurrentDriveTechnic().getGarage().setComment(comment);
+                        break;
+            case "hill": student.getCurrentDriveTechnic().getHillBalancing().setComment(comment);
+                        break;
+            case "looking": student.getCurrentDriveTechnic().getLooking().setComment(comment);
+                        break;
+            case "parking": student.getCurrentDriveTechnic().getParking().setComment(comment);
+                        break;
+            case "sitting": student.getCurrentDriveTechnic().getPosture().setComment(comment);
+                        break;
+            case "reverse": student.getCurrentDriveTechnic().getReverse().setComment(comment);
+                        break;
+            case "shifting": student.getCurrentDriveTechnic().getShifting().setComment(comment);
+                        break;
+            case "steeringPractice": student.getCurrentDriveTechnic().getSteeringPractice().setComment(comment);
+                        break;
+            case "turning": student.getCurrentDriveTechnic().getTurning().setComment(comment);
+                        break;
+        }
+        fireInvalidationEvent();
+                
+    }
+    
+    public String getCommentForTechniek(){
+        switch(id){
+            case "clutch": return student.getCurrentDriveTechnic().getClutch().getComment();
+                       
+            case "brake": return student.getCurrentDriveTechnic().getBraking().getComment();
+                      
+            case "steering": return student.getCurrentDriveTechnic().getSteering().getComment();
+                     
+            case "garage": return student.getCurrentDriveTechnic().getGarage().getComment();
+                    
+            case "hill": return student.getCurrentDriveTechnic().getHillBalancing().getComment();
+                      
+            case "looking": return student.getCurrentDriveTechnic().getLooking().getComment();
+                       
+            case "parking": return student.getCurrentDriveTechnic().getParking().getComment();
+                      
+            case "sitting": return student.getCurrentDriveTechnic().getPosture().getComment();
+                     
+            case "reverse": return student.getCurrentDriveTechnic().getReverse().getComment();
+                       
+            case "shifting": return student.getCurrentDriveTechnic().getShifting().getComment();
+                        
+            case "steeringPractice": return student.getCurrentDriveTechnic().getSteeringPractice().getComment();
+                        
+            case "turning": return student.getCurrentDriveTechnic().getTurning().getComment();
+            default: return "";
+        }
                 
     }
     
@@ -92,6 +171,7 @@ public class DriveModel extends Model {
     public Color getTurningColor(){
         return student.getCurrentDriveTechnic().getTurning().getColor();
     }
+    
     
     public void EvaNumberChanged(){
         fireInvalidationEvent();

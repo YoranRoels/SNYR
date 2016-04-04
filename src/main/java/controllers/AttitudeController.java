@@ -56,7 +56,7 @@ public class AttitudeController implements InvalidationListener
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                     /*tekst opslaan als deze is veranderd*/
-                    model.setAttitude(opmerkingenVeld.getText());
+                    model.setAttitude(newValue);
             }
         });
     }
