@@ -5,7 +5,7 @@ package domein;
  * @author Yoran
  */
 
-public class Evaluatie 
+public class Skills 
 {
     private boolean fueling;
     private boolean gps;
@@ -98,7 +98,7 @@ public class Evaluatie
         this.highway = highway;
     }
 
-    public Evaluatie(boolean fueling, boolean gps, boolean tires, boolean emergencystop, boolean citytraffic, boolean doublelane, boolean lights, boolean oilcheck, boolean roundabout, boolean highway) {
+    public Skills(boolean fueling, boolean gps, boolean tires, boolean emergencystop, boolean citytraffic, boolean doublelane, boolean lights, boolean oilcheck, boolean roundabout, boolean highway) {
         this.fueling = fueling;
         this.gps = gps;
         this.tires = tires;
@@ -111,7 +111,7 @@ public class Evaluatie
         this.highway = highway;
     }
     
-    public Evaluatie(){
+    public Skills(){
         this.citytraffic=false;
         this.doublelane=false;
         this.emergencystop=false;

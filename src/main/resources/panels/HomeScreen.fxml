@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane minHeight="200.0" prefHeight="200.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
@@ -22,7 +22,7 @@
                   <Image url="@../images/kleurenLegende.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="profielFoto" fitHeight="188.0" fitWidth="280.0" layoutX="438.0" layoutY="5.0" onMouseClicked="#openProfiel" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
+            <ImageView fx:id="profielFoto" fitHeight="188.0" fitWidth="280.0" layoutX="438.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
                <image>
                   <Image url="@../images/dummypicture.jpg" />
                </image>
@@ -35,13 +35,13 @@
          <children>
             <HBox layoutX="10.0" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="20.0">
                <children>
-                  <CheckBox fx:id="checkBox1" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" text="1">
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </CheckBox>
-                  <CheckBox mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" text="2" />
-                  <CheckBox mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" text="3" />
+                  <RadioButton fx:id="evatoggle1" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" text="1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="evaluaties" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="evatoggle2" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" text="2" toggleGroup="$evaluaties" />
+                  <RadioButton fx:id="evatoggle3" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" text="3" toggleGroup="$evaluaties" />
                </children>
                <padding>
                   <Insets top="10.0" />

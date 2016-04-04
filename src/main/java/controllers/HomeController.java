@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -40,7 +41,11 @@ public class HomeController {
     @FXML
     private ImageView profielFoto;
     @FXML
-    private CheckBox checkBox1;
+    private RadioButton evatoggle1;
+    @FXML
+    private RadioButton evatoggle2;
+    @FXML
+    private RadioButton evatoggle3;
     @FXML
     private BorderPane borderpane;
     @FXML
@@ -121,9 +126,27 @@ public class HomeController {
         terugknop.setOnMouseClicked(new SwitchPanelCommand(borderpane, wheelpane));
         
         
-        //set on action   ... 
-        checkBox1.setOnAction((ActionEvent event) -> {
-            System.out.println("register evalutation 1");
+        //eva selecties in stellen en huidige eva aanzetten
+        switch(student.getEvanumber()){
+            case 0: evatoggle1.setSelected(true);
+            break;
+            case 1: evatoggle2.setSelected(true);
+            break;
+            case 2: evatoggle3.setSelected(true);
+            break;
+        }
+        evatoggle1.setOnAction((ActionEvent event) -> {
+            System.out.println("choose evalutation 1");
+            veranderenEvaluatie(0);
+            
+        });
+        evatoggle2.setOnAction((ActionEvent event) -> {
+            System.out.println("choose evalutation 2");
+            veranderenEvaluatie(1);
+        });
+        evatoggle3.setOnAction((ActionEvent event) -> {
+            System.out.println("choose evalutation 3");
+            veranderenEvaluatie(2);
         });
         
         minusButton.setOnAction((ActionEvent event) -> {
@@ -136,12 +159,16 @@ public class HomeController {
     }
     
     @FXML
-    protected void openProfiel(){
-        System.out.println("Open profiel");
-    }
-    @FXML
     protected void swipeCenterPanel(){
         System.out.println("test");
+        
+    }
+    
+    public void veranderenEvaluatie(int evanummer){
+        student.setEvanumber(evanummer);
+        attitudeModel.EvaNumberChanged();
+        driveModel.EvaNumberChanged();
+        trafficModel.EvaNumberChanged();
         
     }
     

@@ -5,7 +5,7 @@
  */
 package controllers;
 
-import domein.Evaluatie;
+import domein.Skills;
 import domein.Student;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
