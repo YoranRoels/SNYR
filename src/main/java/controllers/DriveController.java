@@ -76,6 +76,7 @@ public class DriveController implements InvalidationListener
                 fotoButton.setStyle(b.getStyle());
             });
         }
+        
 
         radioGroup.selectedToggleProperty().addListener((listener)->{
             if(radioGroup.selectedToggleProperty().isNotNull().get()){

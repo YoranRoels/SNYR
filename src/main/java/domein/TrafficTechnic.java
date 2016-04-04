@@ -9,12 +9,12 @@ package domein;
  *
  * @author sande
  */
-public class Verkeerstechniek {
+public class TrafficTechnic {
     
     private Status indicators;
     private Status publicroad;
     private Status priority;
-    private Status trafficsignals;
+    private Status sign;
     private Status speed;
     private Status distance;
     private Status overtaking;
@@ -46,12 +46,12 @@ public class Verkeerstechniek {
         this.priority = priority;
     }
 
-    public Status getTrafficsignals() {
-        return trafficsignals;
+    public Status getSign() {
+        return sign;
     }
 
-    public void setTrafficsignals(Status trafficsignals) {
-        this.trafficsignals = trafficsignals;
+    public void setSign(Status sign) {
+        this.sign = sign;
     }
 
     public Status getSpeed() {
@@ -102,11 +102,11 @@ public class Verkeerstechniek {
         this.turningright = turningright;
     }
 
-    public Verkeerstechniek(Status indicators, Status publicroad, Status priority, Status trafficsignals, Status speed, Status distance, Status overtaking, Status crossing, Status turningleft, Status turningright) {
+    public TrafficTechnic(Status indicators, Status publicroad, Status priority, Status sign, Status speed, Status distance, Status overtaking, Status crossing, Status turningleft, Status turningright) {
         this.indicators = indicators;
         this.publicroad = publicroad;
         this.priority = priority;
-        this.trafficsignals = trafficsignals;
+        this.sign = sign;
         this.speed = speed;
         this.distance = distance;
         this.overtaking = overtaking;
@@ -115,11 +115,11 @@ public class Verkeerstechniek {
         this.turningright = turningright;
     }
     
-    public Verkeerstechniek(){
+    public TrafficTechnic(){
         this.indicators = new Status();
         this.publicroad = new Status();
         this.priority = new Status();
-        this.trafficsignals = new Status();
+        this.sign = new Status();
         this.speed = new Status();
         this.distance = new Status();
         this.overtaking = new Status();

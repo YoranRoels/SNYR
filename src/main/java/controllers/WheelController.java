@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import models.DriveModel;
+import models.TrafficModel;
 
 /**
  *
@@ -34,11 +35,12 @@ public class WheelController {
     private AnchorAttitude attitudePane;
     private AnchorTraffic trafficPane;
     
-    private final DriveModel rijModel;
+    private final DriveModel driveModel;
+    private final TrafficModel trafficModel;
     
     public void initialize(){
         System.out.println("Wheelcontroller");
-        drivePane = new AnchorDrive(root,rijModel);
+        drivePane = new AnchorDrive(root,driveModel);
         drivePane.create();
         driveButton.setOnMouseClicked(new SwitchPanelCommand(root, drivePane));
         
@@ -46,14 +48,15 @@ public class WheelController {
         attitudePane.create();
         attidudeButton.setOnMouseClicked(new SwitchPanelCommand(root, attitudePane));
         
-        trafficPane = new AnchorTraffic(root);
+        trafficPane = new AnchorTraffic(root,trafficModel);
         trafficPane.create();
         trafficButton.setOnMouseClicked(new SwitchPanelCommand(root, trafficPane));
     }
     
-    public WheelController(BorderPane root,DriveModel rijModel)
+    public WheelController(BorderPane root,DriveModel driveModel,TrafficModel trafficModel)
     {
         this.root=root;
-       this.rijModel=rijModel;
+       this.driveModel=driveModel;
+       this.trafficModel=trafficModel;
     }
 }

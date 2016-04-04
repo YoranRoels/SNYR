@@ -9,7 +9,7 @@ package domein;
  *
  * @author sande
  */
-public class Rijtechniek {
+public class DriveTechnic {
     
     private Status posture;
     private Status clutch;
@@ -129,7 +129,7 @@ public class Rijtechniek {
         this.hillBalancing = hillBalancing;
     }
 
-    public Rijtechniek(Status posture, Status clutch, Status braking, Status steering, Status shifting, Status looking, Status parking, Status turning, Status garage, Status reverse, Status steeringExercise, Status hillHandbrake, Status hillBalancing) {
+    public DriveTechnic(Status posture, Status clutch, Status braking, Status steering, Status shifting, Status looking, Status parking, Status turning, Status garage, Status reverse, Status steeringExercise, Status hillHandbrake, Status hillBalancing) {
         this.posture = posture;
         this.clutch = clutch;
         this.braking = braking;
@@ -145,7 +145,7 @@ public class Rijtechniek {
         this.hillBalancing = hillBalancing;
     }
     
-    public Rijtechniek(){
+    public DriveTechnic(){
         this.posture = new Status();
         this.clutch = new Status();
         this.braking = new Status();

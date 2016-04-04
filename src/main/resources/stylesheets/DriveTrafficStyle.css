@@ -75,7 +75,7 @@ and open the template in the editor.
     -fx-graphic: url("../images/drivepane/clutch.png");
 }
 
-#first
+#priority
 {
     -fx-graphic: url("../images/trafficpane/first.png");
 }
