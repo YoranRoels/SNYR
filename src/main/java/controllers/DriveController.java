@@ -112,7 +112,8 @@ public class DriveController implements InvalidationListener
 
     @Override
     public void invalidated(Observable observable) {
-       update();
+        System.out.println("Invali");
+        update();
                }
     
     

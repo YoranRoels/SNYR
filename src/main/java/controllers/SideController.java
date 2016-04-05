@@ -86,11 +86,13 @@ public class SideController implements InvalidationListener{
     {
         this.root=root;
         this.switchModel=switchmodel;
+        switchmodel.addListener(this);
     }
 
     @Override
     public void invalidated(Observable observable) {
         /*reageren op verandering van evaluatienumber*/
+        System.out.println("swtiche");
         setButtons();
            }
     

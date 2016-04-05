@@ -29,7 +29,7 @@ public class RijschoolEva extends Application {
         sander.setCurrentAttitude("test wtf");
         sander.setEvanumber(1);
         sander.setCurrentAttitude("waarom werkt da nie");
-       // sander.setEvanumber(0);
+        sander.setEvanumber(0);
         
         ObservableList<Student> studenten = 
             FXCollections.observableArrayList(sander,new Student("Yoran","Roels","yoran@mail.com","url"),new Student("Jos","Abels","yoran@mail.com","url"));

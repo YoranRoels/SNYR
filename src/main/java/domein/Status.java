@@ -17,6 +17,12 @@ public class Status
         this.color=color.WHITE;
         this.comment="";
     }
+    
+    /*copy constructor*/
+    public Status(Status other){
+        this.color=other.color;
+        this.comment=other.comment;
+    }
 
     public Color getColor() {
         return color;

@@ -115,6 +115,20 @@ public class TrafficTechnic {
         this.turningright = turningright;
     }
     
+    /*copy constructor*/
+    public TrafficTechnic(TrafficTechnic other){
+        this.indicators = new Status(other.indicators);
+        this.publicroad = new Status(other.publicroad);
+        this.priority = new Status(other.priority);
+        this.sign = new Status(other.sign);
+        this.speed = new Status(other.speed);
+        this.distance = new Status(other.distance);
+        this.overtaking = new Status(other.overtaking);
+        this.crossing = new Status(other.crossing);
+        this.turningleft = new Status(other.turningleft);
+        this.turningright = new Status(other.turningright);
+    }
+    
     public TrafficTechnic(){
         this.indicators = new Status();
         this.publicroad = new Status();

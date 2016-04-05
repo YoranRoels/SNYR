@@ -129,7 +129,7 @@ public class DriveTechnic {
         this.hillBalancing = hillBalancing;
     }
 
-    public DriveTechnic(Status posture, Status clutch, Status braking, Status steering, Status shifting, Status looking, Status parking, Status turning, Status garage, Status reverse, Status steeringExercise, Status hillHandbrake, Status hillBalancing) {
+    public DriveTechnic(Status posture, Status clutch, Status braking, Status steering, Status shifting, Status looking, Status parking, Status turning, Status garage, Status reverse, Status steeringPratice, Status hillHandbrake, Status hillBalancing) {
         this.posture = posture;
         this.clutch = clutch;
         this.braking = braking;
@@ -140,9 +140,25 @@ public class DriveTechnic {
         this.turning = turning;
         this.garage = garage;
         this.reverse = reverse;
-        this.steeringPractice = steeringExercise;
+        this.steeringPractice = steeringPratice;
         this.hillHandbrake = hillHandbrake;
         this.hillBalancing = hillBalancing;
+    }
+    /*kopie constructor*/
+    public DriveTechnic(DriveTechnic other){
+        this.posture = new Status(other.posture);
+        this.clutch = new Status(other.clutch);
+        this.braking = new Status(other.braking);
+        this.steering = new Status(other.steering);
+        this.shifting = new Status(other.shifting);
+        this.looking = new Status(other.looking);
+        this.parking = new Status(other.parking);
+        this.turning = new Status(other.turning);
+        this.garage = new Status(other.garage);
+        this.reverse = new Status(other.reverse);
+        this.steeringPractice = new Status(other.steeringPractice);
+        this.hillHandbrake = new Status(other.hillHandbrake);
+        this.hillBalancing = new Status(other.hillBalancing);
     }
     
     public DriveTechnic(){

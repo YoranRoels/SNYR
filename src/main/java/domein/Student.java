@@ -170,16 +170,15 @@ public class Student
         /*bij setten kijken of de evaluatie al gedaan is, indien nog niet huidig proces kopieren*/
         if(!evasDone[newevanumber]){
            /*kopieren*/
-            System.out.println("kopieren");
             kopierSkills(newevanumber);
-            kopierDriveTechnic(newevanumber);
-            kopierTrafficTechnic(newevanumber);
-            attitudes[newevanumber]=attitudes[evanumber].toUpperCase();
+            /*kopieren door copy constructor*/
+            drivetechnics[newevanumber]=new DriveTechnic(drivetechnics[evanumber]);
+           traffictechnics[newevanumber]=new TrafficTechnic(traffictechnics[evanumber]);
+            attitudes[newevanumber]=attitudes[evanumber];
             /*we beginnen aan de nieuwe dus op true*/
             evasDone[newevanumber]=true;
         }
         evanumber = newevanumber;
-        System.out.println(evanumber);
     }
     
     @Override
@@ -200,33 +199,5 @@ public class Student
         skills[newevanumber].setHighway(skills[evanumber].isHighway());
     }
     
-    public void kopierDriveTechnic(int newevanumber){
-        drivetechnics[newevanumber].setPosture(drivetechnics[evanumber].getPosture());
-        drivetechnics[newevanumber].setClutch(drivetechnics[evanumber].getClutch());
-        drivetechnics[newevanumber].setBraking(drivetechnics[evanumber].getBraking());
-        drivetechnics[newevanumber].setSteering(drivetechnics[evanumber].getSteering());
-        drivetechnics[newevanumber].setShifting(drivetechnics[evanumber].getShifting());
-        drivetechnics[newevanumber].setLooking(drivetechnics[evanumber].getLooking());
-        drivetechnics[newevanumber].setParking(drivetechnics[evanumber].getParking());
-        drivetechnics[newevanumber].setTurning(drivetechnics[evanumber].getTurning());
-        drivetechnics[newevanumber].setGarage(drivetechnics[evanumber].getGarage());
-        drivetechnics[newevanumber].setReverse(drivetechnics[evanumber].getReverse());
-        drivetechnics[newevanumber].setSteeringPractice(drivetechnics[evanumber].getSteeringPractice());
-        drivetechnics[newevanumber].setHillHandbrake(drivetechnics[evanumber].getHillHandbrake());
-        drivetechnics[newevanumber].setHillBalancing(drivetechnics[evanumber].getHillBalancing());
-    }
-    
-    public void kopierTrafficTechnic(int newevanumber){
-        traffictechnics[newevanumber].setIndicators(traffictechnics[evanumber].getIndicators());
-        traffictechnics[newevanumber].setPublicroad(traffictechnics[evanumber].getPublicroad());
-        traffictechnics[newevanumber].setPriority(traffictechnics[evanumber].getPriority());
-        traffictechnics[newevanumber].setSign(traffictechnics[evanumber].getSign());
-        traffictechnics[newevanumber].setSpeed(traffictechnics[evanumber].getSpeed());
-        traffictechnics[newevanumber].setDistance(traffictechnics[evanumber].getDistance());
-        traffictechnics[newevanumber].setOvertaking(traffictechnics[evanumber].getOvertaking());
-        traffictechnics[newevanumber].setCrossing(traffictechnics[evanumber].getCrossing());
-        traffictechnics[newevanumber].setTurningleft(traffictechnics[evanumber].getTurningleft());
-        traffictechnics[newevanumber].setTurningright(traffictechnics[evanumber].getTurningright());
-    }
     
 }

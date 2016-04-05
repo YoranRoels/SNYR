@@ -169,7 +169,4 @@ public class TrafficModel extends Model {
     }
     
     
-     public void EvaNumberChanged(){
-        fireInvalidationEvent();
-    }
 }

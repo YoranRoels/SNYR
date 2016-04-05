@@ -25,6 +25,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import models.AttitudeModel;
 import models.DriveModel;
+import models.Model;
 import models.SkillsModel;
 import models.TrafficModel;
 import panels.AnchorSide;
@@ -71,6 +72,8 @@ public class HomeController {
     
     private final AttitudeModel attitudeModel;
     
+    private Model[] models;
+    
     private final Student student;
     
     private final InlogController ic;
@@ -81,6 +84,7 @@ public class HomeController {
         this.driveModel=new DriveModel(student);
         this.trafficModel=new TrafficModel(student);
         this.attitudeModel=new AttitudeModel(student);
+        models=new Model[]{skillModel,driveModel,trafficModel,attitudeModel};
         this.stage = stage;
         this.student=student;
         this.ic=ic;
@@ -166,9 +170,13 @@ public class HomeController {
     
     public void veranderenEvaluatie(int evanummer){
         student.setEvanumber(evanummer);
-        attitudeModel.EvaNumberChanged();
-        driveModel.EvaNumberChanged();
-        trafficModel.EvaNumberChanged();
+        for(Model m:models){
+            m.EvaNumberChanged();
+        }
+//        attitudeModel.EvaNumberChanged();
+//        driveModel.EvaNumberChanged();
+//        trafficModel.EvaNumberChanged();
+        /*skillmodel nog*/
         
     }
     
