@@ -13,11 +13,14 @@ public class Student
     
     
     private final static int AANTALEVALUTIES=3;
-    /*arrays die de verschillende evaluaties bijhouden*/
-    private Evaluatie[] evaluaties = new Evaluatie[AANTALEVALUTIES];
+    
+    /*boolean array die bij houdt of een evaluatie al is gebruitkt*/
+    private Boolean[] evasDone = new Boolean[AANTALEVALUTIES];
+    /*arrays die de verschillende skills bijhouden*/
+    private Skills[] skills = new Skills[AANTALEVALUTIES];
     private DriveTechnic[] drivetechnics = new DriveTechnic[AANTALEVALUTIES];
     private TrafficTechnic[]  traffictechnics = new TrafficTechnic[AANTALEVALUTIES];
-    private String[] Attitudes = new String[AANTALEVALUTIES];
+    private String[] attitudes = new String[AANTALEVALUTIES];
     /*levels, is de voortgang in de progressbar --> hoe ver staat de student al*/
     private int[] levels = new int[AANTALEVALUTIES];
     /*hoeveeste evaluatie dit is*/
@@ -35,21 +38,26 @@ public class Student
         for(int i=0;i<drivetechnics.length;i++){
             drivetechnics[i]=new DriveTechnic();
         }
-        for(int i=0;i<evaluaties.length;i++){
-            evaluaties[i]=new Evaluatie();
+        for(int i=0;i<skills.length;i++){
+            skills[i]=new Skills();
         }
         for(int i=0;i<traffictechnics.length;i++){
             traffictechnics[i]=new TrafficTechnic();
         }
-        for(int i=0;i<Attitudes.length;i++){
-            Attitudes[i]="";
+        for(int i=0;i<attitudes.length;i++){
+            attitudes[i]="";
         }
         for(int i=0;i<levels.length;i++){
             levels[i]=0;
         }
+        for(int i=0;i<evasDone.length;i++){
+            evasDone[i]=false;
+        }
+        /*eerste eva wordt nu sowieso open gedaan dus true*/
+        evasDone[0]=true;
     }
 
-    public Student(String voornaam, String achternaam, String email, String fotoURL, int evanumber, Evaluatie[] evaluaties,DriveTechnic[] drivetechnics,TrafficTechnic[] traffictechnics) {
+    public Student(String voornaam, String achternaam, String email, String fotoURL, int evanumber, Skills[] skills,DriveTechnic[] drivetechnics,TrafficTechnic[] traffictechnics,Boolean[] evasDone) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.email = email;
@@ -57,7 +65,8 @@ public class Student
         this.evanumber = evanumber;
         this.traffictechnics=traffictechnics;
         this.drivetechnics=drivetechnics;
-        this.evaluaties=evaluaties;
+        this.skills=skills;
+        this.evasDone=evasDone;
     }
     
 
@@ -93,15 +102,15 @@ public class Student
         this.fotoURL = fotoURL;
     }
 
-    public Evaluatie[] getEvaluaties() {
-        return evaluaties;
+    public Skills[] getSkills() {
+        return skills;
     }
-    public Evaluatie getCurrentEvalutie(){
-        return evaluaties[evanumber];
+    public Skills getCurrentEvalutie(){
+        return skills[evanumber];
     }
 
-    public void setEvaluaties(Evaluatie[] evaluatie) {
-        this.evaluaties = evaluatie;
+    public void setSkills(Skills[] evaluatie) {
+        this.skills = evaluatie;
     }
 
     public DriveTechnic[] getDriveTechnics() {
@@ -127,18 +136,18 @@ public class Student
     }
 
     public String[] getAttitude() {
-        return Attitudes;
+        return attitudes;
     }
     
     public String getCurrentAttitude(){
-        return Attitudes[evanumber];
+        return attitudes[evanumber];
     }
 
     public void setAttitude(String[] Attitudes) {
-        this.Attitudes = Attitudes;
+        this.attitudes = Attitudes;
     }
     public void setCurrentAttitude(String attitude){
-        Attitudes[evanumber]=attitude;
+        attitudes[evanumber]=attitude;
     }
 
     public int[] getLevel() {
@@ -157,13 +166,38 @@ public class Student
         return evanumber;
     }
 
-    public void setEvanumber(int evanumber) {
-        this.evanumber = evanumber;
+    public void setEvanumber(int newevanumber) {
+        /*bij setten kijken of de evaluatie al gedaan is, indien nog niet huidig proces kopieren*/
+        if(!evasDone[newevanumber]){
+           /*kopieren*/
+            kopierSkills(newevanumber);
+            /*kopieren door copy constructor*/
+            drivetechnics[newevanumber]=new DriveTechnic(drivetechnics[evanumber]);
+           traffictechnics[newevanumber]=new TrafficTechnic(traffictechnics[evanumber]);
+            attitudes[newevanumber]=attitudes[evanumber];
+            /*we beginnen aan de nieuwe dus op true*/
+            evasDone[newevanumber]=true;
+        }
+        evanumber = newevanumber;
     }
     
     @Override
     public String toString(){
         return achternaam+" "+voornaam;
     }
+    
+    public void kopierSkills(int newevanumber){
+        skills[newevanumber].setCitytraffic(skills[evanumber].isCitytraffic());
+        skills[newevanumber].setFueling(skills[evanumber].isFueling());
+        skills[newevanumber].setGps(skills[evanumber].isGps());
+        skills[newevanumber].setTires(skills[evanumber].isTires());
+        skills[newevanumber].setEmergencystop(skills[evanumber].isEmergencystop());
+        skills[newevanumber].setDoublelane(skills[evanumber].isDoublelane());
+        skills[newevanumber].setLights(skills[evanumber].isLights());
+        skills[newevanumber].setOilcheck(skills[evanumber].isOilcheck());
+        skills[newevanumber].setRoundabout(skills[evanumber].isRoundabout());
+        skills[newevanumber].setHighway(skills[evanumber].isHighway());
+    }
+    
     
 }

@@ -20,6 +20,7 @@ public class DriveModel extends Model {
 
     private String id ="";
     private String style="";
+    private Color color = Color.WHITE;
     
     public DriveModel(Student student) {
         this.student = student;
@@ -173,10 +174,7 @@ public class DriveModel extends Model {
     }
     
     
-    public void EvaNumberChanged(){
-        fireInvalidationEvent();
-    }
-    
+
     
     
 }

@@ -83,9 +83,7 @@ public class TrafficController implements InvalidationListener
         radioGroup.selectedToggleProperty().addListener((listener)->{
             /*pas iets doen als niet null, en er een techniek is geslecteerd*/
             if(radioGroup.selectedToggleProperty().isNotNull().get() && !model.getId().isEmpty()){
-                /*zet fotoButton op geselecteerde kleur*/
-                fotoButton.setStyle("-fx-background-color:"+radioGroup.getSelectedToggle().getUserData());
-                /*persisteren van de kleur*/
+               /*persisteren van de kleur*/
                 model.setColorForTechniek(radioGroup.getSelectedToggle().getUserData().toString());
                         }
         });
@@ -114,6 +112,9 @@ public class TrafficController implements InvalidationListener
         /*foto button instellen*/
         fotoButton.setId(model.getId());
         fotoButton.setStyle(model.getStyle());
+        if(radioGroup.selectedToggleProperty().isNotNull().get()){
+        fotoButton.setStyle("-fx-background-color:"+radioGroup.getSelectedToggle().getUserData());
+        }
         
         /*comment invullen*/
         commentfield.setText(model.getCommentForTechniek());

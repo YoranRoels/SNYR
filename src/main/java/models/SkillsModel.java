@@ -95,6 +95,6 @@ public class SkillsModel extends Model {
         return student.getCurrentEvalutie().isEmergencystop();
     }
 
-
+    
     
 }

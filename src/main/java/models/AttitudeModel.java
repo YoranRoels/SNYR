@@ -27,8 +27,6 @@ public class AttitudeModel extends Model {
         return student.getCurrentAttitude();
     }
     
-      public void EvaNumberChanged(){
-        fireInvalidationEvent();
-    }
+   
     
 }

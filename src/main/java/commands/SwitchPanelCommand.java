@@ -27,6 +27,6 @@ public class SwitchPanelCommand implements EventHandler<Event> {
     @Override
     public void handle(Event event) {
         borderpane.setCenter(counterpane);
-        System.out.println("switch");
+
     }
 }

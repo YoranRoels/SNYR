@@ -95,7 +95,7 @@ and open the template in the editor.
     -fx-graphic: url("../images/trafficpane/distance.png");
 }
 
-#passing
+#overtaking
 {
     -fx-graphic: url("../images/trafficpane/passing.png");
 }
@@ -105,22 +105,22 @@ and open the template in the editor.
     -fx-graphic: url("../images/trafficpane/crossing.png");
 }
 
-#left
+#turningleft
 {
     -fx-graphic: url("../images/trafficpane/left.png");
 }
 
-#right
+#turningright
 {
     -fx-graphic: url("../images/trafficpane/right.png");
 }
 
-#signal
+#indicators
 {
     -fx-graphic: url("../images/trafficpane/signal.png");
 }
 
-#public
+#publicroad
 {
     -fx-graphic: url("../images/trafficpane/public.png");
 }

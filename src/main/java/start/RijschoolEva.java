@@ -25,8 +25,14 @@ public class RijschoolEva extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        Student sander = new Student("Sander","Nijs","sander@mail.com","url");
+        sander.setCurrentAttitude("test wtf");
+        sander.setEvanumber(1);
+        sander.setCurrentAttitude("waarom werkt da nie");
+        sander.setEvanumber(0);
+        
         ObservableList<Student> studenten = 
-            FXCollections.observableArrayList(new Student("Sander","Nijs","sander@mail.com","url"),new Student("Yoran","Roels","yoran@mail.com","url"),new Student("Jos","Abels","yoran@mail.com","url"));
+            FXCollections.observableArrayList(sander,new Student("Yoran","Roels","yoran@mail.com","url"),new Student("Jos","Abels","yoran@mail.com","url"));
     
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/InlogScreen.fxml"));

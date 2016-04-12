@@ -33,6 +33,11 @@ public class Model implements Observable{
     public void removeListener(InvalidationListener listener) {
        listenerList.remove(listener);
     }
+    
+     public void EvaNumberChanged(){
+        fireInvalidationEvent();
+    }
+    
 
   
     

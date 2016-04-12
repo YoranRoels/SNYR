@@ -65,6 +65,7 @@ public class AttitudeController implements InvalidationListener
     {
         this.root = root;
         this.model=model;
+        model.addListener(this);
     }
 
     @Override
