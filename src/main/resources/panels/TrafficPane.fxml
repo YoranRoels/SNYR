@@ -41,18 +41,18 @@
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
-      <RadioButton id="redRadioButton" fx:id="red" layoutX="683.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red; -fx-mark-color: black;">
+      <RadioButton id="redRadioButton" fx:id="red" layoutX="665.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red; -fx-mark-color: black;">
          <toggleGroup>
             <ToggleGroup fx:id="radioGroup" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="orange" layoutX="736.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" />
-      <RadioButton fx:id="green" layoutX="790.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" />
+      <RadioButton fx:id="orange" layoutX="725.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" />
+      <RadioButton fx:id="green" layoutX="785.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" />
       <TextArea fx:id="commentfield" layoutX="624.0" layoutY="204.0" prefHeight="171.0" prefWidth="293.0" />
       <Label layoutX="708.0" layoutY="170.0" text="Commentaar">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <ToggleButton id="exclamationMark" fx:id="exclamationMarkToggleButton" layoutX="838.0" layoutY="394.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
+      <ToggleButton id="exclamationMark" fx:id="exclamationMarkToggleButton" layoutX="845.0" layoutY="394.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
    </children>
 </fx:root>

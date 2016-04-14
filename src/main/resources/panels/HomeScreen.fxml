@@ -12,7 +12,7 @@
    <top>
       <AnchorPane minHeight="200.0" prefHeight="200.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField alignment="TOP_CENTER" editable="false" layoutX="8.0" layoutY="7.0" prefHeight="186.0" prefWidth="400.0" promptText="Opmerkingen vorige lessen" style="-fx-background-radius: 20;" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="7.0">
+            <TextField alignment="TOP_CENTER" editable="false" focusTraversable="false" layoutX="8.0" layoutY="7.0" prefHeight="186.0" prefWidth="400.0" promptText="Opmerkingen vorige lessen" style="-fx-background-radius: 20;" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="7.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -39,9 +39,27 @@
                      <toggleGroup>
                         <ToggleGroup fx:id="evaluaties" />
                      </toggleGroup>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding>
                   </RadioButton>
-                  <RadioButton fx:id="evatoggle2" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" text="2" toggleGroup="$evaluaties" />
-                  <RadioButton fx:id="evatoggle3" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" text="3" toggleGroup="$evaluaties" />
+                  <RadioButton fx:id="evatoggle2" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" text="2" toggleGroup="$evaluaties">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin></RadioButton>
+                  <RadioButton fx:id="evatoggle3" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" text="3" toggleGroup="$evaluaties">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></RadioButton>
                </children>
                <padding>
                   <Insets top="10.0" />
