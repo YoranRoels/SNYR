@@ -3,6 +3,7 @@ package panels;
 import controllers.AttitudeController;
 import controllers.DriveController;
 import java.io.IOException;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -19,6 +20,7 @@ public class AnchorAttitude extends AnchorPane
     private final BorderPane root;
     
     private final AttitudeModel model;
+    
     
     public AnchorAttitude(BorderPane root,AttitudeModel model) {
         this.root = root;

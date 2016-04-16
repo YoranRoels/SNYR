@@ -39,13 +39,16 @@ public class InlogController {
     private ListView<Student> studentenListView;
     
     /*dummy students*/
-    private ObservableList<Student> studenten;
+    private final ObservableList<Student> studenten;
+    
+    private final ObservableList selectie;
     
     private final Stage stage;
 
-    public InlogController(Stage stage,ObservableList<Student> studenten) {
+    public InlogController(Stage stage,ObservableList<Student> studenten,ObservableList<String> selectie) {
         this.stage = stage;
         this.studenten=studenten;
+        this.selectie=selectie;
     }
     /*constructor, met als extra waarde de geupdate student*/
 
@@ -64,7 +67,7 @@ public class InlogController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/HomeScreen.fxml"));
                 
                 /*stage en de gekozen student doorgeven*/
-                loader.setController(new HomeController(stage,studentenListView.getSelectionModel().getSelectedItem(),this));
+                loader.setController(new HomeController(stage,studentenListView.getSelectionModel().getSelectedItem(),this,selectie));
                 Parent root = (Parent) loader.load();
                 
                 //Scene scene = new Scene(root);

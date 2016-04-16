@@ -10,6 +10,8 @@ import panels.AnchorAttitude;
 import panels.AnchorDrive;
 import commands.SwitchPanelCommand;
 import domein.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;

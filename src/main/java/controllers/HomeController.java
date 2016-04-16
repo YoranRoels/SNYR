@@ -12,6 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -84,11 +86,12 @@ public class HomeController implements InvalidationListener{
     private final InlogController ic;
     
 
-    public HomeController(Stage stage,Student student,InlogController ic) {
+    public HomeController(Stage stage,Student student,InlogController ic,ObservableList<String> selectie) {
         this.skillModel = new SkillsModel(student);
         this.driveModel=new DriveModel(student);
         this.trafficModel=new TrafficModel(student);
-        this.attitudeModel=new AttitudeModel(student);
+        
+        this.attitudeModel=new AttitudeModel(student,selectie);
         this.homeModel=new HomeModel(student);
         models=new Model[]{skillModel,driveModel,trafficModel,attitudeModel,homeModel};
         this.stage = stage;

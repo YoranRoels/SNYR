@@ -40,14 +40,11 @@ public class AttitudeController implements InvalidationListener
     
     private final BorderPane root;
     
-    private final ObservableList<String> selectie = FXCollections.observableArrayList("Zenuwachtig","Concentractie",
-            "Schrik","Asociaal","Verkeersgevaarlijk","Ongeduldig","Agressief rijgedrag","Inzet","Verstrooid","Eigenwijs");
-    
     private final AttitudeModel model;
             
     public void initialize(){
         System.out.println("AttitudeController");
-        selectieListView.setItems(selectie);
+        selectieListView.setItems(model.getSelectie());
         selectieListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
             @Override
@@ -71,7 +68,7 @@ public class AttitudeController implements InvalidationListener
        toevoegButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                selectie.add(toevoegField.getText());
+                model.addNieuwSelectieWoord(toevoegField.getText());
                 toevoegField.setText("");
             }
         });
