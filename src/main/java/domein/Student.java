@@ -21,6 +21,8 @@ public class Student
     private DriveTechnic[] drivetechnics = new DriveTechnic[AANTALEVALUTIES];
     private TrafficTechnic[]  traffictechnics = new TrafficTechnic[AANTALEVALUTIES];
     private String[] attitudes = new String[AANTALEVALUTIES];
+    /*progress van de progressbar/abx level*/
+    private Double[] progreses = new Double[AANTALEVALUTIES];
     /*levels, is de voortgang in de progressbar --> hoe ver staat de student al*/
     private int[] levels = new int[AANTALEVALUTIES];
     /*hoeveeste evaluatie dit is*/
@@ -53,6 +55,9 @@ public class Student
         for(int i=0;i<evasDone.length;i++){
             evasDone[i]=false;
         }
+        for(int i=0;i<progreses.length;i++){
+            progreses[i]=0.0;
+        }
         /*eerste eva wordt nu sowieso open gedaan dus true*/
         evasDone[0]=true;
     }
@@ -68,7 +73,22 @@ public class Student
         this.skills=skills;
         this.evasDone=evasDone;
     }
+
+    public Double[] getProgreses() {
+        return progreses;
+    }
+
+    public void setProgreses(Double[] progreses) {
+        this.progreses = progreses;
+    }
     
+    public double getCurrentProgres(){
+        return progreses[evanumber];
+    }
+    
+    public void setCurrentProgres(double i){
+        progreses[evanumber]=i;
+    }
 
     public String getVoornaam() {
         return voornaam;
@@ -175,6 +195,7 @@ public class Student
             drivetechnics[newevanumber]=new DriveTechnic(drivetechnics[evanumber]);
            traffictechnics[newevanumber]=new TrafficTechnic(traffictechnics[evanumber]);
             attitudes[newevanumber]=attitudes[evanumber];
+            progreses[newevanumber]=progreses[evanumber];
             /*we beginnen aan de nieuwe dus op true*/
             evasDone[newevanumber]=true;
         }
