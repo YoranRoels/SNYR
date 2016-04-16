@@ -6,6 +6,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -30,6 +31,12 @@ public class AttitudeController implements InvalidationListener
     
     @FXML
     private TextArea opmerkingenVeld;
+    
+    @FXML
+    private TextField toevoegField;
+    
+    @FXML
+    private Button toevoegButton;
     
     private final BorderPane root;
     
@@ -59,6 +66,16 @@ public class AttitudeController implements InvalidationListener
                     model.setAttitude(newValue);
             }
         });
+       
+       /*toevoeg button*/
+       toevoegButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                selectie.add(toevoegField.getText());
+                toevoegField.setText("");
+            }
+        });
+       
     }
 
     public AttitudeController(BorderPane root,AttitudeModel model) 
