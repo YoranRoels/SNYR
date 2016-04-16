@@ -28,7 +28,7 @@ public class SkillsModel extends Model {
     }
     
     public boolean getOil(){
-        return student.getCurrentEvalutie().isFueling();
+        return student.getCurrentEvalutie().isOilcheck();
     }
     
     public void switchTires(){
@@ -54,7 +54,7 @@ public class SkillsModel extends Model {
     }
     
     public void switchHighWay(){
-       student.getCurrentEvalutie().setRoundabout(getHighWay());
+       student.getCurrentEvalutie().setHighway(!getHighWay());
     }
     public boolean getHighWay(){
         return student.getCurrentEvalutie().isHighway();
@@ -75,7 +75,7 @@ public class SkillsModel extends Model {
     }
     
     public void switchFueling(){
-       student.getCurrentEvalutie().setFueling(!getCityTraffic());
+       student.getCurrentEvalutie().setFueling(!getFueling());
     }
     public boolean getFueling(){
         return student.getCurrentEvalutie().isFueling();
