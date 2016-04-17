@@ -6,6 +6,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -31,16 +32,19 @@ public class AttitudeController implements InvalidationListener
     @FXML
     private TextArea opmerkingenVeld;
     
-    private final BorderPane root;
+    @FXML
+    private TextField toevoegField;
     
-    private final ObservableList<String> selectie = FXCollections.observableArrayList("Zenuwachtig","Concentractie",
-            "Schrik","Asociaal","Verkeersgevaarlijk","Ongeduldig","Agressief rijgedrag","Inzet","Verstrooid","Eigenwijs");
+    @FXML
+    private Button toevoegButton;
+    
+    private final BorderPane root;
     
     private final AttitudeModel model;
             
     public void initialize(){
         System.out.println("AttitudeController");
-        selectieListView.setItems(selectie);
+        selectieListView.setItems(model.getSelectie());
         selectieListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
             @Override
@@ -59,6 +63,16 @@ public class AttitudeController implements InvalidationListener
                     model.setAttitude(newValue);
             }
         });
+       
+       /*toevoeg button*/
+       toevoegButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                model.addNieuwSelectieWoord(toevoegField.getText());
+                toevoegField.setText("");
+            }
+        });
+       
     }
 
     public AttitudeController(BorderPane root,AttitudeModel model) 

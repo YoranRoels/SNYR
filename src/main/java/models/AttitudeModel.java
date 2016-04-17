@@ -6,6 +6,7 @@
 package models;
 
 import domein.Student;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -14,9 +15,13 @@ import domein.Student;
 public class AttitudeModel extends Model {
     
     private final Student student;
+    
+    /*lijst met de selectie woorden*/
+    private final ObservableList<String> selectie;
 
-    public AttitudeModel(Student student) {
+    public AttitudeModel(Student student,ObservableList<String> selectie) {
         this.student = student;
+        this.selectie=selectie;
     }
     
     public void setAttitude(String attitude){
@@ -25,6 +30,15 @@ public class AttitudeModel extends Model {
     
     public String getAttitude(){
         return student.getCurrentAttitude();
+    }
+    
+    public void addNieuwSelectieWoord(String woord){
+        selectie.add(woord);
+        fireInvalidationEvent();
+    }
+    
+    public ObservableList<String> getSelectie(){
+        return selectie;
     }
     
    
