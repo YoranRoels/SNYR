@@ -1,57 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root prefHeight="488.0" prefWidth="1024.0" stylesheets="@../stylesheets/ToggleStyleSheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ToggleButton id="olie" fx:id="oil" contentDisplay="CENTER" layoutX="70.0" layoutY="74.0" mnemonicParsing="false" AnchorPane.leftAnchor="70.0">
-         <GridPane.margin>
-            <Insets left="50.0" />
-         </GridPane.margin>
-      </ToggleButton>
-      <ToggleButton id="rondpunt" fx:id="roundabout" layoutX="663.0" layoutY="318.0" mnemonicParsing="false" AnchorPane.rightAnchor="245.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets left="70.0" />
-         </GridPane.margin>
-      </ToggleButton>
-      <ToggleButton id="lichten" fx:id="lights" layoutX="70.0" layoutY="318.0" mnemonicParsing="false" AnchorPane.leftAnchor="70.0" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets left="50.0" />
-         </GridPane.margin>
-      </ToggleButton>
-      <ToggleButton id="banden" fx:id="tires" layoutX="245.0" layoutY="318.0" mnemonicParsing="false" AnchorPane.leftAnchor="245.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <ToggleButton id="gps" fx:id="gps" layoutX="464.0" layoutY="74.0" mnemonicParsing="false" AnchorPane.leftAnchor="464.0" AnchorPane.rightAnchor="464.0" GridPane.columnIndex="2">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <GridPane.margin>
-            <Insets left="20.0" />
-         </GridPane.margin>
-      </ToggleButton>
-      <ToggleButton id="bebouwdekom" fx:id="citytraffic" layoutX="838.0" layoutY="74.0" mnemonicParsing="false" AnchorPane.rightAnchor="70.0" GridPane.columnIndex="4">
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </ToggleButton>
-      <ToggleButton id="tanken" fx:id="fueling" layoutX="245.0" layoutY="74.0" mnemonicParsing="false" AnchorPane.leftAnchor="245.0" GridPane.columnIndex="1" />
-      <ToggleButton id="snelweg" fx:id="highway" layoutX="838.0" layoutY="318.0" mnemonicParsing="false" AnchorPane.rightAnchor="70.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </ToggleButton>
-      <ToggleButton id="noodstop" fx:id="emergencystop" layoutX="464.0" layoutY="318.0" mnemonicParsing="false" AnchorPane.leftAnchor="464.0" AnchorPane.rightAnchor="464.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </ToggleButton>
-      <ToggleButton id="dubbelvaksbaan" fx:id="doublelane" layoutX="663.0" layoutY="74.0" mnemonicParsing="false" AnchorPane.rightAnchor="245.0" GridPane.columnIndex="3">
-         <GridPane.margin>
-            <Insets left="70.0" />
-         </GridPane.margin>
-      </ToggleButton>
+      <Circle centerX="500.0" centerY="245.0" layoutX="-177.0" layoutY="10.0" opacity="0.21" radius="220.0" stroke="BLACK" strokeType="INSIDE" translateY="-8.0">
+         <fill>
+            <LinearGradient endX="0.20476190476190478" endY="0.8142857142857143" startX="0.9428571428571428" startY="0.04761904761904767">
+               <stops>
+                  <Stop color="#91a0ae" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Circle>
+      <Button id="highway" fx:id="highwayButton" layoutX="82.0" layoutY="161.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
+      <Button id="emergencystop" fx:id="emergencystopButton" layoutX="288.0" layoutY="405.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
+      <Button id="oilcheck" fx:id="oilcheckButton" layoutX="148.0" layoutY="368.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
+      <Button id="lights" fx:id="lightsButton" layoutX="428.0" layoutY="363.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
+      <Button id="gps" fx:id="gpsButton" layoutX="495.0" layoutY="267.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
+      <Button id="city" fx:id="cityButton" layoutX="428.0" layoutY="60.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
+      <Button id="roundabout" fx:id="roundaboutButton" layoutX="82.0" layoutY="267.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
+      <Button id="tires" fx:id="tiresButton" layoutX="288.0" layoutY="16.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
+      <Button id="doublelane" fx:id="doublelaneButton" layoutX="495.0" layoutY="161.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
+      <Button id="fueling" fx:id="fuelingButton" layoutX="148.0" layoutY="60.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="414.0" layoutX="618.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" translateX="20.0" width="324.0" />
+      <TextField layoutX="634.0" layoutY="138.0" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="236.0" translateX="20.0" />
+      <Button fx:id="fotoButton" layoutX="750.0" layoutY="58.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateX="20.0" />
+      <MenuButton id="menuButton" layoutX="874.0" layoutY="138.0" mnemonicParsing="false" translateX="20.0">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </MenuButton>
+      <RadioButton fx:id="green" layoutX="795.0" layoutY="410.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: green; -fx-mark-color: black;" translateX="20.0">
+         <toggleGroup>
+            <ToggleGroup fx:id="radioGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="orange" layoutX="735.0" layoutY="410.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
+      <RadioButton id="redRadioButton" fx:id="red" layoutX="675.0" layoutY="410.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
+      <TextArea fx:id="commentfield" layoutX="634.0" layoutY="214.0" prefHeight="171.0" prefWidth="293.0" translateX="20.0" />
+      <Label layoutX="718.0" layoutY="180.0" text="Commentaar" translateX="20.0">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Label>
+      <ToggleButton id="exclamationMark" fx:id="exclamationMarkToggleButton" layoutX="855.0" layoutY="404.0" mnemonicParsing="false" style="-fx-background-radius: 250;" translateX="20.0" />
    </children>
 </fx:root>

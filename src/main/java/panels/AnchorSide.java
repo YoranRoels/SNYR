@@ -11,7 +11,7 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import models.SkillsModel;
+import models.SideModel;
 
 /**
  *
@@ -23,9 +23,9 @@ public class AnchorSide extends AnchorPane
     
     private final BorderPane root;
     
-    private SkillsModel switchModel;
+    private SideModel switchModel;
 
-    public AnchorSide(BorderPane root,SkillsModel switchModel) {
+    public AnchorSide(BorderPane root,SideModel switchModel) {
         this.root = root; 
         this.switchModel=switchModel;
     }

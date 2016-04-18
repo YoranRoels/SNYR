@@ -9,104 +9,145 @@ import domein.Skills;
 import domein.Student;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
-import models.SkillsModel;
+import models.SideModel;
+import models.TrafficModel;
 
 /**
  *
  * @author sande
  */
-public class SideController implements InvalidationListener{
+public class SideController implements InvalidationListener
+{       
+    private BorderPane root;
     
+    @FXML
+    private ToggleGroup radioGroup;
     
     @FXML
-    private ToggleButton oil;
+    private RadioButton red;
     @FXML
-    private ToggleButton tires;
+    private RadioButton orange;
     @FXML
-    private ToggleButton gps;
-    @FXML
-    private ToggleButton roundabout;
-    @FXML
-    private ToggleButton doublelane;
-    @FXML
-    private ToggleButton lights;
-    @FXML
-    private ToggleButton fueling;
-    @FXML
-    private ToggleButton citytraffic;
-    @FXML
-    private ToggleButton highway;
-    @FXML
-    private ToggleButton emergencystop;
+    private RadioButton green;
     
-    private final BorderPane root;
+    @FXML
+    private Button tiresButton;
+    @FXML
+    private Button cityButton;
+    @FXML
+    private Button doublelaneButton;
+    @FXML
+    private Button gpsButton;
+    @FXML
+    private Button lightsButton;
+    @FXML
+    private Button emergencystopButton;
+    @FXML
+    private Button oilcheckButton;
+    @FXML
+    private Button roundaboutButton;
+    @FXML
+    private Button highwayButton;
+    @FXML
+    private Button fuelingButton;
     
-    private final SkillsModel switchModel;
+    @FXML
+    private Button fotoButton;
+    
+    @FXML
+    private TextArea commentfield;
+    
+    private Button[] buttons;
+    
+    private final SideModel model;
     
     public void initialize(){
-        System.out.println("SideController");
-        /*knoppen instellenn*/
-        setButtons();
-        oil.setOnAction((value)->{
-            switchModel.switchOil();
+        System.out.println("DriveController"); 
+        buttons = new Button[]{tiresButton,cityButton,doublelaneButton,gpsButton,lightsButton,emergencystopButton,oilcheckButton,roundaboutButton,highwayButton,fuelingButton};
+        
+        red.setUserData("red");
+        orange.setUserData("orange");
+        green.setUserData("green");
+        
+        commentfield.setEditable(false);
+        
+        for(Button b : buttons){
+            b.setOnAction((value)->{
+                model.setIdEnStyle(b.getId(), b.getStyle());
+
+            });
+        }
+        
+        radioGroup.selectedToggleProperty().addListener((listener)->{
+            /*pas iets doen als niet null, en er een techniek is geslecteerd*/
+            if(radioGroup.selectedToggleProperty().isNotNull().get() && !model.getId().isEmpty()){
+               /*persisteren van de kleur*/
+                model.setColorForSkills(radioGroup.getSelectedToggle().getUserData().toString());
+                        }
         });
-        fueling.setOnAction((value)->{
-            switchModel.switchFueling();
+        
+        commentfield.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                model.setCommentForSkills(newValue);
+            }
         });
-        citytraffic.setOnAction((value)->{
-            switchModel.switchCityTraffic();
-        });
-        doublelane.setOnAction((value)->{
-            switchModel.switchDoubleLaneRoad();
-        });
-        highway.setOnAction((value)->{
-            switchModel.switchHighWay();
-        });
-        emergencystop.setOnAction((value)->{
-            switchModel.switchEmergencyStop();
-        });
-        gps.setOnAction((value)->{
-            switchModel.switchGps();
-        });
-        lights.setOnAction((value)->{
-            switchModel.switchLights();
-        });
-        roundabout.setOnAction((value)->{
-            switchModel.switchRoundAbout();
-        });
-        tires.setOnAction((value)->{
-            switchModel.switchTires();
-        });
-    }
-    
-    public SideController(BorderPane root,SkillsModel switchmodel)
-    {
-        this.root=root;
-        this.switchModel=switchmodel;
-        switchmodel.addListener(this);
+        
+        update();
+        
     }
 
+    public SideController(BorderPane root, SideModel model) 
+    {
+        System.out.println("SideController Aangemaakt"); 
+        this.root = root;
+        this.model=model;
+        model.addListener(this);
+    }
+
+    public void update(){
+        
+        /*foto button instellen*/
+        fotoButton.setId(model.getId());
+        fotoButton.setStyle(model.getStyle());
+        if(radioGroup.selectedToggleProperty().isNotNull().get()){
+        fotoButton.setStyle("-fx-background-color:"+radioGroup.getSelectedToggle().getUserData());
+        }
+        
+        /*comment invullen*/
+        commentfield.setText(model.getCommentForSkills());
+        
+        /*pas na selectie van een knop mag comentaar aanpasbaar zijn*/
+        if(!model.getId().isEmpty()){ 
+        commentfield.setEditable(true);
+        }
+         /*kleur doorgeven dus weeer unselecten*/
+        if(radioGroup.selectedToggleProperty().isNotNull().get()){ 
+            radioGroup.getSelectedToggle().setSelected(false);
+                }
+        tiresButton.setStyle("-fx-background-color:"+model.getTiresColor());
+        cityButton.setStyle("-fx-background-color:"+model.getCityColor());
+        doublelaneButton.setStyle("-fx-background-color:"+model.getDoublelaneColor());
+        gpsButton.setStyle("-fx-background-color:"+model.getGpsColor());
+        lightsButton.setStyle("-fx-background-color:"+model.getLightsColor());
+        emergencystopButton.setStyle("-fx-background-color:"+model.getEmergencystopColor());
+        oilcheckButton.setStyle("-fx-background-color:"+model.getOilcheckColor());
+        roundaboutButton.setStyle("-fx-background-color:"+model.getRoundaboutColor());
+        highwayButton.setStyle("-fx-background-color:"+model.getHighwayColor());
+        fuelingButton.setStyle("-fx-background-color:"+model.getFuelingColor());
+    }
+    
     @Override
     public void invalidated(Observable observable) {
-        /*reageren op verandering van evaluatienumber*/
-        System.out.println("swtiche");
-        setButtons();
-           }
-    
-    
-    public void setButtons(){
-        oil.setSelected(switchModel.getOil());
-        citytraffic.setSelected(switchModel.getCityTraffic());
-        doublelane.setSelected(switchModel.getDoubleLaneRoad());
-        emergencystop.setSelected(switchModel.getEmergencyStop());
-        fueling.setSelected(switchModel.getFueling());
-        gps.setSelected(switchModel.getGps());
-        highway.setSelected(switchModel.getHighWay());
-        lights.setSelected(switchModel.getLights());
-        roundabout.setSelected(switchModel.getRoundAbout());
-        tires.setSelected(switchModel.getTires());
+        update();
     }
 }
