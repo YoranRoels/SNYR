@@ -18,7 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
-import models.SideModel;
+import models.SkillsModel;
 import models.TrafficModel;
 
 /**
@@ -68,7 +68,7 @@ public class SideController implements InvalidationListener
     
     private Button[] buttons;
     
-    private final SideModel model;
+    private final SkillsModel model;
     
     public void initialize(){
         System.out.println("DriveController"); 
@@ -106,7 +106,7 @@ public class SideController implements InvalidationListener
         
     }
 
-    public SideController(BorderPane root, SideModel model) 
+    public SideController(BorderPane root, SkillsModel model) 
     {
         System.out.println("SideController Aangemaakt"); 
         this.root = root;
