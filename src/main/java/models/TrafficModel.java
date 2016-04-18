@@ -13,38 +13,15 @@ import java.util.HashMap;
  *
  * @author sande
  */
-public class TrafficModel extends Model {
+public class TrafficModel extends StatusSuperModel {
     
-    
-    private final Student student;
-    private final HashMap<String,Color> kleuren=new HashMap();
-    
-    /*de huidige Id en style voor de foto button*/
-    private String id ="";
-    private String style="";
+
     
     
     public TrafficModel(Student student) {
-        this.student = student;
-        kleuren.put("red", Color.RED);
-        kleuren.put("green", Color.GREEN);
-        kleuren.put("orange", Color.ORANGE);
+        super(student);
     }
     
-    public void setIdEnStyle(String id,String style){
-        this.id=id;
-        this.style=style;
-        fireInvalidationEvent();
-    }
-    
-    /*de id voor de fotoButton*/
-    public String getId(){
-        return id;
-    }
-    
-    public String getStyle(){
-        return style;
-    }
     
     public void setColorForTechniek(String punt){
         switch(id){

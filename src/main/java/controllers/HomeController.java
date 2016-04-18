@@ -31,7 +31,7 @@ import models.AttitudeModel;
 import models.DriveModel;
 import models.HomeModel;
 import models.Model;
-import models.SideModel;
+import models.SkillsModel;
 import models.TrafficModel;
 import panels.AnchorSide;
 import panels.AnchorWheel;
@@ -69,7 +69,7 @@ public class HomeController implements InvalidationListener{
     
     private final Stage stage;
     
-    private final SideModel skillModel;
+    private final SkillsModel skillModel;
     
     private final DriveModel driveModel;
     
@@ -87,7 +87,7 @@ public class HomeController implements InvalidationListener{
     
 
     public HomeController(Stage stage,Student student,InlogController ic,ObservableList<String> selectie) {
-        this.skillModel = new SideModel(student);
+        this.skillModel = new SkillsModel(student);
         this.driveModel=new DriveModel(student);
         this.trafficModel=new TrafficModel(student);
         

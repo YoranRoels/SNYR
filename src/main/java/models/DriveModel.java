@@ -13,36 +13,14 @@ import java.util.HashMap;
  *
  * @author sande
  */
-public class DriveModel extends Model {
+public class DriveModel extends StatusSuperModel {
    
-    private final Student student;
-    private final HashMap<String,Color> kleuren=new HashMap();
-
-    private String id ="";
-    private String style="";
-    private Color color = Color.WHITE;
+   
     
     public DriveModel(Student student) {
-        this.student = student;
-        kleuren.put("red", Color.RED);
-        kleuren.put("green", Color.GREEN);
-        kleuren.put("orange", Color.ORANGE);
+        super(student);
     }
     
-     public void setIdEnStyle(String id,String style){
-        this.id=id;
-        this.style=style;
-        fireInvalidationEvent();
-    }
-    
-    /*de id voor de fotoButton*/
-    public String getId(){
-        return id;
-    }
-    
-    public String getStyle(){
-        return style;
-    }
     
     public void setColorForTechniek(String punt){
         switch(id){
