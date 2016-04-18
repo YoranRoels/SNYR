@@ -139,7 +139,7 @@ and open the template in the editor.
 }
 
 #gps{
-    -fx-graphic: url("../images/switches/gpsalpha.png");
+    -fx-graphic: url("../images/switches/gps.png");
 }
 
 #lights{
