@@ -46,7 +46,7 @@ public class TrafficModel extends Model {
         return style;
     }
     
-     public void setColorForTechniek(String punt){
+    public void setColorForTechniek(String punt){
         switch(id){
             case "priority": student.getCurrentTrafficTechnic().getPriority().setColor(kleuren.get(punt));
                         break;

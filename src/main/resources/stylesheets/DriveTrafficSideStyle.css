@@ -1,0 +1,187 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22-Mar-2016, 14:24:56
+    Author     : Yoran
+*/
+
+.roundButton
+{
+    -fx-background-radius:500;
+}
+
+#brake
+{
+    -fx-graphic: url("../images/drivepane/brake.png");
+}
+
+#steering
+{
+    -fx-graphic: url("../images/drivepane/steering.png");
+}
+
+#shifting
+{
+    -fx-graphic: url("../images/drivepane/shifting.png");
+}
+
+
+#looking
+{
+    -fx-graphic: url("../images/drivepane/looking.png");
+}
+
+#parking
+{
+    -fx-graphic: url("../images/drivepane/parking.png");
+}
+
+#turning
+{
+    -fx-graphic: url("../images/drivepane/turning.png");
+}
+
+#garage
+{
+    -fx-graphic: url("../images/drivepane/garage.png");
+}
+
+
+#reverse
+{
+    -fx-graphic: url("../images/drivepane/reverse.png");
+}
+
+#steeringPractice
+{
+    -fx-graphic: url("../images/drivepane/steeringPractice.png");
+}
+
+#hill
+{
+    -fx-graphic: url("../images/drivepane/hill.png");
+}
+
+#sitting
+{
+    -fx-graphic: url("../images/drivepane/sitting.png");
+}
+
+#clutch
+{
+    -fx-graphic: url("../images/drivepane/clutch.png");
+}
+
+#priority
+{
+    -fx-graphic: url("../images/trafficpane/first.png");
+}
+
+#sign
+{
+    -fx-graphic: url("../images/trafficpane/sign.png");
+}
+
+#speed
+{
+    -fx-graphic: url("../images/trafficpane/speed.png");
+}
+
+#distance
+{
+    -fx-graphic: url("../images/trafficpane/distance.png");
+}
+
+#overtaking
+{
+    -fx-graphic: url("../images/trafficpane/passing.png");
+}
+
+#crossing
+{
+    -fx-graphic: url("../images/trafficpane/crossing.png");
+}
+
+#turningleft
+{
+    -fx-graphic: url("../images/trafficpane/left.png");
+}
+
+#turningright
+{
+    -fx-graphic: url("../images/trafficpane/right.png");
+}
+
+#indicators
+{
+    -fx-graphic: url("../images/trafficpane/signal.png");
+}
+
+#publicroad
+{
+    -fx-graphic: url("../images/trafficpane/public.png");
+}
+
+/*SIDE*/
+#tires{
+    -fx-graphic: url("../images/switches/tires.png");
+}
+
+#city{
+    -fx-graphic: url("../images/switches/city.png");
+}
+
+#doublelane{
+    -fx-graphic: url("../images/switches/doublelane.png");
+}
+
+#gps{
+    -fx-graphic: url("../images/switches/gpsalpha.png");
+}
+
+#lights{
+    -fx-graphic: url("../images/switches/lights.png");
+}
+
+#emergencystop{
+    -fx-graphic: url("../images/switches/emergencystop.png");
+}
+
+#oilcheck{
+    -fx-graphic: url("../images/switches/oilcheck.png");
+}
+
+#roundabout{
+    -fx-graphic: url("../images/switches/roundabout.png");
+}
+
+#highway{
+    -fx-graphic: url("../images/switches/highway.png");
+}
+
+#fueling{
+    -fx-graphic: url("../images/switches/fueling.png");
+}
+
+/*GENERAL*/
+#exclamationMark
+{
+    -fx-graphic: url("../images/drivepane/exclamationMarkSmall.png");
+}
+
+#exclamationMark:selected
+{
+    -fx-base: #40B1D6; 
+}
+
+#menuButton
+{
+    -fx-graphic: url("../images/drivepane/menuButtonSmall.png");
+    -fx-max-width: 50px;
+    -fx-max-height: 50px;
+    -fx-min-width: 50px;
+    -fx-min-width: 50px;
+}

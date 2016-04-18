@@ -132,6 +132,10 @@ public class Student
     public void setSkills(Skills[] evaluatie) {
         this.skills = evaluatie;
     }
+    
+    public Skills getCurrentSkills(){
+        return skills[evanumber];
+    }
 
     public DriveTechnic[] getDriveTechnics() {
         return drivetechnics;
@@ -189,15 +193,14 @@ public class Student
     public void setEvanumber(int newevanumber) {
         /*bij setten kijken of de evaluatie al gedaan is, indien nog niet huidig proces kopieren*/
         if(!evasDone[newevanumber]){
-           /*kopieren*/
-            kopierSkills(newevanumber);
-            /*kopieren door copy constructor*/
-            drivetechnics[newevanumber]=new DriveTechnic(drivetechnics[evanumber]);
+           /*kopieren door copy constructor*/
+           drivetechnics[newevanumber]=new DriveTechnic(drivetechnics[evanumber]);
            traffictechnics[newevanumber]=new TrafficTechnic(traffictechnics[evanumber]);
-            attitudes[newevanumber]=attitudes[evanumber];
-            progreses[newevanumber]=progreses[evanumber];
-            /*we beginnen aan de nieuwe dus op true*/
-            evasDone[newevanumber]=true;
+           skills[newevanumber]=new Skills(skills[evanumber]);
+           attitudes[newevanumber]=attitudes[evanumber];
+           progreses[newevanumber]=progreses[evanumber];
+           /*we beginnen aan de nieuwe dus op true*/
+           evasDone[newevanumber]=true;
         }
         evanumber = newevanumber;
     }
@@ -206,19 +209,4 @@ public class Student
     public String toString(){
         return achternaam+" "+voornaam;
     }
-    
-    public void kopierSkills(int newevanumber){
-        skills[newevanumber].setCitytraffic(skills[evanumber].isCitytraffic());
-        skills[newevanumber].setFueling(skills[evanumber].isFueling());
-        skills[newevanumber].setGps(skills[evanumber].isGps());
-        skills[newevanumber].setTires(skills[evanumber].isTires());
-        skills[newevanumber].setEmergencystop(skills[evanumber].isEmergencystop());
-        skills[newevanumber].setDoublelane(skills[evanumber].isDoublelane());
-        skills[newevanumber].setLights(skills[evanumber].isLights());
-        skills[newevanumber].setOilcheck(skills[evanumber].isOilcheck());
-        skills[newevanumber].setRoundabout(skills[evanumber].isRoundabout());
-        skills[newevanumber].setHighway(skills[evanumber].isHighway());
-    }
-    
-    
 }

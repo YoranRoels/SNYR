@@ -75,7 +75,8 @@ public class DriveModel extends Model {
                 
     }
     
-    public void setCommentForTechniek(String comment){
+    public void setCommentForTechniek(String comment)
+    {
         switch(id){
             case "clutch": student.getCurrentDriveTechnic().getClutch().setComment(comment);
                         break;
@@ -172,8 +173,7 @@ public class DriveModel extends Model {
     public Color getTurningColor(){
         return student.getCurrentDriveTechnic().getTurning().getColor();
     }
-    
-    
+
 
     
     

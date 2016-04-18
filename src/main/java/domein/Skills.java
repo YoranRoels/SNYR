@@ -7,103 +7,103 @@ package domein;
 
 public class Skills 
 {
-    private boolean fueling;
-    private boolean gps;
-    private boolean tires;
-    private boolean emergencystop;
-    private boolean citytraffic;
-    private boolean doublelane;
-    private boolean lights;
-    private boolean oilcheck;
-    private boolean roundabout;
-    private boolean highway;
+    private Status fueling;
+    private Status gps;
+    private Status tires;
+    private Status emergencystop;
+    private Status city;
+    private Status doublelane;
+    private Status lights;
+    private Status oilcheck;
+    private Status roundabout;
+    private Status highway;
 
-    public boolean isFueling() {
+    public Status getFueling() {
         return fueling;
     }
 
-    public void setFueling(boolean fueling) {
+    public void setFueling(Status fueling) {
         this.fueling = fueling;
     }
 
-    public boolean isGps() {
+    public Status getGps() {
         return gps;
     }
 
-    public void setGps(boolean gps) {
+    public void setGps(Status gps) {
         this.gps = gps;
     }
 
-    public boolean isTires() {
+    public Status getTires() {
         return tires;
     }
 
-    public void setTires(boolean tires) {
+    public void setTires(Status tires) {
         this.tires = tires;
     }
 
-    public boolean isEmergencystop() {
+    public Status getEmergencystop() {
         return emergencystop;
     }
 
-    public void setEmergencystop(boolean emergencystop) {
+    public void setEmergencystop(Status emergencystop) {
         this.emergencystop = emergencystop;
     }
 
-    public boolean isCitytraffic() {
-        return citytraffic;
+    public Status getCity() {
+        return city;
     }
 
-    public void setCitytraffic(boolean citytraffic) {
-        this.citytraffic = citytraffic;
+    public void setCity(Status city) {
+        this.city = city;
     }
 
-    public boolean isDoublelane() {
+    public Status getDoublelane() {
         return doublelane;
     }
 
-    public void setDoublelane(boolean doublelane) {
+    public void setDoublelane(Status doublelane) {
         this.doublelane = doublelane;
     }
 
-    public boolean isLights() {
+    public Status getLights() {
         return lights;
     }
 
-    public void setLights(boolean lights) {
+    public void setLights(Status lights) {
         this.lights = lights;
     }
 
-    public boolean isOilcheck() {
+    public Status getOilcheck() {
         return oilcheck;
     }
 
-    public void setOilcheck(boolean oilcheck) {
+    public void setOilcheck(Status oilcheck) {
         this.oilcheck = oilcheck;
     }
 
-    public boolean isRoundabout() {
+    public Status getRoundabout() {
         return roundabout;
     }
 
-    public void setRoundabout(boolean roundabout) {
+    public void setRoundabout(Status roundabout) {
         this.roundabout = roundabout;
     }
 
-    public boolean isHighway() {
+    public Status getHighway() {
         return highway;
     }
 
-    public void setHighway(boolean highway) {
+    public void setHighway(Status highway) {
         this.highway = highway;
     }
 
-    public Skills(boolean fueling, boolean gps, boolean tires, boolean emergencystop, boolean citytraffic, boolean doublelane, boolean lights, boolean oilcheck, boolean roundabout, boolean highway) {
+    public Skills(Status fueling, Status gps, Status tires, Status emergencystop, Status citytraffic, Status doublelane, Status lights, Status oilcheck, Status roundabout, Status highway) {
         this.fueling = fueling;
         this.gps = gps;
         this.tires = tires;
         this.emergencystop = emergencystop;
-        this.citytraffic = citytraffic;
+        this.city = citytraffic;
         this.doublelane = doublelane;
         this.lights = lights;
         this.oilcheck = oilcheck;
@@ -111,18 +111,33 @@ public class Skills
         this.highway = highway;
     }
     
-    public Skills(){
-        this.citytraffic=false;
-        this.doublelane=false;
-        this.emergencystop=false;
-        this.fueling=false;
-        this.gps=false;
-        this.highway=false;
-        this.lights=false;
-        this.oilcheck=false;
-        this.roundabout=false;
-        this.tires=false;
+    public Skills(Skills other){ // deep copy constructor
+        this.city = new Status(other.city);
+        this.doublelane = new Status(other.doublelane);
+        this.emergencystop = new Status(other.emergencystop);
+        this.fueling = new Status(other.fueling);
+        this.gps = new Status(other.gps);
+        this.highway = new Status(other.highway);
+        this.lights = new Status(other.lights);
+        this.oilcheck = new Status(other.oilcheck);
+        this.roundabout = new Status(other.roundabout);
+        this.tires = new Status(other.tires);
     }
+    
+    public Skills(){
+        this.city = new Status();
+        this.doublelane = new Status();
+        this.emergencystop = new Status();
+        this.fueling = new Status();
+        this.gps = new Status();
+        this.highway = new Status();
+        this.lights = new Status();
+        this.oilcheck = new Status();
+        this.roundabout = new Status();
+        this.tires = new Status();
+    }
+    
+    
     
     
 }
