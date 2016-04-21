@@ -8,10 +8,12 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root id="dashboard" prefHeight="488.0" prefWidth="1000.0" stylesheets="@../stylesheets/HouseStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="dashboard" prefHeight="488.0" prefWidth="1024.0" stylesheets="@../stylesheets/HouseStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button id="driveButton" fx:id="driveButton" layoutX="91.0" layoutY="135.0" mnemonicParsing="false" opacity="0.0" prefHeight="279.0" prefWidth="284.0" style="-fx-background-radius: 500;" text="Button" />
       <Button id="z" fx:id="trafficButton" layoutX="659.0" layoutY="135.0" mnemonicParsing="false" opacity="0.0" prefHeight="279.0" prefWidth="284.0" style="-fx-background-radius: 500;" text="Button" />
       <Button fx:id="attidudeButton" layoutX="444.0" layoutY="197.0" mnemonicParsing="false" opacity="0.0" prefHeight="209.0" prefWidth="143.0" text="attitude" />
+      <Circle fill="#8b939a" layoutX="522.0" layoutY="470.0" opacity="0.5" radius="7.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="495.0" />
+      <Circle fill="WHITE" layoutX="502.0" layoutY="470.0" opacity="0.85" radius="7.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="495.0" />
    </children>
 </fx:root>
