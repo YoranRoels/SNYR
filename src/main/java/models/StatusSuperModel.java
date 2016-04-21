@@ -8,6 +8,8 @@ package models;
 import domein.Color;
 import domein.Student;
 import java.util.HashMap;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -17,6 +19,7 @@ public class StatusSuperModel extends Model{
     
     protected final Student student;
     protected final HashMap<String,Color> kleuren=new HashMap();
+    protected TextArea  exclamationField;
     
     /*de huidige Id en style voor de foto button*/
     protected String id ="";
@@ -24,6 +27,7 @@ public class StatusSuperModel extends Model{
 
     public StatusSuperModel(Student student) {
         this.student = student;
+        this.exclamationField=exclamationField;
         kleuren.put("red", Color.RED);
         kleuren.put("green", Color.GREEN);
         kleuren.put("orange", Color.ORANGE);
@@ -34,6 +38,17 @@ public class StatusSuperModel extends Model{
         this.style=style;
         fireInvalidationEvent();
     }
+
+    public TextArea  getExclamationField() {
+        return exclamationField;
+    }
+
+    public void setExclamationField(TextArea exclamationField) {
+        this.exclamationField = exclamationField;
+    }
+    
+    
+    
     
     /*de id voor de fotoButton*/
     public String getId(){

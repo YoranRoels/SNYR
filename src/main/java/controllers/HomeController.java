@@ -23,6 +23,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -62,6 +64,9 @@ public class HomeController implements InvalidationListener{
     private Button minusButton;
     @FXML
     private Button plusButton;
+    
+    @FXML
+    private TextArea exclamationField;
     
     private AnchorWheel wheelpane;
     
@@ -106,6 +111,10 @@ public class HomeController implements InvalidationListener{
     public void initialize(){
     //main setup initialize van de gui
         System.out.println("Start initliaze");
+        skillModel.setExclamationField(exclamationField);
+        driveModel.setExclamationField(exclamationField);
+        trafficModel.setExclamationField(exclamationField);
+        
         wheelpane=new AnchorWheel(borderpane,driveModel,trafficModel,attitudeModel);
         sidepane=new AnchorSide(borderpane,skillModel);
 

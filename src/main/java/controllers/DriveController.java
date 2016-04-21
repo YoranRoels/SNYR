@@ -1,5 +1,6 @@
 package controllers;
 
+import commands.ExclamationCommand;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
@@ -61,6 +62,9 @@ public class DriveController implements InvalidationListener
     private Button fotoButton;
     
     @FXML
+    private Button exclamationMarkButton;
+    
+    @FXML
     private TextArea commentfield;
     
     private Button[] buttons;
@@ -96,7 +100,7 @@ public class DriveController implements InvalidationListener
                 model.setCommentForTechniek(newValue);
             }
         });
-        
+        exclamationMarkButton.setOnAction(new ExclamationCommand(model.getExclamationField(), commentfield));
         
         update();
         
