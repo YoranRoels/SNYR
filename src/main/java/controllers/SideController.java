@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import commands.ExclamationCommand;
 import domein.Skills;
 import domein.Student;
 import javafx.beans.InvalidationListener;
@@ -66,6 +67,9 @@ public class SideController implements InvalidationListener
     @FXML
     private TextArea commentfield;
     
+    @FXML
+    private Button exclamationMarkButton;
+    
     private Button[] buttons;
     
     private final SkillsModel model;
@@ -101,7 +105,8 @@ public class SideController implements InvalidationListener
                 model.setCommentForSkills(newValue);
             }
         });
-        
+        exclamationMarkButton.setOnAction(new ExclamationCommand(model.getExclamationField(), commentfield));
+       
         update();
         
     }

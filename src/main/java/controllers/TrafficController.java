@@ -1,5 +1,6 @@
 package controllers;
 
+import commands.ExclamationCommand;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
@@ -56,6 +57,9 @@ public class TrafficController implements InvalidationListener
     @FXML
     private Button fotoButton;
     
+    @FXML
+    private Button exclamationMarkButton;
+    
     private Button[] buttons;
     
     private BorderPane root;
@@ -94,7 +98,8 @@ public class TrafficController implements InvalidationListener
                 model.setCommentForTechniek(newValue);
             }
         });
-        
+        exclamationMarkButton.setOnAction(new ExclamationCommand(model.getExclamationField(), commentfield));
+       
         update();
         
     }

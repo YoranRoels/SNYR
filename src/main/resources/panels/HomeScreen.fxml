@@ -12,11 +12,6 @@
    <top>
       <AnchorPane minHeight="200.0" prefHeight="200.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField alignment="TOP_CENTER" editable="false" focusTraversable="false" layoutX="8.0" layoutY="7.0" prefHeight="186.0" prefWidth="400.0" promptText="Opmerkingen vorige lessen" style="-fx-background-radius: 20;" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="7.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </TextField>
             <ImageView fitHeight="108.0" fitWidth="391.0" layoutX="424.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="101.80000305175781" AnchorPane.leftAnchor="424.0" AnchorPane.rightAnchor="209.0" AnchorPane.topAnchor="20.0">
                <image>
                   <Image url="@../images/kleurenLegende.png" />
@@ -27,6 +22,7 @@
                   <Image url="@../images/dummypicture.jpg" />
                </image>
             </ImageView>
+            <TextArea fx:id="exclamationField" focusTraversable="false" layoutX="32.0" layoutY="8.0" prefHeight="170.0" prefWidth="400.0" promptText="opmerkingen vorige lessen" style="-fx-background-radius: 250,250,250,250; -fx-border-radius: 250,250,250,250; -fx-display-carpet: false;" />
          </children>
       </AnchorPane>
    </top>

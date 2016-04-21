@@ -9,7 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Circle centerX="500.0" centerY="245.0" layoutX="-177.0" layoutY="10.0" opacity="0.21" radius="220.0" stroke="BLACK" strokeType="INSIDE" translateY="-8.0">
          <fill>
@@ -46,13 +46,13 @@
          </toggleGroup>
       </RadioButton>
       <RadioButton fx:id="orange" layoutX="735.0" layoutY="410.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
-      <RadioButton id="redRadioButton" fx:id="red" layoutX="675.0" layoutY="410.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
+      <RadioButton id="redRadioButton" fx:id="red" layoutX="680.0" layoutY="410.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
       <TextArea fx:id="commentfield" layoutX="634.0" layoutY="214.0" prefHeight="171.0" prefWidth="293.0" translateX="20.0" />
       <Label layoutX="718.0" layoutY="180.0" text="Commentaar" translateX="20.0">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <ToggleButton id="exclamationMark" fx:id="exclamationMarkToggleButton" layoutX="855.0" layoutY="404.0" mnemonicParsing="false" style="-fx-background-radius: 250;" translateX="20.0" />
+      <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="865.0" layoutY="400.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
    </children>
 </fx:root>
