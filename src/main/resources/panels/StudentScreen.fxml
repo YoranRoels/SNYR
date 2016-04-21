@@ -12,7 +12,7 @@
    <top>
       <AnchorPane minHeight="121.0" prefHeight="184.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="277.0" layoutY="57.0" text="Selecteer uw student" textFill="WHITE">
+            <Label layoutX="277.0" layoutY="57.0" text="Studenten formulier" textFill="WHITE">
                <font>
                   <Font size="50.0" />
                </font>
@@ -33,17 +33,7 @@
    <bottom>
       <AnchorPane prefHeight="80.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="nieuwButton" layoutX="39.0" layoutY="10.0" mnemonicParsing="false" text="Nieuw" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="10.0">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Button>
-            <Button layoutX="175.0" layoutY="11.0" mnemonicParsing="false" text="Aanpassen" AnchorPane.topAnchor="11.0">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Button>
-            <Button layoutX="358.0" layoutY="1.0" mnemonicParsing="false" text="Verwijderen" AnchorPane.topAnchor="10.0">
+            <Button fx:id="opslaan" layoutX="207.0" mnemonicParsing="false" text="Opslaan" AnchorPane.leftAnchor="207.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="25.0" />
                </font>
@@ -54,47 +44,51 @@
    <center>
       <AnchorPane prefHeight="517.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="loginButton" layoutX="424.0" layoutY="409.0" mnemonicParsing="false" text="Open studenten fiche">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Button>
-            <ListView fx:id="studentenListView" layoutX="38.0" layoutY="21.0" prefHeight="444.0" prefWidth="327.0" />
-            <Label layoutX="712.0" layoutY="234.0" text="Naam :" textFill="WHITE">
+            <Label layoutX="91.0" layoutY="71.0" text="Naam :" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="668.0" layoutY="301.0" prefHeight="35.0" prefWidth="139.0" text="Voornaam :" textFill="WHITE">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="183.0" fitWidth="182.0" layoutX="424.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/dummypicture.jpg" />
-               </image>
-            </ImageView>
-            <TextField editable="false" layoutX="812.0" layoutY="239.0" prefHeight="44.0" prefWidth="188.0" promptText="Naam">
+            <TextField fx:id="nameField" layoutX="193.0" layoutY="66.0" prefHeight="44.0" prefWidth="200.0" promptText="Naam">
                <font>
                   <Font size="19.0" />
                </font>
             </TextField>
-            <Label layoutX="424.0" layoutY="27.0" text="Zoek leerling :" textFill="WHITE">
+            <Label layoutX="37.0" layoutY="150.0" prefHeight="35.0" prefWidth="129.0" text="Voornaam :" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="424.0" layoutY="70.0" prefHeight="46.0" prefWidth="250.0" promptText="Zoek op voornaam">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextField>
-            <TextField editable="false" layoutX="811.0" layoutY="296.0" prefHeight="44.0" prefWidth="188.0" promptText="Voornaam">
+            <TextField fx:id="surnameField" layoutX="193.0" layoutY="146.0" prefHeight="44.0" prefWidth="200.0" promptText="Voornaam">
                <font>
                   <Font size="19.0" />
                </font>
             </TextField>
+            <Label layoutX="37.0" layoutY="219.0" prefHeight="35.0" prefWidth="129.0" text="StudentNr :" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="studentNrField" layoutX="193.0" layoutY="215.0" prefHeight="44.0" prefWidth="200.0" promptText="StudentenNr">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </TextField>
+            <Label layoutX="87.0" layoutY="300.0" prefHeight="35.0" prefWidth="72.0" text="Email :" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="emailField" layoutX="192.0" layoutY="295.0" prefHeight="44.0" prefWidth="200.0" promptText="Email">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </TextField>
+            <Label fx:id="errorMessageLabel" layoutX="193.0" layoutY="367.0" textFill="#ff0b0b">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>
