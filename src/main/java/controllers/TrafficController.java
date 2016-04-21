@@ -1,12 +1,19 @@
 package controllers;
 
 import commands.ExclamationCommand;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleButton;
@@ -60,16 +67,22 @@ public class TrafficController implements InvalidationListener
     @FXML
     private Button exclamationMarkButton;
     
+    @FXML
+    private MenuButton actionMenuButton;
+    
     private Button[] buttons;
     
     private BorderPane root;
     
     private final TrafficModel model;
     
+   
+    
     
     public void initialize(){
         System.out.println("DriveController"); 
         buttons = new Button[]{priority,sign,speed,distance,overtaking,crossing,turningleft,turningright,indicators,publicroad};
+        
         
         red.setUserData("red");
         orange.setUserData("orange");
@@ -80,7 +93,6 @@ public class TrafficController implements InvalidationListener
         for(Button b : buttons){
             b.setOnAction((value)->{
                 model.setIdEnStyle(b.getId(), b.getStyle());
-
             });
         }
         
