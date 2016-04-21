@@ -31,29 +31,22 @@
       <Button id="tires" fx:id="tiresButton" layoutX="288.0" layoutY="16.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
       <Button id="doublelane" fx:id="doublelaneButton" layoutX="495.0" layoutY="161.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
       <Button id="fueling" fx:id="fuelingButton" layoutX="148.0" layoutY="60.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateY="-8.0" />
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="414.0" layoutX="618.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" translateX="20.0" width="324.0" />
-      <TextField layoutX="634.0" layoutY="138.0" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="236.0" translateX="20.0" />
-      <Button fx:id="fotoButton" layoutX="750.0" layoutY="58.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateX="20.0" />
-      <MenuButton id="menuButton" layoutX="874.0" layoutY="138.0" mnemonicParsing="false" translateX="20.0">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
-      <RadioButton fx:id="green" layoutX="795.0" layoutY="410.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: green; -fx-mark-color: black;" translateX="20.0">
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="414.0" layoutX="608.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" translateX="20.0" width="324.0" />
+      <Button fx:id="fotoButton" layoutX="730.0" layoutY="50.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateX="20.0" />
+      <RadioButton fx:id="green" layoutX="790.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: green; -fx-mark-color: black;" translateX="20.0">
          <toggleGroup>
             <ToggleGroup fx:id="radioGroup" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="orange" layoutX="735.0" layoutY="410.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
-      <RadioButton id="redRadioButton" fx:id="red" layoutX="680.0" layoutY="410.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2; -fx-scale-y: 2; -fx-base: red; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
-      <TextArea fx:id="commentfield" layoutX="634.0" layoutY="214.0" prefHeight="171.0" prefWidth="293.0" translateX="20.0" />
-      <Label layoutX="718.0" layoutY="180.0" text="Commentaar" translateX="20.0">
+      <RadioButton fx:id="orange" layoutX="730.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
+      <RadioButton id="redRadioButton" fx:id="red" layoutX="670.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: red; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
+      <TextArea fx:id="commentfield" layoutX="624.0" layoutY="171.0" prefHeight="205.0" prefWidth="293.0" translateX="20.0" />
+      <Label layoutX="704.0" layoutY="138.0" text="Commentaar" translateX="20.0">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="865.0" layoutY="400.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
+      <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="860.0" layoutY="392.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
       <Circle fill="WHITE" layoutX="501.0" layoutY="470.0" opacity="0.85" radius="7.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="495.0" />
       <Circle fill="#8b939a" layoutX="519.0" layoutY="470.0" opacity="0.5" radius="7.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="495.0" />
    </children>
