@@ -1,18 +1,27 @@
 package controllers;
 
 import commands.ExclamationCommand;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import models.DriveModel;
+import overige.ActionMenuItem;
 
 /**
  *
@@ -66,25 +75,51 @@ public class DriveController implements InvalidationListener
     
     @FXML
     private TextArea commentfield;
+
+    @FXML
+    private MenuButton actionMenuButton;
     
+
     private Button[] buttons;
     
+    private final HashMap<String,List<MenuItem>> menuitems = new HashMap<>();
     
     private final DriveModel model;
     
     public void initialize(){
         buttons= new Button[]{brakeButton,clutchButton,garageButton,hillButton,lookingButton,parkingButton,reverseButton,shiftingButton,sittingButton,steeringButton,steeringPracticeButton,turningButton};
-        
         red.setUserData("red");
         orange.setUserData("orange");
         green.setUserData("green");
+        
+         actionMenuButton.getItems().clear();
+
+        menuitems.put("sitting", new ArrayList<>(Arrays.asList(new ActionMenuItem("zithouding",commentfield),new ActionMenuItem("Gordel",commentfield),new ActionMenuItem("Spiegels",commentfield),new ActionMenuItem("Handrem",commentfield),new ActionMenuItem("Andere",commentfield))));
+        menuitems.put("clutch", new ArrayList<>(Arrays.asList(new ActionMenuItem("Dosering",commentfield),new ActionMenuItem("Volledig",commentfield),new ActionMenuItem("Plaatsing voet",commentfield),new ActionMenuItem("Onnodig",commentfield),new ActionMenuItem("Bocht",commentfield),new ActionMenuItem("Andere",commentfield))));
+        menuitems.put("brake", new ArrayList<>(Arrays.asList(new ActionMenuItem("Dosering",commentfield),new ActionMenuItem("Volgorde",commentfield),new ActionMenuItem("Te laat",commentfield),new ActionMenuItem("Afremmen op de motor",commentfield),new ActionMenuItem("Andere",commentfield))));
+        menuitems.put("steering", new ArrayList<>(Arrays.asList(new ActionMenuItem("Dosering",commentfield),new ActionMenuItem("Houding",commentfield),new ActionMenuItem("Andere",commentfield))));
+        menuitems.put("shifting", new ArrayList<>(Arrays.asList(new ActionMenuItem("Bediening",commentfield),new ActionMenuItem("Aangepaste versnelling",commentfield),new ActionMenuItem("Andere",commentfield))));
+        menuitems.put("looking", new ArrayList<>(Arrays.asList(new ActionMenuItem("Ver/dichtbij",commentfield),new ActionMenuItem("Meer vergewissen",commentfield),new ActionMenuItem("Spiegels",commentfield),new ActionMenuItem("Dode hoeken",commentfield),new ActionMenuItem("Scannen/selecteren",commentfield),new ActionMenuItem("Andere",commentfield))));
+        menuitems.put("parking", new ArrayList<>(Arrays.asList(new ActionMenuItem("Tussen 2 voertuigen",commentfield),new ActionMenuItem("Achter een voertuig",commentfield),new ActionMenuItem("Links",commentfield),new ActionMenuItem("Andere",commentfield))));
+        menuitems.put("turning", new ArrayList<>(Arrays.asList(new ActionMenuItem("Dosering",commentfield),new ActionMenuItem("Andere",commentfield))));
+        menuitems.put("garage", new ArrayList<>(Arrays.asList(new ActionMenuItem("Andere",commentfield))));
+        menuitems.put("reverse", new ArrayList<>(Arrays.asList(new ActionMenuItem("Andere",commentfield))));
+        menuitems.put("steeringPractice", new ArrayList<>(Arrays.asList(new ActionMenuItem("Andere",commentfield))));
+        menuitems.put("hill", new ArrayList<>(Arrays.asList(new ActionMenuItem("Balanceren",commentfield),new ActionMenuItem("Voetrem",commentfield),new ActionMenuItem("Handrem",commentfield),new ActionMenuItem("Andere",commentfield))));
+        
+        actionMenuButton.setDisable(true);
+       
+        
         
         System.out.println("DriveController"); 
         for(Button b : buttons){
             b.setOnAction((value)->{
                 model.setIdEnStyle(b.getId(), b.getStyle());
+                actionMenuButton.getItems().setAll(menuitems.get(b.getId()));
+                actionMenuButton.setDisable(false);
             });
         }
+        
         commentfield.setEditable(false);
 
         radioGroup.selectedToggleProperty().addListener((listener)->{
