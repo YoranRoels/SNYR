@@ -34,6 +34,8 @@ public class InlogController {
     
     @FXML
     private Button loginButton;
+    @FXML
+    private Button nieuwButton;
     
     @FXML
     private ListView<Student> studentenListView;
@@ -82,8 +84,17 @@ public class InlogController {
                 System.out.println("FOUT GEEN STUDENT");
             }
         });
-        
-        
+        nieuwButton.setOnAction((ActionEvent event) ->{
+            try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/StudentScreen.fxml"));
+            loader.setController(new StudentscreenController(studenten));
+            Parent root = (Parent) loader.load();
+            stage.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(InlogController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            });
+          
         
     }
     /*comp om op achternaam te sorteren*/

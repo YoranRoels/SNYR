@@ -33,7 +33,7 @@
    <bottom>
       <AnchorPane prefHeight="80.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="39.0" layoutY="10.0" mnemonicParsing="false" text="Nieuw" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="10.0">
+            <Button fx:id="nieuwButton" layoutX="39.0" layoutY="10.0" mnemonicParsing="false" text="Nieuw" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="10.0">
                <font>
                   <Font size="25.0" />
                </font>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane minHeight="121.0" prefHeight="184.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="277.0" layoutY="57.0" text="Studenten formulier" textFill="WHITE">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="36.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="155.0" fitWidth="253.0" layoutX="832.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/auto.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="80.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="opslaan" layoutX="207.0" mnemonicParsing="false" text="Opslaan" AnchorPane.leftAnchor="207.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="517.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="91.0" layoutY="71.0" text="Naam :" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameField" layoutX="193.0" layoutY="66.0" prefHeight="44.0" prefWidth="200.0" promptText="Naam">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </TextField>
+            <Label layoutX="37.0" layoutY="150.0" prefHeight="35.0" prefWidth="129.0" text="Voornaam :" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="surnameField" layoutX="193.0" layoutY="146.0" prefHeight="44.0" prefWidth="200.0" promptText="Voornaam">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </TextField>
+            <Label layoutX="37.0" layoutY="219.0" prefHeight="35.0" prefWidth="129.0" text="StudentNr :" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="studentNrField" layoutX="193.0" layoutY="215.0" prefHeight="44.0" prefWidth="200.0" promptText="StudentenNr">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </TextField>
+            <Label layoutX="87.0" layoutY="300.0" prefHeight="35.0" prefWidth="72.0" text="Email :" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="emailField" layoutX="192.0" layoutY="295.0" prefHeight="44.0" prefWidth="200.0" promptText="Email">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </TextField>
+            <Label fx:id="errorMessageLabel" layoutX="193.0" layoutY="367.0" textFill="#ff0b0b">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
