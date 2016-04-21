@@ -9,7 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Circle centerX="500.0" centerY="245.0" layoutX="-177.0" layoutY="10.0" opacity="0.21" radius="220.0" stroke="BLACK" strokeType="INSIDE" translateY="-8.0">
          <fill>
@@ -54,5 +54,7 @@
          </font>
       </Label>
       <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="865.0" layoutY="400.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
+      <Circle fill="WHITE" layoutX="501.0" layoutY="470.0" opacity="0.85" radius="7.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="495.0" />
+      <Circle fill="#8b939a" layoutX="519.0" layoutY="470.0" opacity="0.5" radius="7.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="495.0" />
    </children>
 </fx:root>
