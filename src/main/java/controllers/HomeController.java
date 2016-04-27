@@ -12,19 +12,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -60,6 +57,8 @@ public class HomeController implements InvalidationListener{
     private Button terugknop;
     @FXML
     private ProgressBar progressBar;
+    @FXML
+    private Label sliderLabel;
     @FXML
     private Button minusButton;
     @FXML
@@ -176,12 +175,34 @@ public class HomeController implements InvalidationListener{
         minusButton.setOnAction((ActionEvent event) -> {
             progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue()-0.05);
             homeModel.setProgres(progressBar.progressProperty().getValue());
+            if(progressBar.progressProperty().doubleValue() < 0)
+            {
+                System.out.println("Reached minimal value.");
+                progressBar.progressProperty().setValue(0);
+            }
+            updateSliderComment();
         });
         
         plusButton.setOnAction((ActionEvent event) -> {
             progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue()+0.05);
             homeModel.setProgres(progressBar.progressProperty().getValue());
+            updateSliderComment();
         });
+    }
+    protected void updateSliderComment()
+    {
+        if(progressBar.progressProperty().doubleValue() > 0.2 && progressBar.progressProperty().doubleValue() < 0.7)
+        {
+            sliderLabel.setText("Klaar om met een begeleider te oefenen\nin de stageperiode.");
+        }
+        if(progressBar.progressProperty().doubleValue() > 0.7 && progressBar.progressProperty().doubleValue() < 0.95)
+        {
+            sliderLabel.setText("Klaar om alleen te oefenen\nin de stageperiode.");
+        }
+        if(progressBar.progressProperty().doubleValue() > 0.95)
+        {
+            sliderLabel.setText("Klaar voor praktisch examen.");
+        }
     }
     
     @FXML
