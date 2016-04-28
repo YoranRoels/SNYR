@@ -27,6 +27,8 @@ import javafx.stage.Stage;
 public class StudentscreenController {
     
     @FXML
+    private Button terugknopNewStudent;
+    @FXML
     private TextField nameField;
     @FXML
     private TextField surnameField;
@@ -66,7 +68,6 @@ public class StudentscreenController {
                         try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/InlogScreen.fxml"));
                 
-                ic.updateStudent(student);
                 loader.setController(ic);
                 Parent root = (Parent) loader.load();
 
@@ -78,6 +79,21 @@ public class StudentscreenController {
             }
             else{
                 errorMessageLabel.setText(errormessage);
+            }
+        });
+        terugknopNewStudent.setOnAction((ActionEvent event) ->{
+            try 
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/InlogScreen.fxml"));
+                
+                loader.setController(ic);
+                Parent root = (Parent) loader.load();
+
+                stage.getScene().setRoot(root);
+            } 
+            catch (IOException ex) 
+            {
+                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

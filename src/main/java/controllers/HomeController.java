@@ -44,7 +44,8 @@ import panels.AnchorWheel;
 public class HomeController implements InvalidationListener{
     
     @FXML
-    private ImageView profielFoto;
+    private ImageView profielFoto; 
+    // Zwarte randen (profielFotoImage is de echte afbeelding).
     @FXML
     private RadioButton evatoggle1;
     @FXML
@@ -66,6 +67,9 @@ public class HomeController implements InvalidationListener{
     
     @FXML
     private TextArea exclamationField;
+    @FXML // Zwarte randen
+    private ImageView commentBoxBorders;
+    
     
     private AnchorWheel wheelpane;
     
@@ -147,6 +151,10 @@ public class HomeController implements InvalidationListener{
                     });
         /*terugknop brengt je naar de student homepage met sturen */
         terugknop.setOnMouseClicked(new SwitchPanelCommand(borderpane, wheelpane));
+        
+        commentBoxBorders.setOnMouseClicked((MouseEvent event) -> {
+            exclamationField.requestFocus();
+        });
         
         
         //eva selecties in stellen en huidige eva aanzetten
