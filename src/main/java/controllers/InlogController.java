@@ -87,7 +87,7 @@ public class InlogController {
         nieuwButton.setOnAction((ActionEvent event) ->{
             try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/StudentScreen.fxml"));
-            loader.setController(new StudentscreenController(studenten));
+            loader.setController(new StudentscreenController(stage,this));
             Parent root = (Parent) loader.load();
             stage.getScene().setRoot(root);
             } catch (IOException ex) {
@@ -108,6 +108,12 @@ public class InlogController {
        Collections.sort(studenten, comparator);
         studentenListView.setItems(studenten);
         
+    }
+    
+    public void addStudent(Student student){
+        studenten.add(student);
+        Collections.sort(studenten, comparator);
+        studentenListView.setItems(studenten);
     }
     
 }

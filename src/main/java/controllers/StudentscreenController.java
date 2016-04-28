@@ -6,13 +6,19 @@
 package controllers;
 
 import domein.Student;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  *
@@ -32,17 +38,21 @@ public class StudentscreenController {
     private Button opslaan;
     @FXML
     private Label errorMessageLabel;
-    
-    private final ObservableList<Student> studenten;
+
 
     private Student student;
+    private Stage stage;
+    private InlogController ic;
     
-    public StudentscreenController(ObservableList<Student> studenten) {
-        this.studenten = studenten;
+    public StudentscreenController(Stage stage,InlogController ic) {
+
+        this.ic=ic;
+        this.stage=stage;
     }
     
-    public StudentscreenController(ObservableList<Student> studenten,Student student) {
-        this.studenten = studenten;
+    public StudentscreenController(Stage stage,Student student, InlogController ic) {
+        this.stage=stage;
+        this.ic=ic;
     }
     
     
@@ -52,6 +62,19 @@ public class StudentscreenController {
             if(errormessage.isEmpty()){
                 /*ok*/
                 student = new Student(surnameField.getText(), nameField.getText(), emailField.getText(), "");
+                ic.addStudent(student);
+                        try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/InlogScreen.fxml"));
+                
+                ic.updateStudent(student);
+                loader.setController(ic);
+                Parent root = (Parent) loader.load();
+
+               stage.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
             }
             else{
                 errorMessageLabel.setText(errormessage);
