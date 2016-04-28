@@ -8,11 +8,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane minHeight="200.0" prefHeight="200.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="108.0" fitWidth="391.0" layoutX="424.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="101.80000305175781" AnchorPane.leftAnchor="424.0" AnchorPane.rightAnchor="209.0" AnchorPane.topAnchor="20.0">
+            <ImageView fitHeight="108.0" fitWidth="350.0" layoutX="456.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="94.0" AnchorPane.leftAnchor="456.0" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="29.0">
                <image>
                   <Image url="@../images/kleurenLegende.png" />
                </image>
@@ -23,6 +23,11 @@
                </image>
             </ImageView>
             <TextArea fx:id="exclamationField" focusTraversable="false" layoutX="32.0" layoutY="8.0" prefHeight="170.0" prefWidth="400.0" promptText="opmerkingen vorige lessen" style="-fx-background-radius: 250,250,250,250; -fx-border-radius: 250,250,250,250; -fx-display-carpet: false;" />
+            <Label fx:id="sliderLabel" layoutX="447.0" layoutY="101.0" prefHeight="72.0" prefWidth="380.0" text="Student kan nog veel bijleren." textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </top>
