@@ -17,12 +17,25 @@
                   <Image url="@../images/kleurenLegende.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="profielFoto" fitHeight="188.0" fitWidth="280.0" layoutX="438.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
+            <ImageView fx:id="profielFotoImage" fitHeight="170.0" fitWidth="170.0" layoutX="822.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <image>
                   <Image url="@../images/dummypicture.jpg" />
                </image>
             </ImageView>
-            <TextArea fx:id="exclamationField" focusTraversable="false" layoutX="32.0" layoutY="8.0" prefHeight="170.0" prefWidth="400.0" promptText="opmerkingen vorige lessen" style="-fx-background-radius: 250,250,250,250; -fx-border-radius: 250,250,250,250; -fx-display-carpet: false;" />
+            <ImageView fx:id="profielFoto" fitHeight="170.0" fitWidth="170.0" layoutX="822.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <image>
+                  <Image url="@../images/fotoWindow.png" />
+               </image>
+            </ImageView>
+            <TextArea fx:id="exclamationField" focusTraversable="false" layoutX="10.0" layoutY="10.0" prefHeight="170.0" prefWidth="400.0" promptText="opmerkingen vorige lessen" style="-fx-text-box-border: transparent; -fx-focus-color: transparent; -fx-faint-focus-color: transpartent; -fx-background-color: transparent;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding></TextArea>
+            <ImageView fx:id="commentBoxBorders" fitHeight="170.0" fitWidth="399.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/commentWindow.png" />
+               </image>
+            </ImageView>
             <Label fx:id="sliderLabel" layoutX="447.0" layoutY="101.0" prefHeight="72.0" prefWidth="380.0" text="Student kan nog veel bijleren." textFill="WHITE">
                <font>
                   <Font size="21.0" />
@@ -34,7 +47,7 @@
    <bottom>
       <AnchorPane prefHeight="80.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox layoutX="10.0" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="20.0">
+            <HBox layoutX="40.0" layoutY="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="20.0">
                <children>
                   <RadioButton fx:id="evatoggle1" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" text="1">
                      <toggleGroup>
@@ -63,13 +76,13 @@
                      </HBox.margin></RadioButton>
                </children>
                <padding>
-                  <Insets top="10.0" />
+                  <Insets top="4.0" />
                </padding>
             </HBox>
             <Label layoutX="605.0" layoutY="8.0" style="-fx-text-fill: rgb(255,255,255);" text="A" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="605.0" />
             <Label layoutX="406.0" layoutY="8.0" style="-fx-text-fill: rgb(255,255,255);" text="B" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="406.0" />
             <Label layoutX="707.0" layoutY="8.0" style="-fx-text-fill: rgb(255,255,255);" text="X" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="707.0" />
-            <Button id="terugknop" fx:id="terugknop" layoutX="943.0" layoutY="10.0" mnemonicParsing="false" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0" />
+            <Button id="terugknop" fx:id="terugknop" layoutX="943.0" layoutY="10.0" mnemonicParsing="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="15.0" />
             <Button id="minusButton" fx:id="minusButton" layoutX="238.0" mnemonicParsing="false" AnchorPane.bottomAnchor="15.0" />
             <Button id="plusButton" fx:id="plusButton" layoutX="726.0" mnemonicParsing="false" AnchorPane.bottomAnchor="15.0" />
             <ProgressBar fx:id="progressBar" layoutX="312.0" layoutY="27.0" prefHeight="18.0" prefWidth="406.0" progress="0.0" />
@@ -77,6 +90,6 @@
       </AnchorPane>
    </bottom>
    <center>
-      <AnchorPane onDragDetected="#swipeCenterPanel" prefHeight="488.0" prefWidth="1024.0" BorderPane.alignment="CENTER" />
+      <AnchorPane onDragDetected="#swipeCenterPanel" prefHeight="488.0" prefWidth="1024.0" style="-fx-border-radius: 250;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

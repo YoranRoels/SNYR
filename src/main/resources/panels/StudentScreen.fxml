@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane minHeight="121.0" prefHeight="184.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
@@ -33,53 +33,54 @@
    <bottom>
       <AnchorPane prefHeight="80.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="opslaan" layoutX="207.0" mnemonicParsing="false" text="Opslaan" AnchorPane.leftAnchor="207.0" AnchorPane.topAnchor="0.0">
+            <Button fx:id="opslaan" layoutX="452.0" layoutY="14.0" mnemonicParsing="false" text="Opslaan" AnchorPane.leftAnchor="452.0" AnchorPane.topAnchor="14.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
+            <Button id="terugknop" fx:id="terugknopNewStudent" layoutX="958.0" layoutY="36.0" mnemonicParsing="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="15.0" />
          </children>
       </AnchorPane>
    </bottom>
    <center>
       <AnchorPane prefHeight="517.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="91.0" layoutY="71.0" text="Naam :" textFill="WHITE">
+            <Label layoutX="91.0" layoutY="71.0" text="Naam :" textFill="WHITE" AnchorPane.leftAnchor="100.0">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="nameField" layoutX="193.0" layoutY="66.0" prefHeight="44.0" prefWidth="200.0" promptText="Naam">
+            <TextField fx:id="nameField" layoutX="193.0" layoutY="66.0" prefHeight="44.0" prefWidth="200.0" promptText="Naam" AnchorPane.leftAnchor="250.0">
                <font>
                   <Font size="19.0" />
                </font>
             </TextField>
-            <Label layoutX="37.0" layoutY="150.0" prefHeight="35.0" prefWidth="129.0" text="Voornaam :" textFill="WHITE">
+            <Label layoutX="37.0" layoutY="148.0" prefHeight="35.0" prefWidth="129.0" text="Voornaam :" textFill="WHITE" AnchorPane.leftAnchor="100.0">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="surnameField" layoutX="193.0" layoutY="146.0" prefHeight="44.0" prefWidth="200.0" promptText="Voornaam">
+            <TextField fx:id="surnameField" layoutX="193.0" layoutY="146.0" prefHeight="44.0" prefWidth="200.0" promptText="Voornaam" AnchorPane.leftAnchor="250.0">
                <font>
                   <Font size="19.0" />
                </font>
             </TextField>
-            <Label layoutX="37.0" layoutY="219.0" prefHeight="35.0" prefWidth="129.0" text="StudentNr :" textFill="WHITE">
+            <Label layoutX="570.0" layoutY="70.0" prefHeight="35.0" prefWidth="129.0" text="StudentNr :" textFill="WHITE" AnchorPane.rightAnchor="340.0">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="studentNrField" layoutX="193.0" layoutY="215.0" prefHeight="44.0" prefWidth="200.0" promptText="StudentenNr">
+            <TextField fx:id="studentNrField" layoutX="726.0" layoutY="66.0" prefHeight="44.0" prefWidth="200.0" promptText="StudentenNr" AnchorPane.rightAnchor="120.0">
                <font>
                   <Font size="19.0" />
                </font>
             </TextField>
-            <Label layoutX="87.0" layoutY="300.0" prefHeight="35.0" prefWidth="72.0" text="Email :" textFill="WHITE">
+            <Label layoutX="620.0" layoutY="151.0" prefHeight="35.0" prefWidth="72.0" text="Email :" textFill="WHITE" AnchorPane.rightAnchor="340.0">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="emailField" layoutX="192.0" layoutY="295.0" prefHeight="44.0" prefWidth="200.0" promptText="Email">
+            <TextField fx:id="emailField" layoutX="725.0" layoutY="146.0" prefHeight="44.0" prefWidth="200.0" promptText="Email" AnchorPane.rightAnchor="120.0">
                <font>
                   <Font size="19.0" />
                </font>
