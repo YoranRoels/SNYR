@@ -8,8 +8,19 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root id="dashboard" prefHeight="488.0" prefWidth="1024.0" stylesheets="@../stylesheets/HouseStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="488.0" prefWidth="1024.0" stylesheets="@../stylesheets/HouseStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <Rectangle id="driveTopIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="130.0" layoutX="105.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
+      <Rectangle id="driveLeftIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="110.0" layoutX="110.0" layoutY="285.0" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle id="driveRightIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="110.0" layoutX="245.0" layoutY="285.0" stroke="BLACK" strokeType="INSIDE" width="115.0" />
+      <Rectangle id="trafficLeftIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="130.0" layoutX="690.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="90.0" />
+      <Rectangle id="trafficRightIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="130.0" layoutX="815.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="110.0" />
+      <Rectangle id="trafficBottomIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="70.0" layoutX="725.0" layoutY="325.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+      <ImageView fitHeight="488.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dashboard.png" />
+         </image>
+      </ImageView>
       <Button id="driveButton" fx:id="driveButton" layoutX="91.0" layoutY="135.0" mnemonicParsing="false" opacity="0.0" prefHeight="279.0" prefWidth="284.0" style="-fx-background-radius: 500;" text="Button" />
       <Button id="z" fx:id="trafficButton" layoutX="659.0" layoutY="135.0" mnemonicParsing="false" opacity="0.0" prefHeight="279.0" prefWidth="284.0" style="-fx-background-radius: 500;" text="Button" />
       <Button fx:id="attidudeButton" layoutX="444.0" layoutY="197.0" mnemonicParsing="false" opacity="0.0" prefHeight="209.0" prefWidth="143.0" text="attitude" />
