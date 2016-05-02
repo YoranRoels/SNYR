@@ -199,15 +199,19 @@ public class HomeController implements InvalidationListener{
     }
     protected void updateSliderComment()
     {
-        if(progressBar.progressProperty().doubleValue() > 0.2 && progressBar.progressProperty().doubleValue() < 0.7)
+        if(progressBar.progressProperty().doubleValue() < 0.2)
+        {
+            sliderLabel.setText("Student heeft nog veel bij te leren.");
+        }
+        else if(progressBar.progressProperty().doubleValue() > 0.2 && progressBar.progressProperty().doubleValue() < 0.7)
         {
             sliderLabel.setText("Klaar om met een begeleider te oefenen\nin de stageperiode.");
         }
-        if(progressBar.progressProperty().doubleValue() > 0.7 && progressBar.progressProperty().doubleValue() < 0.95)
+        else if(progressBar.progressProperty().doubleValue() > 0.7 && progressBar.progressProperty().doubleValue() < 0.95)
         {
             sliderLabel.setText("Klaar om alleen te oefenen\nin de stageperiode.");
         }
-        if(progressBar.progressProperty().doubleValue() > 0.95)
+        else if(progressBar.progressProperty().doubleValue() > 0.95)
         {
             sliderLabel.setText("Klaar voor praktisch examen.");
         }

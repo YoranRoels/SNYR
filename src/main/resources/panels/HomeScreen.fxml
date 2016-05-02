@@ -36,7 +36,7 @@
                   <Image url="@../images/commentWindow.png" />
                </image>
             </ImageView>
-            <Label fx:id="sliderLabel" layoutX="447.0" layoutY="101.0" prefHeight="72.0" prefWidth="380.0" text="Student kan nog veel bijleren." textFill="WHITE">
+            <Label fx:id="sliderLabel" layoutX="447.0" layoutY="101.0" prefHeight="72.0" prefWidth="380.0" text="Student heeft nog veel bij te leren." textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>

@@ -153,11 +153,11 @@ public class DriveController implements InvalidationListener
     public void invalidated(Observable observable) {
         System.out.println("Invali");
         update();
-               }
+    }
     
     
-    public void update(){
-        
+    public void update()
+    {
         System.out.println("UPDATE");
         
         /*foto button instellen*/
