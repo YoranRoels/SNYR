@@ -48,6 +48,7 @@ public class TrafficModel extends StatusSuperModel {
             case "publicroad": student.getCurrentTrafficTechnic().getPublicroad().setColor(kleuren.get(punt));
                         break;
         }
+        setStyle("-fx-background-color:"+kleuren.get(punt));
         fireInvalidationEvent();
                 
     }

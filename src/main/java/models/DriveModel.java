@@ -51,6 +51,7 @@ public class DriveModel extends StatusSuperModel {
             case "turning": student.getCurrentDriveTechnic().getTurning().setColor(kleuren.get(punt));
                         break;
         }
+        setStyle("-fx-background-color:"+kleuren.get(punt));
         fireInvalidationEvent();
                 
     }

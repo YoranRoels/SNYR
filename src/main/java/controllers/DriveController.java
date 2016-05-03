@@ -163,9 +163,7 @@ public class DriveController implements InvalidationListener
         /*foto button instellen*/
         fotoButton.setId(model.getId());
         fotoButton.setStyle(model.getStyle());
-        if(radioGroup.selectedToggleProperty().isNotNull().get()){
-        fotoButton.setStyle("-fx-background-color:"+radioGroup.getSelectedToggle().getUserData());
-        }
+
         /*comment invullen*/
         commentfield.setText(model.getCommentForTechniek());
         
