@@ -27,7 +27,6 @@ public class StatusSuperModel extends Model{
 
     public StatusSuperModel(Student student) {
         this.student = student;
-        this.exclamationField=exclamationField;
         kleuren.put("red", Color.RED);
         kleuren.put("green", Color.GREEN);
         kleuren.put("orange", Color.ORANGE);
@@ -39,6 +38,10 @@ public class StatusSuperModel extends Model{
         fireInvalidationEvent();
     }
 
+    public void setStyle(String style){
+        this.style=style;
+    }
+    
     public TextArea  getExclamationField() {
         return exclamationField;
     }
@@ -58,6 +61,7 @@ public class StatusSuperModel extends Model{
     public String getStyle(){
         return style;
     }
+    
     
     @Override
     public void EvaNumberChanged(){
