@@ -30,6 +30,8 @@ public class InlogController {
     private Button loginButton;
     @FXML
     private Button nieuwButton;
+    @FXML
+    private Button aanpasButton;
     
     @FXML
     private ListView<Student> studentenListView;
@@ -88,6 +90,19 @@ public class InlogController {
                 Logger.getLogger(InlogController.class.getName()).log(Level.SEVERE, null, ex);
             }
             });
+        aanpasButton.setOnAction((ActionEvent event) ->{
+             if(studentenListView.getSelectionModel().getSelectedItem()!=null){
+            try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/StudentScreen.fxml"));
+            loader.setController(new StudentscreenController(stage,studentenListView.getSelectionModel().getSelectedItem(),this));
+            Parent root = (Parent) loader.load();
+            stage.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(InlogController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             }
+            });
+        
           
         
     }
