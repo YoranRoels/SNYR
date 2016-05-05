@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane minHeight="121.0" prefHeight="184.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
@@ -65,22 +65,12 @@
                   <Font size="19.0" />
                </font>
             </TextField>
-            <Label layoutX="570.0" layoutY="70.0" prefHeight="35.0" prefWidth="129.0" text="StudentNr :" textFill="WHITE" AnchorPane.rightAnchor="340.0">
+            <Label layoutX="602.0" layoutY="72.0" prefHeight="35.0" prefWidth="72.0" text="Email :" textFill="WHITE" AnchorPane.rightAnchor="350.0">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="studentNrField" layoutX="726.0" layoutY="66.0" prefHeight="44.0" prefWidth="200.0" promptText="StudentenNr" AnchorPane.rightAnchor="120.0">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </TextField>
-            <Label layoutX="620.0" layoutY="151.0" prefHeight="35.0" prefWidth="72.0" text="Email :" textFill="WHITE" AnchorPane.rightAnchor="340.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TextField fx:id="emailField" layoutX="725.0" layoutY="146.0" prefHeight="44.0" prefWidth="200.0" promptText="Email" AnchorPane.rightAnchor="120.0">
+            <TextField fx:id="emailField" layoutX="702.0" layoutY="67.0" prefHeight="44.0" prefWidth="200.0" promptText="Email" AnchorPane.rightAnchor="122.0">
                <font>
                   <Font size="19.0" />
                </font>

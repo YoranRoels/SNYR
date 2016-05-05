@@ -33,8 +33,6 @@ public class StudentscreenController {
     @FXML
     private TextField surnameField;
     @FXML
-    private TextField studentNrField;
-    @FXML
     private TextField emailField;
     @FXML
     private Button opslaan;
@@ -52,19 +50,37 @@ public class StudentscreenController {
         this.stage=stage;
     }
     
+    /*aanpas constructor*/
     public StudentscreenController(Stage stage,Student student, InlogController ic) {
         this.stage=stage;
         this.ic=ic;
+        this.student=student;
+        
     }
     
     
     public void initialize(){
+        /*als het aanpassen is al invullen*/
+        if(student!=null){
+            nameField.setText(student.getAchternaam());
+            surnameField.setText(student.getVoornaam());
+            emailField.setText(student.getEmail());
+        }
+        
+        /*opslaan actie*/
         opslaan.setOnAction((ActionEvent event)->{
             String errormessage=errormessage();
             if(errormessage.isEmpty()){
-                /*ok*/
+                /*ok, opslaan of aanpassen*/
+                if(student==null){
                 student = new Student(surnameField.getText(), nameField.getText(), emailField.getText(), "");
                 ic.addStudent(student);
+                }else{
+                    student.setVoornaam(surnameField.getText());
+                    student.setAchternaam(nameField.getText());
+                    student.setEmail(emailField.getText());
+                    ic.updateStudent(student);
+                }
                         try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/InlogScreen.fxml"));
                 
@@ -78,9 +94,12 @@ public class StudentscreenController {
                 
             }
             else{
+                /*foutmelding*/
                 errorMessageLabel.setText(errormessage);
             }
         });
+        
+        /*knop om gewoon terug te keren*/
         terugknopNewStudent.setOnAction((ActionEvent event) ->{
             try 
             {
@@ -105,12 +124,6 @@ public class StudentscreenController {
         }
         if(surnameField.getText().isEmpty()){
             sb.append("Er is geen voornaam opgegeven \n");
-        }
-        if(studentNrField.getText().isEmpty()){
-            sb.append("Er is geen studenten Nummer");
-        }
-        if(!studentNrField.getText().matches("[0-9][0-9]*")){
-            sb.append("Geen geldig studenten nr");
         }
         
         return sb.toString();
