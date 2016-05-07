@@ -10,6 +10,7 @@ public class Student
     private String achternaam;
     private String email;
     private String fotoURL;
+    private int studentnr;
     
     
     private final static int AANTALEVALUTIES=3;
@@ -74,6 +75,16 @@ public class Student
         this.evasDone=evasDone;
     }
 
+    public int getStudentnr() {
+        return studentnr;
+    }
+
+    public void setStudentnr(int studentnr) {
+        this.studentnr = studentnr;
+    }
+    
+    
+    
     public Double[] getProgreses() {
         return progreses;
     }
@@ -189,6 +200,15 @@ public class Student
     public int getEvanumber() {
         return evanumber;
     }
+
+    public Boolean[] getEvasDone() {
+        return evasDone;
+    }
+
+    public void setEvasDone(Boolean[] evasDone) {
+        this.evasDone = evasDone;
+    }
+    
 
     public void setEvanumber(int newevanumber) {
         /*bij setten kijken of de evaluatie al gedaan is, indien nog niet huidig proces kopieren*/
