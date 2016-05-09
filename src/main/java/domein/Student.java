@@ -10,6 +10,7 @@ public class Student
     private String achternaam;
     private String email;
     private String fotoURL;
+    private int studentnr;
     
     
     private final static int AANTALEVALUTIES=3;
@@ -23,8 +24,6 @@ public class Student
     private String[] attitudes = new String[AANTALEVALUTIES];
     /*progress van de progressbar/abx level*/
     private Double[] progreses = new Double[AANTALEVALUTIES];
-    /*levels, is de voortgang in de progressbar --> hoe ver staat de student al*/
-    private int[] levels = new int[AANTALEVALUTIES];
     /*hoeveeste evaluatie dit is*/
     private int evanumber;
     
@@ -49,9 +48,6 @@ public class Student
         for(int i=0;i<attitudes.length;i++){
             attitudes[i]="";
         }
-        for(int i=0;i<levels.length;i++){
-            levels[i]=0;
-        }
         for(int i=0;i<evasDone.length;i++){
             evasDone[i]=false;
         }
@@ -74,6 +70,20 @@ public class Student
         this.evasDone=evasDone;
     }
 
+    public Student() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getStudentnr() {
+        return studentnr;
+    }
+
+    public void setStudentnr(int studentnr) {
+        this.studentnr = studentnr;
+    }
+    
+    
+    
     public Double[] getProgreses() {
         return progreses;
     }
@@ -159,36 +169,37 @@ public class Student
         this.traffictechnics = verkeerstechniek;
     }
 
-    public String[] getAttitude() {
-        return attitudes;
-    }
     
     public String getCurrentAttitude(){
         return attitudes[evanumber];
     }
 
-    public void setAttitude(String[] Attitudes) {
-        this.attitudes = Attitudes;
-    }
     public void setCurrentAttitude(String attitude){
         attitudes[evanumber]=attitude;
-    }
-
-    public int[] getLevel() {
-        return levels;
-    }
-    
-    public int getCurrentLevel(){
-        return levels[evanumber];
-    }
-
-    public void setLevel(int[] levels) {
-        this.levels = levels;
     }
 
     public int getEvanumber() {
         return evanumber;
     }
+
+    public Boolean[] getEvasDone() {
+        return evasDone;
+    }
+
+    public void setEvasDone(Boolean[] evasDone) {
+        this.evasDone = evasDone;
+    }
+
+    public String[] getAttitudes() {
+        return attitudes;
+    }
+
+    public void setAttitudes(String[] attitudes) {
+        this.attitudes = attitudes;
+    }
+    
+    
+    
 
     public void setEvanumber(int newevanumber) {
         /*bij setten kijken of de evaluatie al gedaan is, indien nog niet huidig proces kopieren*/
