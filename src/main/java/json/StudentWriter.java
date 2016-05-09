@@ -18,16 +18,20 @@ import javax.json.JsonBuilderFactory;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 import javax.json.JsonWriter;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.MessageBodyWriter;
+import javax.ws.rs.ext.Provider;
 
 
 /**
  *
  * @author sande
  */
+@Provider
+@Consumes(MediaType.APPLICATION_JSON)
 public class StudentWriter implements MessageBodyWriter<Student> {
 
     @Override
@@ -50,7 +54,7 @@ public class StudentWriter implements MessageBodyWriter<Student> {
             jsonStudent.add("email", student.getEmail());
             jsonStudent.add("studnr", student.getStudentnr());
             /*current eva number, waar hervatten*/
-            jsonStudent.add("curenteva", student.getEvanumber());
+            jsonStudent.add("currenteva", student.getEvanumber());
             /*alle evaluatie gegevens*/
             /*evas done*/
             JsonArray array = Json.createArrayBuilder().
@@ -62,6 +66,27 @@ public class StudentWriter implements MessageBodyWriter<Student> {
             jsonStudent.add("skills2", getJsonSkillObject(student.getSkills()[1]));
             jsonStudent.add("skills3", getJsonSkillObject(student.getSkills()[2]));
             
+            /*drivetechnics*/
+            jsonStudent.add("drive1", getJsonDriveTechnichObject(student.getDriveTechnics()[0]));
+            jsonStudent.add("drive2", getJsonDriveTechnichObject(student.getDriveTechnics()[1]));
+            jsonStudent.add("drive3", getJsonDriveTechnichObject(student.getDriveTechnics()[2]));
+            /*traffictechnis*/
+            jsonStudent.add("traffic1", getJsonTrafficTechnicObject(student.getTrafficTechnics()[0]));
+            jsonStudent.add("traffic2", getJsonTrafficTechnicObject(student.getTrafficTechnics()[1]));
+            jsonStudent.add("traffic3", getJsonTrafficTechnicObject(student.getTrafficTechnics()[2]));
+            
+            /*atitudes*/
+            jsonStudent.add("attitudes", Json.createArrayBuilder()
+                                            .add(student.getAttitudes()[0])
+                                            .add(student.getAttitudes()[1])
+                                            .add(student.getAttitudes()[2]).build());
+            jsonStudent.add("progress", Json.createArrayBuilder()
+                                        .add(student.getProgreses()[0])
+                                        .add(student.getProgreses()[1])
+                                        .add(student.getProgreses()[2])
+                                        .build());
+            
+            out.writeObject(jsonStudent.build());
         }
     }
     
@@ -70,34 +95,34 @@ public class StudentWriter implements MessageBodyWriter<Student> {
         return Json.createObjectBuilder()
                 .add("fueling", Json.createObjectBuilder()
                         .add("comment", skills.getFueling().getComment())
-                        .add("Color", skills.getFueling().getColor().ordinal()))
+                        .add("color", skills.getFueling().getColor().toString()))
                 .add("gps", Json.createObjectBuilder()
                         .add("comment", skills.getGps().getComment())
-                        .add("Color", skills.getGps().getColor().ordinal()))
+                        .add("color", skills.getGps().getColor().toString()))
                 .add("tires", Json.createObjectBuilder()
                         .add("comment", skills.getTires().getComment())
-                        .add("Color", skills.getTires().getColor().ordinal()))
+                        .add("color", skills.getTires().getColor().toString()))
                 .add("emergencystop", Json.createObjectBuilder()
                         .add("comment", skills.getEmergencystop().getComment())
-                        .add("Color", skills.getEmergencystop().getColor().ordinal()))
+                        .add("color", skills.getEmergencystop().getColor().toString()))
                 .add("city", Json.createObjectBuilder()
                         .add("comment", skills.getCity().getComment())
-                        .add("Color", skills.getCity().getColor().ordinal()))
+                        .add("color", skills.getCity().getColor().toString()))
                 .add("doublelane", Json.createObjectBuilder()
                         .add("comment", skills.getDoublelane().getComment())
-                        .add("Color", skills.getDoublelane().getColor().ordinal()))
+                        .add("color", skills.getDoublelane().getColor().toString()))
                 .add("lights", Json.createObjectBuilder()
                         .add("comment", skills.getLights().getComment())
-                        .add("Color", skills.getLights().getColor().ordinal()))
+                        .add("color", skills.getLights().getColor().toString()))
                 .add("oilcheck", Json.createObjectBuilder()
                         .add("comment", skills.getOilcheck().getComment())
-                        .add("Color", skills.getOilcheck().getColor().ordinal()))
+                        .add("color", skills.getOilcheck().getColor().toString()))
                 .add("roundabout", Json.createObjectBuilder()
                         .add("comment", skills.getRoundabout().getComment())
-                        .add("Color", skills.getRoundabout().getColor().ordinal()))
+                        .add("color", skills.getRoundabout().getColor().toString()))
                 .add("highway", Json.createObjectBuilder()
                         .add("comment", skills.getHighway().getComment())
-                        .add("Color", skills.getHighway().getColor().ordinal()))
+                        .add("color", skills.getHighway().getColor().toString()))
                 .build();
  
     }
@@ -106,43 +131,43 @@ public class StudentWriter implements MessageBodyWriter<Student> {
         return Json.createObjectBuilder()
                 .add("posture", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getPosture().getComment())
-                        .add("Color", drivetechnic.getPosture().getColor().ordinal()))
+                        .add("color", drivetechnic.getPosture().getColor().toString()))
                 .add("clutch", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getClutch().getComment())
-                        .add("Color", drivetechnic.getClutch().getColor().ordinal()))
+                        .add("color", drivetechnic.getClutch().getColor().toString()))
                 .add("braking", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getBraking().getComment())
-                        .add("Color", drivetechnic.getBraking().getColor().ordinal()))
+                        .add("color", drivetechnic.getBraking().getColor().toString()))
                 .add("steering", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getSteering().getComment())
-                        .add("Color", drivetechnic.getSteering().getColor().ordinal()))
+                        .add("color", drivetechnic.getSteering().getColor().toString()))
                 .add("shifting", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getShifting().getComment())
-                        .add("Color", drivetechnic.getShifting().getColor().ordinal()))
+                        .add("color", drivetechnic.getShifting().getColor().toString()))
                 .add("looking", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getLooking().getComment())
-                        .add("Color", drivetechnic.getLooking().getColor().ordinal()))
+                        .add("color", drivetechnic.getLooking().getColor().toString()))
                 .add("parking", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getParking().getComment())
-                        .add("Color", drivetechnic.getParking().getColor().ordinal()))
+                        .add("color", drivetechnic.getParking().getColor().toString()))
                 .add("turning", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getTurning().getComment())
-                        .add("Color", drivetechnic.getTurning().getColor().ordinal()))
+                        .add("color", drivetechnic.getTurning().getColor().toString()))
                 .add("garage", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getGarage().getComment())
-                        .add("Color", drivetechnic.getGarage().getColor().ordinal()))
+                        .add("color", drivetechnic.getGarage().getColor().toString()))
                 .add("reverse", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getReverse().getComment())
-                        .add("Color", drivetechnic.getReverse().getColor().ordinal()))
+                        .add("color", drivetechnic.getReverse().getColor().toString()))
                 .add("steeringpractice", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getSteeringPractice().getComment())
-                        .add("Color", drivetechnic.getSteeringPractice().getColor().ordinal()))
+                        .add("color", drivetechnic.getSteeringPractice().getColor().toString()))
                 .add("hillhandbrake", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getHillHandbrake().getComment())
-                        .add("Color", drivetechnic.getHillHandbrake().getColor().ordinal()))
+                        .add("color", drivetechnic.getHillHandbrake().getColor().toString()))
                 .add("hillbalancing", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getHillBalancing().getComment())
-                        .add("Color", drivetechnic.getHillBalancing().getColor().ordinal()))
+                        .add("color", drivetechnic.getHillBalancing().getColor().toString()))
                 
                 .build();
     }
@@ -151,34 +176,34 @@ public class StudentWriter implements MessageBodyWriter<Student> {
         return Json.createObjectBuilder()
                 .add("indicators", Json.createObjectBuilder()
                         .add("comment", trafficTechnic.getIndicators().getComment())
-                        .add("Color", trafficTechnic.getIndicators().getColor().ordinal()))
+                        .add("color", trafficTechnic.getIndicators().getColor().toString()))
                 .add("publicroad", Json.createObjectBuilder()
                         .add("comment", trafficTechnic.getPublicroad().getComment())
-                        .add("Color", trafficTechnic.getPublicroad().getColor().ordinal()))
+                        .add("color", trafficTechnic.getPublicroad().getColor().toString()))
                 .add("priority", Json.createObjectBuilder()
                         .add("comment", trafficTechnic.getPriority().getComment())
-                        .add("Color", trafficTechnic.getPriority().getColor().ordinal()))
+                        .add("color", trafficTechnic.getPriority().getColor().toString()))
                 .add("sign", Json.createObjectBuilder()
                         .add("comment", trafficTechnic.getSign().getComment())
-                        .add("Color", trafficTechnic.getSign().getColor().ordinal()))
+                        .add("color", trafficTechnic.getSign().getColor().toString()))
                 .add("speed", Json.createObjectBuilder()
                         .add("comment", trafficTechnic.getSpeed().getComment())
-                        .add("Color", trafficTechnic.getSpeed().getColor().ordinal()))
+                        .add("color", trafficTechnic.getSpeed().getColor().toString()))
                 .add("distance", Json.createObjectBuilder()
                         .add("comment", trafficTechnic.getDistance().getComment())
-                        .add("Color", trafficTechnic.getDistance().getColor().ordinal()))
+                        .add("color", trafficTechnic.getDistance().getColor().toString()))
                 .add("overtaking", Json.createObjectBuilder()
                         .add("comment", trafficTechnic.getOvertaking().getComment())
-                        .add("Color", trafficTechnic.getOvertaking().getColor().ordinal()))
+                        .add("color", trafficTechnic.getOvertaking().getColor().toString()))
                 .add("crossing", Json.createObjectBuilder()
                         .add("comment", trafficTechnic.getCrossing().getComment())
-                        .add("Color", trafficTechnic.getCrossing().getColor().ordinal()))
+                        .add("color", trafficTechnic.getCrossing().getColor().toString()))
                 .add("turningleft", Json.createObjectBuilder()
                         .add("comment", trafficTechnic.getTurningleft().getComment())
-                        .add("Color", trafficTechnic.getTurningleft().getColor().ordinal()))
+                        .add("color", trafficTechnic.getTurningleft().getColor().toString()))
                 .add("turningright", Json.createObjectBuilder()
                         .add("comment", trafficTechnic.getTurningright().getComment())
-                        .add("Color", trafficTechnic.getTurningright().getColor().ordinal()))
+                        .add("color", trafficTechnic.getTurningright().getColor().toString()))
                 
                 .build();
     }

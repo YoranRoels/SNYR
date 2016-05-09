@@ -24,8 +24,6 @@ public class Student
     private String[] attitudes = new String[AANTALEVALUTIES];
     /*progress van de progressbar/abx level*/
     private Double[] progreses = new Double[AANTALEVALUTIES];
-    /*levels, is de voortgang in de progressbar --> hoe ver staat de student al*/
-    private int[] levels = new int[AANTALEVALUTIES];
     /*hoeveeste evaluatie dit is*/
     private int evanumber;
     
@@ -50,9 +48,6 @@ public class Student
         for(int i=0;i<attitudes.length;i++){
             attitudes[i]="";
         }
-        for(int i=0;i<levels.length;i++){
-            levels[i]=0;
-        }
         for(int i=0;i<evasDone.length;i++){
             evasDone[i]=false;
         }
@@ -73,6 +68,10 @@ public class Student
         this.drivetechnics=drivetechnics;
         this.skills=skills;
         this.evasDone=evasDone;
+    }
+
+    public Student() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getStudentnr() {
@@ -170,31 +169,13 @@ public class Student
         this.traffictechnics = verkeerstechniek;
     }
 
-    public String[] getAttitude() {
-        return attitudes;
-    }
     
     public String getCurrentAttitude(){
         return attitudes[evanumber];
     }
 
-    public void setAttitude(String[] Attitudes) {
-        this.attitudes = Attitudes;
-    }
     public void setCurrentAttitude(String attitude){
         attitudes[evanumber]=attitude;
-    }
-
-    public int[] getLevel() {
-        return levels;
-    }
-    
-    public int getCurrentLevel(){
-        return levels[evanumber];
-    }
-
-    public void setLevel(int[] levels) {
-        this.levels = levels;
     }
 
     public int getEvanumber() {
@@ -208,6 +189,16 @@ public class Student
     public void setEvasDone(Boolean[] evasDone) {
         this.evasDone = evasDone;
     }
+
+    public String[] getAttitudes() {
+        return attitudes;
+    }
+
+    public void setAttitudes(String[] attitudes) {
+        this.attitudes = attitudes;
+    }
+    
+    
     
 
     public void setEvanumber(int newevanumber) {
