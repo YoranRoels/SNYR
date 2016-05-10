@@ -135,10 +135,9 @@ public class Student
     public Skills[] getSkills() {
         return skills;
     }
-    public Skills getCurrentEvalutie(){
-        return skills[evanumber];
-    }
 
+    
+    
     public void setSkills(Skills[] evaluatie) {
         this.skills = evaluatie;
     }
