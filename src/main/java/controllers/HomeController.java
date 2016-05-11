@@ -44,8 +44,10 @@ import panels.AnchorWheel;
 public class HomeController implements InvalidationListener{
     
     @FXML
-    private ImageView profielFoto; 
+    private ImageView profielFotoBorders; 
     // Zwarte randen (profielFotoImage is de echte afbeelding).
+    @FXML
+    private ImageView profielFotoImage;
     @FXML
     private RadioButton evatoggle1;
     @FXML
@@ -133,7 +135,7 @@ public class HomeController implements InvalidationListener{
         //profielFoto.setImage(null);
         
         /*klikken op de profiel foto brengt je naar de home/inlog page*/
-        profielFoto.setOnMouseClicked((MouseEvent event) -> {
+        profielFotoImage.setOnMouseClicked((MouseEvent event) -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/InlogScreen.fxml"));
                 
@@ -152,9 +154,8 @@ public class HomeController implements InvalidationListener{
         /*terugknop brengt je naar de student homepage met sturen */
         terugknop.setOnMouseClicked(new SwitchPanelCommand(borderpane, wheelpane));
         
-        commentBoxBorders.setOnMouseClicked((MouseEvent event) -> {
-            exclamationField.requestFocus();
-        });
+        commentBoxBorders.setMouseTransparent(true); // klik door de randen zodat je het textvak nog kan bedienen.
+        profielFotoBorders.setMouseTransparent(true);
         
         
         //eva selecties in stellen en huidige eva aanzetten
@@ -205,11 +206,11 @@ public class HomeController implements InvalidationListener{
         }
         else if(progressBar.progressProperty().doubleValue() > 0.2 && progressBar.progressProperty().doubleValue() < 0.7)
         {
-            sliderLabel.setText("Klaar om met een begeleider te oefenen\nin de stageperiode.");
+            sliderLabel.setText("Klaar om met een begeleider te oefenen in de stageperiode.");
         }
         else if(progressBar.progressProperty().doubleValue() > 0.7 && progressBar.progressProperty().doubleValue() < 0.95)
         {
-            sliderLabel.setText("Klaar om alleen te oefenen\nin de stageperiode.");
+            sliderLabel.setText("Klaar om alleen te oefenen in de stageperiode.");
         }
         else if(progressBar.progressProperty().doubleValue() > 0.95)
         {
