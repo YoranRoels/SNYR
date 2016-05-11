@@ -86,7 +86,7 @@
             <Label layoutX="605.0" layoutY="8.0" style="-fx-text-fill: rgb(255,255,255);" text="A" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="605.0" />
             <Label layoutX="406.0" layoutY="8.0" style="-fx-text-fill: rgb(255,255,255);" text="B" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="406.0" />
             <Label layoutX="707.0" layoutY="8.0" style="-fx-text-fill: rgb(255,255,255);" text="X" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="707.0" />
-            <Button id="terugknop" fx:id="terugknop" layoutX="943.0" layoutY="10.0" mnemonicParsing="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="15.0" />
+            <Button id="terugknop" fx:id="terugknop" layoutX="943.0" layoutY="10.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="15.0" />
             <Button id="minusButton" fx:id="minusButton" layoutX="238.0" mnemonicParsing="false" AnchorPane.bottomAnchor="15.0" />
             <Button id="plusButton" fx:id="plusButton" layoutX="726.0" mnemonicParsing="false" AnchorPane.bottomAnchor="15.0" />
             <ProgressBar fx:id="progressBar" layoutX="312.0" layoutY="27.0" prefHeight="18.0" prefWidth="406.0" progress="0.0" />

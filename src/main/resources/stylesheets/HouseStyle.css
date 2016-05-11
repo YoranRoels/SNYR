@@ -20,11 +20,6 @@ and open the template in the editor.
     -fx-tick-label-fill: white;
 }
 
-#bottomAnchor
-{
-    -fx-background-image: url('../images/bottomDashboard.PNG')
-}
-
 #dashboard
 {
     -fx-background-image: url('../images/dashboard.png');
@@ -36,7 +31,7 @@ and open the template in the editor.
 #minusButton
 {
     -fx-graphic: url("../images/Minusbutton.png");
-    -fx-background-color: black;
+    -fx-background-color: transparent;
     -fx-max-width:50px;
     -fx-max-height:50px;
 }
@@ -44,7 +39,7 @@ and open the template in the editor.
 #plusButton
 {
     -fx-graphic: url("../images/Plusbutton.png");
-    -fx-background-color: black;
+    -fx-background-color: transparent;
     -fx-max-width:50px;
     -fx-max-height:50px;
 }
@@ -53,6 +48,7 @@ and open the template in the editor.
 {
     -fx-graphic: url("../images/return-button.png");
     -fx-background-color: black;
-    -fx-max-width:50px;
-    -fx-max-height:50px;
+    -fx-background-radius: 500;
+    -fx-max-width:65px;
+    -fx-max-height:65px;
 }

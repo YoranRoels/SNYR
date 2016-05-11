@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -61,6 +59,7 @@ public class WheelController implements InvalidationListener {
     
     public void initialize(){
         System.out.println("Wheelcontroller");
+        update();
         drivePane = new AnchorDrive(root,driveModel);
         drivePane.create();
         driveButton.setOnMouseClicked(new SwitchPanelCommand(root, drivePane));
