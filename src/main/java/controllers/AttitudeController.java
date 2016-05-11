@@ -42,7 +42,8 @@ public class AttitudeController implements InvalidationListener
     
     private final AttitudeModel model;
             
-    public void initialize(){
+    public void initialize()
+    {   
         System.out.println("AttitudeController");
         selectieListView.setItems(model.getSelectie());
         selectieListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
@@ -73,12 +74,13 @@ public class AttitudeController implements InvalidationListener
             }
         });
        
+       
     }
 
     public AttitudeController(BorderPane root,AttitudeModel model) 
     {
         this.root = root;
-        this.model=model;
+        this.model = model;
         model.addListener(this);
     }
 

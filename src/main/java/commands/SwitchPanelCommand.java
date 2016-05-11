@@ -9,6 +9,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import panels.AnchorWheel;
 
 /**
  *
@@ -27,6 +28,5 @@ public class SwitchPanelCommand implements EventHandler<Event> {
     @Override
     public void handle(Event event) {
         borderpane.setCenter(counterpane);
-
     }
 }

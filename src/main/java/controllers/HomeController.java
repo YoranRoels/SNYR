@@ -170,25 +170,23 @@ public class HomeController implements InvalidationListener{
         evatoggle1.setOnAction((ActionEvent event) -> {
             System.out.println("choose evalutation 1");
             veranderenEvaluatie(0);
-            
+            checkMinimalValue();
         });
         evatoggle2.setOnAction((ActionEvent event) -> {
             System.out.println("choose evalutation 2");
             veranderenEvaluatie(1);
+            checkMinimalValue();
         });
         evatoggle3.setOnAction((ActionEvent event) -> {
             System.out.println("choose evalutation 3");
             veranderenEvaluatie(2);
+            checkMinimalValue();
         });
         
         minusButton.setOnAction((ActionEvent event) -> {
             progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue()-0.05);
             homeModel.setProgres(progressBar.progressProperty().getValue());
-            if(progressBar.progressProperty().doubleValue() < 0)
-            {
-                System.out.println("Reached minimal value.");
-                progressBar.progressProperty().setValue(0);
-            }
+            checkMinimalValue();
             updateSliderComment();
         });
         
@@ -197,8 +195,10 @@ public class HomeController implements InvalidationListener{
             homeModel.setProgres(progressBar.progressProperty().getValue());
             updateSliderComment();
         });
+        
+        
     }
-    protected void updateSliderComment()
+    public void updateSliderComment()
     {
         if(progressBar.progressProperty().doubleValue() < 0.2)
         {
@@ -215,6 +215,15 @@ public class HomeController implements InvalidationListener{
         else if(progressBar.progressProperty().doubleValue() > 0.95)
         {
             sliderLabel.setText("Klaar voor praktisch examen.");
+        }
+    }
+    
+    public void checkMinimalValue()
+    {
+        if(progressBar.progressProperty().doubleValue() < 0)
+        {
+            System.out.println("Reached minimal value.");
+            progressBar.progressProperty().setValue(0);
         }
     }
     
