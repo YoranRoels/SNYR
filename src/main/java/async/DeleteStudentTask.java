@@ -23,7 +23,7 @@ public class DeleteStudentTask extends Task<Void>
     public DeleteStudentTask(Student student)
     {
         studentListResource = ClientBuilder.newClient()
-                .target("http://localhost:8080/rijschool/api/")
+                .target("http://localhost:8080/rijschool/api")
                 .path("students")
                 .path(Integer.toString(student.getStudentnr()))
                 .register(HttpAuthenticationFeature.basic("rijschoolevauser", "rijschoolevauser"));

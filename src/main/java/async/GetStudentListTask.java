@@ -21,7 +21,7 @@ public class GetStudentListTask extends Task<List<Student>>
     public GetStudentListTask()
     {
         userListResource = ClientBuilder.newClient()
-                .target("http://localhost:8080/rijschool/api/")
+                .target("http://localhost:8080/rijschool/api")
                 .path("students")
                 .register(StudentListReader.class);
     }
