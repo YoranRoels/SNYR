@@ -13,12 +13,10 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import javax.json.Json;
 import javax.json.JsonArray;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonBuilderFactory;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 import javax.json.JsonWriter;
-import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
@@ -30,8 +28,8 @@ import javax.ws.rs.ext.Provider;
  *
  * @author sande
  */
-@Provider
-@Consumes(MediaType.APPLICATION_JSON)
+//@Provider
+//@Produces(MediaType.APPLICATION_JSON)
 public class StudentWriter implements MessageBodyWriter<Student> {
 
     @Override
@@ -42,7 +40,7 @@ public class StudentWriter implements MessageBodyWriter<Student> {
     @Override
     public long getSize(Student t, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
        return -1;
-               }
+    }
 
     @Override
     public void writeTo(Student student, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream) throws IOException, WebApplicationException {
@@ -60,7 +58,6 @@ public class StudentWriter implements MessageBodyWriter<Student> {
             JsonArray array = Json.createArrayBuilder().
                     add(student.getEvasDone()[0]).add(student.getEvasDone()[1]).add(student.getEvasDone()[2]).build();
             jsonStudent.add("evasdone", array);
-            array.clear();
             /*skills toevoegen*/
             jsonStudent.add("skills1", getJsonSkillObject(student.getSkills()[0]));
             jsonStudent.add("skills2", getJsonSkillObject(student.getSkills()[1]));

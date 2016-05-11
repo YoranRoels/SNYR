@@ -22,15 +22,19 @@ import javax.json.JsonArray;
 import javax.json.JsonException;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.MessageBodyReader;
+import javax.ws.rs.ext.Provider;
 
 /**
  *
  * @author sande
  */
+@Provider
+@Consumes(MediaType.APPLICATION_JSON)
 public class StudentListReader implements MessageBodyReader <List<Student>> {
 
     @Override
@@ -53,11 +57,9 @@ public class StudentListReader implements MessageBodyReader <List<Student>> {
             JsonArray jsonStudents = in.readArray();
             List<Student> students = new ArrayList<>();
             for (JsonObject jsonStudent: jsonStudents.getValuesAs(JsonObject.class)) {
-                String voornaam = jsonStudent.getString("surname", null);
-                String achternaam = jsonStudent.getString("lastname", null);
                 Student student = new Student();
-                student.setVoornaam(voornaam);
-                student.setAchternaam(achternaam);
+                student.setVoornaam(jsonStudent.getString("surname"));
+                student.setAchternaam(jsonStudent.getString("firstname"));
                 student.setEvanumber(jsonStudent.getInt("currenteva"));
                 
                 student.setAttitudes((String[]) jsonStudent.getJsonArray("attitudes").toArray());

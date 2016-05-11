@@ -49,7 +49,7 @@
       </AnchorPane>
    </top>
    <bottom>
-      <AnchorPane prefHeight="80.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <AnchorPane id="bottomAnchor" prefHeight="80.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
             <HBox layoutX="40.0" layoutY="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="20.0">
                <children>
