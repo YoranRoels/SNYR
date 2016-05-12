@@ -42,7 +42,7 @@ public class InlogController {
     private ListView<Student> studentenListView;
     
     /*dummy students*/
-    private final ObservableList<Student> studenten = FXCollections.observableArrayList();
+    private final ObservableList<Student> studenten;
     
     private final ObservableList selectie;
     
@@ -53,17 +53,17 @@ public class InlogController {
 
     public InlogController(Stage stage,ObservableList<Student> studenten,ObservableList<String> selectie) {
         this.stage = stage;
-//        this.studenten=studenten;
+        this.studenten=studenten;
         this.selectie=selectie;
-        GetStudentListTask task = new GetStudentListTask();
-        task.setOnSucceeded(event -> {
-            studenten.addAll(task.getValue());
-        });
-        task.setOnFailed(event -> {
-            System.out.println("FAILED TO LOAD STUDENTS");
-            task.getException().printStackTrace();
-        });
-        service.submit(task);
+//        GetStudentListTask task = new GetStudentListTask();
+//        task.setOnSucceeded(event -> {
+//            studenten.addAll(task.getValue());
+//        });
+//        task.setOnFailed(event -> {
+//            System.out.println("FAILED TO LOAD STUDENTS");
+//            task.getException().printStackTrace();
+//        });
+//        service.submit(task);
     }
     /*constructor, met als extra waarde de geupdate student*/
      
@@ -135,17 +135,17 @@ public class InlogController {
     }
     
     public void addStudent(Student student){
-        AddStudentTask task = new AddStudentTask(student);
-        task.setOnSucceeded(event -> {
-            studenten.add(student);
-        });
-        task.setOnFailed(event -> {
-            System.out.println("STUDENT CREATION FAILED");
-            task.getException().printStackTrace();
-        });
-        service.submit(task);
-//        studenten.add(student);
+//        AddStudentTask task = new AddStudentTask(student);
+//        task.setOnSucceeded(event -> {
+//            studenten.add(student);
+//        });
+//        task.setOnFailed(event -> {
+//            System.out.println("STUDENT CREATION FAILED");
+//            task.getException().printStackTrace();
+//        });
+//        service.submit(task);
+        studenten.add(student);
         Collections.sort(studenten, comparator);
-//        studentenListView.setItems(studenten);
+        studentenListView.setItems(studenten);
     }
 }
