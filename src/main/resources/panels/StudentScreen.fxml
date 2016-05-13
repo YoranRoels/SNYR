@@ -12,7 +12,7 @@
    <top>
       <AnchorPane minHeight="121.0" prefHeight="184.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="451.0" layoutY="105.0" styleClass="topLabelFont" text="Student" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="312.0" layoutY="105.0" minWidth="400.0" styleClass="topLabelFont" text="Student" textFill="WHITE">
                <font>
                   <Font size="50.0" />
                </font>
@@ -70,7 +70,7 @@
                   <Font size="19.0" />
                </font>
             </TextField>
-            <Label fx:id="errorMessageLabel" layoutX="193.0" layoutY="367.0" textFill="#ff0b0b">
+            <Label fx:id="errorMessageLabel" alignment="CENTER" layoutX="412.0" layoutY="404.0" minWidth="200.0" textFill="#ff0b0b">
                <font>
                   <Font size="18.0" />
                </font>

@@ -17,6 +17,7 @@
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
+            <Button id="syncButton" fx:id="syncButton" layoutX="905.0" layoutY="18.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
          </children>
       </AnchorPane>
    </top>
@@ -28,7 +29,6 @@
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button id="syncButton" fx:id="syncButton" layoutX="893.0" layoutY="16.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
          </children>
       </AnchorPane>
    </bottom>

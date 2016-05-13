@@ -83,6 +83,13 @@ and open the template in the editor.
     -fx-font-size: 30px;
 }
 
+.list-cell 
+{
+  -fx-font-weight: bold;
+  -fx-font-family: "Agency FB";
+  -fx-font-size: 15px;
+}
+
 .slider .axis
 {
     -fx-tick-label-fill: white;

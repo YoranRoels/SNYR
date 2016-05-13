@@ -120,17 +120,23 @@ public class InlogController {
              }
             });
         
+        
+        // BEGIN CODE LABEL VOOR STUDENTEN NAAM IN INLOG SCREEN
+        studentLabel.setText("Student"); // Zodat bij het inkomen van de app of aanpassing/nieuwe student er altijd "Student" staat.
+        
         studentenListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Student>() 
         {
             @Override
             public void changed(ObservableValue<? extends Student> observable, Student oldValue, Student newValue) 
-            {
-                studentLabel.setText(studentenListView.getSelectionModel().selectedItemProperty().getValue().getAchternaam() 
-                        + " " + studentenListView.getSelectionModel().selectedItemProperty().getValue().getVoornaam());
+            {   
+                if (newValue != null)
+                {
+                    studentLabel.setText(newValue.getAchternaam() + " " + newValue.getVoornaam());
+                }
             }
         });
+        // EINDE CODE LABEL VOOR STUDENTEN NAAM IN INLOG SCREEN
           
-//        studentenListView.set
     }
     /*comp om op achternaam te sorteren*/
     private final StudentenComparator comparator=new StudentenComparator();
