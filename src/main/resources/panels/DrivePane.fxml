@@ -12,7 +12,7 @@
 
 <fx:root id="drivePane" prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Circle centerX="500.0" centerY="245.0" layoutX="-187.0" opacity="0.21" radius="225.0" stroke="BLACK" strokeType="INSIDE">
+      <Circle centerX="500.0" centerY="245.0" layoutX="-187.0" layoutY="-1.0" opacity="0.21" radius="200.0" stroke="BLACK" strokeType="INSIDE">
          <fill>
             <LinearGradient endX="0.20476190476190478" endY="0.8142857142857143" startX="0.9428571428571428" startY="0.04761904761904767">
                <stops>
@@ -21,18 +21,18 @@
                </stops>
             </LinearGradient>
          </fill></Circle>
-      <Button id="clutch" fx:id="clutchButton" layoutX="118.0" layoutY="70.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
-      <Button id="steering" fx:id="steeringButton" layoutX="338.0" layoutY="14.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
-      <Button id="looking" fx:id="lookingButton" layoutX="488.0" layoutY="162.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
-      <Button id="brake" fx:id="brakeButton" layoutX="218.0" layoutY="14.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
-      <Button id="hill" fx:id="hillButton" layoutX="68.0" layoutY="256.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
-      <Button id="shifting" fx:id="shiftingButton" layoutX="438.0" layoutY="70.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
-      <Button id="parking" fx:id="parkingButton" layoutX="488.0" layoutY="256.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
-      <Button id="turning" fx:id="turningButton" layoutX="438.0" layoutY="348.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
-      <Button id="steeringPractice" fx:id="steeringPracticeButton" layoutX="118.0" layoutY="348.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
-      <Button id="reverse" fx:id="reverseButton" layoutX="218.0" layoutY="404.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
-      <Button id="garage" fx:id="garageButton" layoutX="338.0" layoutY="404.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
-      <Button id="sitting" fx:id="sittingButton" layoutX="68.0" layoutY="162.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
+      <Button id="clutch" fx:id="clutchButton" layoutX="149.0" layoutY="81.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
+      <Button id="steering" fx:id="steeringButton" layoutX="325.0" layoutY="37.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
+      <Button id="looking" fx:id="lookingButton" layoutX="455.0" layoutY="161.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
+      <Button id="brake" fx:id="brakeButton" layoutX="231.0" layoutY="37.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
+      <Button id="hill" fx:id="hillButton" layoutX="100.0" layoutY="257.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
+      <Button id="shifting" fx:id="shiftingButton" layoutX="407.0" layoutY="81.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
+      <Button id="parking" fx:id="parkingButton" layoutX="455.0" layoutY="257.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
+      <Button id="turning" fx:id="turningButton" layoutX="407.0" layoutY="339.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
+      <Button id="steeringPractice" fx:id="steeringPracticeButton" layoutX="149.0" layoutY="339.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
+      <Button id="reverse" fx:id="reverseButton" layoutX="231.0" layoutY="382.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
+      <Button id="garage" fx:id="garageButton" layoutX="325.0" layoutY="382.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
+      <Button id="sitting" fx:id="sittingButton" layoutX="100.0" layoutY="161.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
       <RadioButton layoutX="825.0" layoutY="340.0" mnemonicParsing="false" text="RadioButton" />
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="414.0" layoutX="608.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" translateX="20.0" width="324.0" />
       <Button fx:id="fotoButton" layoutX="740.0" layoutY="55.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateX="20.0" />
