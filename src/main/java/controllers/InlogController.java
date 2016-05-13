@@ -5,8 +5,6 @@
  */
 package controllers;
 
-import async.AddStudentTask;
-import async.GetStudentListTask;
 import domein.Student;
 import domein.StudentenComparator;
 import java.io.IOException;
@@ -15,13 +13,15 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.FXCollections;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
@@ -31,6 +31,8 @@ import javafx.stage.Stage;
  */
 public class InlogController {
     
+    @FXML
+    private Label studentLabel;
     @FXML
     private Button loginButton;
     @FXML
@@ -118,8 +120,17 @@ public class InlogController {
              }
             });
         
+        studentenListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Student>() 
+        {
+            @Override
+            public void changed(ObservableValue<? extends Student> observable, Student oldValue, Student newValue) 
+            {
+                studentLabel.setText(studentenListView.getSelectionModel().selectedItemProperty().getValue().getAchternaam() 
+                        + " " + studentenListView.getSelectionModel().selectedItemProperty().getValue().getVoornaam());
+            }
+        });
           
-        
+//        studentenListView.set
     }
     /*comp om op achternaam te sorteren*/
     private final StudentenComparator comparator=new StudentenComparator();

@@ -15,6 +15,74 @@ and open the template in the editor.
 }
 */
 
+#listview
+{
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-color: #1471b7;
+    -fx-border-width: 2px;
+}
+
+.loginButton
+{
+    -fx-background-radius: 100;
+/*    -fx-background-color: white;*/
+    
+    -fx-border-radius: 100;
+    -fx-border-width: 3px;
+    -fx-border-insets: 0 0 -1 0;
+    -fx-border-color: #1471b7;
+    
+    -fx-text-fill: #1471b7;
+    -fx-font-weight: bold;
+    -fx-font-size: 22px;
+    -fx-font-family: "Agency FB";
+}
+
+#loginButtonDelete /* Only for the "Verwijderen" button */
+{
+    -fx-background-radius: 100;
+    
+    -fx-border-radius: 100;
+    -fx-border-width: 3px;
+    -fx-border-insets: 0 0 -1 0;
+    -fx-border-color: red;
+    
+    -fx-text-fill: red;
+    -fx-font-weight: bold;
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 22px; 
+    /* Scenebuilder thinks you're overwriting font size 
+    when you set the font familt in CSS, 
+    that's why you have to set the font size as well */
+}
+
+#syncButton
+{
+    -fx-background-image: url("../images/synch.png");
+    -fx-background-color: transparent;
+    -fx-background-size: 100px;
+    -fx-background-repeat: no-repeat;
+}
+
+.labelFont
+{
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 25px;
+}
+
+.topLabelFont
+{
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 40px;
+}
+
+#studentName
+{
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 30px;
+}
+
 .slider .axis
 {
     -fx-tick-label-fill: white;

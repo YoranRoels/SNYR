@@ -40,7 +40,7 @@
                   <Image url="@../images/commentWindow.png" />
                </image>
             </ImageView>
-            <Label fx:id="sliderLabel" alignment="TOP_CENTER" layoutX="456.0" layoutY="110.0" prefHeight="75.0" prefWidth="350.0" text="Student heeft nog veel bij te leren." textFill="WHITE" wrapText="true">
+            <Label fx:id="sliderLabel" alignment="TOP_CENTER" layoutX="456.0" layoutY="110.0" prefHeight="75.0" prefWidth="350.0" styleClass="labelFont" text="Student heeft nog veel bij te leren." textFill="WHITE" wrapText="true">
                <font>
                   <Font size="21.0" />
                </font>
