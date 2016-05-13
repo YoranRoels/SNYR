@@ -6,14 +6,14 @@ and open the template in the editor.
 /* 
     Created on : 17-Feb-2016, 11:00:58
     Author     : sande
-    -fx-color: green;
-    -fx-fill: green;
-    -fx-background-color: green;
-.toggle-button:selected {
-    -fx-background-color: blue;
--fx-graphic: "/images/switches/banden.png";
 }
 */
+
+.evaRadioButtons
+{
+    -fx-scale-y: 1.5;
+    -fx-scale-x: 1.5;
+}
 
 #listview
 {
