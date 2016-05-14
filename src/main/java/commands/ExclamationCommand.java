@@ -25,9 +25,12 @@ public class ExclamationCommand implements EventHandler<ActionEvent> {
     }
 
     @Override
-    public void handle(ActionEvent event) {
-        exclamationField.setText(exclamationField.getText()+commentaarveld.getText()+"\n");
-                
+    public void handle(ActionEvent event) 
+    {
+        if(!commentaarveld.getText().isEmpty())
+        {
+            exclamationField.setText(exclamationField.getText()+commentaarveld.getText()+"\n");
+        }
     }
     
 }

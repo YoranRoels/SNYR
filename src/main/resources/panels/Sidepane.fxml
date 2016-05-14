@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -11,7 +12,7 @@
 
 <fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="100.0" layoutY="33.0" prefHeight="423.0" prefWidth="450.0" style="-fx-background-color: #c9c7c7; -fx-border-radius: 100; -fx-background-radius: 100;">
+      <VBox layoutX="100.0" layoutY="33.0" prefHeight="423.0" prefWidth="411.0" style="-fx-background-color: #c9c7c7; -fx-border-radius: 100; -fx-background-radius: 100;">
          <children>
             <HBox alignment="CENTER" prefHeight="141.0" prefWidth="450.0" spacing="33.0">
                <children>
@@ -47,7 +48,7 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="141.0" prefWidth="450.0" spacing="22.0">
+            <HBox alignment="CENTER" prefHeight="141.0" prefWidth="450.0" spacing="15.0">
                <children>
                   <Button id="city" fx:id="cityButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;">
                      <styleClass>
@@ -118,7 +119,7 @@
          </font>
       </Label>
       <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="860.0" layoutY="392.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
-      <Circle fill="WHITE" layoutX="501.0" layoutY="470.0" opacity="0.85" radius="7.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="495.0" />
-      <Circle fill="#8b939a" layoutX="519.0" layoutY="470.0" opacity="0.5" radius="7.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="495.0" />
+      <Circle fill="WHITE" layoutX="501.0" layoutY="470.0" opacity="0.85" radius="10.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="490.0" />
+      <Circle fill="#8b939a" layoutX="519.0" layoutY="470.0" opacity="0.5" radius="10.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="490.0" />
    </children>
 </fx:root>

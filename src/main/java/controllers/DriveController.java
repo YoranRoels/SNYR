@@ -94,7 +94,7 @@ public class DriveController implements InvalidationListener
         orange.setUserData("orange");
         green.setUserData("green");
         
-         actionMenuButton.getItems().clear();
+        actionMenuButton.getItems().clear();
 
         menuitems.put("sitting", new ArrayList<>(Arrays.asList(new ActionMenuItem("zithouding",commentfield),new ActionMenuItem("Gordel",commentfield),new ActionMenuItem("Spiegels",commentfield),new ActionMenuItem("Handrem",commentfield),new ActionMenuItem("Andere",commentfield))));
         menuitems.put("clutch", new ArrayList<>(Arrays.asList(new ActionMenuItem("Dosering",commentfield),new ActionMenuItem("Volledig",commentfield),new ActionMenuItem("Plaatsing voet",commentfield),new ActionMenuItem("Onnodig",commentfield),new ActionMenuItem("Bocht",commentfield),new ActionMenuItem("Andere",commentfield))));
@@ -131,12 +131,14 @@ public class DriveController implements InvalidationListener
                 model.setColorForTechniek(radioGroup.getSelectedToggle().getUserData().toString());
                         }
         });
+        
         commentfield.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 model.setCommentForTechniek(newValue);
             }
         });
+        
         exclamationMarkButton.setOnAction(new ExclamationCommand(model.getExclamationField(), commentfield));
         
         update();
@@ -167,13 +169,15 @@ public class DriveController implements InvalidationListener
 
         /*comment invullen*/
         commentfield.setText(model.getCommentForTechniek());
+
         
         /*pas na selectie van een knop mag comentaar aanpasbaar zijn*/
-        if(!model.getId().isEmpty()){ 
-        commentfield.setEditable(true);
+        if(!model.getId().isEmpty())
+        { 
+            commentfield.setEditable(true);
         }
         
-        /*kleur doorgeven dus weeer unselecten*/
+        /*kleur doorgeven dus weer unselecten*/
         if(radioGroup.selectedToggleProperty().isNotNull().get())
         { 
             radioGroup.getSelectedToggle().setSelected(false);
