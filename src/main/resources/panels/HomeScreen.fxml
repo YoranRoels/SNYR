@@ -42,6 +42,11 @@
                   <Font size="21.0" />
                </font>
             </Label>
+            <ImageView fx:id="trashcan" fitHeight="40.0" fitWidth="40.0" layoutX="396.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/trashcanIcon.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </top>
