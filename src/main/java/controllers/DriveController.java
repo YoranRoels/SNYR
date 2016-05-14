@@ -1,25 +1,25 @@
 package controllers;
 
 import commands.ExclamationCommand;
+import domein.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.shape.Arc;
 import models.DriveModel;
 import overige.ActionMenuItem;
 
@@ -66,18 +66,20 @@ public class DriveController implements InvalidationListener
     private Button sittingButton;
     @FXML
     private Button clutchButton;
-    
     @FXML
     private Button fotoButton;
-    
     @FXML
     private Button exclamationMarkButton;
-    
     @FXML
     private TextArea commentfield;
-
     @FXML
     private MenuButton actionMenuButton;
+    @FXML
+    private Arc driveTopIndicatorInPane;
+    @FXML
+    private Arc driveLeftIndicatorInPane;
+    @FXML
+    private Arc driveRightIndicatorInPane;
     
 
     private Button[] buttons;
@@ -138,7 +140,6 @@ public class DriveController implements InvalidationListener
         exclamationMarkButton.setOnAction(new ExclamationCommand(model.getExclamationField(), commentfield));
         
         update();
-        
     }
 
     public DriveController(BorderPane root,DriveModel model) 
@@ -173,9 +174,10 @@ public class DriveController implements InvalidationListener
         }
         
         /*kleur doorgeven dus weeer unselecten*/
-        if(radioGroup.selectedToggleProperty().isNotNull().get()){ 
+        if(radioGroup.selectedToggleProperty().isNotNull().get())
+        { 
             radioGroup.getSelectedToggle().setSelected(false);
-                }
+        }
         
         clutchButton.setStyle("-fx-background-color:"+model.getClutchColor());
         brakeButton.setStyle("-fx-background-color:"+model.getBrakingColor());
@@ -189,8 +191,48 @@ public class DriveController implements InvalidationListener
         steeringButton.setStyle("-fx-background-color:"+model.getSteeringColor());
         steeringPracticeButton.setStyle("-fx-background-color:"+model.getSteeringPracticeColor());
         turningButton.setStyle("-fx-background-color:"+model.getTurningColor());
-       
         
+        ArrayList<Color> driveTopColors = new ArrayList<>();
+        driveTopColors.add(model.getPostureColor());
+        driveTopColors.add(model.getClutchColor());
+        driveTopColors.add(model.getBrakingColor());
+        driveTopColors.add(model.getSteeringColor());
+        driveTopColors.add(model.getShiftingColor());
+        driveTopColors.add(model.getLookingColor());
+        
+        changeRectangleColor(driveTopColors, driveTopIndicatorInPane);
+        
+        ArrayList<Color> driveLeftColors = new ArrayList<>();
+        driveLeftColors.add(model.getHillColor());
+        driveLeftColors.add(model.getSteeringPracticeColor());
+        driveLeftColors.add(model.getReverseColor());
+        driveLeftColors.add(model.getGarageColor());
+        
+        changeRectangleColor(driveLeftColors, driveLeftIndicatorInPane);
+        
+        ArrayList<Color> driveRightColors = new ArrayList<>();
+        driveRightColors.add(model.getTurningColor());
+        driveRightColors.add(model.getParkingColor());
+        
+        changeRectangleColor(driveRightColors, driveRightIndicatorInPane);
     }
-
+    
+    public void changeRectangleColor (ArrayList<Color> colorList, Arc indicator)
+    {
+        Collections.sort(colorList);
+        
+        switch (colorList.get(0)) {
+            case RED:
+                indicator.setFill(new javafx.scene.paint.Color(1, 0, 0, 1));
+                break;
+            case ORANGE:
+                indicator.setFill(new javafx.scene.paint.Color(1, 0.65, 0, 1));
+                break;
+            case GREEN:
+                indicator.setFill(new javafx.scene.paint.Color(0, 0.5, 0, 1));
+                break;
+            default:
+                break;
+        }
+    }
 }

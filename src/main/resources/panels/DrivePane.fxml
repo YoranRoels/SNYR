@@ -54,6 +54,9 @@
          </font>
       </Label>
       <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="860.0" layoutY="390.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
+      <Arc fx:id="driveRightIndicatorInPane" fill="WHITE" layoutX="352.0" layoutY="278.0" length="180.0" radiusX="70.0" radiusY="73.0" startAngle="-135.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+      <Arc fx:id="driveLeftIndicatorInPane" fill="WHITE" layoutX="278.0" layoutY="275.0" length="180.0" radiusX="67.0" radiusY="73.0" startAngle="140.7" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+      <Arc fx:id="driveTopIndicatorInPane" fill="WHITE" layoutX="312.0" layoutY="258.0" length="180.0" radiusX="119.0" radiusY="133.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
       <ImageView fitHeight="254.0" fitWidth="260.0" layoutX="186.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/driveImage.png" />

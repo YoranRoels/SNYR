@@ -46,6 +46,7 @@ public class WheelController implements InvalidationListener {
     private Rectangle trafficRightIndicator;
     @FXML
     private Rectangle trafficBottomIndicator;
+    @FXML
     
     private final BorderPane root;
     
