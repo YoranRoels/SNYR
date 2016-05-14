@@ -4,8 +4,6 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import models.AttitudeModel;
 
@@ -37,6 +35,9 @@ public class AttitudeController implements InvalidationListener
     
     @FXML
     private Button toevoegButton;
+    
+    @FXML
+    private ImageView attitudeTextFieldCorners;
     
     private final BorderPane root;
     
@@ -74,7 +75,7 @@ public class AttitudeController implements InvalidationListener
             }
         });
        
-       
+       attitudeTextFieldCorners.setMouseTransparent(true); 
     }
 
     public AttitudeController(BorderPane root,AttitudeModel model) 

@@ -9,18 +9,41 @@ and open the template in the editor.
 }
 */
 
+.roundedCornersAdaptation
+{
+    -fx-padding: 3px;
+    
+    -fx-text-box-border: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.rectangleColoredBorders
+{
+    -fx-fill: #1471b7;
+}
+
 .evaRadioButtons
 {
     -fx-scale-y: 1.5;
     -fx-scale-x: 1.5;
 }
 
-#listview
+#attitudeImageAnchorPane
+{
+    -fx-background-color: black;
+    -fx-background-radius: 25px;
+    -fx-padding: 5px;
+}
+
+.listview
 {
     -fx-background-radius: 30;
     -fx-border-radius: 30;
     -fx-border-color: #1471b7;
-    -fx-border-width: 2px;
+    -fx-border-width: 3px;
+    -fx-padding: 25 2 25 2;
 }
 
 .loginButton

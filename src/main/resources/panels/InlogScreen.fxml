@@ -40,10 +40,7 @@
                   <Font size="25.0" />
                </font>
             </Button>
-            <ListView id="listview" fx:id="studentenListView" layoutX="220.0" layoutY="54.0" prefHeight="445.0" prefWidth="300.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="200.0">
-               <padding>
-                  <Insets bottom="25.0" left="2.0" right="2.0" top="25.0" />
-               </padding>
+            <ListView fx:id="studentenListView" layoutX="220.0" layoutY="54.0" prefHeight="445.0" prefWidth="300.0" styleClass="listview" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="200.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></ListView>

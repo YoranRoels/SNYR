@@ -33,7 +33,6 @@
       <Button id="reverse" fx:id="reverseButton" layoutX="231.0" layoutY="382.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
       <Button id="garage" fx:id="garageButton" layoutX="325.0" layoutY="382.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
       <Button id="sitting" fx:id="sittingButton" layoutX="100.0" layoutY="161.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" />
-      <RadioButton layoutX="825.0" layoutY="340.0" mnemonicParsing="false" text="RadioButton" />
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="414.0" layoutX="608.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" translateX="20.0" width="324.0" />
       <Button fx:id="fotoButton" layoutX="740.0" layoutY="55.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateX="20.0" />
       <MenuButton id="menuButton" fx:id="actionMenuButton" layoutX="866.0" layoutY="132.0" mnemonicParsing="false" translateX="20.0">
@@ -49,11 +48,16 @@
       <RadioButton fx:id="orange" layoutX="730.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
       <RadioButton fx:id="green" layoutX="790.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
       <TextArea fx:id="commentfield" layoutX="624.0" layoutY="171.0" prefHeight="205.0" prefWidth="293.0" translateX="20.0" />
-      <Label layoutX="704.0" layoutY="135.0" text="Commentaar" translateX="20.0">
+      <Label layoutX="724.0" layoutY="133.0" styleClass="labelFont" text="Commentaar" translateX="20.0">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
       <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="860.0" layoutY="390.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
+      <ImageView fitHeight="254.0" fitWidth="260.0" layoutX="186.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/driveImage.png" />
+         </image>
+      </ImageView>
    </children>
 </fx:root>

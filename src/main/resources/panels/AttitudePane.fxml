@@ -11,24 +11,35 @@
 
 <fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ListView fx:id="selectieListView" layoutX="739.0" layoutY="65.0" prefHeight="359.0" prefWidth="200.0" />
-      <Label layoutX="736.0" layoutY="13.0" text="Selectie" textFill="WHITE">
+      <ListView fx:id="selectieListView" layoutX="100.0" layoutY="94.0" prefHeight="350.0" prefWidth="200.0" styleClass="listview" AnchorPane.leftAnchor="100.0" />
+      <Label alignment="CENTER" layoutX="100.0" layoutY="44.0" prefWidth="200.0" styleClass="topLabelFont" text="Selectie" textFill="WHITE" AnchorPane.leftAnchor="100.0">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="44.0" layoutY="13.0" prefHeight="32.0" prefWidth="233.0" text="Eigen opmerkingen" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="624.0" layoutY="44.0" prefHeight="32.0" prefWidth="300.0" styleClass="topLabelFont" text="Attitude Opmerkingen" textFill="WHITE" AnchorPane.rightAnchor="100.0">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <TextArea fx:id="opmerkingenVeld" layoutX="36.0" layoutY="65.0" prefHeight="359.0" prefWidth="400.0" />
-      <Label layoutX="490.0" layoutY="13.0" text="Nieuwe selectie" textFill="WHITE">
+      <Label layoutX="404.0" layoutY="53.0" styleClass="labelFont" text="Nieuwe selectie" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <TextField fx:id="toevoegField" layoutX="490.0" layoutY="76.0" prefHeight="25.0" prefWidth="179.0" />
-      <Button fx:id="toevoegButton" layoutX="490.0" layoutY="126.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" text="Voeg toe &gt;&gt;" />
+      <TextField fx:id="toevoegField" layoutX="376.0" layoutY="115.0" prefHeight="30.0" prefWidth="179.0" style="-fx-background-radius: 150;" />
+      <Button fx:id="toevoegButton" layoutX="376.0" layoutY="159.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" styleClass="loginButton" text="&lt;&lt; Voeg toe" />
+      <ImageView id="attitudeImage" fitHeight="215.0" fitWidth="153.0" layoutX="389.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/attitude.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="350.0" layoutX="624.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangleColoredBorders" width="300.0" AnchorPane.rightAnchor="100.0" />
+      <TextArea fx:id="opmerkingenVeld" layoutX="624.0" layoutY="94.0" prefHeight="350.0" prefWidth="300.0" styleClass="roundedCornersAdaptation" AnchorPane.rightAnchor="100.0" />
+      <ImageView fx:id="attitudeTextFieldCorners" fitHeight="350.0" fitWidth="300.0" layoutX="624.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="100.0">
+         <image>
+            <Image url="@../images/attitudeTextFieldCorners.png" />
+         </image>
+      </ImageView>
    </children>
 </fx:root>
