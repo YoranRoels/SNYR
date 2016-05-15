@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
@@ -13,18 +15,59 @@
       <Rectangle fx:id="driveTopIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="130.0" layoutX="105.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
       <Rectangle fx:id="driveLeftIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="110.0" layoutX="110.0" layoutY="285.0" stroke="BLACK" strokeType="INSIDE" width="115.0" />
       <Rectangle fx:id="driveRightIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="110.0" layoutX="245.0" layoutY="285.0" stroke="BLACK" strokeType="INSIDE" width="115.0" />
-      <Rectangle fx:id="trafficLeftIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="130.0" layoutX="690.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="90.0" />
-      <Rectangle fx:id="trafficRightIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="130.0" layoutX="815.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="110.0" />
+      <Rectangle fx:id="trafficLeftIndicator" arcHeight="100.0" arcWidth="100.0" fill="WHITE" height="153.0" layoutX="696.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="110.0" />
+      <Rectangle fx:id="trafficRightIndicator" arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="153.0" layoutX="800.0" layoutY="168.0" rotate="-22.4" stroke="BLACK" strokeType="INSIDE" width="110.0" />
       <Rectangle fx:id="trafficBottomIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="70.0" layoutX="725.0" layoutY="325.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
       <ImageView fitHeight="488.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/dashboard.png" />
          </image>
+         <effect>
+            <DropShadow />
+         </effect>
       </ImageView>
-      <Button id="driveButton" fx:id="driveButton" layoutX="91.0" layoutY="135.0" mnemonicParsing="false" opacity="0.0" prefHeight="279.0" prefWidth="284.0" style="-fx-background-radius: 500;" text="Button" />
-      <Button id="z" fx:id="trafficButton" layoutX="659.0" layoutY="135.0" mnemonicParsing="false" opacity="0.0" prefHeight="279.0" prefWidth="284.0" style="-fx-background-radius: 500;" text="Button" />
-      <Button fx:id="attidudeButton" layoutX="444.0" layoutY="197.0" mnemonicParsing="false" opacity="0.0" prefHeight="209.0" prefWidth="143.0" text="attitude" />
-      <Circle fill="#8b939a" layoutX="522.0" layoutY="470.0" opacity="0.5" radius="10.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="490.0" />
+      <Button id="driveButton" fx:id="driveButton" layoutX="91.0" layoutY="135.0" mnemonicParsing="false" prefHeight="280.0" prefWidth="285.0" styleClass="glowingEdgeButton">
+         <effect>
+            <Bloom />
+         </effect>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></Button>
+      <Rectangle fx:id="drivePaneOpaque" arcHeight="20.0" arcWidth="20.0" height="28.0" layoutX="96.0" layoutY="260.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="275.0" />
+      <Label fx:id="drivePaneLabel" alignment="CENTER" layoutX="98.0" layoutY="261.0" prefHeight="24.0" prefWidth="275.0" styleClass="dashboardClarityLabels" text="OPEN RIJVAARDIGHEID" textFill="WHITE">
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Button id="glowingEdgeButtonRectangle" fx:id="attitudeButton" layoutX="443.0" layoutY="197.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="145.0">
+         <effect>
+            <Bloom />
+         </effect></Button>
+      <Rectangle id="glowingEdgeButton" fx:id="attitudePaneOpaque" arcHeight="20.0" arcWidth="20.0" height="28.0" layoutX="443.0" layoutY="272.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="146.0" />
+      <Label fx:id="attitudePaneLabel" layoutX="468.0" layoutY="273.0" styleClass="dashboardClarityLabels" text="OPEN ATTITUDE" textFill="WHITE">
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Button id="z" fx:id="trafficButton" layoutX="659.0" layoutY="135.0" mnemonicParsing="false" prefHeight="283.0" prefWidth="284.0" styleClass="glowingEdgeButton">
+         <effect>
+            <Bloom />
+         </effect></Button>
+      <Rectangle fx:id="trafficPaneOpaque" arcHeight="20.0" arcWidth="20.0" height="28.0" layoutX="656.0" layoutY="261.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="290.0" />
+      <Label fx:id="trafficPaneLabel" alignment="CENTER" layoutX="664.0" layoutY="262.0" prefHeight="24.0" prefWidth="275.0" styleClass="dashboardClarityLabels" text="OPEN VERKEERSVAARDIGHEID" textFill="WHITE">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
       <Circle fill="WHITE" layoutX="502.0" layoutY="470.0" opacity="0.85" radius="10.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="490.0" />
+      <Circle fill="#8b939a" layoutX="522.0" layoutY="470.0" opacity="0.5" radius="10.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="490.0" />
+      <Label fx:id="skillPaneLabel" layoutX="418.0" layoutY="427.0" styleClass="dashboardClarityLabels" text="SWIPE OM SKILLS TE BEKIJKEN" textFill="WHITE">
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
    </children>
 </fx:root>

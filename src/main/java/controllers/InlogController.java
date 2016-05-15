@@ -23,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -34,6 +35,8 @@ public class InlogController {
     @FXML
     private Label studentLabel;
     @FXML
+    private ImageView profilePic;
+    @FXML
     private Button loginButton;
     @FXML
     private Button nieuwButton;
@@ -43,7 +46,7 @@ public class InlogController {
     private Button verwijderButton;
     
     @FXML
-    private ListView<Student> studentenListView;
+    private ListView<Student> studentenListView; 
     
     /*dummy students*/
     private final ObservableList<Student> studenten;
@@ -125,6 +128,9 @@ public class InlogController {
         loginButton.setDisable(true);
         aanpasButton.setDisable(true);
         verwijderButton.setDisable(true);
+        profilePic.setOpacity(0.25);
+        studentLabel.setOpacity(0.25);
+        
         
         // BEGIN CODE LABEL VOOR STUDENTEN NAAM IN INLOG SCREEN
         studentLabel.setText("Student"); // Zodat bij het inkomen van de app of aanpassing/nieuwe student er altijd "Student" staat.
@@ -140,6 +146,8 @@ public class InlogController {
                     loginButton.setDisable(false);
                     aanpasButton.setDisable(false);
                     verwijderButton.setDisable(false);
+                    profilePic.setOpacity(1);
+                    studentLabel.setOpacity(1);
                 }
             }
         });

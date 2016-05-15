@@ -75,12 +75,12 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="183.0" fitWidth="182.0" layoutX="421.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="421.0" AnchorPane.rightAnchor="421.0">
+            <ImageView fitHeight="183.0" fitWidth="182.0" layoutX="421.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" scaleX="1.0055" AnchorPane.leftAnchor="421.0" AnchorPane.rightAnchor="421.0">
                <image>
-                  <Image url="@../images/dummypicture.jpg" />
+                  <Image url="@../images/dummypicture.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="183.0" fitWidth="182.0" layoutX="421.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="421.0" AnchorPane.rightAnchor="421.0">
+            <ImageView fitHeight="183.0" fitWidth="183.0" layoutX="420.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="420.0" AnchorPane.rightAnchor="422.0">
                <image>
                   <Image url="@../images/fotoWindow.png" />
                </image>

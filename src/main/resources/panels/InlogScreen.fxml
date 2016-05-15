@@ -44,7 +44,7 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></ListView>
-            <ImageView fitHeight="182.0" fitWidth="182.0" layoutX="671.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" scaleX="1.0055" AnchorPane.rightAnchor="210.0">
+            <ImageView fx:id="profilePic" fitHeight="182.0" fitWidth="182.0" layoutX="671.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" scaleX="1.0055" AnchorPane.rightAnchor="210.0">
                <image>
                   <Image url="@../images/dummypicture.png" />
                </image>
