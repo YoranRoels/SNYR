@@ -44,12 +44,12 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></ListView>
-            <ImageView fitHeight="183.0" fitWidth="182.0" layoutX="671.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="210.0">
+            <ImageView fitHeight="182.0" fitWidth="182.0" layoutX="671.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" scaleX="1.0055" AnchorPane.rightAnchor="210.0">
                <image>
-                  <Image url="@../images/dummypicture.jpg" />
+                  <Image url="@../images/dummypicture.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="183.0" fitWidth="182.0" layoutX="671.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="210.0">
+            <ImageView fitHeight="183.0" fitWidth="182.0" layoutX="632.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="210.0">
                <image>
                   <Image url="@../images/fotoWindow.png" />
                </image>
@@ -59,7 +59,7 @@
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button id="loginButtonDelete" layoutX="611.0" layoutY="451.0" minWidth="225.0" mnemonicParsing="false" text="Verwijderen" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="188.0">
+            <Button id="loginButtonDelete" fx:id="verwijderButton" layoutX="611.0" layoutY="451.0" minWidth="225.0" mnemonicParsing="false" text="Verwijderen" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="188.0">
                <font>
                   <Font size="25.0" />
                </font>

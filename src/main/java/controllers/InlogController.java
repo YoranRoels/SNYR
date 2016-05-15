@@ -39,6 +39,8 @@ public class InlogController {
     private Button nieuwButton;
     @FXML
     private Button aanpasButton;
+    @FXML
+    private Button verwijderButton;
     
     @FXML
     private ListView<Student> studentenListView;
@@ -120,6 +122,9 @@ public class InlogController {
              }
             });
         
+        loginButton.setDisable(true);
+        aanpasButton.setDisable(true);
+        verwijderButton.setDisable(true);
         
         // BEGIN CODE LABEL VOOR STUDENTEN NAAM IN INLOG SCREEN
         studentLabel.setText("Student"); // Zodat bij het inkomen van de app of aanpassing/nieuwe student er altijd "Student" staat.
@@ -132,11 +137,15 @@ public class InlogController {
                 if (newValue != null)
                 {
                     studentLabel.setText(newValue.getAchternaam() + " " + newValue.getVoornaam());
+                    loginButton.setDisable(false);
+                    aanpasButton.setDisable(false);
+                    verwijderButton.setDisable(false);
                 }
             }
         });
         // EINDE CODE LABEL VOOR STUDENTEN NAAM IN INLOG SCREEN
           
+        
     }
     /*comp om op achternaam te sorteren*/
     private final StudentenComparator comparator=new StudentenComparator();
