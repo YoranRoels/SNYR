@@ -17,6 +17,7 @@ import javafx.animation.Timeline;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -188,30 +189,31 @@ public class WheelController implements InvalidationListener {
     
     public void startAnimations()
     {
-        animatePulse(drivePaneLabel);
-        animatePulse(attitudePaneLabel);
-        animatePulse(trafficPaneLabel);
-        animatePulse(skillPaneLabel);
-        animatePulse(driveButton);
-        animatePulse(attitudeButton);
-        animatePulse(trafficButton);
+        //Labels
+        animatePulse(drivePaneLabel,0.2);
+        animatePulse(attitudePaneLabel,0.2);
+        animatePulse(trafficPaneLabel,0.2);
+        animatePulse(skillPaneLabel,0.2);
+        // Opaque
+        animatePulse(drivePaneOpaque);
+        animatePulse(attitudePaneOpaque);
+        animatePulse(trafficPaneOpaque);
+        // Buttons (circle border)
+        animatePulse(driveButton,0.2);
+        animatePulse(attitudeButton,0.2);
+        animatePulse(trafficButton,0.2);
     }
     
-    public void animatePulse(Label pulseLabel)
+    public void animatePulse(Node node)
     {
-        FadeTransition ft = new FadeTransition(Duration.millis(1000), pulseLabel);
-        ft.setFromValue(1.0);
-        ft.setToValue(0.4);
-        ft.setCycleCount(Timeline.INDEFINITE);
-        ft.setAutoReverse(true);
-        ft.play();
+        animatePulse(node, 0.6);
     }
     
-    public void animatePulse(Button pulseButton)
+    public void animatePulse(Node node, double value)
     {
-        FadeTransition ft = new FadeTransition(Duration.millis(1000), pulseButton);
-        ft.setFromValue(1.0);
-        ft.setToValue(0.4);
+        FadeTransition ft = new FadeTransition(Duration.millis(800), node);
+        ft.setFromValue(value);
+        ft.setToValue(1);
         ft.setCycleCount(Timeline.INDEFINITE);
         ft.setAutoReverse(true);
         ft.play();

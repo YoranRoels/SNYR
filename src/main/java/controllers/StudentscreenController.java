@@ -120,10 +120,10 @@ public class StudentscreenController {
     public String errormessage(){
         StringBuilder sb = new StringBuilder();
         if(nameField.getText().isEmpty()){
-            sb.append("Er werd geen naam opgegeven \n");
+            sb.append("Gelieve een achternaam in te vullen.\n");
         }
         if(surnameField.getText().isEmpty()){
-            sb.append("Er is geen voornaam opgegeven \n");
+            sb.append("Gelieve een voornaam in te vullen.\n");
         }
         
         return sb.toString();
