@@ -12,7 +12,7 @@
 
 <fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="100.0" layoutY="33.0" prefHeight="423.0" prefWidth="411.0" style="-fx-background-color: #c9c7c7; -fx-border-radius: 100; -fx-background-radius: 100;">
+      <VBox layoutX="48.0" layoutY="33.0" prefHeight="423.0" prefWidth="411.0" style="-fx-background-color: #c9c7c7; -fx-border-radius: 100; -fx-background-radius: 100;">
          <children>
             <HBox alignment="CENTER" prefHeight="141.0" prefWidth="450.0" spacing="33.0">
                <children>
@@ -121,5 +121,10 @@
       <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="860.0" layoutY="392.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
       <Circle fill="WHITE" layoutX="501.0" layoutY="470.0" opacity="0.85" radius="10.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="490.0" />
       <Circle fill="#8b939a" layoutX="519.0" layoutY="470.0" opacity="0.5" radius="10.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="490.0" />
+      <Label fx:id="skillPaneLabel" layoutX="428.0" layoutY="433.0" styleClass="dashboardClarityLabels" text="SWIPE OM TERUG TE KEREN" textFill="WHITE" AnchorPane.bottomAnchor="40.0">
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
    </children>
 </fx:root>

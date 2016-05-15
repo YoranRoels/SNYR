@@ -64,7 +64,7 @@
       </Label>
       <Circle fill="WHITE" layoutX="502.0" layoutY="470.0" opacity="0.85" radius="10.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="490.0" />
       <Circle fill="#8b939a" layoutX="522.0" layoutY="470.0" opacity="0.5" radius="10.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="490.0" />
-      <Label fx:id="skillPaneLabel" layoutX="418.0" layoutY="427.0" styleClass="dashboardClarityLabels" text="SWIPE OM SKILLS TE BEKIJKEN" textFill="WHITE">
+      <Label fx:id="skillPaneLabel" layoutX="418.0" layoutY="426.0" styleClass="dashboardClarityLabels" text="SWIPE OM SKILLS TE BEKIJKEN" textFill="WHITE" AnchorPane.bottomAnchor="40.0">
          <effect>
             <Bloom />
          </effect>

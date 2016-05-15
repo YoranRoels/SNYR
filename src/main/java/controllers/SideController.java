@@ -8,17 +8,21 @@ package controllers;
 import commands.ExclamationCommand;
 import domein.Skills;
 import domein.Student;
+import javafx.animation.FadeTransition;
+import javafx.animation.Timeline;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Duration;
 import models.SkillsModel;
 import models.TrafficModel;
 
@@ -69,6 +73,8 @@ public class SideController implements InvalidationListener
     
     @FXML
     private Button exclamationMarkButton;
+    @FXML
+    private Label skillPaneLabel;
     
     private Button[] buttons;
     
@@ -107,8 +113,9 @@ public class SideController implements InvalidationListener
         });
         exclamationMarkButton.setOnAction(new ExclamationCommand(model.getExclamationField(), commentfield));
        
-        update();
+        animatePulse(skillPaneLabel);
         
+        update();
     }
 
     public SideController(BorderPane root, SkillsModel model) 
@@ -154,5 +161,15 @@ public class SideController implements InvalidationListener
     @Override
     public void invalidated(Observable observable) {
         update();
+    }
+    
+    public void animatePulse(Label pulseLabel)
+    {
+        FadeTransition ft = new FadeTransition(Duration.millis(1000), pulseLabel);
+        ft.setFromValue(1.0);
+        ft.setToValue(0.4);
+        ft.setCycleCount(Timeline.INDEFINITE);
+        ft.setAutoReverse(true);
+        ft.play();
     }
 }
