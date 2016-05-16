@@ -23,7 +23,7 @@ public class AddStudentTask extends Task<Void>
     {
         this.student = student;
         studentListResource = ClientBuilder.newClient()
-                .target("http://localhost:8080/rijschool/api")
+                .target("http://localhost:8080/SNYR-backend/api")
                 .path("students")
                 .register(StudentWriter.class);
     }

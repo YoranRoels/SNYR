@@ -45,7 +45,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="nameField" layoutX="413.0" layoutY="210.0" prefHeight="45.0" prefWidth="200.0" promptText="Achternaam" styleClass="studentScreenTextField" AnchorPane.leftAnchor="413.0">
+            <TextField fx:id="nameField" layoutX="413.0" layoutY="210.0" prefHeight="45.0" prefWidth="200.0" promptText="Achternaam" styleClass="studentScreenTextChange" AnchorPane.leftAnchor="413.0">
                <font>
                   <Font size="19.0" />
                </font>
@@ -55,7 +55,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="surnameField" layoutX="413.0" layoutY="267.0" prefHeight="45.0" prefWidth="200.0" promptText="Voornaam" styleClass="studentScreenTextField" AnchorPane.leftAnchor="413.0">
+            <TextField fx:id="surnameField" layoutX="413.0" layoutY="267.0" prefHeight="45.0" prefWidth="200.0" promptText="Voornaam" styleClass="studentScreenTextChange" AnchorPane.leftAnchor="413.0">
                <font>
                   <Font size="19.0" />
                </font>
@@ -65,12 +65,12 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="emailField" layoutX="413.0" layoutY="324.0" prefHeight="45.0" prefWidth="200.0" promptText="Emailadres" styleClass="studentScreenTextField" AnchorPane.leftAnchor="413.0">
+            <TextField fx:id="emailField" layoutX="413.0" layoutY="324.0" prefHeight="45.0" prefWidth="200.0" promptText="Emailadres" styleClass="studentScreenTextChange" AnchorPane.leftAnchor="413.0">
                <font>
                   <Font size="19.0" />
                </font>
             </TextField>
-            <Label id="errorLabel" fx:id="errorMessageLabel" alignment="CENTER" layoutX="263.0" layoutY="385.0" minWidth="500.0" prefHeight="60.0" prefWidth="200.0" textFill="#ff0b0b">
+            <Label fx:id="errorMessageLabel" alignment="CENTER" layoutX="263.0" layoutY="385.0" minWidth="500.0" prefHeight="60.0" prefWidth="200.0" styleClass="studentScreenTextChange" textFill="#ff0b0b">
                <font>
                   <Font size="18.0" />
                </font>

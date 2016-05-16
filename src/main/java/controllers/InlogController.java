@@ -48,7 +48,7 @@ public class InlogController {
     @FXML
     private ListView<Student> studentenListView; 
     
-    /*dummy students*/
+    // Dummy students
     private final ObservableList<Student> studenten;
     
     private final ObservableList selectie;
@@ -76,64 +76,56 @@ public class InlogController {
      
     public void initialize(){
         System.out.println("Inlog controller");
-
-        //studenten.sort(comparator);
+        
         Collections.sort(studenten, comparator);
         studentenListView.setItems(studenten);
+        
         loginButton.setOnAction((ActionEvent event) -> {
-            if(studentenListView.getSelectionModel().getSelectedItem()!=null){
             try {
-                System.out.println("open studenten fiche");
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/HomeScreen.fxml"));
-                
+
                 /*stage en de gekozen student doorgeven*/
                 loader.setController(new HomeController(stage,studentenListView.getSelectionModel().getSelectedItem(),this,selectie));
                 Parent root = (Parent) loader.load();
-                
+
                 //Scene scene = new Scene(root);
                 //stage.setScene(scene);
                 stage.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(InlogController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            }
-            else{
-                /*foutmelding geen gesecteerde student*/
-                System.out.println("FOUT GEEN STUDENT");
+        });
+        nieuwButton.setOnAction((ActionEvent event) ->
+        {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/StudentScreen.fxml"));
+                loader.setController(new StudentscreenController(stage,this));
+                Parent root = (Parent) loader.load();
+                stage.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(InlogController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        nieuwButton.setOnAction((ActionEvent event) ->{
-            try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/StudentScreen.fxml"));
-            loader.setController(new StudentscreenController(stage,this));
-            Parent root = (Parent) loader.load();
-            stage.getScene().setRoot(root);
-            } catch (IOException ex) {
-                Logger.getLogger(InlogController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            });
+        
         aanpasButton.setOnAction((ActionEvent event) ->{
-             if(studentenListView.getSelectionModel().getSelectedItem()!=null){
             try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/StudentScreen.fxml"));
-            loader.setController(new StudentscreenController(stage,studentenListView.getSelectionModel().getSelectedItem(),this));
-            Parent root = (Parent) loader.load();
-            stage.getScene().setRoot(root);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/StudentScreen.fxml"));
+                loader.setController(new StudentscreenController(stage,studentenListView.getSelectionModel().getSelectedItem(),this));
+                Parent root = (Parent) loader.load();
+                stage.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(InlogController.class.getName()).log(Level.SEVERE, null, ex);
             }
-             }
-            });
+        });
         
-        loginButton.setDisable(true);
-        aanpasButton.setDisable(true);
-        verwijderButton.setDisable(true);
-        profilePic.setOpacity(0.25);
-        studentLabel.setOpacity(0.25);
+        verwijderButton.setOnAction((ActionEvent event) ->{
+            studentenListView.getItems().remove(studentenListView.getSelectionModel().getSelectedIndex());
+            studentenListView.getSelectionModel().select(-1); //Unselect listview
+            disableChoiceAndResetLabel();
+        });
         
-        
-        // BEGIN CODE LABEL VOOR STUDENTEN NAAM IN INLOG SCREEN
-        studentLabel.setText("Student"); // Zodat bij het inkomen van de app of aanpassing/nieuwe student er altijd "Student" staat.
+         // BEGIN CODE STUDENTS LABEL & OPTION BLOCKING IN LOGIN SCREEN
+        disableChoiceAndResetLabel();
         
         studentenListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Student>() 
         {
@@ -151,19 +143,31 @@ public class InlogController {
                 }
             }
         });
-        // EINDE CODE LABEL VOOR STUDENTEN NAAM IN INLOG SCREEN
-          
-        
+        // EINDE CODE STUDENTS LABEL & OPTION BLOCKING IN LOGIN SCREEN
     }
+    
+    public void disableChoiceAndResetLabel()
+    {
+        studentLabel.setText("Student"); // Zodat bij het inkomen van de app of aanpassing/nieuwe student er altijd "Student" staat bij het terugkeren naar de inlogpane.
+        loginButton.setDisable(true);
+        aanpasButton.setDisable(true);
+        verwijderButton.setDisable(true);
+        profilePic.setOpacity(0.25);
+        studentLabel.setOpacity(0.25);
+    }
+    
+    
     /*comp om op achternaam te sorteren*/
     private final StudentenComparator comparator=new StudentenComparator();
-    public void updateStudent(Student student){
+    
+    public void updateStudent(Student student)
+    {
         /*de oude file weg en vervangen door de nieuwe*/
         System.out.println(studenten.indexOf(student));
         studenten.remove(studenten.indexOf(student));
         studenten.add(student);
-       // studenten.sort(comparator);
-       Collections.sort(studenten, comparator);
+        // studenten.sort(comparator);
+        Collections.sort(studenten, comparator);
         studentenListView.setItems(studenten);
         
     }

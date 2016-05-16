@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
@@ -33,6 +34,9 @@
          <image>
             <Image url="@../images/attitude.png" />
          </image>
+         <effect>
+            <InnerShadow />
+         </effect>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="350.0" layoutX="624.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangleColoredBorders" width="300.0" AnchorPane.rightAnchor="100.0" />
       <TextArea fx:id="opmerkingenVeld" layoutX="624.0" layoutY="94.0" prefHeight="350.0" prefWidth="300.0" styleClass="roundedCornersAdaptation" AnchorPane.rightAnchor="100.0" />

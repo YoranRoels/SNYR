@@ -12,11 +12,11 @@
 
 <fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="48.0" layoutY="33.0" prefHeight="423.0" prefWidth="411.0" style="-fx-background-color: #c9c7c7; -fx-border-radius: 100; -fx-background-radius: 100;">
+      <VBox layoutX="105.0" layoutY="50.0" prefHeight="342.0" prefWidth="452.0" AnchorPane.bottomAnchor="96.0" AnchorPane.leftAnchor="80.0">
          <children>
             <HBox alignment="CENTER" prefHeight="141.0" prefWidth="450.0" spacing="33.0">
                <children>
-                  <Button id="oilcheck" fx:id="oilcheckButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;">
+                  <Button id="oilcheck" fx:id="oilcheckButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0">
                      <styleClass>
                         <String fx:value="roundButton" />
                         <String fx:value="whiteButtons" />
@@ -25,7 +25,7 @@
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <Button id="lights" fx:id="lightsButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;">
+                  <Button id="lights" fx:id="lightsButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0">
                      <styleClass>
                         <String fx:value="roundButton" />
                         <String fx:value="whiteButtons" />
@@ -34,7 +34,7 @@
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <Button id="tires" fx:id="tiresButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;">
+                  <Button id="tires" fx:id="tiresButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0">
                      <styleClass>
                         <String fx:value="roundButton" />
                         <String fx:value="whiteButtons" />
@@ -50,25 +50,25 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="141.0" prefWidth="450.0" spacing="15.0">
                <children>
-                  <Button id="city" fx:id="cityButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;">
+                  <Button id="city" fx:id="cityButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0">
                      <styleClass>
                         <String fx:value="roundButton" />
                         <String fx:value="whiteButtons" />
                      </styleClass>
                   </Button>
-                  <Button id="doublelane" fx:id="doublelaneButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;">
+                  <Button id="doublelane" fx:id="doublelaneButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0">
                      <styleClass>
                         <String fx:value="roundButton" />
                         <String fx:value="whiteButtons" />
                      </styleClass>
                   </Button>
-                  <Button id="highway" fx:id="highwayButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;">
+                  <Button id="highway" fx:id="highwayButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0">
                      <styleClass>
                         <String fx:value="roundButton" />
                         <String fx:value="whiteButtons" />
                      </styleClass>
                   </Button>
-                  <Button id="roundabout" fx:id="roundaboutButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;">
+                  <Button id="roundabout" fx:id="roundaboutButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0">
                      <styleClass>
                         <String fx:value="roundButton" />
                         <String fx:value="whiteButtons" />
@@ -78,19 +78,19 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="141.0" prefWidth="450.0" spacing="33.0">
                <children>
-                  <Button id="emergencystop" fx:id="emergencystopButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;">
+                  <Button id="emergencystop" fx:id="emergencystopButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0">
                      <styleClass>
                         <String fx:value="roundButton" />
                         <String fx:value="whiteButtons" />
                      </styleClass>
                   </Button>
-                  <Button id="fueling" fx:id="fuelingButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;">
+                  <Button id="fueling" fx:id="fuelingButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0">
                      <styleClass>
                         <String fx:value="roundButton" />
                         <String fx:value="whiteButtons" />
                      </styleClass>
                   </Button>
-                  <Button id="gps" fx:id="gpsButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;">
+                  <Button id="gps" fx:id="gpsButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0">
                      <styleClass>
                         <String fx:value="roundButton" />
                         <String fx:value="whiteButtons" />
@@ -102,9 +102,19 @@
                </opaqueInsets>
             </HBox>
          </children>
+         <effect>
+            <InnerShadow />
+         </effect>
       </VBox>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="422.0" layoutX="608.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" translateX="20.0" width="324.0" AnchorPane.bottomAnchor="33.0" AnchorPane.topAnchor="33.0" />
-      <Button fx:id="fotoButton" layoutX="730.0" layoutY="50.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" translateX="20.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="422.0" layoutX="608.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" styleClass="formRectangle" translateX="20.0" width="324.0" AnchorPane.bottomAnchor="33.0" AnchorPane.rightAnchor="92.0" AnchorPane.topAnchor="33.0" />
+      <Button fx:id="fotoButton" layoutX="730.0" layoutY="50.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" translateX="20.0">
+         <effect>
+            <InnerShadow />
+         </effect>
+         <styleClass>
+            <String fx:value="roundButton" />
+            <String fx:value="buttonHolder" />
+         </styleClass></Button>
       <RadioButton fx:id="green" layoutX="790.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: green; -fx-mark-color: black;" translateX="20.0">
          <toggleGroup>
             <ToggleGroup fx:id="radioGroup" />
@@ -112,7 +122,10 @@
       </RadioButton>
       <RadioButton fx:id="orange" layoutX="730.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
       <RadioButton id="redRadioButton" fx:id="red" layoutX="670.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: red; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
-      <TextArea fx:id="commentfield" layoutX="624.0" layoutY="171.0" prefHeight="205.0" prefWidth="293.0" translateX="20.0" />
+      <TextArea fx:id="commentfield" layoutX="624.0" layoutY="171.0" prefHeight="205.0" prefWidth="293.0" styleClass="commentBoxInPane" translateX="20.0">
+         <effect>
+            <InnerShadow height="16.0" radius="7.5" width="16.0" />
+         </effect></TextArea>
       <Label layoutX="723.0" layoutY="138.0" styleClass="labelFont" text="Commentaar" translateX="20.0">
          <font>
             <Font name="Arial" size="24.0" />

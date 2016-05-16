@@ -9,13 +9,13 @@ and open the template in the editor.
 }
 */
 
-#errorLabel
+.commentBoxInPane
 {
     -fx-font-family: "Agency FB";
-    -fx-font-size: 24px;
+    -fx-font-size: 16px;
 }
 
-.studentScreenTextField
+.studentScreenTextChange
 {
     -fx-font-family: "Agency FB";
     -fx-font-size: 24px;
@@ -28,6 +28,15 @@ and open the template in the editor.
     -fx-border-color: #1471b7;
     -fx-border-radius: 500px;
     -fx-background-radius: 500px;
+}
+
+.formRectangle
+{
+    -fx-fill: white;
+    -fx-stroke: #1471b7;
+    -fx-stroke-width: 3px;
+    -fx-arc-width: 50px;
+    -fx-arc-height: 50px;
 }
 
 #glowingEdgeButtonRectangle
