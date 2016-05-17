@@ -23,12 +23,12 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="404.0" layoutY="53.0" styleClass="labelFont" text="Nieuwe selectie" textFill="WHITE">
+      <Label layoutX="404.0" layoutY="73.0" styleClass="labelFont" text="Nieuwe selectie" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <TextField fx:id="toevoegField" layoutX="376.0" layoutY="115.0" prefHeight="30.0" prefWidth="179.0" style="-fx-background-radius: 150;" />
+      <TextField id="addAttitudeField" fx:id="toevoegField" layoutX="376.0" layoutY="113.0" prefHeight="30.0" prefWidth="179.0" promptText="Selectie" />
       <Button fx:id="toevoegButton" layoutX="376.0" layoutY="159.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" styleClass="loginButton" text="&lt;&lt; Voeg toe" />
       <ImageView id="attitudeImage" fitHeight="215.0" fitWidth="153.0" layoutX="389.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
          <image>
