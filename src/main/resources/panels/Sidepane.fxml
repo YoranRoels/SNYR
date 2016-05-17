@@ -12,7 +12,7 @@
 
 <fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="105.0" layoutY="50.0" prefHeight="342.0" prefWidth="452.0" AnchorPane.bottomAnchor="96.0" AnchorPane.leftAnchor="80.0">
+      <VBox layoutX="80.0" layoutY="50.0" prefHeight="342.0" prefWidth="452.0">
          <children>
             <HBox alignment="CENTER" prefHeight="141.0" prefWidth="450.0" spacing="33.0">
                <children>
@@ -106,7 +106,7 @@
             <InnerShadow />
          </effect>
       </VBox>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="422.0" layoutX="608.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" styleClass="formRectangle" translateX="20.0" width="324.0" AnchorPane.bottomAnchor="33.0" AnchorPane.rightAnchor="92.0" AnchorPane.topAnchor="33.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="422.0" layoutX="608.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" styleClass="formRectangle" translateX="20.0" width="324.0" />
       <Button fx:id="fotoButton" layoutX="730.0" layoutY="50.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" translateX="20.0">
          <effect>
             <InnerShadow />
@@ -132,9 +132,9 @@
          </font>
       </Label>
       <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="860.0" layoutY="392.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
-      <Circle fill="WHITE" layoutX="501.0" layoutY="470.0" opacity="0.85" radius="10.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="490.0" />
-      <Circle fill="#8b939a" layoutX="519.0" layoutY="470.0" opacity="0.5" radius="10.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="490.0" />
-      <Label fx:id="skillPaneLabel" layoutX="428.0" layoutY="433.0" styleClass="dashboardClarityLabels" text="SWIPE OM TERUG TE KEREN" textFill="WHITE" AnchorPane.bottomAnchor="40.0">
+      <Circle fill="WHITE" layoutX="524.0" layoutY="468.0" opacity="0.85" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#8b939a" layoutX="500.0" layoutY="468.0" opacity="0.5" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label fx:id="skillPaneLabel" layoutX="428.0" layoutY="424.0" styleClass="dashboardClarityLabels" text="SWIPE OM TERUG TE KEREN" textFill="WHITE">
          <effect>
             <Bloom />
          </effect>
