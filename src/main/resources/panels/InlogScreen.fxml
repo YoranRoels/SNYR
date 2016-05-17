@@ -8,37 +8,23 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <AnchorPane minHeight="121.0" prefHeight="184.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <AnchorPane minHeight="115.0" prefHeight="115.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="277.0" layoutY="57.0" text="Selecteer uw student" textFill="WHITE">
-               <font>
-                  <Font size="50.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="36.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="546.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
                <image>
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="155.0" fitWidth="253.0" layoutX="832.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/auto.png" />
-               </image>
-            </ImageView>
+            <Button id="syncButton" fx:id="syncButton" layoutX="905.0" layoutY="18.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
          </children>
       </AnchorPane>
    </top>
    <bottom>
-      <AnchorPane prefHeight="80.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="1.7976931348623157E308" prefHeight="150.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="nieuwButton" layoutX="125.0" minWidth="170.0" mnemonicParsing="false" text="Nieuw" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="0.0">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Button>
-            <Button layoutX="312.0" minWidth="170.0" mnemonicParsing="false" text="Verwijderen" AnchorPane.leftAnchor="310.0">
+            <Button fx:id="nieuwButton" layoutX="223.0" layoutY="14.0" minWidth="300.0" mnemonicParsing="false" styleClass="loginButton" text="Nieuw" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="200.0">
                <font>
                   <Font size="25.0" />
                </font>
@@ -47,24 +33,47 @@
       </AnchorPane>
    </bottom>
    <center>
-      <AnchorPane prefHeight="517.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="470.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="loginButton" layoutX="627.0" layoutY="292.0" mnemonicParsing="false" text="Open studenten fiche" AnchorPane.rightAnchor="125.0">
+            <Button fx:id="loginButton" layoutX="611.0" layoutY="327.0" minWidth="225.0" mnemonicParsing="false" styleClass="loginButton" text="Open Evaluatie" AnchorPane.rightAnchor="188.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <ListView fx:id="studentenListView" layoutX="108.0" layoutY="21.0" prefHeight="445.0" prefWidth="355.0" AnchorPane.leftAnchor="125.0" />
-            <ImageView fitHeight="183.0" fitWidth="182.0" layoutX="672.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="170.0">
+            <ListView fx:id="studentenListView" layoutX="220.0" layoutY="54.0" prefHeight="445.0" prefWidth="300.0" styleClass="listview" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="200.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></ListView>
+            <ImageView fx:id="profilePic" fitHeight="182.0" fitWidth="182.0" layoutX="671.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" scaleX="1.0055" AnchorPane.rightAnchor="210.0">
                <image>
-                  <Image url="@../images/dummypicture.jpg" />
+                  <Image url="@../images/dummypicture.png" />
                </image>
             </ImageView>
-            <Button fx:id="aanpasButton" layoutX="678.0" layoutY="371.0" minWidth="170.0" mnemonicParsing="false" text="Aanpassen">
+            <ImageView fitHeight="183.0" fitWidth="182.0" layoutX="632.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="210.0">
+               <image>
+                  <Image url="@../images/fotoWindow.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="aanpasButton" layoutX="611.0" layoutY="390.0" minWidth="225.0" mnemonicParsing="false" styleClass="loginButton" text="Aanpassen" AnchorPane.rightAnchor="188.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
+            <Button id="loginButtonDelete" fx:id="verwijderButton" layoutX="611.0" layoutY="451.0" minWidth="225.0" mnemonicParsing="false" text="Verwijderen" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="188.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Label layoutX="216.0" styleClass="topLabelFont" text="Selecteer uw student" textFill="WHITE" AnchorPane.leftAnchor="216.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Agency FB" size="50.0" />
+               </font>
+            </Label>
+            <Label id="studentName" fx:id="studentLabel" alignment="CENTER" layoutX="588.0" layoutY="258.0" prefWidth="270.0" text="Student" textFill="WHITE" AnchorPane.rightAnchor="166.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>

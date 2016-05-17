@@ -174,14 +174,14 @@ and open the template in the editor.
 
 #exclamationMark:selected
 {
-    -fx-base: #40B1D6; 
+    -fx-base: #1471b7; 
 }
 
 #menuButton
 {
     -fx-graphic: url("../images/drivepane/menuButtonSmall.png");
-    -fx-max-width: 50px;
+    -fx-max-width: 55px;
     -fx-max-height: 50px;
-    -fx-min-width: 50px;
+    -fx-min-width: 55px;
     -fx-min-width: 50px;
 }

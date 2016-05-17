@@ -66,6 +66,8 @@ public class HomeController implements InvalidationListener{
     private Button minusButton;
     @FXML
     private Button plusButton;
+    @FXML
+    private ImageView trashcan;
     
     @FXML
     private TextArea exclamationField;
@@ -196,7 +198,9 @@ public class HomeController implements InvalidationListener{
             updateSliderComment();
         });
         
-        
+        trashcan.setOnMouseClicked((MouseEvent event) -> {
+            exclamationField.setText("");
+        });
     }
     public void updateSliderComment()
     {

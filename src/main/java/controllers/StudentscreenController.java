@@ -9,8 +9,6 @@ import domein.Student;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.Observable;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -120,10 +118,10 @@ public class StudentscreenController {
     public String errormessage(){
         StringBuilder sb = new StringBuilder();
         if(nameField.getText().isEmpty()){
-            sb.append("Er werd geen naam opgegeven \n");
+            sb.append("Gelieve een achternaam in te vullen.\n");
         }
         if(surnameField.getText().isEmpty()){
-            sb.append("Er is geen voornaam opgegeven \n");
+            sb.append("Gelieve een voornaam in te vullen.\n");
         }
         
         return sb.toString();

@@ -8,78 +8,83 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane minHeight="121.0" prefHeight="184.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="277.0" layoutY="57.0" text="Studenten formulier" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="312.0" layoutY="105.0" minWidth="400.0" styleClass="topLabelFont" text="Student" textFill="WHITE">
                <font>
                   <Font size="50.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="36.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="20.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
                <image>
                   <Image url="@../images/logo.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="155.0" fitWidth="253.0" layoutX="832.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/auto.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
    </top>
    <bottom>
-      <AnchorPane prefHeight="80.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="120.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="opslaan" layoutX="452.0" layoutY="14.0" mnemonicParsing="false" text="Opslaan" AnchorPane.leftAnchor="452.0" AnchorPane.topAnchor="14.0">
+            <Button fx:id="opslaan" layoutX="412.0" layoutY="16.0" mnemonicParsing="false" prefWidth="200.0" styleClass="loginButton" text="Opslaan" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="412.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button id="terugknop" fx:id="terugknopNewStudent" layoutX="958.0" layoutY="36.0" mnemonicParsing="false" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="15.0" />
+            <Button id="terugknop" fx:id="terugknopNewStudent" layoutX="958.0" layoutY="36.0" mnemonicParsing="false" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
          </children>
       </AnchorPane>
    </bottom>
    <center>
       <AnchorPane prefHeight="517.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="91.0" layoutY="71.0" text="Naam :" textFill="WHITE" AnchorPane.leftAnchor="100.0">
+            <Label layoutX="295.0" layoutY="215.0" prefHeight="35.0" prefWidth="110.0" styleClass="labelFont" text="Achternaam" textFill="WHITE" AnchorPane.leftAnchor="295.0">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="nameField" layoutX="193.0" layoutY="66.0" prefHeight="44.0" prefWidth="200.0" promptText="Naam" AnchorPane.leftAnchor="250.0">
+            <TextField fx:id="nameField" layoutX="413.0" layoutY="210.0" prefHeight="45.0" prefWidth="200.0" promptText="Achternaam" styleClass="studentScreenTextChange" AnchorPane.leftAnchor="413.0">
                <font>
                   <Font size="19.0" />
                </font>
             </TextField>
-            <Label layoutX="37.0" layoutY="148.0" prefHeight="35.0" prefWidth="129.0" text="Voornaam :" textFill="WHITE" AnchorPane.leftAnchor="100.0">
+            <Label layoutX="295.0" layoutY="272.0" prefHeight="35.0" prefWidth="110.0" styleClass="labelFont" text="Voornaam" textFill="WHITE" AnchorPane.leftAnchor="295.0">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="surnameField" layoutX="193.0" layoutY="146.0" prefHeight="44.0" prefWidth="200.0" promptText="Voornaam" AnchorPane.leftAnchor="250.0">
+            <TextField fx:id="surnameField" layoutX="413.0" layoutY="267.0" prefHeight="45.0" prefWidth="200.0" promptText="Voornaam" styleClass="studentScreenTextChange" AnchorPane.leftAnchor="413.0">
                <font>
                   <Font size="19.0" />
                </font>
             </TextField>
-            <Label layoutX="602.0" layoutY="72.0" prefHeight="35.0" prefWidth="72.0" text="Email :" textFill="WHITE" AnchorPane.rightAnchor="350.0">
+            <Label layoutX="295.0" layoutY="329.0" prefHeight="35.0" prefWidth="110.0" styleClass="labelFont" text="Emailadres" textFill="WHITE" AnchorPane.leftAnchor="295.0">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="emailField" layoutX="702.0" layoutY="67.0" prefHeight="44.0" prefWidth="200.0" promptText="Email" AnchorPane.rightAnchor="122.0">
+            <TextField fx:id="emailField" layoutX="413.0" layoutY="324.0" prefHeight="45.0" prefWidth="200.0" promptText="Emailadres" styleClass="studentScreenTextChange" AnchorPane.leftAnchor="413.0">
                <font>
                   <Font size="19.0" />
                </font>
             </TextField>
-            <Label fx:id="errorMessageLabel" layoutX="193.0" layoutY="367.0" textFill="#ff0b0b">
+            <Label fx:id="errorMessageLabel" alignment="CENTER" layoutX="263.0" layoutY="385.0" minWidth="500.0" prefHeight="60.0" prefWidth="200.0" styleClass="studentScreenTextChange" textFill="#ff0b0b">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
+            <ImageView fitHeight="183.0" fitWidth="182.0" layoutX="421.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" scaleX="1.0055" AnchorPane.leftAnchor="421.0" AnchorPane.rightAnchor="421.0">
+               <image>
+                  <Image url="@../images/dummypicture.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="183.0" fitWidth="183.0" layoutX="420.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="420.0" AnchorPane.rightAnchor="422.0">
+               <image>
+                  <Image url="@../images/fotoWindow.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>

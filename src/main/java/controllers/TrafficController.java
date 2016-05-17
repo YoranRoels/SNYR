@@ -1,24 +1,21 @@
 package controllers;
 
 import commands.ExclamationCommand;
+import domein.Color;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Collections;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.shape.Rectangle;
 import models.TrafficModel;
 
 /**
@@ -57,19 +54,21 @@ public class TrafficController implements InvalidationListener
     private Button indicators;
     @FXML
     private Button publicroad;
-    
     @FXML
     private TextArea commentfield;
-    
     @FXML
     private Button fotoButton;
-    
     @FXML
     private Button exclamationMarkButton;
-    
     @FXML
     private MenuButton actionMenuButton;
-    
+    @FXML
+    private Rectangle trafficLeftIndicatorInPane;
+    @FXML
+    private Rectangle trafficRightIndicatorInPane;
+    @FXML
+    private Rectangle trafficBottomIndicatorInPane;
+
     private Button[] buttons;
     
     private BorderPane root;
@@ -152,10 +151,51 @@ public class TrafficController implements InvalidationListener
         turningright.setStyle("-fx-background-color:"+model.getTurningrightColor());
         indicators.setStyle("-fx-background-color:"+model.getIndicatorsColor());
         publicroad.setStyle("-fx-background-color:"+model.getPublicroadColor());
+        
+        ArrayList<Color> trafficLeftColors = new ArrayList<>();
+        trafficLeftColors.add(model.getIndicatorsColor());
+        trafficLeftColors.add(model.getCrossingColor());
+        trafficLeftColors.add(model.getOvertakingColor());
+        
+        changeRectangleColor(trafficLeftColors, trafficLeftIndicatorInPane);
+        
+        ArrayList<Color> trafficRightColors = new ArrayList<>();
+        trafficRightColors.add(model.getPublicroadColor());
+        trafficRightColors.add(model.getTurningleftColor());
+        trafficRightColors.add(model.getTurningrightColor());
+        trafficRightColors.add(model.getDistanceColor());
+        
+        changeRectangleColor(trafficRightColors, trafficRightIndicatorInPane);
+        
+        ArrayList<Color> trafficBottomColors = new ArrayList<>();
+        trafficBottomColors.add(model.getPriorityColor());
+        trafficBottomColors.add(model.getSignColor());
+        trafficBottomColors.add(model.getSpeedColor());
+        
+        changeRectangleColor(trafficBottomColors, trafficBottomIndicatorInPane);
     }
     
     @Override
     public void invalidated(Observable observable) {
         update();
+    }
+    
+    public void changeRectangleColor (ArrayList<Color> colorList, Rectangle indicator)
+    {
+        Collections.sort(colorList);
+        
+        switch (colorList.get(0)) {
+            case RED:
+                indicator.setFill(new javafx.scene.paint.Color(1, 0, 0, 1));
+                break;
+            case ORANGE:
+                indicator.setFill(new javafx.scene.paint.Color(1, 0.65, 0, 1));
+                break;
+            case GREEN:
+                indicator.setFill(new javafx.scene.paint.Color(0, 0.5, 0, 1));
+                break;
+            default:
+                break;
+        }
     }
 }

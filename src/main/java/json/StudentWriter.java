@@ -28,8 +28,8 @@ import javax.ws.rs.ext.Provider;
  *
  * @author sande
  */
-//@Provider
-//@Produces(MediaType.APPLICATION_JSON)
+@Provider
+@Produces(MediaType.APPLICATION_JSON)
 public class StudentWriter implements MessageBodyWriter<Student> {
 
     @Override
@@ -47,10 +47,9 @@ public class StudentWriter implements MessageBodyWriter<Student> {
         try(JsonWriter out = Json.createWriter(entityStream)  ){
             JsonObjectBuilder jsonStudent = Json.createObjectBuilder();
             /*algemene gegevens*/
-            jsonStudent.add("surname", student.getVoornaam());
-            jsonStudent.add("lastname", student.getAchternaam());
+            jsonStudent.add("voornaam", student.getVoornaam());
+            jsonStudent.add("achternaam", student.getAchternaam());
             jsonStudent.add("email", student.getEmail());
-            jsonStudent.add("studnr", student.getStudentnr());
             /*current eva number, waar hervatten*/
             jsonStudent.add("currenteva", student.getEvanumber());
             /*alle evaluatie gegevens*/

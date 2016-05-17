@@ -6,14 +6,157 @@ and open the template in the editor.
 /* 
     Created on : 17-Feb-2016, 11:00:58
     Author     : sande
-    -fx-color: green;
-    -fx-fill: green;
-    -fx-background-color: green;
-.toggle-button:selected {
-    -fx-background-color: blue;
--fx-graphic: "/images/switches/banden.png";
 }
 */
+
+.commentBoxInPane
+{
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 16px;
+}
+
+.studentScreenTextChange
+{
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 24px;
+}
+
+.glowingEdgeButton
+{
+    -fx-background-color: transparent;
+    -fx-border-width: 4px;
+    -fx-border-color: #1471b7;
+    -fx-border-radius: 500px;
+    -fx-background-radius: 500px;
+}
+
+.formRectangle
+{
+    -fx-fill: white;
+    -fx-stroke: #1471b7;
+    -fx-stroke-width: 3px;
+    -fx-arc-width: 50px;
+    -fx-arc-height: 50px;
+}
+
+#glowingEdgeButtonRectangle
+{
+    -fx-background-color: transparent;
+    -fx-border-width: 4px;
+    -fx-border-color: #1471b7;
+}
+
+.roundedCornersAdaptation
+{
+    -fx-padding: 3px;
+    
+    -fx-text-box-border: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.rectangleColoredBorders
+{
+    -fx-fill: #1471b7;
+}
+
+.evaRadioButtons
+{
+    -fx-scale-y: 1.5;
+    -fx-scale-x: 1.5;
+}
+
+#attitudeImageAnchorPane
+{
+    -fx-background-color: black;
+    -fx-background-radius: 25px;
+    -fx-padding: 5px;
+}
+
+.dashboardClarityLabels
+{
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 20px;
+    -fx-opaque: black;
+    -fx-text-fill: #1471b7;
+}
+
+.listview
+{
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-color: #1471b7;
+    -fx-border-width: 3px;
+    -fx-padding: 25 2 25 2;
+}
+
+.loginButton
+{
+    -fx-background-radius: 100;
+/*    -fx-background-color: white;*/
+    
+    -fx-border-radius: 100;
+    -fx-border-width: 3px;
+    -fx-border-insets: 0 0 -1 0;
+    -fx-border-color: #1471b7;
+    
+    -fx-text-fill: #1471b7;
+    -fx-font-weight: bold;
+    -fx-font-size: 22px;
+    -fx-font-family: "Agency FB";
+}
+
+#loginButtonDelete /* Only for the "Verwijderen" button */
+{
+    -fx-background-radius: 100;
+    
+    -fx-border-radius: 100;
+    -fx-border-width: 3px;
+    -fx-border-insets: 0 0 -1 0;
+    -fx-border-color: red;
+    
+    -fx-text-fill: red;
+    -fx-font-weight: bold;
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 22px; 
+    /* Scenebuilder thinks you're overwriting font size 
+    when you set the font familt in CSS, 
+    that's why you have to set the font size as well */
+}
+
+#syncButton
+{
+    -fx-background-image: url("../images/synch.png");
+    -fx-background-color: transparent;
+    -fx-background-size: 100px;
+    -fx-background-repeat: no-repeat;
+}
+
+.labelFont
+{
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 25px;
+}
+
+.topLabelFont
+{
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 40px;
+}
+
+#studentName
+{
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 30px;
+}
+
+.list-cell 
+{
+  -fx-font-weight: bold;
+  -fx-font-family: "Agency FB";
+  -fx-font-size: 15px;
+}
 
 .slider .axis
 {
