@@ -30,6 +30,14 @@ and open the template in the editor.
     -fx-background-radius: 500px;
 }
 
+#addAttitudeField
+{
+    -fx-background-radius: 150px;
+    -fx-border-radius: 150px;
+    -fx-border-color: #1471b7;
+    -fx-border-width: 2px;
+}
+
 .formRectangle
 {
     -fx-fill: white;

@@ -190,18 +190,18 @@ public class WheelController implements InvalidationListener {
     public void startAnimations()
     {
         //Labels
-        animatePulse(drivePaneLabel,0.2);
-        animatePulse(attitudePaneLabel,0.2);
-        animatePulse(trafficPaneLabel,0.2);
-        animatePulse(skillPaneLabel,0.2);
+        animatePulse(drivePaneLabel);
+        animatePulse(attitudePaneLabel);
+        animatePulse(trafficPaneLabel);
+        animatePulse(skillPaneLabel);
         // Opaque
         animatePulse(drivePaneOpaque);
         animatePulse(attitudePaneOpaque);
         animatePulse(trafficPaneOpaque);
         // Buttons (circle border)
-        animatePulse(driveButton,0.2);
-        animatePulse(attitudeButton,0.2);
-        animatePulse(trafficButton,0.2);
+        animatePulse(driveButton);
+        animatePulse(attitudeButton);
+        animatePulse(trafficButton);
     }
     
     public void animatePulse(Node node)
@@ -211,7 +211,7 @@ public class WheelController implements InvalidationListener {
     
     public void animatePulse(Node node, double value)
     {
-        FadeTransition ft = new FadeTransition(Duration.millis(800), node);
+        FadeTransition ft = new FadeTransition(Duration.millis(1000), node);
         ft.setFromValue(value);
         ft.setToValue(1);
         ft.setCycleCount(Timeline.INDEFINITE);
