@@ -12,13 +12,13 @@
 
 <fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ListView fx:id="selectieListView" layoutX="100.0" layoutY="94.0" prefHeight="350.0" prefWidth="200.0" styleClass="listview" AnchorPane.leftAnchor="100.0" />
-      <Label alignment="CENTER" layoutX="100.0" layoutY="44.0" prefWidth="200.0" styleClass="topLabelFont" text="Selectie" textFill="WHITE" AnchorPane.leftAnchor="100.0">
+      <ListView fx:id="selectieListView" layoutX="100.0" layoutY="94.0" prefHeight="350.0" prefWidth="200.0" styleClass="listview" />
+      <Label alignment="CENTER" layoutX="100.0" layoutY="44.0" prefWidth="200.0" styleClass="topLabelFont" text="Selectie" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="624.0" layoutY="44.0" prefHeight="32.0" prefWidth="300.0" styleClass="topLabelFont" text="Attitude Opmerkingen" textFill="WHITE" AnchorPane.rightAnchor="100.0">
+      <Label alignment="CENTER" layoutX="624.0" layoutY="44.0" prefHeight="32.0" prefWidth="300.0" styleClass="topLabelFont" text="Attitude Opmerkingen" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
@@ -38,9 +38,9 @@
             <InnerShadow />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="350.0" layoutX="624.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangleColoredBorders" width="300.0" AnchorPane.rightAnchor="100.0" />
-      <TextArea fx:id="opmerkingenVeld" layoutX="624.0" layoutY="94.0" prefHeight="350.0" prefWidth="300.0" styleClass="roundedCornersAdaptation" AnchorPane.rightAnchor="100.0" />
-      <ImageView fx:id="attitudeTextFieldCorners" fitHeight="350.0" fitWidth="300.0" layoutX="624.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="100.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="350.0" layoutX="624.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangleColoredBorders" width="300.0" />
+      <TextArea fx:id="opmerkingenVeld" layoutX="624.0" layoutY="94.0" prefHeight="350.0" prefWidth="300.0" styleClass="roundedCornersAdaptation" />
+      <ImageView fx:id="attitudeTextFieldCorners" fitHeight="350.0" fitWidth="300.0" layoutX="624.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/attitudeTextFieldCorners.png" />
          </image>

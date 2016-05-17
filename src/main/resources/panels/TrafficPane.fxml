@@ -20,7 +20,7 @@
          <effect>
             <InnerShadow />
          </effect></Button>
-      <Button id="turningleft" fx:id="turningleft" layoutX="672.0" layoutY="26.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" AnchorPane.topAnchor="26.0">
+      <Button id="turningleft" fx:id="turningleft" layoutX="672.0" layoutY="26.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
          <effect>
             <InnerShadow />
          </effect></Button>
@@ -32,7 +32,7 @@
          <effect>
             <InnerShadow />
          </effect></Button>
-      <Button id="publicroad" fx:id="publicroad" layoutX="848.0" layoutY="252.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" AnchorPane.rightAnchor="90.0">
+      <Button id="publicroad" fx:id="publicroad" layoutX="848.0" layoutY="252.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
          <effect>
             <InnerShadow />
          </effect></Button>
@@ -44,7 +44,7 @@
          <effect>
             <InnerShadow />
          </effect></Button>
-      <Button id="sign" fx:id="sign" layoutX="672.0" layoutY="377.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton" AnchorPane.bottomAnchor="26.0">
+      <Button id="sign" fx:id="sign" layoutX="672.0" layoutY="377.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
          <effect>
             <InnerShadow />
          </effect></Button>
@@ -52,8 +52,8 @@
          <effect>
             <InnerShadow />
          </effect></Button>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="422.0" layoutX="608.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" styleClass="formRectangle" translateX="20.0" width="324.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="33.0" />
-      <Button fx:id="fotoButton" layoutX="213.0" layoutY="44.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="91.0" style="-fx-background-radius: 500;" translateX="20.0" AnchorPane.leftAnchor="213.0">
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="422.0" layoutX="90.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" styleClass="formRectangle" translateX="20.0" width="324.0" />
+      <Button fx:id="fotoButton" layoutX="213.0" layoutY="44.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="91.0" style="-fx-background-radius: 500;" translateX="20.0">
          <styleClass>
             <String fx:value="roundButton" />
             <String fx:value="buttonHolder" />
@@ -61,22 +61,22 @@
          <effect>
             <InnerShadow />
          </effect></Button>
-      <RadioButton id="redRadioButton" fx:id="red" layoutX="164.0" layoutY="405.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: red; -fx-mark-color: black;" translateX="20.0" AnchorPane.leftAnchor="162.0">
+      <RadioButton id="redRadioButton" fx:id="red" layoutX="162.0" layoutY="405.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: red; -fx-mark-color: black;" translateX="20.0">
          <toggleGroup>
             <ToggleGroup fx:id="radioGroup" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="orange" layoutX="224.0" layoutY="405.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" AnchorPane.leftAnchor="222.0" />
-      <RadioButton fx:id="green" layoutX="284.0" layoutY="405.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" AnchorPane.leftAnchor="282.0" />
-      <TextArea fx:id="commentfield" layoutX="624.0" layoutY="171.0" prefHeight="205.0" prefWidth="293.0" promptText="Plaats uw commentaar hier." styleClass="commentBoxInPane" translateX="20.0" AnchorPane.leftAnchor="105.0">
+      <RadioButton fx:id="orange" layoutX="222.0" layoutY="405.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
+      <RadioButton fx:id="green" layoutX="282.0" layoutY="405.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
+      <TextArea fx:id="commentfield" layoutX="105.0" layoutY="171.0" prefHeight="205.0" prefWidth="293.0" promptText="Plaats uw commentaar hier." styleClass="commentBoxInPane" translateX="20.0">
          <effect>
             <InnerShadow height="16.0" radius="7.5" width="16.0" />
          </effect></TextArea>
-      <Label layoutX="205.0" layoutY="135.0" styleClass="labelFont" text="Commentaar" translateX="20.0" AnchorPane.leftAnchor="205.0">
+      <Label layoutX="205.0" layoutY="135.0" styleClass="labelFont" text="Commentaar" translateX="20.0">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="354.0" layoutY="397.0" mnemonicParsing="false" style="-fx-background-radius: 250;" AnchorPane.leftAnchor="352.0" />
+      <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="352.0" layoutY="397.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
       <Rectangle fx:id="trafficLeftIndicatorInPane" arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="120.0" layoutX="631.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
       <Rectangle fx:id="trafficRightIndicatorInPane" arcHeight="100.0" arcWidth="75.0" fill="WHITE" height="120.0" layoutX="712.0" layoutY="157.0" rotate="-31.6" stroke="BLACK" strokeType="INSIDE" width="102.0" />
       <Rectangle fx:id="trafficBottomIndicatorInPane" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="58.0" layoutX="653.0" layoutY="283.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
