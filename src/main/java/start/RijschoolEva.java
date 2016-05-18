@@ -27,9 +27,9 @@ public class RijschoolEva extends Application {
     public void start(Stage stage) throws IOException {
         Student sander = new Student("Sander","Nijs","sander@mail.com","url");
         sander.setCurrentAttitude("test");
-        sander.setEvanumber(1);
+        sander.changeEvanumber(1);
         sander.setCurrentAttitude("werkt da");
-        sander.setEvanumber(0);
+        sander.changeEvanumber(0);
         
         ObservableList<Student> studenten = 
             FXCollections.observableArrayList(sander,new Student("Yoran","Roels","yoran@mail.com","url"),new Student("Jos","Abels","yoran@mail.com","url"));

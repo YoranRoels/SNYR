@@ -60,7 +60,7 @@ public class StudentListReader implements MessageBodyReader <List<Student>> {
                 Student student = new Student();
                 student.setVoornaam(jsonStudent.getString("surname"));
                 student.setAchternaam(jsonStudent.getString("firstname"));
-                student.setEvanumber(jsonStudent.getInt("currenteva"));
+                student.changeEvanumber(jsonStudent.getInt("currenteva"));
                 
                 student.setAttitudes((String[]) jsonStudent.getJsonArray("attitudes").toArray());
                 student.setProgreses((Double[]) jsonStudent.getJsonArray("progress").toArray());

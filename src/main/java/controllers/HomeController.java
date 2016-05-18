@@ -235,7 +235,7 @@ public class HomeController implements InvalidationListener{
     }
     
     public void veranderenEvaluatie(int evanummer){
-        student.setEvanumber(evanummer);
+        student.changeEvanumber(evanummer);
         for(Model m:models){
             m.EvaNumberChanged();
         }
