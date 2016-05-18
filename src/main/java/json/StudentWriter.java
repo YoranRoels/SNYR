@@ -43,15 +43,16 @@ public class StudentWriter implements MessageBodyWriter<Student> {
        return -1;
     }
 
-   @Override
+    @Override
     public void writeTo(Student student, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream) throws IOException, WebApplicationException {
         try(JsonWriter out = Json.createWriter(entityStream)  ){
             JsonObjectBuilder jsonStudent = Json.createObjectBuilder();
             /*algemene gegevens*/
-            jsonStudent.add("surname", student.getVoornaam());
-            jsonStudent.add("lastname", student.getAchternaam());
+            jsonStudent.add("voornaam", student.getVoornaam());
+            jsonStudent.add("achternaam", student.getAchternaam());
             jsonStudent.add("email", student.getEmail());
-            jsonStudent.add("studnr", student.getStudentnr());
+            jsonStudent.add("studentnr", student.getStudentnr());
+            //jsonStudent.add("studentnr", student.getStudentnr()); --> nog geen number want adden
             /*current eva number, waar hervatten*/
             jsonStudent.add("currenteva", student.getEvanumber());
             /*alle evaluatie gegevens*/
@@ -205,4 +206,5 @@ public class StudentWriter implements MessageBodyWriter<Student> {
                 
                 .build();
     }
+    
 }
