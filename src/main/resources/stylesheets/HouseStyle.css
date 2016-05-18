@@ -21,6 +21,11 @@ and open the template in the editor.
     font-weight: bold;
 }
 
+#logoutImage
+{
+    -fx-color: black;
+}
+
 .commentBoxInPane
 {
     -fx-font-family: 'Agency FB';
@@ -42,7 +47,7 @@ and open the template in the editor.
     -fx-background-radius: 500px;
 }
 
-#addAttitudeField
+#addAttitudeFieldl
 {
     -fx-background-radius: 150px;
     -fx-border-radius: 150px;

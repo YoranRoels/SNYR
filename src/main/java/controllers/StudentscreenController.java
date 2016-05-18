@@ -58,6 +58,8 @@ public class StudentscreenController {
     
     
     public void initialize(){
+        System.out.println("StudentscreenController");
+        
         /*als het aanpassen is al invullen*/
         if(student!=null){
             nameField.setText(student.getAchternaam());
