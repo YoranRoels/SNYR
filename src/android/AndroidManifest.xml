@@ -5,7 +5,7 @@
         <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
         <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="21"/>
-        <application android:label="GluonApplicationTest" android:name="android.support.multidex.MultiDexApplication" android:icon="@mipmap/ic_launcher">
+        <application android:label="GluonApplicationTest" android:name="android.support.multidex.MultiDexApplication" android:icon="@mipmap/steeringwheellogo">
                 <activity android:name="javafxports.android.FXActivity" android:label="EvaRijschoolSNYR" android:configChanges="orientation|screenSize" android:screenOrientation="landscape">
                         <meta-data android:name="main.class" android:value="start.RijschoolEva"/>
                         <meta-data android:name="debug.port" android:value="0"/>
