@@ -20,8 +20,11 @@ import java.util.List;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonException;
+import javax.json.JsonNumber;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import javax.json.JsonString;
+import javax.json.JsonValue;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
@@ -57,14 +60,45 @@ public class StudentListReader implements MessageBodyReader <List<Student>> {
             JsonArray jsonStudents = in.readArray();
             List<Student> students = new ArrayList<>();
             for (JsonObject jsonStudent: jsonStudents.getValuesAs(JsonObject.class)) {
-                Student student = new Student();
-                student.setVoornaam(jsonStudent.getString("surname"));
-                student.setAchternaam(jsonStudent.getString("firstname"));
+               Student student = new Student();
+                student.setVoornaam(jsonStudent.getString("voornaam"));
+                student.setAchternaam(jsonStudent.getString("achternaam"));
+                student.setEmail(jsonStudent.getString("email"));
                 student.setEvanumber(jsonStudent.getInt("currenteva"));
+                student.setStudentnr(jsonStudent.getInt("studentnr"));
                 
-                student.setAttitudes((String[]) jsonStudent.getJsonArray("attitudes").toArray());
-                student.setProgreses((Double[]) jsonStudent.getJsonArray("progress").toArray());
+                //student.setAttitudes((String[]) jsonStudent.getJsonArray("attitudes").toArray());
+                JsonArray jsonAttitudes = jsonStudent.getJsonArray("attitudes");
+                ArrayList tempArraylist=new ArrayList();
+                if(jsonAttitudes != null){
+                    for(JsonString jsonAttitude : jsonAttitudes.getValuesAs(JsonString.class)){
+                        tempArraylist.add(jsonAttitude.getString());
+                    }
+                }
+                student.setAttitudes((String[]) tempArraylist.toArray(new String[0]));
+                //student.setProgreses((Double[]) jsonStudent.getJsonArray("progress").toArray());
+                tempArraylist.clear();
+                JsonArray jsonProgresses = jsonStudent.getJsonArray("progress");
+                if(jsonProgresses != null){
+                    for(JsonNumber jsonProgress : jsonProgresses.getValuesAs(JsonNumber.class)){
+                        tempArraylist.add(jsonProgress.doubleValue());
+                    }
+                }
+                student.setProgreses((Double[]) tempArraylist.toArray(new Double[0]));
                 
+                tempArraylist.clear();
+                JsonArray jsonEvasDone = jsonStudent.getJsonArray("evasdone");
+                if(jsonEvasDone != null){
+                    for(JsonValue evas : jsonEvasDone.getValuesAs(JsonValue.class)){
+                        if(evas == JsonValue.TRUE){
+                        tempArraylist.add(Boolean.TRUE);
+                                }else{
+                            tempArraylist.add(Boolean.FALSE);
+                        }
+                    }
+                    student.setEvasDone((Boolean[]) tempArraylist.toArray(new Boolean[0]));
+                }
+                                
                 Skills[] skills = {studentAddSkill(jsonStudent.getJsonObject("skills1")),studentAddSkill(jsonStudent.getJsonObject("skills2")),studentAddSkill(jsonStudent.getJsonObject("skills3"))};
                 student.setSkills(skills);
                 
@@ -78,6 +112,13 @@ public class StudentListReader implements MessageBodyReader <List<Student>> {
             }
             return students;
         } catch (JsonException | ClassCastException ex) {
+                System.out.println("fotuje");
+                System.out.println(ex.getCause());
+                System.out.println(ex);
+                System.out.println(ex.getMessage());
+                System.out.println(ex.getStackTrace()[0].getLineNumber());
+                System.out.println(ex.getStackTrace()[1].getLineNumber());
+                System.out.println(ex.getStackTrace()[2].getLineNumber());
             return new ArrayList();
         }
     }
