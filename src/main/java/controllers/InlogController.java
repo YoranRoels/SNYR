@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import async.AddStudentTask;
 import domein.Student;
 import domein.StudentenComparator;
 import java.io.IOException;
@@ -173,15 +174,15 @@ public class InlogController {
     }
     
     public void addStudent(Student student){
-//        AddStudentTask task = new AddStudentTask(student);
-//        task.setOnSucceeded(event -> {
-//            studenten.add(student);
-//        });
-//        task.setOnFailed(event -> {
-//            System.out.println("STUDENT CREATION FAILED");
-//            task.getException().printStackTrace();
-//        });
-//        service.submit(task);
+        AddStudentTask task = new AddStudentTask(student);
+        task.setOnSucceeded(event -> {
+            studenten.add(student);
+        });
+        task.setOnFailed(event -> {
+            System.out.println("STUDENT CREATION FAILED");
+            task.getException().printStackTrace();
+        });
+        service.submit(task);
         studenten.add(student);
         Collections.sort(studenten, comparator);
         studentenListView.setItems(studenten);

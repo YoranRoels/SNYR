@@ -51,7 +51,7 @@ public class StudentListReader implements MessageBodyReader <List<Student>> {
         }
     }
 
-    @Override
+     @Override
     public List<Student> readFrom(Class<List<Student>> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, String> httpHeaders, InputStream entityStream) throws IOException, WebApplicationException {
             try (JsonReader in = Json.createReader(entityStream)) {
             JsonArray jsonStudents = in.readArray();
@@ -60,7 +60,7 @@ public class StudentListReader implements MessageBodyReader <List<Student>> {
                 Student student = new Student();
                 student.setVoornaam(jsonStudent.getString("surname"));
                 student.setAchternaam(jsonStudent.getString("firstname"));
-                student.changeEvanumber(jsonStudent.getInt("currenteva"));
+                student.setEvanumber(jsonStudent.getInt("currenteva"));
                 
                 student.setAttitudes((String[]) jsonStudent.getJsonArray("attitudes").toArray());
                 student.setProgreses((Double[]) jsonStudent.getJsonArray("progress").toArray());
@@ -133,6 +133,5 @@ public class StudentListReader implements MessageBodyReader <List<Student>> {
         
         
     }
-    
     
     }
