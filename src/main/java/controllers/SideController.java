@@ -81,7 +81,7 @@ public class SideController implements InvalidationListener
     private final SkillsModel model;
     
     public void initialize(){
-        System.out.println("DriveController"); 
+        System.out.println("SideController"); 
         buttons = new Button[]{tiresButton,cityButton,doublelaneButton,gpsButton,lightsButton,emergencystopButton,oilcheckButton,roundaboutButton,highwayButton,fuelingButton};
         
         red.setUserData("red");
@@ -120,7 +120,6 @@ public class SideController implements InvalidationListener
 
     public SideController(BorderPane root, SkillsModel model) 
     {
-        System.out.println("SideController Aangemaakt"); 
         this.root = root;
         this.model=model;
         model.addListener(this);

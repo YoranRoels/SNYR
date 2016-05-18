@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
@@ -19,7 +20,7 @@
             </ImageView>
             <ImageView fx:id="profielFotoBorders" fitHeight="170.0" fitWidth="170.0" layoutX="834.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/fotoWindow.png" />
+                  <Image url="@../images/fotoWindowBlueBorder.png" />
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="170.0" layoutX="56.0" layoutY="-15.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangleColoredBorders" width="400.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
@@ -40,6 +41,11 @@
             <ImageView fx:id="trashcan" fitHeight="40.0" fitWidth="40.0" layoutX="396.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/trashcanIconSmall.png" />
+               </image>
+            </ImageView>
+            <ImageView id="logoutImage" fx:id="logout" fitHeight="75.0" fitWidth="75.0" layoutX="949.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logoutBlueBorder.png" />
                </image>
             </ImageView>
          </children>

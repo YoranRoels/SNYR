@@ -47,7 +47,7 @@ public class HomeController implements InvalidationListener{
     private ImageView profielFotoBorders; 
     // Zwarte randen (profielFotoImage is de echte afbeelding).
     @FXML
-    private ImageView profielFotoImage;
+    private ImageView logout;
     @FXML
     private RadioButton evatoggle1;
     @FXML
@@ -117,7 +117,7 @@ public class HomeController implements InvalidationListener{
     
     public void initialize(){
     //main setup initialize van de gui
-        System.out.println("Start initliaze");
+        System.out.println("Start initialize");
         skillModel.setExclamationField(exclamationField);
         driveModel.setExclamationField(exclamationField);
         trafficModel.setExclamationField(exclamationField);
@@ -137,7 +137,7 @@ public class HomeController implements InvalidationListener{
         //profielFoto.setImage(null);
         
         /*klikken op de profiel foto brengt je naar de home/inlog page*/
-        profielFotoImage.setOnMouseClicked((MouseEvent event) -> {
+        logout.setOnMouseClicked((MouseEvent event) -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/InlogScreen.fxml"));
                 
@@ -170,17 +170,14 @@ public class HomeController implements InvalidationListener{
             break;
         }
         evatoggle1.setOnAction((ActionEvent event) -> {
-            System.out.println("choose evalutation 1");
             veranderenEvaluatie(0);
             checkMinimalValue();
         });
         evatoggle2.setOnAction((ActionEvent event) -> {
-            System.out.println("choose evalutation 2");
             veranderenEvaluatie(1);
             checkMinimalValue();
         });
         evatoggle3.setOnAction((ActionEvent event) -> {
-            System.out.println("choose evalutation 3");
             veranderenEvaluatie(2);
             checkMinimalValue();
         });

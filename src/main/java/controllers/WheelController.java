@@ -115,7 +115,6 @@ public class WheelController implements InvalidationListener {
 
     @Override
     public void invalidated(Observable observable) {
-        System.out.println("Invalidated WheelController");
         update();
     }
     

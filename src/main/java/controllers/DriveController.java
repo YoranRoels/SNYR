@@ -41,7 +41,6 @@ public class DriveController implements InvalidationListener
     private RadioButton orange;
     @FXML
     private RadioButton green;
-    
     @FXML
     private Button brakeButton;
     @FXML
@@ -89,6 +88,7 @@ public class DriveController implements InvalidationListener
     private final DriveModel model;
     
     public void initialize(){
+        System.out.println("DriveController"); 
         buttons= new Button[]{brakeButton,clutchButton,garageButton,hillButton,lookingButton,parkingButton,reverseButton,shiftingButton,sittingButton,steeringButton,steeringPracticeButton,turningButton};
         red.setUserData("red");
         orange.setUserData("orange");
@@ -111,9 +111,6 @@ public class DriveController implements InvalidationListener
         
         actionMenuButton.setDisable(true);
        
-        
-        
-        System.out.println("DriveController"); 
         for(Button b : buttons){
             b.setOnAction((value)->{
                 model.setIdEnStyle(b.getId(), b.getStyle());
@@ -146,7 +143,6 @@ public class DriveController implements InvalidationListener
 
     public DriveController(BorderPane root,DriveModel model) 
     {
-        System.out.println("DriveController Aangemaakt"); 
         this.root = root;
         this.model=model;
         model.addListener(this);
@@ -154,15 +150,12 @@ public class DriveController implements InvalidationListener
 
     @Override
     public void invalidated(Observable observable) {
-        System.out.println("Invali");
         update();
     }
     
     
     public void update()
-    {
-        System.out.println("UPDATE");
-        
+    {   
         /*foto button instellen*/
         fotoButton.setId(model.getId());
         fotoButton.setStyle(model.getStyle());

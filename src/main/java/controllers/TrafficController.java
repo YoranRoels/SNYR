@@ -117,7 +117,6 @@ public class TrafficController implements InvalidationListener
 
     public TrafficController(BorderPane root, TrafficModel model) 
     {
-        System.out.println("DriveController Aangemaakt"); 
         this.root = root;
         this.model=model;
         model.addListener(this);

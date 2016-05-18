@@ -163,7 +163,7 @@ public class InlogController {
     public void updateStudent(Student student)
     {
         /*de oude file weg en vervangen door de nieuwe*/
-        System.out.println(studenten.indexOf(student));
+//        System.out.println(studenten.indexOf(student));
         studenten.remove(studenten.indexOf(student));
         studenten.add(student);
         // studenten.sort(comparator);
