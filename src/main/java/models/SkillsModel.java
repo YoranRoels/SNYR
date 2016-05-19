@@ -7,11 +7,6 @@ package models;
 
 import domein.Color;
 import domein.Student;
-import java.util.HashMap;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-
-
 
 /**
  *
@@ -25,7 +20,6 @@ public class SkillsModel extends StatusSuperModel {
     public SkillsModel(Student student){
         super(student);
     }
-    
     
     public void setColorForSkills(String punt)
     {

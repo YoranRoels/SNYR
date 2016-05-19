@@ -9,12 +9,12 @@ import domein.Color;
 import domein.Student;
 import java.util.HashMap;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
 /**
  *
  * @author sande
  */
+
 public class StatusSuperModel extends Model{
     
     protected final Student student;
@@ -42,16 +42,13 @@ public class StatusSuperModel extends Model{
         this.style=style;
     }
     
-    public TextArea  getExclamationField() {
+    public TextArea getExclamationField() {
         return exclamationField;
     }
 
     public void setExclamationField(TextArea exclamationField) {
         this.exclamationField = exclamationField;
     }
-    
-    
-    
     
     /*de id voor de fotoButton*/
     public String getId(){

@@ -13,8 +13,6 @@ import models.DriveModel;
  */
 public class AnchorDrive extends AnchorPane 
 {
-    private AnchorWheel anchorWheel;
-    
     private final BorderPane root;
     
     private DriveModel model;

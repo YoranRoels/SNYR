@@ -20,7 +20,7 @@
       <Rectangle fx:id="trafficBottomIndicator" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="82.0" layoutX="714.0" layoutY="339.0" stroke="BLACK" strokeType="INSIDE" width="179.0" />
       <ImageView fitHeight="488.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/dashboard.png" />
+            <Image url="@../images/dashboardNew.png" />
          </image>
          <effect>
             <DropShadow />
@@ -44,12 +44,12 @@
             <Bloom />
          </effect></Button>
       <Rectangle id="glowingEdgeButton" fx:id="attitudePaneOpaque" arcHeight="20.0" arcWidth="20.0" height="28.0" layoutX="446.0" layoutY="272.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="138.0" />
-      <Label fx:id="attitudePaneLabel" layoutX="468.0" layoutY="273.0" styleClass="dashboardClarityLabels" text="OPEN ATTITUDE" textFill="WHITE">
+      <Label fx:id="attitudePaneLabel" alignment="CENTER" layoutX="468.0" layoutY="273.0" styleClass="dashboardClarityLabels" text="OPEN ATTITUDE" textFill="WHITE">
          <effect>
             <Bloom />
          </effect>
       </Label>
-      <Button id="z" fx:id="trafficButton" layoutX="625.0" layoutY="104.0" mnemonicParsing="false" prefHeight="346.0" prefWidth="356.0" styleClass="glowingEdgeButton">
+      <Button fx:id="trafficButton" layoutX="625.0" layoutY="104.0" mnemonicParsing="false" prefHeight="346.0" prefWidth="356.0" styleClass="glowingEdgeButton">
          <effect>
             <Bloom />
          </effect></Button>
@@ -62,9 +62,24 @@
             <Bloom />
          </effect>
       </Label>
-      <Circle fill="WHITE" layoutX="500.0" layoutY="468.0" opacity="0.85" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#8b939a" layoutX="524.0" layoutY="468.0" opacity="0.5" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label fx:id="skillPaneLabel" layoutX="418.0" layoutY="424.0" styleClass="dashboardClarityLabels" text="SWIPE OM SKILLS TE BEKIJKEN" textFill="WHITE">
+      <Button fx:id="skillButton" layoutX="521.0" layoutY="30.0" mnemonicParsing="false" prefHeight="146.0" prefWidth="147.0" styleClass="glowingEdgeButton">
+         <effect>
+            <Bloom />
+         </effect>
+      </Button>
+      <Button fx:id="comingSoonButton" layoutX="364.0" layoutY="30.0" mnemonicParsing="false" prefHeight="146.0" prefWidth="147.0" styleClass="glowingEdgeButton">
+         <effect>
+            <Bloom />
+         </effect>
+      </Button>
+      <Rectangle id="glowingEdgeButton" fx:id="skillPaneOpaque" arcHeight="20.0" arcWidth="20.0" height="28.0" layoutX="542.0" layoutY="89.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="104.0" />
+      <Label fx:id="skillPaneLabel" alignment="CENTER" layoutX="534.0" layoutY="90.0" prefWidth="120.0" styleClass="dashboardClarityLabels" text="OPEN SKILLS" textFill="WHITE">
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Rectangle id="glowingEdgeButton" fx:id="comingSoonOpaque" arcHeight="20.0" arcWidth="20.0" height="28.0" layoutX="385.0" layoutY="89.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="104.0" />
+      <Label fx:id="comingSoonLabel" alignment="CENTER" layoutX="377.0" layoutY="90.0" prefWidth="120.0" styleClass="dashboardClarityLabels" text="COMING SOON..." textFill="WHITE">
          <effect>
             <Bloom />
          </effect>

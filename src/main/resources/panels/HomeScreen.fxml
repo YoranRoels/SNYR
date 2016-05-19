@@ -33,7 +33,7 @@
                   <Image url="@../images/commentWindow.png" />
                </image>
             </ImageView>
-            <Label fx:id="sliderLabel" alignment="CENTER" layoutX="468.0" layoutY="58.0" prefHeight="75.0" prefWidth="325.0" styleClass="labelFont" text="Student heeft nog veel bij te leren." textFill="WHITE" wrapText="true">
+            <Label fx:id="sliderLabel" alignment="CENTER" layoutX="468.0" layoutY="58.0" prefHeight="75.0" prefWidth="325.0" styleClass="labelFont" text="De student heeft nog veel bij te leren." textFill="WHITE" wrapText="true">
                <font>
                   <Font size="21.0" />
                </font>
@@ -97,6 +97,6 @@
       </AnchorPane>
    </bottom>
    <center>
-      <AnchorPane onDragDetected="#swipeCenterPanel" prefHeight="488.0" prefWidth="1024.0" style="-fx-border-radius: 250;" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="488.0" prefWidth="1024.0" style="-fx-border-radius: 250;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

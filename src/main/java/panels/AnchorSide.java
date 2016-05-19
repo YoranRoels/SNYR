@@ -5,7 +5,6 @@
  */
 package panels;
 
-import commands.SwitchPanelCommand;
 import controllers.SideController;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -19,23 +18,13 @@ import models.SkillsModel;
  */
 public class AnchorSide extends AnchorPane
 {
-    private AnchorWheel anchorWheel;
-    
     private final BorderPane root;
     
-    private SkillsModel switchModel;
+    private SkillsModel model;
 
-    public AnchorSide(BorderPane root,SkillsModel switchModel) {
+    public AnchorSide(BorderPane root,SkillsModel model) {
         this.root = root; 
-        this.switchModel=switchModel;
-    }
-
-    public AnchorWheel getAnchorWheel() {
-        return anchorWheel;
-    }
-
-    public void setAnchorWheel(AnchorWheel anchorWheel) {
-        this.anchorWheel = anchorWheel;
+        this.model=model;
     }
     
     public void create(){
@@ -43,14 +32,12 @@ public class AnchorSide extends AnchorPane
      try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/Sidepane.fxml"));
             loader.setRoot(this);
-            loader.setController(new SideController(root,switchModel));
+            loader.setController(new SideController(root,model));
             loader.load();
         }
         catch(IOException ex){
-            throw new RuntimeException(ex); 
-            
+            throw new RuntimeException(ex);
         }
-          this.setOnMouseClicked(new SwitchPanelCommand(root,anchorWheel));
     }
     
 }
