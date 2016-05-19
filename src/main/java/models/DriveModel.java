@@ -7,9 +7,6 @@ package models;
 
 import domein.Color;
 import domein.Student;
-import java.util.HashMap;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
 /**
  *
@@ -154,8 +151,4 @@ public class DriveModel extends StatusSuperModel {
     public Color getTurningColor(){
         return student.getCurrentDriveTechnic().getTurning().getColor();
     }
-
-
-    
-    
 }

@@ -21,7 +21,6 @@ public class SkillsModel extends StatusSuperModel {
         super(student);
     }
     
-    
     public void setColorForSkills(String punt)
     {
         switch(id){

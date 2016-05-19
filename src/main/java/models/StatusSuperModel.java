@@ -14,6 +14,7 @@ import javafx.scene.control.TextArea;
  *
  * @author sande
  */
+
 public class StatusSuperModel extends Model{
     
     protected final Student student;
@@ -48,9 +49,6 @@ public class StatusSuperModel extends Model{
     public void setExclamationField(TextArea exclamationField) {
         this.exclamationField = exclamationField;
     }
-    
-    
-    
     
     /*de id voor de fotoButton*/
     public String getId(){

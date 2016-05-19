@@ -32,19 +32,16 @@ import models.HomeModel;
 import models.Model;
 import models.SkillsModel;
 import models.TrafficModel;
-import panels.AnchorSide;
 import panels.AnchorWheel;
-
-
 
 /**
  *
  * @author sande
  */
-public class HomeController implements InvalidationListener{
-    
+public class HomeController implements InvalidationListener {
+
     @FXML
-    private ImageView profielFotoBorders; 
+    private ImageView profielFotoBorders;
     // Zwarte randen (profielFotoImage is de echte afbeelding).
     @FXML
     private ImageView logout;
@@ -68,109 +65,93 @@ public class HomeController implements InvalidationListener{
     private Button plusButton;
     @FXML
     private ImageView trashcan;
-    
+
     @FXML
     private TextArea exclamationField;
     @FXML // Zwarte randen
     private ImageView commentBoxBorders;
-    
-    
-    private AnchorWheel wheelpane;
-    
-    private AnchorSide sidepane;
-    
-    private final Stage stage;
-    
-    private final SkillsModel skillModel;
-    
-    private final DriveModel driveModel;
-    
-    private final TrafficModel trafficModel;
-    
-    private final AttitudeModel attitudeModel;
-    
-    private final SkillsModel skillsModel;
-    
-    private final HomeModel homeModel;
-    
-    
-    private Model[] models;
-    
-    private final Student student;
-    
-    private final InlogController ic;
-    
 
-    public HomeController(Stage stage,Student student,InlogController ic,ObservableList<String> selectie) {
+    private AnchorWheel wheelpane;
+
+    private final Stage stage;
+
+    private final SkillsModel skillModel;
+
+    private final DriveModel driveModel;
+
+    private final TrafficModel trafficModel;
+
+    private final AttitudeModel attitudeModel;
+
+    private final HomeModel homeModel;
+
+    private Model[] models;
+
+    private final Student student;
+
+    private final InlogController ic;
+
+    public HomeController(Stage stage, Student student, InlogController ic, ObservableList<String> selectie) {
         this.skillModel = new SkillsModel(student);
-        this.driveModel=new DriveModel(student);
-        this.trafficModel=new TrafficModel(student);
-        this.attitudeModel=new AttitudeModel(student,selectie);
-        this.skillsModel=new SkillsModel(student);
-        this.homeModel=new HomeModel(student);
-        models=new Model[]{skillModel,driveModel,trafficModel,attitudeModel,homeModel};
+        this.driveModel = new DriveModel(student);
+        this.trafficModel = new TrafficModel(student);
+        this.attitudeModel = new AttitudeModel(student, selectie);
+        this.homeModel = new HomeModel(student);
+        models = new Model[]{driveModel, trafficModel, attitudeModel, homeModel, skillModel};
         this.stage = stage;
-        this.student=student;
-        this.ic=ic;
+        this.student = student;
+        this.ic = ic;
         homeModel.addListener(this);
-        
     }
-    
-    
-    
-    public void initialize(){
-    //main setup initialize van de gui
+
+    public void initialize() {
+        //main setup initialize van de gui
         System.out.println("Start initialize");
         skillModel.setExclamationField(exclamationField);
         driveModel.setExclamationField(exclamationField);
         trafficModel.setExclamationField(exclamationField);
-        
-        wheelpane=new AnchorWheel(borderpane,driveModel,trafficModel,attitudeModel,skillsModel);
-        sidepane=new AnchorSide(borderpane,skillModel);
 
-        wheelpane.setAnchorSide(sidepane);
-        sidepane.setAnchorWheel(wheelpane);
-        
-        sidepane.create();
+        wheelpane = new AnchorWheel(borderpane, driveModel, trafficModel, attitudeModel, skillModel);
+
         wheelpane.create();
-        
+
         borderpane.setCenter(wheelpane);
-  
+
         //set profil pic van de user
         //profielFoto.setImage(null);
-        
         /*klikken op de profiel foto brengt je naar de home/inlog page*/
         logout.setOnMouseClicked((MouseEvent event) -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/InlogScreen.fxml"));
-                
+
                 ic.updateStudent(student);
                 loader.setController(ic);
                 Parent root = (Parent) loader.load();
-                
-                
-               // Scene scene = new Scene(root);
-               // stage.setScene(scene);
-               stage.getScene().setRoot(root);
+
+                // Scene scene = new Scene(root);
+                // stage.setScene(scene);
+                stage.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
-                    });
+        });
         /*terugknop brengt je naar de student homepage met sturen */
         terugknop.setOnMouseClicked(new SwitchPanelCommand(borderpane, wheelpane));
-        
+
         commentBoxBorders.setMouseTransparent(true); // klik door de randen zodat je het textvak nog kan bedienen.
         profielFotoBorders.setMouseTransparent(true);
-        
-        
+
         //eva selecties in stellen en huidige eva aanzetten
-        switch(student.getEvanumber()){
-            case 0: evatoggle1.setSelected(true);
-            break;
-            case 1: evatoggle2.setSelected(true);
-            break;
-            case 2: evatoggle3.setSelected(true);
-            break;
+        switch (student.getEvanumber()) {
+            case 0:
+                evatoggle1.setSelected(true);
+                break;
+            case 1:
+                evatoggle2.setSelected(true);
+                break;
+            case 2:
+                evatoggle3.setSelected(true);
+                break;
         }
         evatoggle1.setOnAction((ActionEvent event) -> {
             veranderenEvaluatie(0);
@@ -184,68 +165,59 @@ public class HomeController implements InvalidationListener{
             veranderenEvaluatie(2);
             checkMinimalValue();
         });
-        
+
         minusButton.setOnAction((ActionEvent event) -> {
-            progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue()-0.05);
+            progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue() - 0.05);
             homeModel.setProgres(progressBar.progressProperty().getValue());
             checkMinimalValue();
             updateSliderComment();
         });
-        
+
         plusButton.setOnAction((ActionEvent event) -> {
-            progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue()+0.05);
+            progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue() + 0.05);
             homeModel.setProgres(progressBar.progressProperty().getValue());
             updateSliderComment();
         });
-        
+
         trashcan.setOnMouseClicked((MouseEvent event) -> {
             exclamationField.setText("");
         });
     }
-    public void updateSliderComment()
-    {
-        if(progressBar.progressProperty().doubleValue() < 0.2)
-        {
+
+    public void updateSliderComment() {
+        if (progressBar.progressProperty().doubleValue() < 0.2) {
             sliderLabel.setText("De student heeft nog veel bij te leren.");
-        }
-        else if(progressBar.progressProperty().doubleValue() > 0.2 && progressBar.progressProperty().doubleValue() < 0.7)
-        {
+        } else if (progressBar.progressProperty().doubleValue() > 0.2 && progressBar.progressProperty().doubleValue() < 0.7) {
             sliderLabel.setText("Klaar om met een begeleider te oefenen in de stageperiode.");
-        }
-        else if(progressBar.progressProperty().doubleValue() > 0.7 && progressBar.progressProperty().doubleValue() < 0.95)
-        {
+        } else if (progressBar.progressProperty().doubleValue() > 0.7 && progressBar.progressProperty().doubleValue() < 0.95) {
             sliderLabel.setText("Klaar om alleen te oefenen in de stageperiode.");
-        }
-        else if(progressBar.progressProperty().doubleValue() > 0.95)
-        {
+        } else if (progressBar.progressProperty().doubleValue() > 0.95) {
             sliderLabel.setText("Klaar voor praktisch examen.");
         }
     }
-    
-    public void checkMinimalValue()
-    {
-        if(progressBar.progressProperty().doubleValue() < 0)
-        {
+
+    public void checkMinimalValue() {
+        if (progressBar.progressProperty().doubleValue() < 0) {
             System.out.println("Reached minimal value.");
             progressBar.progressProperty().setValue(0);
         }
     }
-    
-    public void veranderenEvaluatie(int evanummer){
+
+    public void veranderenEvaluatie(int evanummer) {
         student.changeEvanumber(evanummer);
-        for(Model m:models){
+        for (Model m : models) {
             m.EvaNumberChanged();
         }
 //        attitudeModel.EvaNumberChanged();
 //        driveModel.EvaNumberChanged();
 //        trafficModel.EvaNumberChanged();
         /*skillmodel nog*/
-        
+
     }
 
     @Override
     public void invalidated(Observable observable) {
-       progressBar.setProgress(homeModel.getProgres());
+        progressBar.setProgress(homeModel.getProgres());
     }
-    
+
 }
