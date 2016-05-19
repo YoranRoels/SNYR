@@ -25,7 +25,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import models.AttitudeModel;
 import models.DriveModel;
+import models.SkillsModel;
 import models.TrafficModel;
+import panels.AnchorSide;
 
 /**
  *
@@ -39,6 +41,10 @@ public class WheelController implements InvalidationListener {
     private Button trafficButton;
     @FXML 
     private Button attitudeButton;
+    @FXML
+    private Button skillButton;
+    @FXML
+    private Button comingSoonButton;
     @FXML
     private Rectangle driveTopIndicator;
     @FXML
@@ -65,16 +71,25 @@ public class WheelController implements InvalidationListener {
     private Rectangle trafficPaneOpaque;
     @FXML
     private Label skillPaneLabel;
+    @FXML
+    private Rectangle skillPaneOpaque;
+    @FXML
+    private Label comingSoonLabel;
+    @FXML
+    private Rectangle comingSoonOpaque;
+    
     
     private final BorderPane root;
     
     private AnchorDrive drivePane;
     private AnchorAttitude attitudePane;
     private AnchorTraffic trafficPane;
+    private AnchorSide sidePane;
     
     private final DriveModel driveModel;
     private final TrafficModel trafficModel;
     private final AttitudeModel attitudeModel;
+    private final SkillsModel skillsModel;
     
     public void initialize(){
         System.out.println("Wheelcontroller");
@@ -86,6 +101,7 @@ public class WheelController implements InvalidationListener {
         trafficPaneLabel.setMouseTransparent(true);
         trafficPaneOpaque.setMouseTransparent(true);
         skillPaneLabel.setMouseTransparent(true);
+        skillPaneOpaque.setMouseTransparent(true);
         
         startAnimations();
         
@@ -101,16 +117,21 @@ public class WheelController implements InvalidationListener {
         trafficPane.create();
         trafficButton.setOnMouseClicked(new SwitchPanelCommand(root, trafficPane));
         
+        sidePane = new AnchorSide(root,skillsModel);
+        sidePane.create();
+        skillButton.setOnMouseClicked(new SwitchPanelCommand(root, sidePane));
+        
         driveModel.addListener(this); // kleuren in stuur aanpassen
         trafficModel.addListener(this); // kleuren in bord aanpassen
     }
     
-    public WheelController(BorderPane root,DriveModel driveModel,TrafficModel trafficModel,AttitudeModel attitudeModel)
+    public WheelController(BorderPane root,DriveModel driveModel,TrafficModel trafficModel,AttitudeModel attitudeModel,SkillsModel skillsModel)
     {
-        this.root=root;
+       this.root=root;
        this.driveModel=driveModel;
        this.trafficModel=trafficModel;
        this.attitudeModel=attitudeModel;
+       this.skillsModel=skillsModel;
     }
 
     @Override
@@ -193,25 +214,25 @@ public class WheelController implements InvalidationListener {
         animatePulse(attitudePaneLabel);
         animatePulse(trafficPaneLabel);
         animatePulse(skillPaneLabel);
+        animatePulse(comingSoonLabel);
         // Opaque
         animatePulse(drivePaneOpaque);
         animatePulse(attitudePaneOpaque);
         animatePulse(trafficPaneOpaque);
+        animatePulse(skillPaneOpaque);
+        animatePulse(comingSoonOpaque);
         // Buttons (circle border)
         animatePulse(driveButton);
         animatePulse(attitudeButton);
         animatePulse(trafficButton);
+        animatePulse(skillButton);
+        animatePulse(comingSoonButton);
     }
     
     public void animatePulse(Node node)
     {
-        animatePulse(node, 0.6);
-    }
-    
-    public void animatePulse(Node node, double value)
-    {
         FadeTransition ft = new FadeTransition(Duration.millis(1000), node);
-        ft.setFromValue(value);
+        ft.setFromValue(0.6);
         ft.setToValue(1);
         ft.setCycleCount(Timeline.INDEFINITE);
         ft.setAutoReverse(true);

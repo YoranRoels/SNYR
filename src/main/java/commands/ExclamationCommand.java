@@ -8,7 +8,6 @@ package commands;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
 /**
  *
@@ -16,11 +15,11 @@ import javafx.scene.control.TextField;
  */
 public class ExclamationCommand implements EventHandler<ActionEvent> {
     
-    private final TextArea  exclamationField;
-    private final TextArea  commentaarveld;
+    private final TextArea exclamationField;
+    private final TextArea commentaarveld;
     
-    public ExclamationCommand(TextArea  opmerkingveld,TextArea commentaarveld){
-        this.exclamationField=opmerkingveld;
+    public ExclamationCommand(TextArea exclamationField,TextArea commentaarveld){
+        this.exclamationField=exclamationField;
         this.commentaarveld=commentaarveld;
     }
 
@@ -29,6 +28,14 @@ public class ExclamationCommand implements EventHandler<ActionEvent> {
     {
         if(!commentaarveld.getText().isEmpty())
         {
+            if(exclamationField == null)
+            {
+                System.out.println("! = null");
+            }
+            if(commentaarveld == null)
+            {
+                System.out.println("Commentaarveld = null");
+            }
             exclamationField.setText(exclamationField.getText()+commentaarveld.getText()+"\n");
         }
     }

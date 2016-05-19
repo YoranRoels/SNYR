@@ -12,7 +12,7 @@
 
 <fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="80.0" layoutY="50.0" prefHeight="342.0" prefWidth="452.0">
+      <VBox layoutX="85.0" layoutY="75.0" prefHeight="342.0" prefWidth="452.0">
          <children>
             <HBox alignment="CENTER" prefHeight="141.0" prefWidth="450.0" spacing="33.0">
                <children>
@@ -132,12 +132,5 @@
          </font>
       </Label>
       <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="860.0" layoutY="392.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
-      <Circle fill="WHITE" layoutX="524.0" layoutY="468.0" opacity="0.85" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#8b939a" layoutX="500.0" layoutY="468.0" opacity="0.5" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label fx:id="skillPaneLabel" layoutX="428.0" layoutY="424.0" styleClass="dashboardClarityLabels" text="SWIPE OM TERUG TE KEREN" textFill="WHITE">
-         <effect>
-            <Bloom />
-         </effect>
-      </Label>
    </children>
 </fx:root>

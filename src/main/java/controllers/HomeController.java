@@ -89,7 +89,10 @@ public class HomeController implements InvalidationListener{
     
     private final AttitudeModel attitudeModel;
     
+    private final SkillsModel skillsModel;
+    
     private final HomeModel homeModel;
+    
     
     private Model[] models;
     
@@ -102,8 +105,8 @@ public class HomeController implements InvalidationListener{
         this.skillModel = new SkillsModel(student);
         this.driveModel=new DriveModel(student);
         this.trafficModel=new TrafficModel(student);
-        
         this.attitudeModel=new AttitudeModel(student,selectie);
+        this.skillsModel=new SkillsModel(student);
         this.homeModel=new HomeModel(student);
         models=new Model[]{skillModel,driveModel,trafficModel,attitudeModel,homeModel};
         this.stage = stage;
@@ -122,7 +125,7 @@ public class HomeController implements InvalidationListener{
         driveModel.setExclamationField(exclamationField);
         trafficModel.setExclamationField(exclamationField);
         
-        wheelpane=new AnchorWheel(borderpane,driveModel,trafficModel,attitudeModel);
+        wheelpane=new AnchorWheel(borderpane,driveModel,trafficModel,attitudeModel,skillsModel);
         sidepane=new AnchorSide(borderpane,skillModel);
 
         wheelpane.setAnchorSide(sidepane);
@@ -203,7 +206,7 @@ public class HomeController implements InvalidationListener{
     {
         if(progressBar.progressProperty().doubleValue() < 0.2)
         {
-            sliderLabel.setText("Student heeft nog veel bij te leren.");
+            sliderLabel.setText("De student heeft nog veel bij te leren.");
         }
         else if(progressBar.progressProperty().doubleValue() > 0.2 && progressBar.progressProperty().doubleValue() < 0.7)
         {
@@ -226,12 +229,6 @@ public class HomeController implements InvalidationListener{
             System.out.println("Reached minimal value.");
             progressBar.progressProperty().setValue(0);
         }
-    }
-    
-    @FXML
-    protected void swipeCenterPanel(){
-        System.out.println("test");
-        
     }
     
     public void veranderenEvaluatie(int evanummer){

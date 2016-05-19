@@ -9,7 +9,6 @@ import domein.Color;
 import domein.Student;
 import java.util.HashMap;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
 /**
  *
@@ -42,7 +41,7 @@ public class StatusSuperModel extends Model{
         this.style=style;
     }
     
-    public TextArea  getExclamationField() {
+    public TextArea getExclamationField() {
         return exclamationField;
     }
 

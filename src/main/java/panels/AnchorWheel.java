@@ -5,15 +5,14 @@
  */
 package panels;
 
-import commands.SwitchPanelCommand;
 import controllers.WheelController;
-import domein.Student;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import models.AttitudeModel;
 import models.DriveModel;
+import models.SkillsModel;
 import models.TrafficModel;
 
 /**
@@ -46,11 +45,14 @@ public class AnchorWheel extends AnchorPane {
     private final DriveModel driveModel;
     private final TrafficModel trafficModel;
     private final AttitudeModel attitudeModel;
-    public AnchorWheel(BorderPane root,DriveModel driveModel,TrafficModel trafficModel,AttitudeModel attitudeModel) {
+    private final SkillsModel skillsModel;
+    
+    public AnchorWheel(BorderPane root,DriveModel driveModel,TrafficModel trafficModel,AttitudeModel attitudeModel,SkillsModel skillsModel) {
         this.root = root;
         this.driveModel=driveModel;
         this.trafficModel=trafficModel;
         this.attitudeModel=attitudeModel;
+        this.skillsModel=skillsModel;
     }
     
     public void create(){
@@ -58,14 +60,12 @@ public class AnchorWheel extends AnchorPane {
      try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/WheelPane.fxml"));
             loader.setRoot(this);
-            loader.setController(new WheelController(root,driveModel,trafficModel,attitudeModel));
+            loader.setController(new WheelController(root,driveModel,trafficModel,attitudeModel,skillsModel));
             loader.load();
         }
         catch(IOException ex){
             throw new RuntimeException(ex);
         }
-
-     this.setOnMouseClicked(new SwitchPanelCommand(root, anchorSide));
     }   
 
     

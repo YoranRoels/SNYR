@@ -5,7 +5,6 @@
  */
 package panels;
 
-import commands.SwitchPanelCommand;
 import controllers.SideController;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -47,10 +46,8 @@ public class AnchorSide extends AnchorPane
             loader.load();
         }
         catch(IOException ex){
-            throw new RuntimeException(ex); 
-            
+            throw new RuntimeException(ex);
         }
-          this.setOnMouseClicked(new SwitchPanelCommand(root,anchorWheel));
     }
     
 }
