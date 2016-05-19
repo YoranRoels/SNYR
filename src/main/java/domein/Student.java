@@ -71,7 +71,6 @@ public class Student
     }
 
     public Student() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getStudentnr() {
@@ -196,11 +195,15 @@ public class Student
     public void setAttitudes(String[] attitudes) {
         this.attitudes = attitudes;
     }
+
+    public void setEvanumber(int evanumber) {
+        this.evanumber = evanumber;
+    }
     
     
     
 
-    public void setEvanumber(int newevanumber) {
+    public void changeEvanumber(int newevanumber) {
         /*bij setten kijken of de evaluatie al gedaan is, indien nog niet huidig proces kopieren*/
         if(!evasDone[newevanumber]){
            /*kopieren door copy constructor*/

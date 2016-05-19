@@ -5,10 +5,13 @@
  */
 package controllers;
 
+import async.AddStudentTask;
+import async.GetStudentListTask;
 import domein.Student;
 import domein.StudentenComparator;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
@@ -173,17 +176,33 @@ public class InlogController {
     }
     
     public void addStudent(Student student){
-//        AddStudentTask task = new AddStudentTask(student);
-//        task.setOnSucceeded(event -> {
-//            studenten.add(student);
-//        });
-//        task.setOnFailed(event -> {
-//            System.out.println("STUDENT CREATION FAILED");
-//            task.getException().printStackTrace();
-//        });
-//        service.submit(task);
-        studenten.add(student);
-        Collections.sort(studenten, comparator);
-        studentenListView.setItems(studenten);
+        AddStudentTask addtask = new AddStudentTask(student);
+        addtask.setOnSucceeded(event -> {
+            studenten.add(student);
+        });
+        addtask.setOnFailed(event -> {
+            System.out.println("STUDENT CREATION FAILED");
+            addtask.getException().printStackTrace();
+        });
+        service.submit(addtask);
+        
+        
+        //studenten lijst updaten
+        GetStudentListTask gettask = new GetStudentListTask();
+        gettask.setOnSucceeded(event -> {
+            studenten.clear();
+            //List<Student> value = gettask.getValue();
+            studenten.setAll(gettask.getValue());
+            Collections.sort(studenten, comparator);
+            studentenListView.setItems(studenten);
+    
+        });
+        gettask.setOnFailed(event -> {
+            System.out.println("FAILED TO LOAD STUDENTS");
+            gettask.getException().printStackTrace();
+        });
+        service.submit(gettask);
+        
+        
     }
 }

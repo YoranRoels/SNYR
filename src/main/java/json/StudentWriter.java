@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
@@ -50,6 +51,8 @@ public class StudentWriter implements MessageBodyWriter<Student> {
             jsonStudent.add("voornaam", student.getVoornaam());
             jsonStudent.add("achternaam", student.getAchternaam());
             jsonStudent.add("email", student.getEmail());
+            jsonStudent.add("studentnr", student.getStudentnr());
+            //jsonStudent.add("studentnr", student.getStudentnr()); --> nog geen number want adden
             /*current eva number, waar hervatten*/
             jsonStudent.add("currenteva", student.getEvanumber());
             /*alle evaluatie gegevens*/
