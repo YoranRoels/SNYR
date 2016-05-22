@@ -6,6 +6,7 @@
 package controllers;
 
 import async.AddStudentTask;
+import async.DeleteStudentTask;
 import async.GetStudentListTask;
 import domein.Student;
 import domein.StudentenComparator;
@@ -122,8 +123,21 @@ public class InlogController {
         });
         
         verwijderButton.setOnAction((ActionEvent event) ->{
-            studentenListView.getItems().remove(studentenListView.getSelectionModel().getSelectedIndex());
-            studentenListView.getSelectionModel().select(-1); //Unselect listview
+//            studentenListView.getItems().remove(studentenListView.getSelectionModel().getSelectedIndex());
+//            studentenListView.getSelectionModel().select(-1); //Unselect listview
+            /*gelesteerde studenten aan de del task geven*/
+            DeleteStudentTask deltask = new DeleteStudentTask(studentenListView.getItems().get(studentenListView.getSelectionModel().getSelectedIndex()));
+            deltask.setOnSucceeded(delvent -> {
+                /*boodschap eventueel?*/
+            });
+            deltask.setOnFailed(delvent ->{
+                System.out.println("ERROR DELETE STUDENT");
+                deltask.getException().printStackTrace();
+            });
+            service.submit(deltask);
+            /*lijst terug updaten*/
+            updateStudentenLijstFromBackend();
+            
             disableChoiceAndResetLabel();
         });
         
@@ -186,6 +200,13 @@ public class InlogController {
         });
         service.submit(addtask);
         
+        updateStudentenLijstFromBackend();
+        
+        
+    }
+    
+    
+    private void updateStudentenLijstFromBackend(){
         
         //studenten lijst updaten
         GetStudentListTask gettask = new GetStudentListTask();
@@ -202,7 +223,5 @@ public class InlogController {
             gettask.getException().printStackTrace();
         });
         service.submit(gettask);
-        
-        
     }
 }
