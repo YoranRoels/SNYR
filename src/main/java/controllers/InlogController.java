@@ -8,9 +8,11 @@ package controllers;
 import async.AddStudentTask;
 import async.DeleteStudentTask;
 import async.GetStudentListTask;
+import async.UpdateStudentsTask;
 import domein.Student;
 import domein.StudentenComparator;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -145,6 +147,17 @@ public class InlogController {
         
         syncButton.setOnAction((ActionEvent event) ->{
             System.out.println("Syncalare");
+            /*new arraylist, observable wrapper zo weg doen*/
+            UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten));
+            updatetask.setOnSucceeded(upevent ->{
+                System.out.println("Sync succesfull on");
+            });
+            updatetask.setOnFailed(upevent -> {
+                System.out.println("Sync failed");
+                updatetask.getException().printStackTrace();
+            });
+            service.submit(updatetask);
+            updateStudentenLijstFromBackend();
             
         });
         

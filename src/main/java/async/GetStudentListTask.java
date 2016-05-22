@@ -16,11 +16,11 @@ import json.StudentListReader;
  */
 public class GetStudentListTask extends Task<List<Student>>
 {
-    private final WebTarget userListResource;
+    private final WebTarget studentListResource;
 
     public GetStudentListTask()
     {
-        userListResource = ClientBuilder.newClient()
+        studentListResource = ClientBuilder.newClient()
                 .target("http://localhost:8080/SNYR-backend/api")
                 .path("students")
                 .register(StudentListReader.class);
@@ -28,7 +28,7 @@ public class GetStudentListTask extends Task<List<Student>>
     
     @Override
     protected List<Student> call() throws Exception {
-        Response response = userListResource.request(MediaType.APPLICATION_JSON).get();
+        Response response = studentListResource.request(MediaType.APPLICATION_JSON).get();
         if (response.getStatus() == 200)
         {
             List<Student> students = response.readEntity(new GenericType<List<Student>>() {});
