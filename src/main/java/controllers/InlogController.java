@@ -48,6 +48,8 @@ public class InlogController {
     private Button aanpasButton;
     @FXML
     private Button verwijderButton;
+    @FXML
+    private Button syncButton;
     
     @FXML
     private ListView<Student> studentenListView; 
@@ -139,6 +141,11 @@ public class InlogController {
             updateStudentenLijstFromBackend();
             
             disableChoiceAndResetLabel();
+        });
+        
+        syncButton.setOnAction((ActionEvent event) ->{
+            System.out.println("Syncalare");
+            
         });
         
          // BEGIN CODE STUDENTS LABEL & OPTION BLOCKING IN LOGIN SCREEN
