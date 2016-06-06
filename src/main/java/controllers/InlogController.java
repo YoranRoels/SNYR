@@ -8,6 +8,7 @@ package controllers;
 import async.AddStudentTask;
 import async.DeleteStudentTask;
 import async.GetStudentListTask;
+import async.UpdateStudentTask;
 import async.UpdateStudentsTask;
 import domein.Student;
 import domein.StudentenComparator;
@@ -148,7 +149,12 @@ public class InlogController {
         syncButton.setOnAction((ActionEvent event) ->{
             System.out.println("Syncalare");
             /*new arraylist, observable wrapper zo weg doen*/
-            UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten));
+            //UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten));
+
+            //for(Student s : studenten){
+            
+             UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten));
+                    
             updatetask.setOnSucceeded(upevent ->{
                 System.out.println("Sync succesfull on");
             });
@@ -157,6 +163,7 @@ public class InlogController {
                 updatetask.getException().printStackTrace();
             });
             service.submit(updatetask);
+            //}
             updateStudentenLijstFromBackend();
             
         });

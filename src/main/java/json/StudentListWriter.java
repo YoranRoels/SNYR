@@ -35,7 +35,7 @@ import javax.ws.rs.ext.Provider;
  */
 @Provider
 @Produces(MediaType.APPLICATION_JSON)
-public class StudentListWriter implements MessageBodyWriter<ArrayList<Student>> {
+public class StudentListWriter implements MessageBodyWriter<List<Student>> {
 
     @Override
     public boolean isWriteable(Class<?> type, Type genericType, Annotation[] antns, MediaType mt) {
@@ -53,12 +53,12 @@ public class StudentListWriter implements MessageBodyWriter<ArrayList<Student>> 
     
 
     @Override
-    public long getSize(ArrayList<Student> t, Class<?> type, Type type1, Annotation[] antns, MediaType mt) {
+    public long getSize(List<Student> t, Class<?> type, Type type1, Annotation[] antns, MediaType mt) {
         return -1;
     }
 
     @Override
-    public void writeTo(ArrayList<Student> students, Class<?> type, Type type1, Annotation[] antns, MediaType mt, MultivaluedMap<String, Object> mm, OutputStream entityStream) throws IOException, WebApplicationException {
+    public void writeTo(List<Student> students, Class<?> type, Type genericType, Annotation[] antns, MediaType mt, MultivaluedMap<String, Object> mm, OutputStream entityStream) throws IOException, WebApplicationException {
         JsonArrayBuilder jsonStudents = Json.createArrayBuilder();
         
         for(Student student : students){

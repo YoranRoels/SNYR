@@ -6,7 +6,6 @@
 package async;
 
 import domein.Student;
-import java.util.ArrayList;
 import java.util.List;
 import javafx.concurrent.Task;
 import javax.ws.rs.BadRequestException;
@@ -17,33 +16,33 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import json.StudentListWriter;
+import json.StudentWriter;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 
 /**
  *
  * @author sande
  */
-public class UpdateStudentsTask extends Task<Void> {
+public class UpdateStudentTask extends Task<Void> {
     
-    private final WebTarget studentListResource;
+     private final WebTarget studentListResource;
     
-    private final List<Student> students;
+    private final Student student;
     
-    public UpdateStudentsTask(List<Student> students){
-        this.students=students;
+    public UpdateStudentTask(Student student){
+        this.student=student;
         studentListResource = ClientBuilder.newClient()
                 .target("http://localhost:8080/SNYR-backend/api")
                 .path("students")
-                //.path("updateStudents")
-                .register(StudentListWriter.class)
-                .register(HttpAuthenticationFeature.basic("rijschoolevauser", "user"));
+              //  .path(Integer.toString(student.getStudentnr()))
+                .register(StudentWriter.class)
+                .register(HttpAuthenticationFeature.basic("rijschoolevauser", "user"));;
                 
     }
 
     @Override
     protected Void call() throws Exception {
-        GenericEntity<List<Student>> l = new GenericEntity<List<Student>>(students) {};
-        Response response = studentListResource.request().put(Entity.entity(l, MediaType.APPLICATION_JSON));
+        Response response = studentListResource.request().put(Entity.entity(student, MediaType.APPLICATION_JSON));
         System.out.println(response.getStatus());
         switch (response.getStatus()){
             case 204:
@@ -54,5 +53,6 @@ public class UpdateStudentsTask extends Task<Void> {
                 throw new RuntimeException();
         }
     }
+    
     
 }
