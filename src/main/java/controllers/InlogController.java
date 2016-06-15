@@ -13,8 +13,11 @@ import async.UpdateStudentsTask;
 import domein.Student;
 import domein.StudentenComparator;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -94,7 +97,7 @@ public class InlogController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/HomeScreen.fxml"));
 
                 /*stage en de gekozen student doorgeven*/
-                loader.setController(new HomeController(stage,studentenListView.getSelectionModel().getSelectedItem(),this,selectie));
+                loader.setController(new HomeController(stage,studentenListView.getSelectionModel().getSelectedItem().openStudent(),this,selectie));
                 Parent root = (Parent) loader.load();
 
                 //Scene scene = new Scene(root);
@@ -104,6 +107,7 @@ public class InlogController {
                 Logger.getLogger(InlogController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+        /*open scherm voor een nieuwe student toetevoegen*/
         nieuwButton.setOnAction((ActionEvent event) ->
         {
             try {
@@ -116,6 +120,7 @@ public class InlogController {
             }
         });
         
+        /*open het aanpas scherm van de student(algemene gegevens,name)*/
         aanpasButton.setOnAction((ActionEvent event) ->{
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/StudentScreen.fxml"));
@@ -152,11 +157,13 @@ public class InlogController {
             //UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten));
 
             //for(Student s : studenten){
-            
-             UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten));
+            /*alleen de studenten doorgeven waar changes aan gebeurde*/
+             UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten.filtered(value -> value.getStudentOpened())));
                     
             updatetask.setOnSucceeded(upevent ->{
-                System.out.println("Sync succesfull on");
+                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                //get current date time with Date()
+                System.out.println("Sync succesfull on "+dateFormat.format(new Date()));
                  updateStudentenLijstFromBackend();
             });
             updatetask.setOnFailed(upevent -> {

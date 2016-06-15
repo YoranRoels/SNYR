@@ -27,6 +27,9 @@ public class Student
     /*hoeveeste evaluatie dit is*/
     private int evanumber;
     
+    /*boolean die aangeeft of de student file geopend werd op de applicatie */
+    private boolean opened = false;
+    
     
     
     public Student(String voornaam, String achternaam, String email, String fotoURL)
@@ -81,7 +84,13 @@ public class Student
         this.studentnr = studentnr;
     }
     
-    
+    public Student openStudent(){
+        opened=true;
+        return this;
+    }
+    public boolean getStudentOpened(){
+        return opened;
+    }
     
     public Double[] getProgreses() {
         return progreses;
