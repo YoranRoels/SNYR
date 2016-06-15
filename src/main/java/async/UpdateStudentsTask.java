@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.concurrent.Task;
 import javax.ws.rs.BadRequestException;
+import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
@@ -31,13 +32,13 @@ public class UpdateStudentsTask extends Task<Void> {
     
     public UpdateStudentsTask(List<Student> students){
         this.students=students;
-        studentListResource = ClientBuilder.newClient()
+        Client client = ClientBuilder.newBuilder().register(HttpAuthenticationFeature.basic("rijschoolevauser", "user")).build();
+        studentListResource = client
                 .target("http://localhost:8080/SNYR-backend/api")
                 .path("students")
                 //.path("updateStudents")
-                .register(StudentListWriter.class)
-                .register(HttpAuthenticationFeature.basic("rijschoolevauser", "user"));
-                
+                //.register(HttpAuthenticationFeature.basic("rijschoolevauser", "user"))
+                                .register(StudentListWriter.class);
     }
 
     @Override

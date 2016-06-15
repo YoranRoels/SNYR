@@ -24,6 +24,8 @@ public class DriveTechnic {
     private Status steeringPractice;
     private Status hillHandbrake;
     private Status hillBalancing;
+    
+    private int driveId;
 
     public Status getPosture() {
         return posture;
@@ -175,6 +177,14 @@ public class DriveTechnic {
         this.steeringPractice = new Status();
         this.hillHandbrake = new Status();
         this.hillBalancing = new Status();
+    }
+
+    public int getDriveId() {
+        return driveId;
+    }
+
+    public void setDriveId(int driveId) {
+        this.driveId = driveId;
     }
     
     

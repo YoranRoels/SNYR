@@ -21,6 +21,7 @@ public class TrafficTechnic {
     private Status crossing;
     private Status turningleft;
     private Status turningright;
+    private int trafficId;
 
     public Status getIndicators() {
         return indicators;
@@ -140,6 +141,14 @@ public class TrafficTechnic {
         this.crossing = new Status();
         this.turningleft = new Status();
         this.turningright = new Status();
+    }
+
+    public int getTrafficId() {
+        return trafficId;
+    }
+
+    public void setTrafficId(int trafficId) {
+        this.trafficId = trafficId;
     }
     
 }

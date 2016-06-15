@@ -157,6 +157,7 @@ public class InlogController {
                     
             updatetask.setOnSucceeded(upevent ->{
                 System.out.println("Sync succesfull on");
+                 updateStudentenLijstFromBackend();
             });
             updatetask.setOnFailed(upevent -> {
                 System.out.println("Sync failed");
@@ -164,7 +165,6 @@ public class InlogController {
             });
             service.submit(updatetask);
             //}
-            updateStudentenLijstFromBackend();
             
         });
         

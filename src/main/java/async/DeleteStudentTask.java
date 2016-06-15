@@ -28,6 +28,7 @@ public class DeleteStudentTask extends Task<Void>
     @Override
     protected Void call() throws Exception {
         Response response = studentListResource.request().delete();
+        System.out.println(response.getStatus());
         switch (response.getStatus()){
             case 204:
                 return null;
