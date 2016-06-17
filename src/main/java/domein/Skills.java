@@ -17,6 +17,7 @@ public class Skills
     private Status oilcheck;
     private Status roundabout;
     private Status highway;
+    private int skillId;
 
     public Status getFueling() {
         return fueling;
@@ -135,6 +136,14 @@ public class Skills
         this.oilcheck = new Status();
         this.roundabout = new Status();
         this.tires = new Status();
+    }
+
+    public int getSkillId() {
+        return skillId;
+    }
+
+    public void setSkillId(int skillId) {
+        this.skillId = skillId;
     }
     
     

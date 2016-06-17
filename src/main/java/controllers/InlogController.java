@@ -6,11 +6,18 @@
 package controllers;
 
 import async.AddStudentTask;
+import async.DeleteStudentTask;
 import async.GetStudentListTask;
+import async.UpdateStudentTask;
+import async.UpdateStudentsTask;
 import domein.Student;
 import domein.StudentenComparator;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -47,6 +54,8 @@ public class InlogController {
     private Button aanpasButton;
     @FXML
     private Button verwijderButton;
+    @FXML
+    private Button syncButton;
     
     @FXML
     private ListView<Student> studentenListView; 
@@ -88,7 +97,7 @@ public class InlogController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/HomeScreen.fxml"));
 
                 /*stage en de gekozen student doorgeven*/
-                loader.setController(new HomeController(stage,studentenListView.getSelectionModel().getSelectedItem(),this,selectie));
+                loader.setController(new HomeController(stage,studentenListView.getSelectionModel().getSelectedItem().openStudent(),this,selectie));
                 Parent root = (Parent) loader.load();
 
                 //Scene scene = new Scene(root);
@@ -98,6 +107,7 @@ public class InlogController {
                 Logger.getLogger(InlogController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+        /*open scherm voor een nieuwe student toetevoegen*/
         nieuwButton.setOnAction((ActionEvent event) ->
         {
             try {
@@ -110,6 +120,7 @@ public class InlogController {
             }
         });
         
+        /*open het aanpas scherm van de student(algemene gegevens,name)*/
         aanpasButton.setOnAction((ActionEvent event) ->{
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/StudentScreen.fxml"));
@@ -122,9 +133,46 @@ public class InlogController {
         });
         
         verwijderButton.setOnAction((ActionEvent event) ->{
-            studentenListView.getItems().remove(studentenListView.getSelectionModel().getSelectedIndex());
-            studentenListView.getSelectionModel().select(-1); //Unselect listview
+//            studentenListView.getItems().remove(studentenListView.getSelectionModel().getSelectedIndex());
+//            studentenListView.getSelectionModel().select(-1); //Unselect listview
+            /*gelesteerde studenten aan de del task geven*/
+            DeleteStudentTask deltask = new DeleteStudentTask(studentenListView.getItems().get(studentenListView.getSelectionModel().getSelectedIndex()));
+            deltask.setOnSucceeded(delvent -> {
+                /*boodschap eventueel?*/
+            });
+            deltask.setOnFailed(delvent ->{
+                System.out.println("ERROR DELETE STUDENT");
+                deltask.getException().printStackTrace();
+            });
+            service.submit(deltask);
+            /*lijst terug updaten*/
+            updateStudentenLijstFromBackend();
+            
             disableChoiceAndResetLabel();
+        });
+        
+        syncButton.setOnAction((ActionEvent event) ->{
+            System.out.println("Syncalare");
+            /*new arraylist, observable wrapper zo weg doen*/
+            //UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten));
+
+            //for(Student s : studenten){
+            /*alleen de studenten doorgeven waar changes aan gebeurde*/
+             UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten.filtered(value -> value.getStudentOpened())));
+                    
+            updatetask.setOnSucceeded(upevent ->{
+                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                //get current date time with Date()
+                System.out.println("Sync succesfull on "+dateFormat.format(new Date()));
+                 updateStudentenLijstFromBackend();
+            });
+            updatetask.setOnFailed(upevent -> {
+                System.out.println("Sync failed");
+                updatetask.getException().printStackTrace();
+            });
+            service.submit(updatetask);
+            //}
+            
         });
         
          // BEGIN CODE STUDENTS LABEL & OPTION BLOCKING IN LOGIN SCREEN
@@ -186,6 +234,13 @@ public class InlogController {
         });
         service.submit(addtask);
         
+        updateStudentenLijstFromBackend();
+        
+        
+    }
+    
+    
+    private void updateStudentenLijstFromBackend(){
         
         //studenten lijst updaten
         GetStudentListTask gettask = new GetStudentListTask();
@@ -202,7 +257,5 @@ public class InlogController {
             gettask.getException().printStackTrace();
         });
         service.submit(gettask);
-        
-        
     }
 }

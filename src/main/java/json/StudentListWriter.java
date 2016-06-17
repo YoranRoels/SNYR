@@ -1,5 +1,7 @@
 /*
-
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package json;
 
@@ -10,10 +12,13 @@ import domein.TrafficTechnic;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.annotation.Annotation;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import javax.json.Json;
 import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 import javax.json.JsonWriter;
@@ -24,38 +29,45 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.MessageBodyWriter;
 import javax.ws.rs.ext.Provider;
 
-
 /**
  *
  * @author sande
  */
 @Provider
 @Produces(MediaType.APPLICATION_JSON)
-public class StudentWriter implements MessageBodyWriter<Student> {
+public class StudentListWriter implements MessageBodyWriter<List<Student>> {
 
     @Override
-    public boolean isWriteable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
-        return Student.class.isAssignableFrom(type);
+    public boolean isWriteable(Class<?> type, Type genericType, Annotation[] antns, MediaType mt) {
+        if (!List.class.isAssignableFrom(type)) {
+            return false;
+        }
+
+        if (genericType instanceof ParameterizedType) {
+            Type[] arguments = ((ParameterizedType) genericType).getActualTypeArguments();
+            return arguments.length == 1 && arguments[0].equals(Student.class);
+        } else {
+            return false;
+        }    
+    }
+    
+
+    @Override
+    public long getSize(List<Student> t, Class<?> type, Type type1, Annotation[] antns, MediaType mt) {
+        return -1;
     }
 
     @Override
-    public long getSize(Student t, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
-       return -1;
-    }
-
-    @Override
-    public void writeTo(Student student, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream) throws IOException, WebApplicationException {
-        try(JsonWriter out = Json.createWriter(entityStream)  ){
+    public void writeTo(List<Student> students, Class<?> type, Type genericType, Annotation[] antns, MediaType mt, MultivaluedMap<String, Object> mm, OutputStream entityStream) throws IOException, WebApplicationException {
+        JsonArrayBuilder jsonStudents = Json.createArrayBuilder();
+        
+        for(Student student : students){
             JsonObjectBuilder jsonStudent = Json.createObjectBuilder();
             /*algemene gegevens*/
             jsonStudent.add("voornaam", student.getVoornaam());
             jsonStudent.add("achternaam", student.getAchternaam());
             jsonStudent.add("email", student.getEmail());
-            if(student.getStudentnr()!=0){
-                jsonStudent.add("studentnr", student.getStudentnr());
-            }
-
-            //jsonStudent.add("studentnr", student.getStudentnr());
+            jsonStudent.add("studentnr", student.getStudentnr());
             //jsonStudent.add("studentnr", student.getStudentnr()); --> nog geen number want adden
             /*current eva number, waar hervatten*/
             jsonStudent.add("currenteva", student.getEvanumber());
@@ -88,14 +100,16 @@ public class StudentWriter implements MessageBodyWriter<Student> {
                                         .add(student.getProgreses()[1])
                                         .add(student.getProgreses()[2])
                                         .build());
-            
-            out.writeObject(jsonStudent.build());
+            jsonStudents.add(jsonStudent);
+        }
+        try(JsonWriter out = Json.createWriter(entityStream)) {
+            out.writeArray(jsonStudents.build());
         }
     }
     
-    
-    public JsonObject getJsonSkillObject(Skills skills){
+     public JsonObject getJsonSkillObject(Skills skills){
         return Json.createObjectBuilder()
+                .add("id",skills.getSkillId())
                 .add("fueling", Json.createObjectBuilder()
                         .add("comment", skills.getFueling().getComment())
                         .add("color", skills.getFueling().getColor().toString()))
@@ -132,6 +146,7 @@ public class StudentWriter implements MessageBodyWriter<Student> {
     
     public JsonObject getJsonDriveTechnichObject(DriveTechnic drivetechnic){
         return Json.createObjectBuilder()
+                .add("id", drivetechnic.getDriveId())
                 .add("posture", Json.createObjectBuilder()
                         .add("comment", drivetechnic.getPosture().getComment())
                         .add("color", drivetechnic.getPosture().getColor().toString()))
@@ -177,6 +192,7 @@ public class StudentWriter implements MessageBodyWriter<Student> {
     
     public JsonObject getJsonTrafficTechnicObject(TrafficTechnic trafficTechnic){
         return Json.createObjectBuilder()
+                .add("id", trafficTechnic.getTrafficId())
                 .add("indicators", Json.createObjectBuilder()
                         .add("comment", trafficTechnic.getIndicators().getComment())
                         .add("color", trafficTechnic.getIndicators().getColor().toString()))
@@ -210,5 +226,6 @@ public class StudentWriter implements MessageBodyWriter<Student> {
                 
                 .build();
     }
+    
     
 }

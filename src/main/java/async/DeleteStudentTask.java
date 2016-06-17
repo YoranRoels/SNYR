@@ -22,12 +22,13 @@ public class DeleteStudentTask extends Task<Void>
                 .target("http://localhost:8080/SNYR-backend/api")
                 .path("students")
                 .path(Integer.toString(student.getStudentnr()))
-                .register(HttpAuthenticationFeature.basic("rijschoolevauser", "rijschoolevauser"));
+                .register(HttpAuthenticationFeature.basic("rijschoolevauser", "user"));
     }
     
     @Override
     protected Void call() throws Exception {
         Response response = studentListResource.request().delete();
+        System.out.println(response.getStatus());
         switch (response.getStatus()){
             case 204:
                 return null;
