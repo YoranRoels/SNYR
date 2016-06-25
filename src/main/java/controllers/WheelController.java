@@ -231,7 +231,7 @@ public class WheelController implements InvalidationListener {
     
     public void animatePulse(Node node)
     {
-        FadeTransition ft = new FadeTransition(Duration.millis(1000), node);
+        FadeTransition ft = new FadeTransition(Duration.millis(1500), node);
         ft.setFromValue(0.6);
         ft.setToValue(1);
         ft.setCycleCount(Timeline.INDEFINITE);

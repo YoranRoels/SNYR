@@ -67,10 +67,6 @@
          </toggleGroup></RadioButton>
       <RadioButton fx:id="orange" layoutX="222.0" layoutY="405.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
       <RadioButton fx:id="green" layoutX="282.0" layoutY="405.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
-      <TextArea fx:id="commentfield" layoutX="105.0" layoutY="171.0" prefHeight="205.0" prefWidth="293.0" promptText="Plaats uw commentaar hier." styleClass="commentBoxInPane" translateX="20.0">
-         <effect>
-            <InnerShadow height="16.0" radius="7.5" width="16.0" />
-         </effect></TextArea>
       <Label layoutX="205.0" layoutY="135.0" styleClass="labelFont" text="Commentaar" translateX="20.0">
          <font>
             <Font name="Arial" size="24.0" />
@@ -88,5 +84,10 @@
             <InnerShadow />
          </effect>
       </ImageView>
+      <TextArea fx:id="commentfield" layoutX="105.0" layoutY="171.0" prefHeight="205.0" prefWidth="293.0" promptText="Plaats uw commentaar hier." styleClass="commentBoxInPane" translateX="20.0">
+         <effect>
+            <InnerShadow height="16.0" radius="7.5" width="16.0" />
+         </effect></TextArea>
+      <Button fx:id="closeTextArea" layoutX="424.0" mnemonicParsing="false" styleClass="closeTextArea" />
    </children>
 </fx:root>

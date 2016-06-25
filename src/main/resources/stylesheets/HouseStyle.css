@@ -21,6 +21,13 @@ and open the template in the editor.
     font-weight: bold;
 }
 
+#skillVBox HBox
+{
+    -fx-border-color: #1471b7;
+    -fx-border-width: 4 8 4 8;
+    -fx-border-radius: 100;
+}
+
 #logoutImage
 {
     -fx-color: black;
@@ -29,7 +36,7 @@ and open the template in the editor.
 .commentBoxInPane
 {
     -fx-font-family: 'Agency FB';
-    -fx-font-size: 16px;
+    -fx-font-size: 22px;
 }
 
 .studentScreenTextChange
@@ -102,7 +109,7 @@ and open the template in the editor.
 .dashboardClarityLabels
 {
     -fx-font-family: 'Agency FB';
-    -fx-font-size: 20px;
+    -fx-font-size: 24px;
     -fx-opaque: black;
     -fx-text-fill: #1471b7;
 }
@@ -180,7 +187,7 @@ and open the template in the editor.
 {
   -fx-font-weight: bold;
   -fx-font-family: 'Agency FB';
-  -fx-font-size: 15px;
+  -fx-font-size: 18px;
 }
 
 .slider .axis

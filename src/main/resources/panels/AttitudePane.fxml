@@ -28,8 +28,8 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <TextField id="addAttitudeField" fx:id="toevoegField" layoutX="376.0" layoutY="113.0" prefHeight="30.0" prefWidth="179.0" promptText="Selectie" />
-      <Button fx:id="toevoegButton" layoutX="376.0" layoutY="159.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" styleClass="loginButton" text="&lt;&lt; Voeg toe" />
+      <TextField id="addAttitudeField" fx:id="toevoegField" layoutX="376.0" layoutY="113.0" prefHeight="30.0" prefWidth="179.0" promptText="Selectie" styleClass="commentBoxInPane" />
+      <Button fx:id="toevoegButton" layoutX="376.0" layoutY="170.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" styleClass="loginButton" text="&lt;&lt; Voeg toe" />
       <ImageView id="attitudeImage" fitHeight="215.0" fitWidth="153.0" layoutX="389.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/attitude.png" />
@@ -38,12 +38,17 @@
             <InnerShadow />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="350.0" layoutX="624.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangleColoredBorders" width="300.0" />
-      <TextArea fx:id="opmerkingenVeld" layoutX="624.0" layoutY="94.0" prefHeight="350.0" prefWidth="300.0" styleClass="roundedCornersAdaptation" />
+      <Rectangle fx:id="blueRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="350.0" layoutX="624.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangleColoredBorders" width="300.0" />
+      <TextArea fx:id="opmerkingenVeld" layoutX="624.0" layoutY="94.0" prefHeight="350.0" prefWidth="300.0" promptText="Plaats uw opmerkingen hier.">
+         <styleClass>
+            <String fx:value="roundedCornersAdaptation" />
+            <String fx:value="commentBoxInPane" />
+         </styleClass></TextArea>
       <ImageView fx:id="attitudeTextFieldCorners" fitHeight="350.0" fitWidth="300.0" layoutX="624.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/attitudeTextFieldCorners.png" />
          </image>
       </ImageView>
+      <Button fx:id="closeTextArea" layoutX="933.0" mnemonicParsing="false" styleClass="closeTextArea" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" />
    </children>
 </fx:root>

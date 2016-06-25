@@ -24,10 +24,14 @@
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="170.0" layoutX="56.0" layoutY="-15.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangleColoredBorders" width="400.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
-            <TextArea fx:id="exclamationField" focusTraversable="false" layoutX="10.0" layoutY="10.0" prefHeight="170.0" prefWidth="400.0" promptText="Opmerkingen vorige lessen" styleClass="roundedCornersAdaptation" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+            <TextArea fx:id="exclamationField" focusTraversable="false" layoutX="10.0" layoutY="10.0" prefHeight="170.0" prefWidth="400.0" promptText="Opmerkingen vorige lessen" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
                <opaqueInsets>
                   <Insets />
-               </opaqueInsets></TextArea>
+               </opaqueInsets>
+               <styleClass>
+                  <String fx:value="roundedCornersAdaptation" />
+                  <String fx:value="commentBoxInPane" />
+               </styleClass></TextArea>
             <ImageView fx:id="commentBoxBorders" fitHeight="170.0" fitWidth="400.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/commentWindow.png" />

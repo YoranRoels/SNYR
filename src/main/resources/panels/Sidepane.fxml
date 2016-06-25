@@ -12,7 +12,7 @@
 
 <fx:root prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="85.0" layoutY="75.0" prefHeight="342.0" prefWidth="452.0">
+      <VBox id="skillVBox" layoutX="85.0" layoutY="75.0" prefHeight="342.0" prefWidth="452.0">
          <children>
             <HBox alignment="CENTER" prefHeight="141.0" prefWidth="450.0" spacing="33.0">
                <children>
