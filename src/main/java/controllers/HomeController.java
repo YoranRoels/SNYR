@@ -185,13 +185,13 @@ public class HomeController implements InvalidationListener {
     }
 
     public void updateSliderComment() {
-        if (progressBar.progressProperty().doubleValue() < 0.2) {
-            sliderLabel.setText("De student heeft nog veel bij te leren.");
-        } else if (progressBar.progressProperty().doubleValue() > 0.2 && progressBar.progressProperty().doubleValue() < 0.7) {
+        if (progressBar.progressProperty().doubleValue() < 0.25) {
+            sliderLabel.setText("");
+        } else if (progressBar.progressProperty().doubleValue() >= 0.25 && progressBar.progressProperty().doubleValue() < 0.75) {
             sliderLabel.setText("Klaar om met een begeleider te oefenen in de stageperiode.");
-        } else if (progressBar.progressProperty().doubleValue() > 0.7 && progressBar.progressProperty().doubleValue() < 0.95) {
+        } else if (progressBar.progressProperty().doubleValue() >= 0.75 && progressBar.progressProperty().doubleValue() < 0.99) {
             sliderLabel.setText("Klaar om alleen te oefenen in de stageperiode.");
-        } else if (progressBar.progressProperty().doubleValue() > 0.95) {
+        } else if (progressBar.progressProperty().doubleValue() >= 0.99) {
             sliderLabel.setText("Klaar voor praktisch examen.");
         }
     }
