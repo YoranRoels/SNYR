@@ -12,8 +12,11 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
@@ -73,6 +76,8 @@ public class DriveController implements InvalidationListener {
     @FXML
     private TextArea commentfield;
     @FXML
+    private Label commentLabel;
+    @FXML
     private Button closeTextArea; // button to cancel focus on the commentfield to put it back into the normal position
     @FXML
     private MenuButton actionMenuButton;
@@ -95,10 +100,17 @@ public class DriveController implements InvalidationListener {
         red.setUserData("red");
         orange.setUserData("orange");
         green.setUserData("green");
+        
+        red.setDisable(true);
+        orange.setDisable(true);
+        green.setDisable(true);
+        
+        fotoButton.setDisable(true);
+        commentLabel.setDisable(true);
 
         actionMenuButton.getItems().clear();
 
-        menuitems.put("sitting", new ArrayList<>(Arrays.asList(new ActionMenuItem("zithouding", commentfield), new ActionMenuItem("Gordel", commentfield), new ActionMenuItem("Spiegels", commentfield), new ActionMenuItem("Handrem", commentfield), new ActionMenuItem("Andere", commentfield))));
+        menuitems.put("sitting", new ArrayList<>(Arrays.asList(new ActionMenuItem("Zithouding", commentfield), new ActionMenuItem("Gordel", commentfield), new ActionMenuItem("Spiegels", commentfield), new ActionMenuItem("Handrem", commentfield), new ActionMenuItem("Andere", commentfield))));
         menuitems.put("clutch", new ArrayList<>(Arrays.asList(new ActionMenuItem("Dosering", commentfield), new ActionMenuItem("Volledig", commentfield), new ActionMenuItem("Plaatsing voet", commentfield), new ActionMenuItem("Onnodig", commentfield), new ActionMenuItem("Bocht", commentfield), new ActionMenuItem("Andere", commentfield))));
         menuitems.put("brake", new ArrayList<>(Arrays.asList(new ActionMenuItem("Dosering", commentfield), new ActionMenuItem("Volgorde", commentfield), new ActionMenuItem("Te laat", commentfield), new ActionMenuItem("Afremmen op de motor", commentfield), new ActionMenuItem("Andere", commentfield))));
         menuitems.put("steering", new ArrayList<>(Arrays.asList(new ActionMenuItem("Dosering", commentfield), new ActionMenuItem("Houding", commentfield), new ActionMenuItem("Andere", commentfield))));
@@ -144,22 +156,18 @@ public class DriveController implements InvalidationListener {
         commentfield.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if(newValue)
-                {
+                if (newValue) {
                     animateMove(0, -171);
-                    closeTextArea.setVisible(true);
-                    
-                }
-                else
-                {
+
+                } else {
                     animateMove(-171, 0);
-                    closeTextArea.setVisible(false);
                 }
             }
-            
+
         });
 
         exclamationMarkButton.setOnAction(new ExclamationCommand(model.getExclamationField(), commentfield));
+        exclamationMarkButton.setDisable(true);
 
         update();
     }
@@ -187,6 +195,12 @@ public class DriveController implements InvalidationListener {
         if (!model.getId().isEmpty()) {
             commentfield.setEditable(true);
             commentfield.setDisable(false);
+            red.setDisable(false);
+            orange.setDisable(false);
+            green.setDisable(false);
+            exclamationMarkButton.setDisable(false);
+            fotoButton.setDisable(false);
+            commentLabel.setDisable(false);
         }
 
         /*kleur doorgeven dus weer unselecten*/
@@ -250,11 +264,25 @@ public class DriveController implements InvalidationListener {
         }
     }
     
-    public void animateMove(int from, int to)
+   public void animateMove(int from, int to)
     {
-        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(500), commentfield);
+        if(to == 0)
+        {
+            closeTextArea.setVisible(false);
+        }
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(400), commentfield);
         translateTransition.setFromY(from);
         translateTransition.setToY(to);
         translateTransition.play();
+        translateTransition.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                if(from == 0)
+                {
+                    closeTextArea.setVisible(true);
+                }
+            }
+        });
     }
 }
