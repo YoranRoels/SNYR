@@ -16,10 +16,13 @@ import javafx.animation.FadeTransition;
 import javafx.animation.Timeline;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -77,6 +80,8 @@ public class WheelController implements InvalidationListener {
     private Label comingSoonLabel;
     @FXML
     private Rectangle comingSoonOpaque;
+    @FXML
+    private ToggleButton infoButton;
     
     
     private final BorderPane root;
@@ -102,6 +107,8 @@ public class WheelController implements InvalidationListener {
         trafficPaneOpaque.setMouseTransparent(true);
         skillPaneLabel.setMouseTransparent(true);
         skillPaneOpaque.setMouseTransparent(true);
+        comingSoonLabel.setMouseTransparent(true);
+        comingSoonOpaque.setMouseTransparent(true);
         
         startAnimations();
         
@@ -123,6 +130,41 @@ public class WheelController implements InvalidationListener {
         
         driveModel.addListener(this); // kleuren in stuur aanpassen
         trafficModel.addListener(this); // kleuren in bord aanpassen
+    
+        infoButton.selectedProperty().set(true);
+        
+        infoButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                if(infoButton.selectedProperty().get() == true)
+                {
+                    drivePaneLabel.setVisible(true);
+                    drivePaneOpaque.setVisible(true);
+                    attitudePaneLabel.setVisible(true);
+                    attitudePaneOpaque.setVisible(true);
+                    trafficPaneLabel.setVisible(true);
+                    trafficPaneOpaque.setVisible(true);
+                    skillPaneLabel.setVisible(true);
+                    skillPaneOpaque.setVisible(true);
+                    comingSoonLabel.setVisible(true);
+                    comingSoonOpaque.setVisible(true);
+                } 
+                else
+                {
+                    drivePaneLabel.setVisible(false);
+                    drivePaneOpaque.setVisible(false);
+                    attitudePaneLabel.setVisible(false);
+                    attitudePaneOpaque.setVisible(false);
+                    trafficPaneLabel.setVisible(false);
+                    trafficPaneOpaque.setVisible(false);
+                    skillPaneLabel.setVisible(false);
+                    skillPaneOpaque.setVisible(false);
+                    comingSoonLabel.setVisible(false);
+                    comingSoonOpaque.setVisible(false);
+                }
+            }
+        });
     }
     
     public WheelController(BorderPane root,DriveModel driveModel,TrafficModel trafficModel,AttitudeModel attitudeModel,SkillsModel skillsModel)

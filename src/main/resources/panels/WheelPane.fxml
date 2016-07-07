@@ -84,5 +84,6 @@
             <Bloom />
          </effect>
       </Label>
+      <ToggleButton id="infoButton" fx:id="infoButton" layoutX="964.0" layoutY="10.0" mnemonicParsing="false" />
    </children>
 </fx:root>

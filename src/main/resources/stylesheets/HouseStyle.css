@@ -227,3 +227,17 @@ and open the template in the editor.
     -fx-max-width:65px;
     -fx-max-height:65px;
 }
+
+#infoButton
+{
+    -fx-graphic: url("../images/infoIconSmaller.png");
+    -fx-background-radius: 500;
+    -fx-pref-width: 50;
+    -fx-pref-height: 50;
+    -fx-background-color: white;
+}
+
+#infoButton:selected
+{
+    -fx-background-color: #1471b7;
+}
