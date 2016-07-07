@@ -89,7 +89,7 @@ public class TrafficController implements InvalidationListener {
 
         commentfield.setEditable(false);
         commentfield.setDisable(true);
-
+        
         for (Button b : buttons) {
             b.setOnAction((value) -> {
                 model.setIdEnStyle(b.getId(), b.getStyle());
