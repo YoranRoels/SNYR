@@ -3,15 +3,22 @@ package controllers;
 import commands.ExclamationCommand;
 import domein.Color;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 import javafx.animation.TranslateTransition;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
@@ -19,6 +26,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import models.TrafficModel;
+import overige.ActionMenuItem;
 
 /**
  *
@@ -59,6 +67,8 @@ public class TrafficController implements InvalidationListener {
     @FXML
     private TextArea commentfield;
     @FXML
+    private Label commentLabel;
+    @FXML
     private Button closeTextArea;
     @FXML
     private Button fotoButton;
@@ -74,6 +84,8 @@ public class TrafficController implements InvalidationListener {
     private Rectangle trafficBottomIndicatorInPane;
 
     private Button[] buttons;
+    
+    private final HashMap<String, List<MenuItem>> menuitems = new HashMap<>();
 
     private BorderPane root;
 
@@ -86,13 +98,34 @@ public class TrafficController implements InvalidationListener {
         red.setUserData("red");
         orange.setUserData("orange");
         green.setUserData("green");
+        
+        red.setDisable(true);
+        orange.setDisable(true);
+        green.setDisable(true);
+        
+        fotoButton.setDisable(true);
+        commentLabel.setDisable(true);
+        
+        actionMenuButton.getItems().clear();
 
-        commentfield.setEditable(false);
-        commentfield.setDisable(true);
+        menuitems.put("turningleft", new ArrayList<>(Arrays.asList(new ActionMenuItem("Breder", commentfield), new ActionMenuItem("Kijktechniek", commentfield), new ActionMenuItem("Voorrang tegenliggers", commentfield))));
+        menuitems.put("turningright", new ArrayList<>(Arrays.asList(new ActionMenuItem("Korter", commentfield), new ActionMenuItem("Kijktechniek", commentfield), new ActionMenuItem("Voorrang fietsers", commentfield))));
+        menuitems.put("distance", new ArrayList<>(Arrays.asList(new ActionMenuItem("Rakelings", commentfield), new ActionMenuItem("Te dicht op voorligger", commentfield))));
+        menuitems.put("publicroad", new ArrayList<>(Arrays.asList(new ActionMenuItem("Meer rechts", commentfield), new ActionMenuItem("Te rechts", commentfield), new ActionMenuItem("Juiste rijstrook", commentfield), new ActionMenuItem("Bochtentechniek", commentfield), new ActionMenuItem("Kijktechniek", commentfield))));
+        menuitems.put("priority", new ArrayList<>(Arrays.asList(new ActionMenuItem("Voorrang aan rechts", commentfield), new ActionMenuItem("Voorrang aan links en rechts", commentfield), new ActionMenuItem("Voorrang aan anderen", commentfield), new ActionMenuItem("Voorrang nemen", commentfield), new ActionMenuItem("Meer vergewissen", commentfield), new ActionMenuItem("Aangepaste snelheid", commentfield))));
+        menuitems.put("sign", new ArrayList<>(Arrays.asList(new ActionMenuItem("Verkeersborden", commentfield), new ActionMenuItem("Verkeerslichten", commentfield), new ActionMenuItem("Wegmarkeringen", commentfield), new ActionMenuItem("Meer vergewissen", commentfield))));
+        menuitems.put("speed", new ArrayList<>(Arrays.asList(new ActionMenuItem("Niet aangepaste snelheid", commentfield), new ActionMenuItem("Te snel", commentfield), new ActionMenuItem("Te traag", commentfield), new ActionMenuItem("Vlotter", commentfield))));
+        menuitems.put("indicators", new ArrayList<>(Arrays.asList(new ActionMenuItem("Vroeger", commentfield), new ActionMenuItem("Meer", commentfield))));
+        menuitems.put("crossing", new ArrayList<>(Arrays.asList(new ActionMenuItem("Kijktechniek", commentfield), new ActionMenuItem("Koers houden", commentfield))));
+        menuitems.put("overtaking", new ArrayList<>(Arrays.asList(new ActionMenuItem("Te dicht", commentfield), new ActionMenuItem("Voorbereiding", commentfield), new ActionMenuItem("Uitvoering", commentfield), new ActionMenuItem("Kijktechniek", commentfield))));
+       
+        actionMenuButton.setDisable(true);
         
         for (Button b : buttons) {
             b.setOnAction((value) -> {
                 model.setIdEnStyle(b.getId(), b.getStyle());
+                actionMenuButton.getItems().setAll(menuitems.get(b.getId()));
+                actionMenuButton.setDisable(false);
             });
         }
 
@@ -104,6 +137,8 @@ public class TrafficController implements InvalidationListener {
             }
         });
 
+        commentfield.setEditable(false);
+        commentfield.setDisable(true);
         closeTextArea.setVisible(false);
 
         commentfield.textProperty().addListener(new ChangeListener<String>() {
@@ -112,7 +147,9 @@ public class TrafficController implements InvalidationListener {
                 model.setCommentForTechniek(newValue);
             }
         });
+        
         exclamationMarkButton.setOnAction(new ExclamationCommand(model.getExclamationField(), commentfield));
+        exclamationMarkButton.setDisable(true);
 
         update();
 
@@ -121,10 +158,8 @@ public class TrafficController implements InvalidationListener {
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if (newValue) {
                     animateMove(0, -171);
-                    closeTextArea.setVisible(true);
                 } else {
                     animateMove(-171, 0);
-                    closeTextArea.setVisible(false);
                 }
             }
         });
@@ -149,6 +184,12 @@ public class TrafficController implements InvalidationListener {
         if (!model.getId().isEmpty()) {
             commentfield.setEditable(true);
             commentfield.setDisable(false);
+            red.setDisable(false);
+            orange.setDisable(false);
+            green.setDisable(false);
+            exclamationMarkButton.setDisable(false);
+            fotoButton.setDisable(false);
+            commentLabel.setDisable(false);
         }
         /*kleur doorgeven dus weeer unselecten*/
         if (radioGroup.selectedToggleProperty().isNotNull().get()) {
@@ -214,9 +255,23 @@ public class TrafficController implements InvalidationListener {
     
     public void animateMove(int from, int to)
     {
-        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(500), commentfield);
+        if(to == 0)
+        {
+            closeTextArea.setVisible(false);
+        }
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(400), commentfield);
         translateTransition.setFromY(from);
         translateTransition.setToY(to);
         translateTransition.play();
+        translateTransition.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                if(from == 0)
+                {
+                    closeTextArea.setVisible(true);
+                }
+            }
+        });
     }
 }
