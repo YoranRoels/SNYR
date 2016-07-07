@@ -7,10 +7,20 @@ and open the template in the editor.
     Created on : 22-Mar-2016, 14:24:56
     Author     : Yoran
 */
+.closeTextArea
+{
+    -fx-graphic: url("../images/closeTextArea.png");
+    -fx-background-radius: 500;
+    -fx-max-height: 38px;
+    -fx-min-height: 38px;
+    -fx-max-width: 39px;
+    -fx-min-width: 39px;
+    -fx-background-color: #1471b7;
+}
 
 .roundButton
 {
-    -fx-background-radius:500;
+    -fx-background-radius: 500;
 }
 
 #brake
@@ -181,7 +191,6 @@ and open the template in the editor.
 {
     -fx-graphic: url("../images/drivepane/menuButtonSmall.png");
     -fx-max-width: 55px;
-    -fx-max-height: 50px;
     -fx-min-width: 55px;
-    -fx-min-width: 50px;
+    -fx-max-height: 50px;
 }

@@ -1,5 +1,6 @@
 package controllers;
 
+import javafx.animation.TranslateTransition;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
@@ -7,12 +8,15 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import models.AttitudeModel;
 
 /**
@@ -38,6 +42,12 @@ public class AttitudeController implements InvalidationListener
     
     @FXML
     private ImageView attitudeTextFieldCorners;
+    
+    @FXML
+    private Button closeTextArea;
+    
+    @FXML
+    private Rectangle blueRect;
     
     private final BorderPane root;
     
@@ -75,6 +85,27 @@ public class AttitudeController implements InvalidationListener
             }
         });
        
+        opmerkingenVeld.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if(newValue)
+                {
+                    animateMove(0, -94, opmerkingenVeld);
+                    animateMove(0, -94, attitudeTextFieldCorners);
+                    animateMove(0, -94, blueRect);
+                    closeTextArea.setVisible(true);
+                }
+                else
+                {
+                    animateMove(-94, 0, opmerkingenVeld);
+                    animateMove(-94, 0, attitudeTextFieldCorners);
+                    animateMove(-94, 0, blueRect);
+                    closeTextArea.setVisible(false);
+                }
+            }
+            
+        });
+       
        attitudeTextFieldCorners.setMouseTransparent(true); 
     }
 
@@ -90,4 +121,11 @@ public class AttitudeController implements InvalidationListener
         opmerkingenVeld.setText(model.getAttitude());
             }
     
+    public void animateMove(int from, int to, Node node)
+    {
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(500), node);
+        translateTransition.setFromY(from);
+        translateTransition.setToY(to);
+        translateTransition.play();
+    }
 }

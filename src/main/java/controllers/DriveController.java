@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import javafx.animation.TranslateTransition;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
@@ -20,6 +21,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Arc;
+import javafx.util.Duration;
 import models.DriveModel;
 import overige.ActionMenuItem;
 
@@ -71,6 +73,8 @@ public class DriveController implements InvalidationListener {
     @FXML
     private TextArea commentfield;
     @FXML
+    private Button closeTextArea; // button to cancel focus on the commentfield to put it back into the normal position
+    @FXML
     private MenuButton actionMenuButton;
     @FXML
     private Arc driveTopIndicatorInPane;
@@ -118,6 +122,7 @@ public class DriveController implements InvalidationListener {
         }
 
         commentfield.setEditable(false);
+        commentfield.setDisable(true);
 
         radioGroup.selectedToggleProperty().addListener((listener) -> {
             /*pas iets doen als niet null, en er een techniek is geslecteerd*/
@@ -126,12 +131,32 @@ public class DriveController implements InvalidationListener {
                 model.setColorForTechniek(radioGroup.getSelectedToggle().getUserData().toString());
             }
         });
+        
+        closeTextArea.setVisible(false);
 
         commentfield.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 model.setCommentForTechniek(newValue);
             }
+        });
+        
+        commentfield.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if(newValue)
+                {
+                    animateMove(0, -171);
+                    closeTextArea.setVisible(true);
+                    
+                }
+                else
+                {
+                    animateMove(-171, 0);
+                    closeTextArea.setVisible(false);
+                }
+            }
+            
         });
 
         exclamationMarkButton.setOnAction(new ExclamationCommand(model.getExclamationField(), commentfield));
@@ -158,9 +183,10 @@ public class DriveController implements InvalidationListener {
         /*comment invullen*/
         commentfield.setText(model.getCommentForTechniek());
 
-        /*pas na selectie van een knop mag comentaar aanpasbaar zijn*/
+        /*pas na het selecteren van een knop mag de commentaar aanpasbaar zijn*/
         if (!model.getId().isEmpty()) {
             commentfield.setEditable(true);
+            commentfield.setDisable(false);
         }
 
         /*kleur doorgeven dus weer unselecten*/
@@ -222,5 +248,13 @@ public class DriveController implements InvalidationListener {
             default:
                 break;
         }
+    }
+    
+    public void animateMove(int from, int to)
+    {
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(500), commentfield);
+        translateTransition.setFromY(from);
+        translateTransition.setToY(to);
+        translateTransition.play();
     }
 }
