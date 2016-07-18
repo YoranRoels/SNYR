@@ -190,6 +190,7 @@ public class TrafficController implements InvalidationListener {
             exclamationMarkButton.setDisable(false);
             fotoButton.setDisable(false);
             commentLabel.setDisable(false);
+            actionMenuButton.setDisable(false);
         }
         /*kleur doorgeven dus weeer unselecten*/
         if (radioGroup.selectedToggleProperty().isNotNull().get()) {

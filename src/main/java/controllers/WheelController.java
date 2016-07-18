@@ -110,6 +110,17 @@ public class WheelController implements InvalidationListener {
         comingSoonLabel.setMouseTransparent(true);
         comingSoonOpaque.setMouseTransparent(true);
         
+        drivePaneLabel.setVisible(false);
+        drivePaneOpaque.setVisible(false);
+        attitudePaneLabel.setVisible(false);
+        attitudePaneOpaque.setVisible(false);
+        trafficPaneLabel.setVisible(false);
+        trafficPaneOpaque.setVisible(false);
+        skillPaneLabel.setVisible(false);
+        skillPaneOpaque.setVisible(false);
+        comingSoonLabel.setVisible(false);
+        comingSoonOpaque.setVisible(false);
+        
         startAnimations();
         
         drivePane = new AnchorDrive(root,driveModel);
@@ -130,8 +141,6 @@ public class WheelController implements InvalidationListener {
         
         driveModel.addListener(this); // kleuren in stuur aanpassen
         trafficModel.addListener(this); // kleuren in bord aanpassen
-    
-        infoButton.selectedProperty().set(true);
         
         infoButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -251,18 +260,6 @@ public class WheelController implements InvalidationListener {
     
     public void startAnimations()
     {
-        //Labels
-        animatePulse(drivePaneLabel);
-        animatePulse(attitudePaneLabel);
-        animatePulse(trafficPaneLabel);
-        animatePulse(skillPaneLabel);
-        animatePulse(comingSoonLabel);
-        // Opaque
-        animatePulse(drivePaneOpaque);
-        animatePulse(attitudePaneOpaque);
-        animatePulse(trafficPaneOpaque);
-        animatePulse(skillPaneOpaque);
-        animatePulse(comingSoonOpaque);
         // Buttons (circle border)
         animatePulse(driveButton);
         animatePulse(attitudeButton);

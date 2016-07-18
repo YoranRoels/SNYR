@@ -80,7 +80,7 @@
                   <Image url="@../images/dummyPicture.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="183.0" fitWidth="183.0" layoutX="420.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="184.0" fitWidth="184.0" layoutX="420.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/fotoWindow.png" />
                </image>

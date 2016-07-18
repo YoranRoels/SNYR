@@ -5,6 +5,9 @@
  */
 package commands;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextArea;
@@ -36,7 +39,8 @@ public class ExclamationCommand implements EventHandler<ActionEvent> {
             {
                 System.out.println("Commentaarveld = null");
             }
-            exclamationField.setText(exclamationField.getText()+commentaarveld.getText()+"\n");
+            String timeStamp = new SimpleDateFormat("dd/MM/yyyy - HH:mm").format(Calendar.getInstance().getTime());
+            exclamationField.setText(exclamationField.getText()+timeStamp+": "+commentaarveld.getText()+"\n");
         }
     }
     

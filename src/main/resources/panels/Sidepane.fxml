@@ -122,15 +122,16 @@
       </RadioButton>
       <RadioButton fx:id="orange" layoutX="730.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
       <RadioButton id="redRadioButton" fx:id="red" layoutX="670.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: red; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
-      <TextArea fx:id="commentfield" layoutX="624.0" layoutY="171.0" prefHeight="205.0" prefWidth="293.0" styleClass="commentBoxInPane" translateX="20.0">
-         <effect>
-            <InnerShadow height="16.0" radius="7.5" width="16.0" />
-         </effect></TextArea>
-      <Label layoutX="723.0" layoutY="138.0" styleClass="labelFont" text="Commentaar" translateX="20.0">
+      <Label fx:id="commentLabel" layoutX="723.0" layoutY="138.0" styleClass="labelFont" text="Commentaar" translateX="20.0">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="860.0" layoutY="392.0" mnemonicParsing="false" style="-fx-background-radius: 250;" />
+      <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="862.0" layoutY="389.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" style="-fx-background-radius: 250;" />
+      <TextArea fx:id="commentfield" layoutX="624.0" layoutY="171.0" prefHeight="205.0" prefWidth="293.0" promptText="Plaats uw commentaar hier." styleClass="commentBoxInPane" translateX="20.0" wrapText="true">
+         <effect>
+            <InnerShadow height="16.0" radius="7.5" width="16.0" />
+         </effect></TextArea>
+      <Button fx:id="closeTextArea" layoutX="946.0" mnemonicParsing="false" styleClass="closeTextArea" />
    </children>
 </fx:root>

@@ -18,13 +18,13 @@
                   <Image url="@../images/dummyPicture.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="profielFotoBorders" fitHeight="170.0" fitWidth="170.0" layoutX="834.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profielFotoBorders" fitHeight="172.0" fitWidth="172.0" layoutX="833.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/fotoWindowBlueBorder.png" />
                </image>
             </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="170.0" layoutX="56.0" layoutY="-15.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangleColoredBorders" width="400.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
-            <TextArea fx:id="exclamationField" focusTraversable="false" layoutX="10.0" layoutY="10.0" prefHeight="170.0" prefWidth="400.0" promptText="Opmerkingen vorige lessen" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="170.0" layoutX="56.0" layoutY="-15.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangleColoredBorders" width="500.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+            <TextArea fx:id="exclamationField" focusTraversable="false" layoutX="10.0" layoutY="10.0" prefHeight="170.0" prefWidth="500.0" promptText="Opmerkingen vorige lessen" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -32,17 +32,17 @@
                   <String fx:value="roundedCornersAdaptation" />
                   <String fx:value="commentBoxInPane" />
                </styleClass></TextArea>
-            <ImageView fx:id="commentBoxBorders" fitHeight="170.0" fitWidth="400.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="commentBoxBorders" fitHeight="170.0" fitWidth="500.0" layoutX="70.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" style="-fx-scale-x: 1.25;">
                <image>
                   <Image url="@../images/commentWindow.png" />
                </image>
             </ImageView>
-            <Label fx:id="sliderLabel" alignment="CENTER" layoutX="468.0" layoutY="58.0" prefHeight="75.0" prefWidth="325.0" styleClass="labelFont" textFill="WHITE" wrapText="true">
+            <Label fx:id="sliderLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="541.0" layoutY="16.0" prefHeight="162.0" prefWidth="272.0" styleClass="labelFont" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
-            <ImageView fx:id="trashcan" fitHeight="40.0" fitWidth="40.0" layoutX="396.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="trashcan" fitHeight="40.0" fitWidth="40.0" layoutX="496.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/trashcanIconSmall.png" />
                </image>
