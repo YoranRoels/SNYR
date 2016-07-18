@@ -12,69 +12,81 @@
    <top>
       <AnchorPane minHeight="115.0" prefHeight="115.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
                <image>
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
-            <Button id="syncButton" fx:id="syncButton" layoutX="909.0" layoutY="15.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" />
+            <Button id="syncButton" fx:id="syncButton" layoutX="909.0" layoutY="15.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
          </children>
       </AnchorPane>
    </top>
    <bottom>
-      <AnchorPane maxHeight="1.7976931348623157E308" prefHeight="150.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="nieuwButton" layoutX="223.0" layoutY="14.0" minWidth="300.0" mnemonicParsing="false" styleClass="loginButton" text="Nieuw" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="200.0">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
+      <AnchorPane prefHeight="0.0" prefWidth="1024.0" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
-      <AnchorPane prefHeight="470.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <HBox>
          <children>
-            <Button fx:id="loginButton" layoutX="611.0" layoutY="327.0" minWidth="225.0" mnemonicParsing="false" styleClass="loginButton" text="Open Evaluatie">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Button>
-            <ListView fx:id="studentenListView" layoutX="200.0" layoutY="54.0" prefHeight="445.0" prefWidth="300.0" styleClass="listview">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets></ListView>
-            <ImageView fx:id="profilePic" fitHeight="182.0" fitWidth="182.0" layoutX="632.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" scaleX="1.0055">
-               <image>
-                  <Image url="@../images/dummyPicture.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="183.0" fitWidth="183.0" layoutX="631.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/fotoWindow.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="aanpasButton" layoutX="611.0" layoutY="390.0" minWidth="225.0" mnemonicParsing="false" styleClass="loginButton" text="Aanpassen">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Button>
-            <Button id="loginButtonDelete" fx:id="verwijderButton" layoutX="611.0" layoutY="451.0" minWidth="225.0" mnemonicParsing="false" text="Verwijderen">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Button>
-            <Label layoutX="216.0" styleClass="topLabelFont" text="Selecteer uw student" textFill="WHITE">
-               <font>
-                  <Font name="Agency FB" size="50.0" />
-               </font>
-            </Label>
-            <Label id="studentName" fx:id="studentLabel" alignment="CENTER" layoutX="588.0" layoutY="258.0" prefWidth="270.0" text="Student" textFill="WHITE">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <AnchorPane layoutX="200.0">
+               <children>
+                  <ListView fx:id="studentenListView" layoutY="54.0" prefHeight="445.0" prefWidth="300.0" styleClass="listview">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </ListView>
+                  <Label layoutX="16.0" styleClass="topLabelFont" text="Selecteer uw student" textFill="WHITE">
+                     <font>
+                        <Font name="Agency FB" size="50.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="nieuwButton" layoutY="509.0" minWidth="300.0" mnemonicParsing="false" styleClass="loginButton" text="Nieuw">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Region HBox.hgrow="ALWAYS" />
+            <AnchorPane layoutX="588.0" layoutY="53.0" nodeOrientation="LEFT_TO_RIGHT">
+               <children>
+                  <Button fx:id="loginButton" layoutX="23.0" layoutY="274.0" minWidth="225.0" mnemonicParsing="false" styleClass="loginButton" text="Open Evaluatie">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="profilePic" fitHeight="182.0" fitWidth="182.0" layoutX="43.50225830078125" pickOnBounds="true" preserveRatio="true" scaleX="1.0055">
+                     <image>
+                        <Image url="@../images/dummyPicture.png" />
+                     </image>
+                  </ImageView>
+                  <Button id="loginButtonDelete" fx:id="verwijderButton" layoutX="23.0" layoutY="398.0" minWidth="225.0" mnemonicParsing="false" text="Verwijderen">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="183.0" fitWidth="183.0" layoutX="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/fotoWindow.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="aanpasButton" layoutX="23.0" layoutY="337.0" minWidth="225.0" mnemonicParsing="false" styleClass="loginButton" text="Aanpassen">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Button>
+                  <Label id="studentName" fx:id="studentLabel" alignment="CENTER" layoutY="205.0" prefWidth="270.0" text="Student" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets top="50.0" />
+               </HBox.margin>
+            </AnchorPane>
+            <Region HBox.hgrow="ALWAYS" />
          </children>
-      </AnchorPane>
+      </HBox>
    </center>
 </BorderPane>

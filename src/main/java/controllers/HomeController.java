@@ -41,9 +41,6 @@ import panels.AnchorWheel;
 public class HomeController implements InvalidationListener {
 
     @FXML
-    private ImageView profielFotoBorders;
-    // Zwarte randen (profielFotoImage is de echte afbeelding).
-    @FXML
     private ImageView logout;
     @FXML
     private RadioButton evatoggle1;
@@ -64,12 +61,10 @@ public class HomeController implements InvalidationListener {
     @FXML
     private Button plusButton;
     @FXML
-    private ImageView trashcan;
+    private Label nameLabel;
 
     @FXML
     private TextArea exclamationField;
-    @FXML // Zwarte randen
-    private ImageView commentBoxBorders;
 
     private AnchorWheel wheelpane;
 
@@ -138,9 +133,6 @@ public class HomeController implements InvalidationListener {
         /*terugknop brengt je naar de student homepage met sturen */
         terugknop.setOnMouseClicked(new SwitchPanelCommand(borderpane, wheelpane));
 
-        commentBoxBorders.setMouseTransparent(true); // klik door de randen zodat je het textvak nog kan bedienen.
-        profielFotoBorders.setMouseTransparent(true);
-
         //eva selecties in stellen en huidige eva aanzetten
         switch (student.getEvanumber()) {
             case 0:
@@ -178,10 +170,8 @@ public class HomeController implements InvalidationListener {
             homeModel.setProgres(progressBar.progressProperty().getValue());
             updateSliderComment();
         });
-
-        trashcan.setOnMouseClicked((MouseEvent event) -> {
-            exclamationField.setText("");
-        });
+        
+        nameLabel.setText(student.getAchternaam()+" "+student.getVoornaam());
     }
 
     public void updateSliderComment() {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
@@ -9,56 +10,72 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderpane" maxHeight="640.0" maxWidth="1024.0" minHeight="640.0" minWidth="1024.0" prefHeight="640.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <AnchorPane minHeight="200.0" prefHeight="200.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <HBox BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="profielFotoImage" fitHeight="170.0" fitWidth="170.0" layoutX="834.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" scaleX="1.0056" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);">
-               <image>
-                  <Image url="@../images/dummyPicture.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="profielFotoBorders" fitHeight="172.0" fitWidth="172.0" layoutX="833.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/fotoWindowBlueBorder.png" />
-               </image>
-            </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="170.0" layoutX="56.0" layoutY="-15.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangleColoredBorders" width="500.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
-            <TextArea fx:id="exclamationField" focusTraversable="false" layoutX="10.0" layoutY="10.0" prefHeight="170.0" prefWidth="500.0" promptText="Opmerkingen vorige lessen" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <styleClass>
-                  <String fx:value="roundedCornersAdaptation" />
-                  <String fx:value="commentBoxInPane" />
-               </styleClass></TextArea>
-            <ImageView fx:id="commentBoxBorders" fitHeight="170.0" fitWidth="500.0" layoutX="70.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" style="-fx-scale-x: 1.25;">
-               <image>
-                  <Image url="@../images/commentWindow.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="sliderLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="541.0" layoutY="16.0" prefHeight="162.0" prefWidth="272.0" styleClass="labelFont" textFill="WHITE" wrapText="true">
+            <Pane id="exclamationFieldPane" layoutX="14.0" layoutY="13.0" maxHeight="200.0" minWidth="550.0" prefHeight="200.0" prefWidth="550.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <TextArea fx:id="exclamationField" focusTraversable="false" layoutX="5.0" layoutY="4.0" prefHeight="190.0" prefWidth="540.0" promptText="Opmerkingen vorige lessen" wrapText="true">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <effect>
+                        <ColorAdjust contrast="0.1" />
+                     </effect>
+                     <styleClass>
+                        <String fx:value="roundedCornersAdaptation" />
+                        <String fx:value="commentBoxInPane" />
+                     </styleClass>
+                  </TextArea>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Pane>
+            <Region prefHeight="215.0" HBox.hgrow="ALWAYS" />
+            <Label fx:id="sliderLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="578.0" layoutY="10.0" prefHeight="187.0" prefWidth="242.0" styleClass="labelFont" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="21.0" />
                </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
             </Label>
-            <ImageView fx:id="trashcan" fitHeight="40.0" fitWidth="40.0" layoutX="496.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/trashcanIconSmall.png" />
-               </image>
-            </ImageView>
-            <ImageView id="logoutImage" fx:id="logout" fitHeight="75.0" fitWidth="75.0" layoutX="949.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/logoutBlueBorder.png" />
-               </image>
-            </ImageView>
+            <Region prefHeight="215.0" HBox.hgrow="ALWAYS" />
+            <Pane layoutX="1064.0" layoutY="5.0" prefHeight="215.0" prefWidth="201.0">
+               <children>
+                  <ImageView fx:id="profielFotoImage" fitHeight="170.0" fitWidth="170.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" scaleX="1.0056" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);" AnchorPane.rightAnchor="15.928955078125" AnchorPane.topAnchor="14.0">
+                     <image>
+                        <Image url="@../images/dummyPicture.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="profielFotoBorders" fitHeight="172.0" fitWidth="172.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="14.0">
+                     <image>
+                        <Image url="@../images/fotoWindowBlueBorder.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="logoutImage" fx:id="logout" fitHeight="75.0" fitWidth="75.0" layoutX="111.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="4.0">
+                     <image>
+                        <Image url="@../images/logoutBlueBorder.png" />
+                     </image>
+                  </ImageView>
+                  <Label id="nameLabel" fx:id="nameLabel" alignment="CENTER" layoutY="185.0" prefHeight="30.0" prefWidth="200.0" />
+               </children>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="-100.0" left="-100.0" right="-100.0" top="-100.0" />
+               </padding>
+            </Pane>
          </children>
-      </AnchorPane>
+      </HBox>
    </top>
    <bottom>
-      <AnchorPane id="bottomAnchor" prefHeight="80.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" layoutX="1.0" prefHeight="80.0">
          <children>
-            <HBox layoutX="42.0" layoutY="20.0" prefHeight="40.0" prefWidth="129.0">
+            <HBox alignment="CENTER" layoutX="42.0" layoutY="20.0" prefHeight="80.0" prefWidth="200.0" spacing="30.0" AnchorPane.leftAnchor="40.0">
                <children>
                   <RadioButton fx:id="evatoggle1" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" styleClass="evaRadioButtons" text="1">
                      <toggleGroup>
@@ -68,7 +85,7 @@
                         <Font size="16.0" />
                      </font>
                      <HBox.margin>
-                        <Insets right="30.0" />
+                        <Insets />
                      </HBox.margin>
                   </RadioButton>
                   <RadioButton fx:id="evatoggle2" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" styleClass="evaRadioButtons" text="2" toggleGroup="$evaluaties">
@@ -76,31 +93,43 @@
                         <Font size="16.0" />
                      </font>
                      <HBox.margin>
-                        <Insets right="30.0" />
-                     </HBox.margin></RadioButton>
+                        <Insets />
+                     </HBox.margin>
+                  </RadioButton>
                   <RadioButton fx:id="evatoggle3" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" styleClass="evaRadioButtons" text="3" toggleGroup="$evaluaties">
                      <font>
                         <Font size="16.0" />
                      </font>
                      <HBox.margin>
                         <Insets />
-                     </HBox.margin></RadioButton>
+                     </HBox.margin>
+                  </RadioButton>
                </children>
-               <padding>
-                  <Insets top="4.0" />
-               </padding>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="15.0" />
+               </HBox.margin>
             </HBox>
-            <Label layoutX="605.0" layoutY="8.0" style="-fx-text-fill: rgb(255,255,255);" text="A" />
-            <Label layoutX="406.0" layoutY="8.0" style="-fx-text-fill: rgb(255,255,255);" text="B" />
-            <Label layoutX="707.0" layoutY="8.0" style="-fx-text-fill: rgb(255,255,255);" text="X" />
-            <Button id="terugknop" fx:id="terugknop" layoutX="943.0" layoutY="5.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" />
-            <Button id="minusButton" fx:id="minusButton" layoutX="238.0" layoutY="7.0" mnemonicParsing="false" />
-            <Button id="plusButton" fx:id="plusButton" layoutX="726.0" mnemonicParsing="false" AnchorPane.topAnchor="7.0" />
-            <ProgressBar fx:id="progressBar" layoutX="312.0" layoutY="27.0" prefHeight="18.0" prefWidth="406.0" progress="0.0" />
+            <Region prefHeight="80.0" HBox.hgrow="ALWAYS" />
+            <Pane layoutX="375.0" prefHeight="80.0" prefWidth="560.0">
+               <children>
+                  <ProgressBar fx:id="progressBar" focusTraversable="false" layoutX="71.0" layoutY="25.0" prefHeight="20.0" prefWidth="406.0" progress="0.0" />
+                  <Button id="plusButton" fx:id="plusButton" layoutX="484.0" layoutY="5.0" mnemonicParsing="false" />
+                  <Button id="minusButton" fx:id="minusButton" layoutX="5.0" layoutY="5.0" mnemonicParsing="false" />
+                  <Label layoutX="465.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="X" />
+                  <Label layoutX="385.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="B" />
+                  <Label layoutX="305.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="A" />
+               </children>
+            </Pane>
+            <Region prefHeight="80.0" HBox.hgrow="ALWAYS" />
+            <Button id="terugknop" fx:id="terugknop" alignment="CENTER" graphicTextGap="0.0" layoutX="943.0" layoutY="5.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" AnchorPane.rightAnchor="25.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="135.0" right="15.0" />
+               </HBox.margin>
+            </Button>
          </children>
-      </AnchorPane>
+      </HBox>
    </bottom>
    <center>
-      <AnchorPane prefHeight="488.0" prefWidth="1024.0" style="-fx-border-radius: 250;" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="345.0" style="-fx-border-radius: 250;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
