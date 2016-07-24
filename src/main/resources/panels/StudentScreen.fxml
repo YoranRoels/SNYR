@@ -10,14 +10,9 @@
 
 <BorderPane fx:id="borderpane" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/HouseStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <AnchorPane minHeight="121.0" prefHeight="184.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <AnchorPane minHeight="121.0" prefHeight="126.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="312.0" layoutY="105.0" minWidth="400.0" styleClass="topLabelFont" text="Student" textFill="WHITE">
-               <font>
-                  <Font size="50.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
                <image>
                   <Image url="@../images/logo.png" />
                </image>
@@ -26,66 +21,77 @@
       </AnchorPane>
    </top>
    <bottom>
-      <AnchorPane prefHeight="120.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="62.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="opslaan" layoutX="412.0" layoutY="4.0" mnemonicParsing="false" prefWidth="200.0" styleClass="loginButton" text="Opslaan">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Button>
-            <Button id="terugknop" fx:id="terugknopNewStudent" layoutX="943.0" layoutY="47.0" mnemonicParsing="false" />
+            <Button id="terugknop" fx:id="terugknopNewStudent" layoutX="943.0" layoutY="47.0" mnemonicParsing="false" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
          </children>
       </AnchorPane>
    </bottom>
    <center>
-      <AnchorPane prefHeight="517.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <HBox layoutX="262.0" layoutY="-3.0">
          <children>
-            <Label layoutX="295.0" layoutY="215.0" prefHeight="35.0" prefWidth="110.0" styleClass="labelFont" text="Achternaam" textFill="WHITE">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TextField fx:id="nameField" layoutX="413.0" layoutY="210.0" prefHeight="45.0" prefWidth="200.0" promptText="Achternaam" styleClass="studentScreenTextChange">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </TextField>
-            <Label layoutX="295.0" layoutY="272.0" prefHeight="35.0" prefWidth="110.0" styleClass="labelFont" text="Voornaam" textFill="WHITE">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TextField fx:id="surnameField" layoutX="413.0" layoutY="267.0" prefHeight="45.0" prefWidth="200.0" promptText="Voornaam" styleClass="studentScreenTextChange">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </TextField>
-            <Label layoutX="295.0" layoutY="329.0" prefHeight="35.0" prefWidth="110.0" styleClass="labelFont" text="Emailadres" textFill="WHITE">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TextField fx:id="emailField" layoutX="413.0" layoutY="324.0" prefHeight="45.0" prefWidth="200.0" promptText="Emailadres" styleClass="studentScreenTextChange">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </TextField>
-            <Label fx:id="errorMessageLabel" alignment="CENTER" layoutX="263.0" layoutY="385.0" minWidth="500.0" prefHeight="60.0" prefWidth="200.0" styleClass="studentScreenTextChange" textFill="#ff0b0b">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="183.0" fitWidth="182.0" layoutX="421.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" scaleX="1.0055">
-               <image>
-                  <Image url="@../images/dummyPicture.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="183.0" fitWidth="183.0" layoutX="420.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/fotoWindow.png" />
-               </image>
-            </ImageView>
+            <Region HBox.hgrow="ALWAYS" />
+            <AnchorPane layoutX="262.0" layoutY="-3.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="50.0" minWidth="400.0" styleClass="topLabelFont" text="Student" textFill="WHITE">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="183.0" fitWidth="182.0" layoutX="157.49951171875" layoutY="66.0" pickOnBounds="true" preserveRatio="true" scaleX="1.0055">
+                     <image>
+                        <Image url="@../images/dummyPicture.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="184.0" fitWidth="184.0" layoutX="157.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/fotoWindow.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="32.0" layoutY="276.0" prefHeight="35.0" prefWidth="110.0" styleClass="labelFont" text="Achternaam" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="333.0" prefHeight="35.0" prefWidth="110.0" styleClass="labelFont" text="Voornaam" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="390.0" prefHeight="35.0" prefWidth="110.0" styleClass="labelFont" text="Emailadres" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nameField" layoutX="150.0" layoutY="271.0" prefHeight="45.0" prefWidth="200.0" promptText="Achternaam" styleClass="studentScreenTextChange">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="surnameField" layoutX="150.0" layoutY="328.0" prefHeight="45.0" prefWidth="200.0" promptText="Voornaam" styleClass="studentScreenTextChange">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="emailField" layoutX="150.0" layoutY="385.0" prefHeight="45.0" prefWidth="200.0" promptText="Emailadres" styleClass="studentScreenTextChange">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="errorMessageLabel" alignment="CENTER" layoutY="446.0" prefHeight="60.0" prefWidth="500.0" styleClass="studentScreenTextChange" textFill="#ff0b0b">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="opslaan" layoutX="149.0" layoutY="524.0" mnemonicParsing="false" prefWidth="200.0" styleClass="loginButton" text="Opslaan">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Region HBox.hgrow="ALWAYS" />
          </children>
-      </AnchorPane>
+      </HBox>
    </center>
 </BorderPane>

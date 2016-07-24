@@ -12,88 +12,119 @@
 
 <fx:root id="drivePane" prefHeight="488.0" prefWidth="1024.0" style="-fx-background-color: black;" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button id="overtaking" fx:id="overtaking" layoutX="561.0" layoutY="53.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button id="distance" fx:id="distance" layoutX="848.0" layoutY="143.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button id="turningleft" fx:id="turningleft" layoutX="672.0" layoutY="26.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button id="indicators" fx:id="indicators" layoutX="495.0" layoutY="252.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button id="turningright" fx:id="turningright" layoutX="783.0" layoutY="53.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button id="publicroad" fx:id="publicroad" layoutX="848.0" layoutY="252.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button id="priority" fx:id="priority" layoutX="783.0" layoutY="347.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button id="speed" fx:id="speed" layoutX="561.0" layoutY="347.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button id="sign" fx:id="sign" layoutX="672.0" layoutY="377.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button id="crossing" fx:id="crossing" layoutX="495.0" layoutY="143.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="422.0" layoutX="90.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" styleClass="formRectangle" translateX="20.0" width="324.0" />
-      <Button fx:id="fotoButton" layoutX="211.0" layoutY="50.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" translateX="20.0">
-         <styleClass>
-            <String fx:value="roundButton" />
-            <String fx:value="buttonHolder" />
-         </styleClass>
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <MenuButton id="menuButton" fx:id="actionMenuButton" layoutX="363.0" layoutY="132.0" maxWidth="59.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="60.0">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
-      <RadioButton id="redRadioButton" fx:id="red" layoutX="156.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: red; -fx-mark-color: black;" translateX="20.0">
-         <toggleGroup>
-            <ToggleGroup fx:id="radioGroup" />
-         </toggleGroup></RadioButton>
-      <RadioButton fx:id="orange" layoutX="216.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: orange; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
-      <RadioButton fx:id="green" layoutX="276.0" layoutY="400.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
-      <Label fx:id="commentLabel" layoutX="205.0" layoutY="133.0" styleClass="labelFont" text="Commentaar" translateX="20.0">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Label>
-      <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="346.0" layoutY="389.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" style="-fx-background-radius: 250;" />
-      <Rectangle fx:id="trafficLeftIndicatorInPane" arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="120.0" layoutX="631.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
-      <Rectangle fx:id="trafficRightIndicatorInPane" arcHeight="100.0" arcWidth="75.0" fill="WHITE" height="120.0" layoutX="712.0" layoutY="157.0" rotate="-31.6" stroke="BLACK" strokeType="INSIDE" width="102.0" />
-      <Rectangle fx:id="trafficBottomIndicatorInPane" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="58.0" layoutX="653.0" layoutY="283.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <ImageView fitHeight="238.0" fitWidth="247.0" layoutX="596.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/trafficImage.png" />
-         </image>
-         <effect>
-            <InnerShadow />
-         </effect>
-      </ImageView>
-      <TextArea fx:id="commentfield" layoutX="105.0" layoutY="171.0" prefHeight="205.0" prefWidth="293.0" promptText="Plaats uw commentaar hier." styleClass="commentBoxInPane" translateX="20.0">
-         <effect>
-            <InnerShadow height="16.0" radius="7.5" width="16.0" />
-         </effect></TextArea>
-      <Button fx:id="closeTextArea" layoutX="424.0" mnemonicParsing="false" styleClass="closeTextArea" />
+      <HBox layoutX="110.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Region HBox.hgrow="ALWAYS" />
+            <Pane layoutX="110.0">
+               <children>
+                  <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c9c7c7" height="422.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" styleClass="formRectangle" translateX="20.0" width="324.0" />
+                  <Button id="exclamationMark" fx:id="exclamationMarkButton" layoutX="249.0" layoutY="392.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" style="-fx-background-radius: 250;" />
+                  <MenuButton id="menuButton" fx:id="actionMenuButton" layoutX="270.0" layoutY="132.0" maxWidth="59.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="60.0">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                     </items>
+                  </MenuButton>
+                  <RadioButton fx:id="orange" layoutX="123.25" layoutY="403.25" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: orange; -fx-mark-color: black;" translateX="20.0">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="radioGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <Button fx:id="closeTextArea" layoutX="337.0" mnemonicParsing="false" styleClass="closeTextArea" />
+                  <Button fx:id="fotoButton" layoutX="125.0" layoutY="50.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" translateX="20.0">
+                     <styleClass>
+                        <String fx:value="roundButton" />
+                        <String fx:value="buttonHolder" />
+                     </styleClass>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Label fx:id="commentLabel" layoutX="117.0" layoutY="133.0" styleClass="labelFont" text="Commentaar" translateX="20.0">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <RadioButton id="redRadioButton" fx:id="red" layoutX="63.25" layoutY="403.25" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: red; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
+                  <RadioButton fx:id="green" layoutX="183.25" layoutY="403.25" mnemonicParsing="false" prefHeight="17.0" prefWidth="0.0" style="-fx-scale-x: 2.5; -fx-scale-y: 2.5; -fx-base: green; -fx-mark-color: black;" toggleGroup="$radioGroup" translateX="20.0" />
+                  <TextArea fx:id="commentfield" layoutX="15.0" layoutY="174.0" prefHeight="205.0" prefWidth="293.0" promptText="Plaats uw commentaar hier." styleClass="commentBoxInPane" translateX="20.0" wrapText="true">
+                     <effect>
+                        <InnerShadow height="16.0" radius="7.5" width="16.0" />
+                     </effect>
+                  </TextArea>
+               </children>
+            </Pane>
+            <Region HBox.hgrow="ALWAYS" />
+            <Pane layoutX="495.0" layoutY="26.0">
+               <children>
+                  <Button id="turningleft" fx:id="turningleft" layoutX="177.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button id="publicroad" fx:id="publicroad" layoutX="353.0" layoutY="226.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button id="crossing" fx:id="crossing" layoutY="117.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button id="distance" fx:id="distance" layoutX="353.0" layoutY="117.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button id="priority" fx:id="priority" layoutX="288.0" layoutY="321.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button id="overtaking" fx:id="overtaking" layoutX="66.0" layoutY="27.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button id="sign" fx:id="sign" layoutX="177.0" layoutY="351.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button id="speed" fx:id="speed" layoutX="66.0" layoutY="321.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button id="indicators" fx:id="indicators" layoutY="226.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button id="turningright" fx:id="turningright" layoutX="288.0" layoutY="27.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 500;" styleClass="roundButton">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Rectangle fx:id="trafficRightIndicatorInPane" arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="120.0" layoutX="212.0" layoutY="134.0" rotate="-31.6" stroke="BLACK" strokeType="INSIDE" width="102.0" />
+                  <Rectangle fx:id="trafficLeftIndicatorInPane" arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="120.0" layoutX="136.0" layoutY="134.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="trafficBottomIndicatorInPane" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="58.0" layoutX="159.0" layoutY="256.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+                  <ImageView fitHeight="238.0" fitWidth="247.0" layoutX="101.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/trafficImage.png" />
+                     </image>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets top="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Region HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
    </children>
 </fx:root>

@@ -44,7 +44,7 @@ public class RijschoolEva extends Application {
         loader.setController(new InlogController(stage,studenten,selectie));
         Parent root = (Parent) loader.load();
 
-        Scene scene = new Scene(root,1024,768);
+        Scene scene = new Scene(root,1024,800);
 
         stage.setScene(scene);
 

@@ -55,6 +55,7 @@ public class AttitudeController implements InvalidationListener
             
     public void initialize()
     {   
+        closeTextArea.setVisible(false);
         System.out.println("AttitudeController");
         selectieListView.setItems(model.getSelectie());
         selectieListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {

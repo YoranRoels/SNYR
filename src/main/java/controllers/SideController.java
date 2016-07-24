@@ -6,16 +6,21 @@
 package controllers;
 
 import commands.ExclamationCommand;
+import javafx.animation.TranslateTransition;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Duration;
 import models.SkillsModel;
 
 /**
@@ -65,6 +70,10 @@ public class SideController implements InvalidationListener
 
     @FXML
     private Button exclamationMarkButton;
+    @FXML
+    private Button closeTextArea;
+    @FXML
+    private Label commentLabel;
 
     private Button[] buttons;
 
@@ -77,6 +86,13 @@ public class SideController implements InvalidationListener
         red.setUserData("red");
         orange.setUserData("orange");
         green.setUserData("green");
+        
+        red.setDisable(true);
+        orange.setDisable(true);
+        green.setDisable(true);
+        
+        fotoButton.setDisable(true);
+        commentLabel.setDisable(true);
 
         commentfield.setEditable(false);
 
@@ -93,6 +109,8 @@ public class SideController implements InvalidationListener
                 model.setColorForSkills(radioGroup.getSelectedToggle().getUserData().toString());
             }
         });
+        
+        closeTextArea.setVisible(false);
 
         commentfield.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -101,8 +119,20 @@ public class SideController implements InvalidationListener
             }
         });
         
+        commentfield.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (newValue) {
+                    animateMove(0, -171);
+                } else {
+                    animateMove(-171, 0);
+                }
+            }
+        });
+        
         exclamationMarkButton.setOnAction(new ExclamationCommand(model.getExclamationField(), commentfield));
-
+        exclamationMarkButton.setDisable(true);
+        
         update();
     }
 
@@ -127,6 +157,13 @@ public class SideController implements InvalidationListener
         /*pas na selectie van een knop mag comentaar aanpasbaar zijn*/
         if (!model.getId().isEmpty()) {
             commentfield.setEditable(true);
+            commentfield.setDisable(false);
+            red.setDisable(false);
+            orange.setDisable(false);
+            green.setDisable(false);
+            exclamationMarkButton.setDisable(false);
+            fotoButton.setDisable(false);
+            commentLabel.setDisable(false);
         }
         /*kleur doorgeven dus weeer unselecten*/
         if (radioGroup.selectedToggleProperty().isNotNull().get()) {
@@ -148,5 +185,27 @@ public class SideController implements InvalidationListener
     @Override
     public void invalidated(Observable observable) {
         update();
+    }
+    
+    public void animateMove(int from, int to)
+    {
+        if(to == 0)
+        {
+            closeTextArea.setVisible(false);
+        }
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(400), commentfield);
+        translateTransition.setFromY(from);
+        translateTransition.setToY(to);
+        translateTransition.play();
+        translateTransition.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                if(from == 0)
+                {
+                    closeTextArea.setVisible(true);
+                }
+            }
+        });
     }
 }
