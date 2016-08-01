@@ -10,12 +10,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import models.AttitudeModel;
 
@@ -41,13 +41,13 @@ public class AttitudeController implements InvalidationListener
     private Button toevoegButton;
     
     @FXML
-    private ImageView attitudeTextFieldCorners;
-    
-    @FXML
     private Button closeTextArea;
     
     @FXML
-    private Rectangle blueRect;
+    private Pane borderedTextAreaPane;
+    
+    @FXML
+    private Label attitudeLabel;
     
     private final BorderPane root;
     
@@ -62,14 +62,14 @@ public class AttitudeController implements InvalidationListener
 
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                opmerkingenVeld.setText(opmerkingenVeld.getText()+"\n"+newValue);
-                           }
+                opmerkingenVeld.setText(opmerkingenVeld.getText() + "\n" + newValue);
+            }
         });
         
-// opmerkingenVeld.set opmerkingen laden en setten
+        // opmerkingenVeld.set opmerkingen laden en setten
         opmerkingenVeld.setText(model.getAttitude());
 
-       opmerkingenVeld.textProperty().addListener(new ChangeListener<String>() {
+        opmerkingenVeld.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                     /*tekst opslaan als deze is veranderd*/
@@ -81,8 +81,11 @@ public class AttitudeController implements InvalidationListener
        toevoegButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                model.addNieuwSelectieWoord(toevoegField.getText());
-                toevoegField.setText("");
+                if(!toevoegField.getText().isEmpty())
+                {
+                    model.addNieuwSelectieWoord(toevoegField.getText());
+                    toevoegField.setText("");
+                }
             }
         });
        
@@ -91,23 +94,21 @@ public class AttitudeController implements InvalidationListener
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if(newValue)
                 {
-                    animateMove(0, -94, opmerkingenVeld);
-                    animateMove(0, -94, attitudeTextFieldCorners);
-                    animateMove(0, -94, blueRect);
+                    animateMove(0, -94, borderedTextAreaPane);
+                    animateMove(0, -94, attitudeLabel);
+//                    animateMove(0, -94, root);
                     closeTextArea.setVisible(true);
                 }
                 else
                 {
-                    animateMove(-94, 0, opmerkingenVeld);
-                    animateMove(-94, 0, attitudeTextFieldCorners);
-                    animateMove(-94, 0, blueRect);
+                    animateMove(-94, 0, borderedTextAreaPane);
+                    animateMove(-94, 0, attitudeLabel);
+//                    animateMove(-94, 0, root);
                     closeTextArea.setVisible(false);
                 }
             }
             
         });
-       
-       attitudeTextFieldCorners.setMouseTransparent(true); 
     }
 
     public AttitudeController(BorderPane root,AttitudeModel model) 
@@ -120,7 +121,7 @@ public class AttitudeController implements InvalidationListener
     @Override
     public void invalidated(Observable observable) {
         opmerkingenVeld.setText(model.getAttitude());
-            }
+    }
     
     public void animateMove(int from, int to, Node node)
     {

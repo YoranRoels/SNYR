@@ -248,7 +248,7 @@ and open the template in the editor.
     -fx-text-fill: white;
 }
 
-#exclamationFieldPane
+.borderedTextAreaPane
 {
     -fx-background-radius: 25px;
     -fx-background-color: white;

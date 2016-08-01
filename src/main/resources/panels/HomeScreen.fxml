@@ -14,7 +14,7 @@
    <top>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <Pane id="exclamationFieldPane" layoutX="14.0" layoutY="13.0" maxHeight="195.0" prefHeight="195.0" prefWidth="550.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <Pane layoutX="14.0" layoutY="13.0" maxHeight="195.0" prefHeight="195.0" prefWidth="550.0" styleClass="borderedTextAreaPane" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
                   <TextArea fx:id="exclamationField" focusTraversable="false" layoutX="9.0" layoutY="5.0" prefHeight="185.0" prefWidth="533.0" promptText="Opmerkingen vorige lessen" wrapText="true">
                      <opaqueInsets>
@@ -73,9 +73,9 @@
       </HBox>
    </top>
    <bottom>
-      <HBox alignment="CENTER" layoutX="1.0" prefHeight="80.0">
+      <HBox alignment="CENTER" layoutX="1.0" prefHeight="65.0">
          <children>
-            <HBox alignment="CENTER" layoutX="42.0" layoutY="20.0" prefHeight="80.0" prefWidth="200.0" spacing="30.0" AnchorPane.leftAnchor="40.0">
+            <HBox alignment="CENTER" layoutX="42.0" layoutY="20.0" prefWidth="200.0" spacing="30.0" AnchorPane.leftAnchor="40.0">
                <children>
                   <RadioButton fx:id="evatoggle1" mnemonicParsing="false" style="-fx-text-fill: rgb(255,255,255);" styleClass="evaRadioButtons" text="1">
                      <toggleGroup>
@@ -106,7 +106,7 @@
                   </RadioButton>
                </children>
                <HBox.margin>
-                  <Insets bottom="10.0" left="15.0" />
+                  <Insets bottom="5.0" left="10.0" />
                </HBox.margin>
             </HBox>
             <Region prefHeight="80.0" HBox.hgrow="ALWAYS" />
@@ -119,14 +119,23 @@
                   <Label layoutX="385.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="B" />
                   <Label layoutX="305.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="A" />
                </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="72.0" />
+               </padding>
             </Pane>
             <Region prefHeight="80.0" HBox.hgrow="ALWAYS" />
             <Button id="terugknop" fx:id="terugknop" alignment="CENTER" graphicTextGap="0.0" layoutX="943.0" layoutY="5.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" AnchorPane.rightAnchor="25.0">
                <HBox.margin>
-                  <Insets bottom="10.0" left="135.0" right="15.0" />
+                  <Insets bottom="5.0" left="135.0" right="5.0" />
                </HBox.margin>
             </Button>
          </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </HBox>
    </bottom>
    <center>
