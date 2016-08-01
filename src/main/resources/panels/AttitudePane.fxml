@@ -23,7 +23,7 @@
                      </font>
                   </Label>
                   <ListView fx:id="selectieListView" layoutY="94.0" prefHeight="350.0" prefWidth="200.0" styleClass="listview" />
-                  <Label layoutX="304.0" layoutY="73.0" styleClass="labelFont" text="Nieuwe selectie" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="276.0" layoutY="69.0" prefHeight="30.0" prefWidth="179.0" styleClass="labelFont" text="Nieuwe selectie" textFill="WHITE">
                      <font>
                         <Font size="26.0" />
                      </font>
@@ -38,23 +38,24 @@
                         <InnerShadow />
                      </effect>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="524.0" layoutY="44.0" prefHeight="32.0" prefWidth="300.0" styleClass="topLabelFont" text="Attitude Opmerkingen" textFill="WHITE">
+                  <Label fx:id="attitudeLabel" alignment="CENTER" layoutX="524.0" layoutY="44.0" prefHeight="32.0" prefWidth="300.0" styleClass="topLabelFont" text="Opmerkingen" textFill="WHITE">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Rectangle fx:id="blueRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="350.0" layoutX="524.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangleColoredBorders" width="300.0" />
-                  <TextArea fx:id="opmerkingenVeld" layoutX="524.0" layoutY="94.0" prefHeight="350.0" prefWidth="300.0" promptText="Plaats uw opmerkingen hier." wrapText="true">
-                     <styleClass>
-                        <String fx:value="roundedCornersAdaptation" />
-                        <String fx:value="commentBoxInPane" />
-                     </styleClass>
-                  </TextArea>
-                  <ImageView fx:id="attitudeTextFieldCorners" fitHeight="350.0" fitWidth="300.0" layoutX="524.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/attitudeTextFieldCorners.png" />
-                     </image>
-                  </ImageView>
+                  <Pane fx:id="borderedTextAreaPane" layoutX="524.0" layoutY="94.0" styleClass="borderedTextAreaPane">
+                     <children>
+                        <TextArea fx:id="opmerkingenVeld" layoutX="6.0" layoutY="6.0" prefHeight="343.0" prefWidth="294.0" promptText="Plaats uw opmerkingen hier." wrapText="true">
+                           <styleClass>
+                              <String fx:value="roundedCornersAdaptation" />
+                              <String fx:value="commentBoxInPane" />
+                           </styleClass>
+                           <effect>
+                              <ColorAdjust contrast="0.1" />
+                           </effect>
+                        </TextArea>
+                     </children>
+                  </Pane>
                   <Button fx:id="closeTextArea" layoutX="833.0" mnemonicParsing="false" styleClass="closeTextArea" stylesheets="@../stylesheets/DriveTrafficSideStyle.css" />
                </children>
             </AnchorPane>
