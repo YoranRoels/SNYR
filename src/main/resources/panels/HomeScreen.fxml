@@ -115,9 +115,9 @@
                   <ProgressBar fx:id="progressBar" focusTraversable="false" layoutX="71.0" layoutY="25.0" prefHeight="20.0" prefWidth="406.0" progress="0.0" />
                   <Button id="plusButton" fx:id="plusButton" layoutX="484.0" layoutY="5.0" mnemonicParsing="false" />
                   <Button id="minusButton" fx:id="minusButton" layoutX="5.0" layoutY="5.0" mnemonicParsing="false" />
-                  <Label layoutX="465.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="X" />
-                  <Label layoutX="385.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="B" />
-                  <Label layoutX="305.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="A" />
+                  <Label layoutX="470.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="X" />
+                  <Label layoutX="353.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="B" />
+                  <Label layoutX="237.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="A" />
                </children>
                <HBox.margin>
                   <Insets />

@@ -159,14 +159,14 @@ public class HomeController implements InvalidationListener {
         });
 
         minusButton.setOnAction((ActionEvent event) -> {
-            progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue() - 0.05);
+            progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue() - 0.142857142);
             homeModel.setProgres(progressBar.progressProperty().getValue());
             checkMinimalValue();
             updateSliderComment();
         });
 
         plusButton.setOnAction((ActionEvent event) -> {
-            progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue() + 0.05);
+            progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue() + 0.142857142);
             homeModel.setProgres(progressBar.progressProperty().getValue());
             updateSliderComment();
         });
@@ -175,11 +175,11 @@ public class HomeController implements InvalidationListener {
     }
 
     public void updateSliderComment() {
-        if (progressBar.progressProperty().doubleValue() < 0.25) {
+        if (progressBar.progressProperty().doubleValue() < 0.428571426) {
             sliderLabel.setText("");
-        } else if (progressBar.progressProperty().doubleValue() >= 0.25 && progressBar.progressProperty().doubleValue() < 0.75) {
+        } else if (progressBar.progressProperty().doubleValue() >= 0.428571426 && progressBar.progressProperty().doubleValue() < 0.71428571) {
             sliderLabel.setText("Klaar om met een begeleider te oefenen in de stageperiode.");
-        } else if (progressBar.progressProperty().doubleValue() >= 0.75 && progressBar.progressProperty().doubleValue() < 0.99) {
+        } else if (progressBar.progressProperty().doubleValue() >= 0.71428571 && progressBar.progressProperty().doubleValue() < 0.99) {
             sliderLabel.setText("Klaar om alleen te oefenen in de stageperiode.");
         } else if (progressBar.progressProperty().doubleValue() >= 0.99) {
             sliderLabel.setText("Klaar voor praktisch examen.");
