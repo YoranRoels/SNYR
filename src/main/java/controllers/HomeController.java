@@ -24,6 +24,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import models.AttitudeModel;
@@ -60,6 +61,9 @@ public class HomeController implements InvalidationListener {
     private Button minusButton;
     @FXML
     private Button plusButton;
+    @FXML
+    private Button sliderDetailButton;
+    private int sliderProgress;
     @FXML
     private Label nameLabel;
 
@@ -168,16 +172,37 @@ public class HomeController implements InvalidationListener {
         plusButton.setOnAction((ActionEvent event) -> {
             progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue() + 0.142857142);
             homeModel.setProgres(progressBar.progressProperty().getValue());
+            checkMaxValue();
             updateSliderComment();
         });
         
         nameLabel.setText(student.getAchternaam()+" "+student.getVoornaam());
+        
+        sliderDetailButton.setOnAction((ActionEvent event) -> {
+            Parent root;
+            sliderProgress = (int)Math.round(progressBar.getProgress()*7);
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/SliderDetail.fxml"));
+
+                System.out.println(sliderProgress);
+                loader.setController(new SliderDetailController(sliderProgress));
+                root = (Parent) loader.load();
+                
+                borderpane.setCenter(root);
+            } catch (IOException ex) {
+                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            // Scene scene = new Scene(root);
+            // stage.setScene(scene);
+            
+        });
     }
 
     public void updateSliderComment() {
-        if (progressBar.progressProperty().doubleValue() < 0.428571426) {
+        if (progressBar.progressProperty().doubleValue() < 0.285714284) {
             sliderLabel.setText("");
-        } else if (progressBar.progressProperty().doubleValue() >= 0.428571426 && progressBar.progressProperty().doubleValue() < 0.71428571) {
+        } else if (progressBar.progressProperty().doubleValue() >= 0.285714284 && progressBar.progressProperty().doubleValue() < 0.71428571) {
             sliderLabel.setText("Klaar om met een begeleider te oefenen in de stageperiode.");
         } else if (progressBar.progressProperty().doubleValue() >= 0.71428571 && progressBar.progressProperty().doubleValue() < 0.99) {
             sliderLabel.setText("Klaar om alleen te oefenen in de stageperiode.");
@@ -190,6 +215,13 @@ public class HomeController implements InvalidationListener {
         if (progressBar.progressProperty().doubleValue() < 0) {
             System.out.println("Reached minimal value.");
             progressBar.progressProperty().setValue(0);
+        }
+    }
+    
+    public void checkMaxValue() {
+        if (progressBar.progressProperty().doubleValue() > 1) {
+            System.out.println("Reached max value.");
+            progressBar.progressProperty().setValue(1);
         }
     }
 
@@ -209,5 +241,4 @@ public class HomeController implements InvalidationListener {
     public void invalidated(Observable observable) {
         progressBar.setProgress(homeModel.getProgres());
     }
-
 }

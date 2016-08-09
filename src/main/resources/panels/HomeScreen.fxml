@@ -110,14 +110,14 @@
                </HBox.margin>
             </HBox>
             <Region prefHeight="80.0" HBox.hgrow="ALWAYS" />
-            <Pane layoutX="375.0" prefHeight="80.0" prefWidth="560.0">
+            <Pane layoutX="375.0" prefHeight="80.0">
                <children>
-                  <ProgressBar fx:id="progressBar" focusTraversable="false" layoutX="71.0" layoutY="25.0" prefHeight="20.0" prefWidth="406.0" progress="0.0" />
-                  <Button id="plusButton" fx:id="plusButton" layoutX="484.0" layoutY="5.0" mnemonicParsing="false" />
-                  <Button id="minusButton" fx:id="minusButton" layoutX="5.0" layoutY="5.0" mnemonicParsing="false" />
-                  <Label layoutX="470.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="X" />
-                  <Label layoutX="353.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="B" />
-                  <Label layoutX="237.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="A" />
+                  <ProgressBar fx:id="progressBar" focusTraversable="false" layoutX="66.0" layoutY="25.0" prefHeight="20.0" prefWidth="406.0" progress="0.0" />
+                  <Button id="plusButton" fx:id="plusButton" layoutX="470.0" layoutY="5.0" mnemonicParsing="false" />
+                  <Button id="minusButton" fx:id="minusButton" layoutY="5.0" mnemonicParsing="false" />
+                  <Label layoutX="465.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="X" />
+                  <Label layoutX="348.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="B" />
+                  <Label layoutX="174.0" layoutY="6.0" style="-fx-text-fill: rgb(255,255,255);" text="A" />
                </children>
                <HBox.margin>
                   <Insets />
@@ -126,10 +126,19 @@
                   <Insets bottom="72.0" />
                </padding>
             </Pane>
+            <Button fx:id="sliderDetailButton" alignment="CENTER" mnemonicParsing="false" prefWidth="170.0" text="Bekijk grafisch" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="glowingEdgeButton" />
+                  <String fx:value="labelFont" />
+               </styleClass>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="20.0" />
+               </HBox.margin>
+            </Button>
             <Region prefHeight="80.0" HBox.hgrow="ALWAYS" />
             <Button id="terugknop" fx:id="terugknop" alignment="CENTER" graphicTextGap="0.0" layoutX="943.0" layoutY="5.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" AnchorPane.rightAnchor="25.0">
                <HBox.margin>
-                  <Insets bottom="5.0" left="135.0" right="5.0" />
+                  <Insets bottom="5.0" left="15.0" right="5.0" />
                </HBox.margin>
             </Button>
          </children>
