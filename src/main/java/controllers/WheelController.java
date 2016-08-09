@@ -121,7 +121,7 @@ public class WheelController implements InvalidationListener {
         comingSoonLabel.setVisible(false);
         comingSoonOpaque.setVisible(false);
         
-        startAnimations();
+//        startAnimations();
         
         drivePane = new AnchorDrive(root,driveModel);
         drivePane.create();
