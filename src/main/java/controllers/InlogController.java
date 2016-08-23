@@ -25,12 +25,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
@@ -60,8 +62,8 @@ public class InlogController {
     @FXML
     private ListView<Student> studentenListView; 
     
-    // Dummy students
-    private final ObservableList<Student> studenten;
+    // Students
+    private final ObservableList<Student> studenten = FXCollections.observableArrayList();;
     
     private final ObservableList selectie;
     
@@ -70,19 +72,11 @@ public class InlogController {
     // Threading
     private final ExecutorService service = Executors.newSingleThreadExecutor();
 
-    public InlogController(Stage stage,ObservableList<Student> studenten,ObservableList<String> selectie) {
+    public InlogController(Stage stage,ObservableList<String> selectie) {
         this.stage = stage;
-        this.studenten=studenten;
         this.selectie=selectie;
-//        GetStudentListTask task = new GetStudentListTask();
-//        task.setOnSucceeded(event -> {
-//            studenten.addAll(task.getValue());
-//        });
-//        task.setOnFailed(event -> {
-//            System.out.println("FAILED TO LOAD STUDENTS");
-//            task.getException().printStackTrace();
-//        });
-//        service.submit(task);
+    
+        updateStudentenLijstFromBackend();
     }
     /*constructor, met als extra waarde de geupdate student*/
      
@@ -132,7 +126,8 @@ public class InlogController {
             }
         });
         
-        verwijderButton.setOnAction((ActionEvent event) ->{
+        verwijderButton.setOnAction((ActionEvent event) -> 
+        {
 //            studentenListView.getItems().remove(studentenListView.getSelectionModel().getSelectedIndex());
 //            studentenListView.getSelectionModel().select(-1); //Unselect listview
             /*gelesteerde studenten aan de del task geven*/
@@ -220,7 +215,12 @@ public class InlogController {
         // studenten.sort(comparator);
         Collections.sort(studenten, comparator);
         studentenListView.setItems(studenten);
-        
+        UpdateStudentsTask updatetask = new UpdateStudentsTask(studenten);
+        updatetask.setOnFailed(event -> {
+            System.out.println("STUDENTLIST UPDATE FAILED");
+            updatetask.getException().printStackTrace();
+        });
+        service.submit(updatetask);
     }
     
     public void addStudent(Student student){

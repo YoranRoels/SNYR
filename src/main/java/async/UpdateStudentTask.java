@@ -32,7 +32,7 @@ public class UpdateStudentTask extends Task<Void> {
     public UpdateStudentTask(Student student){
         this.student=student;
         studentListResource = ClientBuilder.newClient()
-                .target("http://localhost:8080/SNYR-backend/api")
+                .target(Constants.CONNECTION_URL+Constants.APP_NAME+"/api")
                 .path("students")
               //  .path(Integer.toString(student.getStudentnr()))
                 .register(StudentWriter.class)

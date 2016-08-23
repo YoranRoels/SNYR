@@ -34,7 +34,7 @@ public class UpdateStudentsTask extends Task<Void> {
         this.students=students;
         Client client = ClientBuilder.newBuilder().register(HttpAuthenticationFeature.basic("rijschoolevauser", "user")).build();
         studentListResource = client
-                .target("http://localhost:8080/SNYR-backend/api")
+                .target(Constants.CONNECTION_URL+Constants.APP_NAME+"/api")
                 .path("students")
                 //.path("updateStudents")
                 //.register(HttpAuthenticationFeature.basic("rijschoolevauser", "user"))
