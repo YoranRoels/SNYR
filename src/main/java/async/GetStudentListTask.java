@@ -21,7 +21,7 @@ public class GetStudentListTask extends Task<List<Student>>
     public GetStudentListTask()
     {
         studentListResource = ClientBuilder.newClient()
-                .target("http://localhost:8080/SNYR-backend/api")
+                .target(Constants.CONNECTION_URL+Constants.APP_NAME+"/api")
                 .path("students")
                 .register(StudentListReader.class);
     }

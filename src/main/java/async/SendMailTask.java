@@ -14,23 +14,23 @@ import json.StudentWriter;
  *
  * @author Yoran
  */
-public class AddStudentTask extends Task<Void> 
+public class SendMailTask extends Task<Void> 
 {
-    private final WebTarget studentListResource;
-    private final Student student;
+    private final WebTarget studentResource;
+    private final int studentNr;
 
-    public AddStudentTask(Student student)
+    public SendMailTask(int studentNr)
     {
-        this.student = student;
-        studentListResource = ClientBuilder.newClient()
-                .target(Constants.CONNECTION_URL+Constants.APP_NAME+"/api")
-                .path("students")
+        this.studentNr = studentNr;
+        studentResource = ClientBuilder.newClient()
+                .target("http://localhost:8080/SNYR-backend/api")
+                .path("mail")
                 .register(StudentWriter.class);
     }
     
     @Override
     protected Void call() throws Exception {
-        Response response = studentListResource.request().post(Entity.entity(student, MediaType.APPLICATION_JSON));
+        Response response = studentResource.request().post(Entity.entity(studentNr, MediaType.APPLICATION_JSON));
         switch (response.getStatus()){
             case 201:
                 return null;

@@ -126,6 +126,7 @@
                   <Insets bottom="72.0" />
                </padding>
             </Pane>
+            <Button fx:id="reportButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" text="PRINT" />
             <Button fx:id="sliderDetailButton" alignment="CENTER" mnemonicParsing="false" prefWidth="170.0" text="Bekijk grafisch" textFill="WHITE">
                <styleClass>
                   <String fx:value="glowingEdgeButton" />

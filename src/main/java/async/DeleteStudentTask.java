@@ -19,7 +19,7 @@ public class DeleteStudentTask extends Task<Void>
     public DeleteStudentTask(Student student)
     {
         studentListResource = ClientBuilder.newClient()
-                .target("http://localhost:8080/SNYR-backend/api")
+                .target(Constants.CONNECTION_URL+Constants.APP_NAME+"/api")
                 .path("students")
                 .path(Integer.toString(student.getStudentnr()))
                 .register(HttpAuthenticationFeature.basic("rijschoolevauser", "user"));

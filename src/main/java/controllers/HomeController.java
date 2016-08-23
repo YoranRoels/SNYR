@@ -7,6 +7,12 @@ package controllers;
 
 import commands.SwitchPanelCommand;
 import domein.Student;
+import java.awt.AWTException;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,9 +30,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import models.AttitudeModel;
 import models.DriveModel;
 import models.HomeModel;
@@ -89,6 +95,9 @@ public class HomeController implements InvalidationListener {
     private final Student student;
 
     private final InlogController ic;
+    
+    @FXML
+    private Button reportButton;
 
     public HomeController(Stage stage, Student student, InlogController ic, ObservableList<String> selectie) {
         this.skillModel = new SkillsModel(student);
@@ -197,6 +206,17 @@ public class HomeController implements InvalidationListener {
             // stage.setScene(scene);
             
         });
+        
+        reportButton.setOnAction((ActionEvent event) -> {
+            Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+            BufferedImage capture;
+            try {
+                capture = new Robot().createScreenCapture(screenRect);
+                    ImageIO.write(capture, "bmp", new File(""));
+            } catch (AWTException | IOException ex) {
+                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
     }
 
     public void updateSliderComment() {
@@ -236,7 +256,7 @@ public class HomeController implements InvalidationListener {
         /*skillmodel nog*/
 
     }
-
+    
     @Override
     public void invalidated(Observable observable) {
         progressBar.setProgress(homeModel.getProgres());

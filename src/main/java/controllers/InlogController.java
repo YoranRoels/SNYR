@@ -132,7 +132,7 @@ public class InlogController {
             }
         });
         
-        verwijderButton.setOnAction((ActionEvent event) ->{
+        verwijderButton.setOnAction((ActionEvent event) -> {
 //            studentenListView.getItems().remove(studentenListView.getSelectionModel().getSelectedIndex());
 //            studentenListView.getSelectionModel().select(-1); //Unselect listview
             /*gelesteerde studenten aan de del task geven*/
