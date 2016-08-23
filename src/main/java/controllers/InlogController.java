@@ -32,6 +32,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
@@ -125,7 +126,8 @@ public class InlogController {
             }
         });
         
-        verwijderButton.setOnAction((ActionEvent event) -> {
+        verwijderButton.setOnAction((ActionEvent event) -> 
+        {
 //            studentenListView.getItems().remove(studentenListView.getSelectionModel().getSelectedIndex());
 //            studentenListView.getSelectionModel().select(-1); //Unselect listview
             /*gelesteerde studenten aan de del task geven*/
