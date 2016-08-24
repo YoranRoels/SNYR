@@ -9,14 +9,21 @@ import domein.Student;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.TranslateTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  *
@@ -36,6 +43,12 @@ public class StudentscreenController {
     private Button opslaan;
     @FXML
     private Label errorMessageLabel;
+    @FXML
+    private StackPane closeTextArea;
+    
+    private Boolean animationNeeded = true;
+    
+    private int position = 0;
 
 
     private Student student;
@@ -53,9 +66,7 @@ public class StudentscreenController {
         this.stage=stage;
         this.ic=ic;
         this.student=student;
-        
     }
-    
     
     public void initialize(){
         System.out.println("StudentscreenController");
@@ -115,6 +126,75 @@ public class StudentscreenController {
                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+        
+        closeTextArea.setVisible(false);
+        
+        nameField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                animateChoice(newValue);
+                if (newValue)
+                {
+                    if (closeTextArea.isVisible())
+                    {
+                        animateMove(position, 0, closeTextArea);
+                        position = 0;
+                    }
+                    else
+                    {
+                        animateMove(0, 0, closeTextArea);
+                    }
+                }
+            }
+        });
+        
+        surnameField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                animateChoice(newValue);
+                if (newValue)
+                {
+                    if (closeTextArea.isVisible())
+                    {
+                        animateMove(position, 57, closeTextArea);
+                        position = 57;
+                    }
+                    else
+                    {
+                        animateMove(0, 0, closeTextArea);
+                    }
+                }
+            }
+        });
+        
+        emailField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                animateChoice(newValue);
+                if (newValue)
+                {
+                    if (closeTextArea.isVisible())
+                    {
+                        animateMove(position, 114, closeTextArea);
+                        position = 114;
+                    }
+                    else
+                    {
+                        animateMove(0, 0, closeTextArea);
+                    }
+                }
+            }
+        });
+        
+        closeTextArea.setOnMouseClicked((event)->{
+            if (animationNeeded == false)
+            {
+                animateMove(-171, 0, stage.getScene().getRoot());
+                animationNeeded = true;
+                stage.getScene().getRoot().requestFocus();
+                closeTextArea.setVisible(false);
+            }
+        });
     }
     
     public String errormessage(){
@@ -129,4 +209,34 @@ public class StudentscreenController {
         return sb.toString();
     }
     
+    public void animateChoice(boolean newValue)
+    {
+        if(animationNeeded && newValue)
+        {
+            animateMove(0, -171, stage.getScene().getRoot());
+            animationNeeded = false;
+        }
+    }
+    
+    public void animateMove(int from, int to, Node node)
+    {
+//        if(to == 0)
+//        {
+//            closeTextArea.setVisible(false);
+//        }
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(400), node);
+        translateTransition.setFromY(from);
+        translateTransition.setToY(to);
+        translateTransition.play();
+        translateTransition.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                if(!animationNeeded)
+                {
+                    closeTextArea.setVisible(true);
+                }
+            }
+        });
+    }
 }
