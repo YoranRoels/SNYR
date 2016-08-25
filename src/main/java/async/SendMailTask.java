@@ -1,7 +1,9 @@
 package async;
 
 import domein.Student;
+import java.util.List;
 import javafx.concurrent.Task;
+import javafx.scene.image.WritableImage;
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -18,10 +20,12 @@ public class SendMailTask extends Task<Void>
 {
     private final WebTarget studentResource;
     private final int studentNr;
+    private List<WritableImage> imagesToSend;
 
-    public SendMailTask(int studentNr)
+    public SendMailTask(int studentNr, List<WritableImage> imagesToSend)
     {
         this.studentNr = studentNr;
+        this.imagesToSend = imagesToSend;
         studentResource = ClientBuilder.newClient()
                 .target("http://localhost:8080/SNYR-backend/api")
                 .path("mail")
