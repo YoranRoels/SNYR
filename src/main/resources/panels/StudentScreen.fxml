@@ -88,6 +88,15 @@
                         <Font size="25.0" />
                      </font>
                   </Button>
+                  <StackPane id="studentScreenKeyboardClosePane" fx:id="closeTextArea" layoutX="356.0" layoutY="271.0">
+                     <children>
+                        <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="355.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/closeTextArea.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
                </children>
             </AnchorPane>
             <Region HBox.hgrow="ALWAYS" />
