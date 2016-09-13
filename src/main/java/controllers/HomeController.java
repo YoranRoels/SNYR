@@ -5,16 +5,16 @@
  */
 package controllers;
 
-import async.SendMailTask;
+//import async.SendMailTask;
 import commands.SwitchPanelCommand;
 import domein.Student;
-import java.awt.AWTException;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.image.BufferedImage;
+//import java.awt.AWTException;
+//import java.awt.Rectangle;
+//import java.awt.Robot;
+//import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.ObservableList;
-import javafx.embed.swing.SwingFXUtils;
+//import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +33,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
+//import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -103,7 +103,7 @@ public class HomeController implements InvalidationListener {
     @FXML
     private Button reportButton;
     
-    private Robot robot;
+//    private Robot robot;
     
     private final ExecutorService service = Executors.newSingleThreadExecutor();
 
@@ -121,6 +121,8 @@ public class HomeController implements InvalidationListener {
     }
 
     public void initialize() {
+        reportButton.setVisible(false); // Feature disabled (android incompatible)
+        
         System.out.println("Start initialize");
         skillModel.setExclamationField(exclamationField);
         driveModel.setExclamationField(exclamationField);
@@ -210,19 +212,19 @@ public class HomeController implements InvalidationListener {
             // stage.setScene(scene);
         });
         
-        reportButton.setOnAction((ActionEvent event) -> {
-            try 
-            {
-                robot = new Robot();
-            } 
-            catch (AWTException ex) 
-            {
-                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//        reportButton.setOnAction((ActionEvent event) -> {
+//            try 
+//            {
+//                robot = new Robot();
+//            } 
+//            catch (AWTException ex) 
+//            {
+//                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
             
-            List<WritableImage> imagesToSend = new ArrayList<>();
-            borderpane.setCenter(wheelpane);
-            imagesToSend.add(captureScreen());
+//            List<WritableImage> imagesToSend = new ArrayList<>();
+//            borderpane.setCenter(wheelpane);
+//            imagesToSend.add(captureScreen());
 //            borderpane.setCenter(wheelpane);
 //            imagesToSend.add(captureScreen());
 //            borderpane.setCenter(wheelpane.getAnchorSide());
@@ -231,7 +233,7 @@ public class HomeController implements InvalidationListener {
             
 //            SendMailTask smt = new SendMailTask(student.getStudentnr(), imagesToSend);
 //            service.submit(smt);
-        });
+//        });
     }
 
     public void updateSliderComment() {
@@ -272,14 +274,14 @@ public class HomeController implements InvalidationListener {
 
     }
     
-    public WritableImage captureScreen()
-    {
-        Rectangle screenRect = new Rectangle((int)stage.getScene().getWidth(), (int)stage.getScene().getHeight());
-        BufferedImage image = robot.createScreenCapture(screenRect);
-        WritableImage wimg = new WritableImage((int)stage.getScene().getWidth(), (int)stage.getScene().getHeight());
-        SwingFXUtils.toFXImage(image, wimg);
-        return wimg;
-    }
+//    public WritableImage captureScreen()
+//    {
+//        Rectangle screenRect = new Rectangle((int)stage.getScene().getWidth(), (int)stage.getScene().getHeight());
+//        BufferedImage image = robot.createScreenCapture(screenRect);
+//        WritableImage wimg = new WritableImage((int)stage.getScene().getWidth(), (int)stage.getScene().getHeight());
+//        SwingFXUtils.toFXImage(image, wimg);
+//        return wimg;
+//    }
     
     @Override
     public void invalidated(Observable observable) {
