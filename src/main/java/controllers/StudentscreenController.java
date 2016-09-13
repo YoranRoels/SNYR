@@ -46,7 +46,8 @@ public class StudentscreenController {
     @FXML
     private StackPane closeTextArea;
     
-    private Boolean animationNeeded = true;
+    private Boolean upwardAnimationNeeded = true;
+    private Boolean closeButtonAnimationNeeded = false;
     
     private int position = 0;
 
@@ -132,68 +133,31 @@ public class StudentscreenController {
         nameField.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                animateChoice(newValue);
-                if (newValue)
-                {
-                    if (closeTextArea.isVisible())
-                    {
-                        animateMove(position, 0, closeTextArea);
-                        position = 0;
-                    }
-                    else
-                    {
-                        animateMove(0, 0, closeTextArea);
-                    }
-                }
+                animateChoice(newValue, 0);
             }
         });
         
         surnameField.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                animateChoice(newValue);
-                if (newValue)
-                {
-                    if (closeTextArea.isVisible())
-                    {
-                        animateMove(position, 57, closeTextArea);
-                        position = 57;
-                    }
-                    else
-                    {
-                        animateMove(0, 0, closeTextArea);
-                    }
-                }
+                animateChoice(newValue, 57);
             }
         });
         
         emailField.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                animateChoice(newValue);
-                if (newValue)
-                {
-                    if (closeTextArea.isVisible())
-                    {
-                        animateMove(position, 114, closeTextArea);
-                        position = 114;
-                    }
-                    else
-                    {
-                        animateMove(0, 0, closeTextArea);
-                    }
-                }
+                animateChoice(newValue, 114);
             }
         });
         
-        closeTextArea.setOnMouseClicked((event)->{
-            if (animationNeeded == false)
-            {
-                animateMove(-171, 0, stage.getScene().getRoot());
-                animationNeeded = true;
-                stage.getScene().getRoot().requestFocus();
-                closeTextArea.setVisible(false);
-            }
+        closeTextArea.setOnMouseClicked((event)->
+        {
+            animateMove(-171, 0, stage.getScene().getRoot());
+            upwardAnimationNeeded = true;
+            closeButtonAnimationNeeded = false;
+            stage.getScene().getRoot().requestFocus();
+            closeTextArea.setVisible(false);
         });
     }
     
@@ -209,13 +173,29 @@ public class StudentscreenController {
         return sb.toString();
     }
     
-    public void animateChoice(boolean newValue)
+    public void animateChoice(boolean newValue, int moveToValue)
     {
-        if(animationNeeded && newValue)
+        if(newValue)
         {
-            animateMove(0, -171, stage.getScene().getRoot());
-            animationNeeded = false;
+            if (closeButtonAnimationNeeded)
+            {
+                animateMove(position, moveToValue, closeTextArea);
+                position = moveToValue;
+            }
+            else
+            {
+                animateMove(moveToValue, moveToValue, closeTextArea);
+                position = moveToValue;
+            }   
+            if (upwardAnimationNeeded)
+            {
+                animateMove(0, -171, stage.getScene().getRoot());
+                upwardAnimationNeeded = false;
+                closeButtonAnimationNeeded = true;
+                closeTextArea.setVisible(true);
+            }
         }
+        
     }
     
     public void animateMove(int from, int to, Node node)
@@ -228,15 +208,5 @@ public class StudentscreenController {
         translateTransition.setFromY(from);
         translateTransition.setToY(to);
         translateTransition.play();
-        translateTransition.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) 
-            {
-                if(!animationNeeded)
-                {
-                    closeTextArea.setVisible(true);
-                }
-            }
-        });
     }
 }

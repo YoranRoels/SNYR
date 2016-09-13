@@ -23,8 +23,16 @@ public class AnchorWheel extends AnchorPane {
     
     private AnchorSide anchorSide;
     private AnchorDrive anchorDrive;
-    
+    private AnchorTraffic anchorTraffic;
     private final BorderPane root;
+    
+    public AnchorTraffic getAnchorTraffic() {
+        return anchorTraffic;
+    }
+
+    public void setAnchorTraffic(AnchorTraffic anchorTraffic) {
+        this.anchorTraffic = anchorTraffic;
+    }
 
     public AnchorSide getAnchorSide() {
         return anchorSide;

@@ -63,7 +63,7 @@ public class InlogController {
     private ListView<Student> studentenListView; 
     
     // Students
-    private final ObservableList<Student> studenten = FXCollections.observableArrayList();;
+    private final ObservableList<Student> studenten = FXCollections.observableArrayList();
     
     private final ObservableList selectie;
     
@@ -153,12 +153,23 @@ public class InlogController {
 
             //for(Student s : studenten){
             /*alleen de studenten doorgeven waar changes aan gebeurde*/
-             UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten.filtered(value -> value.getStudentOpened())));
-                    
+            ObservableList<Student> studentenFiltered = FXCollections.observableArrayList();
+            
+            for(Student student : studenten)
+            {
+                if (student.getStudentOpened())
+                {
+                    studentenFiltered.add(student);
+                }
+            }
+//            UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten.filtered(value -> value.getStudentOpened())));
+//            NOT SUPPORTED BY ANDROID    
+            UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studentenFiltered));
+
             updatetask.setOnSucceeded(upevent ->{
-                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                 //get current date time with Date()
-                System.out.println("Sync succesfull on "+dateFormat.format(new Date()));
+//                System.out.println("Sync succesfull on "+dateFormat.format(new Date()));
                  updateStudentenLijstFromBackend();
             });
             updatetask.setOnFailed(upevent -> {

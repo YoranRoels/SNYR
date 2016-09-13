@@ -5,20 +5,24 @@
  */
 package controllers;
 
+//import async.SendMailTask;
 import commands.SwitchPanelCommand;
 import domein.Student;
-import java.awt.AWTException;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
-import java.io.File;
+//import java.awt.AWTException;
+//import java.awt.Rectangle;
+//import java.awt.Robot;
+//import java.awt.image.BufferedImage;
 import java.io.IOException;
+//import java.util.ArrayList;
+//import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.ObservableList;
+//import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,10 +33,10 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+//import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javax.imageio.ImageIO;
 import models.AttitudeModel;
 import models.DriveModel;
 import models.HomeModel;
@@ -98,6 +102,10 @@ public class HomeController implements InvalidationListener {
     
     @FXML
     private Button reportButton;
+    
+//    private Robot robot;
+    
+    private final ExecutorService service = Executors.newSingleThreadExecutor();
 
     public HomeController(Stage stage, Student student, InlogController ic, ObservableList<String> selectie) {
         this.skillModel = new SkillsModel(student);
@@ -113,21 +121,19 @@ public class HomeController implements InvalidationListener {
     }
 
     public void initialize() {
-        //main setup initialize van de gui
+        reportButton.setVisible(false); // Feature disabled (android incompatible)
+        
         System.out.println("Start initialize");
         skillModel.setExclamationField(exclamationField);
         driveModel.setExclamationField(exclamationField);
         trafficModel.setExclamationField(exclamationField);
 
         wheelpane = new AnchorWheel(borderpane, driveModel, trafficModel, attitudeModel, skillModel);
-
         wheelpane.create();
 
         borderpane.setCenter(wheelpane);
-
-        //set profil pic van de user
-        //profielFoto.setImage(null);
-        /*klikken op de profiel foto brengt je naar de home/inlog page*/
+        
+        /* The Logout icon will take you back to the studentScreen */
         logout.setOnMouseClicked((MouseEvent event) -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/InlogScreen.fxml"));
@@ -143,7 +149,7 @@ public class HomeController implements InvalidationListener {
                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        /*terugknop brengt je naar de student homepage met sturen */
+        /*The back button will put the wheelpane back in the center. */
         terugknop.setOnMouseClicked(new SwitchPanelCommand(borderpane, wheelpane));
 
         //eva selecties in stellen en huidige eva aanzetten
@@ -204,19 +210,30 @@ public class HomeController implements InvalidationListener {
 
             // Scene scene = new Scene(root);
             // stage.setScene(scene);
-            
         });
         
-        reportButton.setOnAction((ActionEvent event) -> {
-            Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-            BufferedImage capture;
-            try {
-                capture = new Robot().createScreenCapture(screenRect);
-                    ImageIO.write(capture, "bmp", new File(""));
-            } catch (AWTException | IOException ex) {
-                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
+//        reportButton.setOnAction((ActionEvent event) -> {
+//            try 
+//            {
+//                robot = new Robot();
+//            } 
+//            catch (AWTException ex) 
+//            {
+//                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+            
+//            List<WritableImage> imagesToSend = new ArrayList<>();
+//            borderpane.setCenter(wheelpane);
+//            imagesToSend.add(captureScreen());
+//            borderpane.setCenter(wheelpane);
+//            imagesToSend.add(captureScreen());
+//            borderpane.setCenter(wheelpane.getAnchorSide());
+//            imagesToSend.add(captureScreen());
+            
+            
+//            SendMailTask smt = new SendMailTask(student.getStudentnr(), imagesToSend);
+//            service.submit(smt);
+//        });
     }
 
     public void updateSliderComment() {
@@ -256,6 +273,15 @@ public class HomeController implements InvalidationListener {
         /*skillmodel nog*/
 
     }
+    
+//    public WritableImage captureScreen()
+//    {
+//        Rectangle screenRect = new Rectangle((int)stage.getScene().getWidth(), (int)stage.getScene().getHeight());
+//        BufferedImage image = robot.createScreenCapture(screenRect);
+//        WritableImage wimg = new WritableImage((int)stage.getScene().getWidth(), (int)stage.getScene().getHeight());
+//        SwingFXUtils.toFXImage(image, wimg);
+//        return wimg;
+//    }
     
     @Override
     public void invalidated(Observable observable) {
