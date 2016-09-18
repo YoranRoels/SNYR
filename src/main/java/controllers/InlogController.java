@@ -8,7 +8,6 @@ package controllers;
 import async.AddStudentTask;
 import async.DeleteStudentTask;
 import async.GetStudentListTask;
-import async.UpdateStudentTask;
 import async.UpdateStudentsTask;
 import domein.Student;
 import domein.StudentenComparator;
@@ -18,7 +17,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
@@ -31,12 +29,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+//import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import models.ConfirmationDialogModel;
 
 /**
  *
@@ -68,6 +69,8 @@ public class InlogController {
     private final ObservableList selectie;
     
     private final Stage stage;
+    
+    private ConfirmationDialogModel confirmationDialogModel = new ConfirmationDialogModel();
     
     // Threading
     private final ExecutorService service = Executors.newSingleThreadExecutor();
@@ -126,8 +129,7 @@ public class InlogController {
             }
         });
         
-        verwijderButton.setOnAction((ActionEvent event) -> 
-        {
+        verwijderButton.setOnAction((ActionEvent event) -> {
 //            studentenListView.getItems().remove(studentenListView.getSelectionModel().getSelectedIndex());
 //            studentenListView.getSelectionModel().select(-1); //Unselect listview
             /*gelesteerde studenten aan de del task geven*/
@@ -135,7 +137,7 @@ public class InlogController {
             deltask.setOnSucceeded(delvent -> {
                 /*boodschap eventueel?*/
             });
-            deltask.setOnFailed(delvent ->{
+            deltask.setOnFailed(delvent -> {
                 System.out.println("ERROR DELETE STUDENT");
                 deltask.getException().printStackTrace();
             });
@@ -146,42 +148,112 @@ public class InlogController {
             disableChoiceAndResetLabel();
         });
         
-        syncButton.setOnAction((ActionEvent event) ->{
-            System.out.println("Syncalare");
-            /*new arraylist, observable wrapper zo weg doen*/
-            //UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten));
-
-            //for(Student s : studenten){
-            /*alleen de studenten doorgeven waar changes aan gebeurde*/
-            ObservableList<Student> studentenFiltered = FXCollections.observableArrayList();
-            
-            for(Student student : studenten)
+        syncButton.setOnAction((ActionEvent event) -> {
+            Parent root;
+            try 
             {
-                if (student.getStudentOpened())
-                {
-                    studentenFiltered.add(student);
-                }
+                // Load the fxml with the fitting dialog
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/ConfirmationDialog.fxml"));
+                // Pass on the message that is needed as the top label
+                //         the model to check if the user accepted
+                loader.setController(new ConfirmationDialogController(
+                        "Wilt u de studenten opslaan?", 
+                        confirmationDialogModel));
+                Parent content = (Parent) loader.load();
+                // Create the stage
+                Stage dialogStage = new Stage();
+                // The title of the window (not visible on android)
+                dialogStage.setTitle("Opslaan");
+                // Disables the main window when the dialog is open.
+                dialogStage.initModality(Modality.WINDOW_MODAL);
+                dialogStage.initOwner(stage.getScene().getWindow());
+                // Make the fxml the scene
+                dialogStage.setScene(new Scene(content));
+                // show the dialog and wait till it closes to continue the code
+                stage.show();
+                dialogStage.showAndWait();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-//            UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studenten.filtered(value -> value.getStudentOpened())));
-//            NOT SUPPORTED BY ANDROID    
-            UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studentenFiltered));
-
-            updatetask.setOnSucceeded(upevent ->{
-//                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                //get current date time with Date()
-//                System.out.println("Sync succesfull on "+dateFormat.format(new Date()));
-                 updateStudentenLijstFromBackend();
-            });
-            updatetask.setOnFailed(upevent -> {
-                System.out.println("Sync failed");
-                updatetask.getException().printStackTrace();
-            });
-            service.submit(updatetask);
-            //}
             
+            if(confirmationDialogModel.isAccepted())
+            {
+                System.out.println("Syncing");
+
+                /*alleen de studenten doorgeven waar changes aan gebeurde*/
+                ObservableList<Student> studentenFiltered = FXCollections.observableArrayList();
+
+                for(Student student : studenten)
+                {
+                    if (student.getStudentOpened())
+                    {
+                        studentenFiltered.add(student);
+                    }
+                }
+                
+                UpdateStudentsTask updatetask = new UpdateStudentsTask(new ArrayList<>(studentenFiltered));
+
+                updatetask.setOnSucceeded(upevent ->{
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                    // get current date time with Date()
+                    System.out.println("Sync on "+dateFormat.format(new Date()));
+                    updateStudentenLijstFromBackend();
+                    try {
+                        // Load the fxml with the fitting dialog
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/InfoDialog.fxml"));
+                        // Pass on the message that is needed as the top label
+                        //         the model to check if the user accepted
+                        loader.setController(new InfoDialogController(
+                                "De studenten zijn opgeslaan."));
+                        Parent content = (Parent) loader.load();
+                        // Create the stage
+                        Stage dialogStage = new Stage();
+                        // The title of the window (not visible on android)
+                        dialogStage.setTitle("Opgeslaan");
+                        // Disables the main window when the dialog is open.
+                        dialogStage.initModality(Modality.WINDOW_MODAL);
+                        dialogStage.initOwner(stage.getScene().getWindow());
+                        // Make the fxml the scene
+                        dialogStage.setScene(new Scene(content));
+                        // show the dialog and wait till it closes to continue the code
+                        dialogStage.showAndWait();
+                        // Set stage opacity back to normal
+                        stage.setOpacity(1);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                updatetask.setOnFailed(upevent -> {
+                    System.out.println("Sync failed");
+                    updatetask.getException().printStackTrace();
+                    try {
+                        // Load the fxml with the fitting dialog
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/ErrorDialog.fxml"));
+                        // Pass on the message that is needed as the top label
+                        //         the model to check if the user accepted
+                        loader.setController(new ErrorDialogController(
+                                "De studenten zijn NIET opgeslaan!"));
+                        Parent content = (Parent) loader.load();
+                        // Create the stage
+                        Stage dialogStage = new Stage();
+                        // The title of the window (not visible on android)
+                        dialogStage.setTitle("ERROR");
+                        // Disables the main window when the dialog is open.
+                        dialogStage.initModality(Modality.WINDOW_MODAL);
+                        dialogStage.initOwner(stage.getScene().getWindow());
+                        // Make the fxml the scene
+                        dialogStage.setScene(new Scene(content));
+                        // show the dialog and wait till it closes to continue the code
+                        dialogStage.showAndWait();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                service.submit(updatetask);
+            }
         });
         
-         // BEGIN CODE STUDENTS LABEL & OPTION BLOCKING IN LOGIN SCREEN
+        // Block labels & options.
         disableChoiceAndResetLabel();
         
         studentenListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Student>() 
@@ -200,7 +272,7 @@ public class InlogController {
                 }
             }
         });
-        // EINDE CODE STUDENTS LABEL & OPTION BLOCKING IN LOGIN SCREEN
+        // End code for blocking labels & options.
     }
     
     public void disableChoiceAndResetLabel()
@@ -214,23 +286,25 @@ public class InlogController {
     }
     
     
-    /*comp om op achternaam te sorteren*/
+    // Comparator to sort last & first name.
     private final StudentenComparator comparator=new StudentenComparator();
     
     public void updateStudent(Student student)
     {
-        /*de oude file weg en vervangen door de nieuwe*/
-//        System.out.println(studenten.indexOf(student));
+        // Delete the old file and replace it by the new one.
         studenten.remove(studenten.indexOf(student));
         studenten.add(student);
-        // studenten.sort(comparator);
+        // Sort the students by last & firstname.
         Collections.sort(studenten, comparator);
+        // Set the listview.
         studentenListView.setItems(studenten);
+        // Make the updatetask.
         UpdateStudentsTask updatetask = new UpdateStudentsTask(studenten);
         updatetask.setOnFailed(event -> {
-            System.out.println("STUDENTLIST UPDATE FAILED");
+            System.out.println("Updating students FAILED.");
             updatetask.getException().printStackTrace();
         });
+        // Start the updatetask.
         service.submit(updatetask);
     }
     
@@ -246,8 +320,6 @@ public class InlogController {
         service.submit(addtask);
         
         updateStudentenLijstFromBackend();
-        
-        
     }
     
     
@@ -266,6 +338,8 @@ public class InlogController {
         gettask.setOnFailed(event -> {
             System.out.println("FAILED TO LOAD STUDENTS");
             gettask.getException().printStackTrace();
+//            
+            System.out.println("Sync failed");
         });
         service.submit(gettask);
     }

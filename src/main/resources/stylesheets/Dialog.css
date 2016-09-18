@@ -1,0 +1,79 @@
+@font-face
+{
+    font-family: Agency FB;
+    font-weight: normal;
+    src: url('../fonts/Agency_FB.ttf');
+}
+
+.topLabel 
+{
+    -fx-font-family: 'Agency FB';
+    -fx-font-size: 26px;
+}
+
+.choiceButton
+{
+    -fx-font-family: 'Agency FB';
+    -fx-font-size: 20px;
+    -fx-min-width: 90px;
+    -fx-min-height: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 100;
+    -fx-border-width: 3px;
+    -fx-border-insets: 0 0 -1 0;
+}
+
+.dialogBox
+{
+    -fx-background-color: lightgray;
+    -fx-border-width: 5px;
+    -fx-border-insets: 0 0 -1 0;
+}
+
+.infoDialogBox
+{
+    -fx-border-color: green;
+}
+
+.infoChoiceButton
+{
+    -fx-text-fill: green;
+    -fx-border-color: green;
+}
+
+.infoTopLabel
+{
+    -fx-text-fill: green;
+}
+
+.confirmationDialogBox
+{
+    -fx-border-color: #1471b7;
+}
+
+.confirmationChoiceButton
+{
+    -fx-text-fill: #1471b7;
+    -fx-border-color: #1471b7;
+}
+
+.confirmationTopLabel
+{
+    -fx-text-fill: #1471b7;
+}
+
+.errorDialogBox
+{
+    -fx-border-color: red;
+}
+
+.errorChoiceButton
+{
+    -fx-text-fill: red;
+    -fx-border-color: red;
+}
+
+.errorTopLabel
+{
+    -fx-text-fill: red;
+}

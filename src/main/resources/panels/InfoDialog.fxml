@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="300.0" stylesheets="@../stylesheets/Dialog.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="message" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="600.0" text="This is dummy text for testing.">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="topLabel" />
+            <String fx:value="infoTopLabel" />
+         </styleClass>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="75.0" prefWidth="300.0" spacing="20.0">
+         <children>
+            <Button fx:id="ok" minHeight="30.0" mnemonicParsing="false" text="OK">
+               <styleClass>
+                  <String fx:value="choiceButton" />
+                  <String fx:value="infoChoiceButton" />
+               </styleClass></Button>
+         </children>
+         <padding>
+            <Insets bottom="15.0" />
+         </padding>
+      </HBox>
+   </children>
+   <styleClass>
+      <String fx:value="dialogBox" />
+      <String fx:value="infoDialogBox" />
+   </styleClass>
+</VBox>
