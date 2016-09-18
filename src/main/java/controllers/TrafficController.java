@@ -92,6 +92,8 @@ public class TrafficController implements InvalidationListener {
     private final TrafficModel model;
 
     public void initialize() {
+        actionMenuButton.setVisible(false); 
+        // REMOVING FEATURE FOR BASIC RELEASE!!!! STACKOVERFLOW EXCEPTION!!!!
         System.out.println("DriveController");
         buttons = new Button[]{priority, sign, speed, distance, overtaking, crossing, turningleft, turningright, indicators, publicroad};
 

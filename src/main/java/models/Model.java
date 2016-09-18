@@ -14,8 +14,8 @@ import javafx.beans.Observable;
  *
  * @author sande
  */
-public class Model implements Observable{
-    
+public class Model implements Observable
+{
    private List<InvalidationListener> listenerList = new ArrayList<>();
 
      protected void fireInvalidationEvent() {
@@ -34,13 +34,7 @@ public class Model implements Observable{
        listenerList.remove(listener);
     }
     
-     public void EvaNumberChanged(){
+    public void EvaNumberChanged(){
         fireInvalidationEvent();
     }
-    
-
-  
-    
-    
-    
 }
