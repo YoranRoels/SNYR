@@ -85,11 +85,14 @@ public class StudentscreenController {
             if(errormessage.isEmpty()){
                 /*ok, opslaan of aanpassen*/
                 if(student==null){
-                student = new Student(surnameField.getText(), nameField.getText(), emailField.getText(), "");
+                student = new Student(
+                        nameCleanup(surnameField.getText()), 
+                        nameCleanup(nameField.getText()), 
+                        emailField.getText(), "");
                 ic.addStudent(student);
                 }else{
-                    student.setVoornaam(surnameField.getText());
-                    student.setAchternaam(nameField.getText());
+                    student.setVoornaam(nameCleanup(surnameField.getText()));
+                    student.setAchternaam(nameCleanup(nameField.getText()));
                     student.setEmail(emailField.getText());
                     ic.updateStudent(student);
                 }
@@ -163,11 +166,20 @@ public class StudentscreenController {
     
     public String errormessage(){
         StringBuilder sb = new StringBuilder();
-        if(nameField.getText().isEmpty()){
+        if(nameField.getText().replaceAll("\\s+","").isEmpty()){
             sb.append("Gelieve een achternaam in te vullen.\n");
         }
-        if(surnameField.getText().isEmpty()){
+        
+        if(surnameField.getText().replaceAll("\\s+","").isEmpty()){
             sb.append("Gelieve een voornaam in te vullen.\n");
+        }
+        
+        if(emailField.getText().replaceAll("\\s+","").isEmpty()){
+            sb.append("Gelieve een e-mailadres in te vullen.");
+        } 
+        else if (!emailField.getText().matches("^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$"))
+        {
+            sb.append("Gelieve een correct e-mailadres in te vullen.");
         }
         
         return sb.toString();
@@ -208,5 +220,22 @@ public class StudentscreenController {
         translateTransition.setFromY(from);
         translateTransition.setToY(to);
         translateTransition.play();
+    }
+    
+    public String nameCleanup (String name)
+    {
+        name = name.trim().replaceAll("\\s{2,}", " ");
+        char[] chars = name.toLowerCase().toCharArray();
+        boolean found = false;
+        for (int i = 0; i < chars.length; i++) {
+          if (!found && Character.isLetter(chars[i])) {
+            chars[i] = Character.toUpperCase(chars[i]);
+            found = true;
+          } else if (Character.isWhitespace(chars[i]) || chars[i]=='\'' || chars[i]=='-') { // You can add other chars here
+            found = false;
+          }
+        }
+        
+        return String.valueOf(chars);
     }
 }

@@ -19,11 +19,16 @@ public class HomeModel extends Model {
         this.student = student;
     }
     
-    public void setProgres(double i){
+    public void setProgress(double i){
         student.setCurrentProgres(i);
+        super.fireInvalidationEvent();
     }
-    public double getProgres(){
+    public double getProgress(){
         return student.getCurrentProgres();
     }
     
+    public int generatePictureNumber()
+    {
+        return (int)Math.round(getProgress()*7);
+    }
 }

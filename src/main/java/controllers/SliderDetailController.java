@@ -1,9 +1,11 @@
 package controllers;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import models.HomeModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,20 +18,27 @@ import javafx.scene.image.ImageView;
  *
  * @author Yoran
  */
-public class SliderDetailController 
+public class SliderDetailController implements InvalidationListener
 {  
     @FXML
-    public ImageView mainImage;
+    private ImageView mainImage;
     
-    public int sliderProgress;
+    private HomeModel model;
     
-    public SliderDetailController(int sliderProgress)
+    public SliderDetailController(HomeModel model)
     {
-        this.sliderProgress = sliderProgress;
+        this.model = model;
+        model.addListener(this);
     }
     
     public void initialize()
     {
-        mainImage.setImage(new Image("/images/Slider_"+sliderProgress+".png"));
+        System.out.println("SliderDetailController");
+        mainImage.setImage(new Image("/images/Slider_"+model.generatePictureNumber()+".png"));
+    }
+
+    @Override
+    public void invalidated(Observable observable) {
+        mainImage.setImage(new Image("/images/Slider_"+model.generatePictureNumber()+".png"));
     }
 }

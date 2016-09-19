@@ -98,7 +98,10 @@ public class DriveController implements InvalidationListener {
         actionMenuButton.setVisible(false); 
         // REMOVING FEATURE FOR BASIC RELEASE!!!! STACKOVERFLOW EXCEPTION!!!!
         System.out.println("DriveController");
-        buttons = new Button[]{brakeButton, clutchButton, garageButton, hillButton, lookingButton, parkingButton, reverseButton, shiftingButton, sittingButton, steeringButton, steeringPracticeButton, turningButton};
+        buttons = new Button[]{brakeButton, clutchButton, garageButton, 
+            hillButton, lookingButton, parkingButton, 
+            reverseButton, shiftingButton, sittingButton, 
+            steeringButton, steeringPracticeButton, turningButton};
         red.setUserData("red");
         orange.setUserData("orange");
         green.setUserData("green");
