@@ -16,9 +16,9 @@ import javafx.beans.Observable;
  */
 public class Model implements Observable
 {
-   private List<InvalidationListener> listenerList = new ArrayList<>();
+    private List<InvalidationListener> listenerList = new ArrayList<>();
 
-     protected void fireInvalidationEvent() {
+    protected void fireInvalidationEvent() {
         for (InvalidationListener listener : listenerList) {
             listener.invalidated(this);
         }

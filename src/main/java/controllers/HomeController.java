@@ -73,7 +73,7 @@ public class HomeController implements InvalidationListener {
     private Button plusButton;
     @FXML
     private Button sliderDetailButton;
-    private int sliderProgress;
+    private int sliderProgress = 0;
     @FXML
     private Label nameLabel;
 
@@ -98,7 +98,7 @@ public class HomeController implements InvalidationListener {
 
     private final Student student;
 
-    private final InlogController ic;
+    private final InlogController inlogController;
     
     @FXML
     private Button reportButton;
@@ -107,7 +107,7 @@ public class HomeController implements InvalidationListener {
     
     private final ExecutorService service = Executors.newSingleThreadExecutor();
 
-    public HomeController(Stage stage, Student student, InlogController ic, ObservableList<String> selectie) {
+    public HomeController(Stage stage, Student student, InlogController inlogController, ObservableList<String> selectie) {
         this.skillModel = new SkillsModel(student);
         this.driveModel = new DriveModel(student);
         this.trafficModel = new TrafficModel(student);
@@ -116,14 +116,14 @@ public class HomeController implements InvalidationListener {
         models = new Model[]{driveModel, trafficModel, attitudeModel, homeModel, skillModel};
         this.stage = stage;
         this.student = student;
-        this.ic = ic;
+        this.inlogController = inlogController;
         homeModel.addListener(this);
     }
 
     public void initialize() {
         reportButton.setVisible(false); // Feature disabled (android incompatible)
         
-        System.out.println("Start initialize");
+        System.out.println("HomeController");
         skillModel.setExclamationField(exclamationField);
         driveModel.setExclamationField(exclamationField);
         trafficModel.setExclamationField(exclamationField);
@@ -138,8 +138,8 @@ public class HomeController implements InvalidationListener {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/InlogScreen.fxml"));
 
-                ic.updateStudent(student);
-                loader.setController(ic);
+                inlogController.updateStudent(student);
+                loader.setController(inlogController);
                 Parent root = (Parent) loader.load();
 
                 // Scene scene = new Scene(root);
@@ -179,37 +179,36 @@ public class HomeController implements InvalidationListener {
 
         minusButton.setOnAction((ActionEvent event) -> {
             progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue() - 0.142857142);
-            homeModel.setProgres(progressBar.progressProperty().getValue());
-            checkMinimalValue();
-            updateSliderComment();
         });
 
         plusButton.setOnAction((ActionEvent event) -> {
             progressBar.progressProperty().setValue(progressBar.progressProperty().doubleValue() + 0.142857142);
-            homeModel.setProgres(progressBar.progressProperty().getValue());
-            checkMaxValue();
-            updateSliderComment();
         });
         
         nameLabel.setText(student.getAchternaam()+" "+student.getVoornaam());
         
+        homeModel.setProgress(sliderProgress);
+        
         sliderDetailButton.setOnAction((ActionEvent event) -> {
             Parent root;
-            sliderProgress = (int)Math.round(progressBar.getProgress()*7);
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/panels/SliderDetail.fxml"));
 
-                System.out.println(sliderProgress);
-                loader.setController(new SliderDetailController(sliderProgress));
+                loader.setController(new SliderDetailController(homeModel));
                 root = (Parent) loader.load();
                 
                 borderpane.setCenter(root);
             } catch (IOException ex) {
                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            // Scene scene = new Scene(root);
-            // stage.setScene(scene);
+        });
+        
+        // When the progress property changes
+        progressBar.progressProperty().addListener((listener) -> {
+            keepValueInBounds();
+            updateSliderComment();
+            homeModel.setProgress(progressBar.progressProperty().getValue());
+            System.out.println(homeModel.generatePictureNumber());
         });
         
 //        reportButton.setOnAction((ActionEvent event) -> {
@@ -261,6 +260,12 @@ public class HomeController implements InvalidationListener {
             progressBar.progressProperty().setValue(1);
         }
     }
+    
+    public void keepValueInBounds()
+    {
+        checkMinimalValue();
+        checkMaxValue();
+    }
 
     public void veranderenEvaluatie(int evanummer) {
         student.changeEvanumber(evanummer);
@@ -285,6 +290,6 @@ public class HomeController implements InvalidationListener {
     
     @Override
     public void invalidated(Observable observable) {
-        progressBar.setProgress(homeModel.getProgres());
+        progressBar.setProgress(homeModel.getProgress());
     }
 }
