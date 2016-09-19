@@ -78,12 +78,12 @@
                         <Font size="19.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="errorMessageLabel" alignment="CENTER" layoutY="446.0" prefHeight="60.0" prefWidth="500.0" styleClass="studentScreenTextChange" textFill="#ff0b0b">
+                  <Label fx:id="errorMessageLabel" alignment="CENTER" layoutY="505.0" prefHeight="90.0" prefWidth="500.0" styleClass="studentScreenTextChange" textFill="#ff0b0b">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="opslaan" layoutX="149.0" layoutY="524.0" mnemonicParsing="false" prefWidth="200.0" styleClass="loginButton" text="Opslaan">
+                  <Button fx:id="opslaan" layoutX="149.0" layoutY="446.0" mnemonicParsing="false" prefWidth="200.0" styleClass="loginButton" text="Opslaan">
                      <font>
                         <Font size="25.0" />
                      </font>
